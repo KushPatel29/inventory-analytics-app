@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div id="analytics-root" class="grid grid-cols-1 gap-6">
+    <div class="bg-white p-6 rounded-lg shadow">
+      <h2 class="text-lg font-semibold mb-2">Weekly Inbound Volume</h2>
+      <div id="weekly-inbound" class="w-full h-48 text-sm text-gray-600">Upload a workbook to visualize weekly inbound volume.</div>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow">
+      <h2 class="text-lg font-semibold mb-2">Upload Workbook</h2>
+      <p class="text-sm text-gray-600 mb-4">Upload the combined .xlsx containing Sales History, Inventory Detail, Production Batch, etc.</p>
+      <form hx-post="/api/workbook/process" hx-target="#upload-result" hx-swap="innerHTML" enctype="multipart/form-data" class="flex items-center gap-3">
+        <input type="file" name="file" accept=".xlsx" class="block w-full text-sm text-gray-700 border border-gray-300 rounded p-2" required />
+        <button class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700">Process</button>
+        <span class="htmx-indicator text-sm text-gray-500">Processing…</span>
+      </form>
+      <div id="upload-result" class="mt-4 text-sm text-gray-800"></div>
+      <div class="mt-4 flex items-center gap-3 text-sm">
+        <label class="flex items-center gap-2">Load run:
+          <select id="runs-select" class="border rounded p-1 min-w-56"></select>
+        </label>
+        <button id="runs-load" class="px-3 py-1 border rounded hover:bg-gray-50">Load</button>
+        <span id="runs-result" class="text-gray-600"></span>
+      </div>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow">
+      <h2 class="text-lg font-semibold mb-4">Key Metrics</h2>
+      <div id="kpi-cards" class="text-sm text-gray-600">Upload a workbook to view metrics.</div>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow">
+      <h2 class="text-lg font-semibold mb-4">Top Suppliers by On-Hand Cost</h2>
+      <div id="top-suppliers" class="w-full h-80"></div>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow">
+      <h2 class="text-lg font-semibold mb-4">Holding Cost — Top SKUs</h2>
+      <div id="holding-cost-top" class="w-full h-96"></div>
+      <div class="mt-4 flex gap-3 items-center text-sm">
+        <a class="px-3 py-1 border rounded hover:bg-gray-50" href="/api/holding_cost/config" target="_blank">View HC Config (JSON)</a>
+      </div>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow">
+      <h2 class="text-lg font-semibold mb-3">Holding Cost Parameters</h2>
+      <form hx-post="/api/holding_cost/config" hx-target="#hc-save-result" hx-swap="innerHTML" class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+        <label class="block">Capital Rate (rc)
+          <input name="rc" type="number" step="0.001" class="mt-1 w-full border rounded p-2" placeholder="0.05" />
+        </label>
+        <label class="block">Service Pool (sa)
+          <input name="sa" type="number" step="1" class="mt-1 w-full border rounded p-2" placeholder="102055" />
+        </label>
+        <label class="block">Storage Pool (spc)
+          <input name="spc" type="number" step="1" class="mt-1 w-full border rounded p-2" placeholder="..." />
+        </label>
+        <label class="block">Risk Rate (rr)
+          <input name="rr" type="number" step="0.001" class="mt-1 w-full border rounded p-2" placeholder="0.03" />
+        </label>
+        <div class="col-span-2 md:col-span-4">
+          <button class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700">Save & Recompute Next Upload</button>
+          <span id="hc-save-result" class="ml-2 text-gray-600"></span>
+        </div>
+      </form>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-lg font-semibold mb-4">Usage vs On-Hand (SVSI)</h2>
+        <div id="svsi-scatter" class="w-full h-96"></div>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-lg font-semibold mb-4">Quadrant Breakdown</h2>
+        <div id="quadrant-pie" class="w-full h-96"></div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-lg font-semibold mb-4">At-Risk vs Healthy</h2>
+        <div id="at-risk-donut" class="w-full h-80"></div>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-lg font-semibold mb-4">ABC Breakdown (Inventory Value)</h2>
+        <div id="abc-breakdown" class="w-full h-80"></div>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-lg font-semibold mb-4">Cost by Protein</h2>
+        <div id="cost-by-protein" class="w-full h-80"></div>
+      </div>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow">
+      <h2 class="text-lg font-semibold mb-4">Cost vs Weeks On Hand</h2>
+      <div id="cost-vs-woh" class="w-full h-96"></div>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow">
+      <div class="flex items-center justify-between mb-3">
+        <h2 class="text-lg font-semibold">Purchase Plan (Parent-level)</h2>
+        <label class="flex items-center gap-2 text-sm">
+          Desired WOH: <input id="woh-slider" type="range" min="0" max="12" step="0.5" value="4" />
+          <span id="woh-value" class="ml-1">4.0</span>
+        </label>
+      </div>
+      <div id="purchase-plan" class="w-full"></div>
+      <div class="mt-3 flex gap-3 items-center text-sm">
+        <a id="dl-plan" class="px-3 py-1 border rounded hover:bg-gray-50" href="/api/download/purchase_plan.csv?woh=4" target="_blank">Download CSV</a>
+        <a class="px-3 py-1 border rounded hover:bg-gray-50" href="/api/download/top_suppliers.csv" target="_blank">Top Suppliers CSV</a>
+      </div>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-lg font-semibold">Inventory Turnover</h2>
+        <div class="flex items-center gap-2 text-sm">
+          <input id="turnover-start" type="date" class="border rounded p-1" />
+          <input id="turnover-end" type="date" class="border rounded p-1" />
+          <select id="turnover-group" class="border rounded p-1">
+            <option value="product">By Product</option>
+            <option value="supplier">By Supplier</option>
+          </select>
+          <button class="px-3 py-1 bg-indigo-600 text-white rounded" onclick="renderTurnover(document.getElementById('turnover-group').value)">Apply</button>
+        </div>
+      </div>
+      <div id="turnover-chart" class="w-full h-96"></div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { initAnalytics } from "{{ url_for('static', filename='js/analytics.js') }}";
+    const slider = document.getElementById('woh-slider');
+    if (slider) slider.addEventListener('input', () => {
+      const v = document.getElementById('woh-value');
+      if (v) v.textContent = Number(slider.value).toFixed(1);
+      const a = document.getElementById('dl-plan');
+      if (a) a.href = `/api/download/purchase_plan.csv?woh=${encodeURIComponent(slider.value)}`;
+    });
+    initAnalytics();
+  </script>
+{% endblock %}

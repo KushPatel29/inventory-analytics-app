@@ -1,0 +1,42 @@
+name: Deploy via SSH
+
+on:
+  workflow_dispatch:
+    inputs:
+      app_port:
+        description: "App port on the server"
+        default: "8012"
+        required: true
+  push:
+    branches: [ main, master ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy to Ubuntu via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          # Prefer SSH key; otherwise set SSH_PASSWORD and uncomment password line below
+          key: ${{ secrets.SSH_KEY }}
+          # password: ${{ secrets.SSH_PASSWORD }}
+          port: ${{ secrets.SSH_PORT }}
+          script_stop: true
+          command_timeout: 30m
+          script: |
+            set -euo pipefail
+            export APP_PORT="${{ github.event.inputs.app_port || '8012' }}"
+            export DEBIAN_FRONTEND=noninteractive
+            # Install git
+            if ! command -v git >/dev/null 2>&1; then
+              sudo apt-get update -y && sudo apt-get install -y git
+            fi
+            # Fetch repo to temp (fresh) and run deployment script with sudo
+            if [ -d /tmp/inventory-app ]; then rm -rf /tmp/inventory-app; fi
+            git clone https://github.com/KushPatel29/inventory-analytics-app.git /tmp/inventory-app
+            cd /tmp/inventory-app
+            sudo bash scripts/deploy_ubuntu.sh "$APP_PORT"
+

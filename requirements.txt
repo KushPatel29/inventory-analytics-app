@@ -1,0 +1,6 @@
+Flask>=2.3
+gunicorn>=21.2
+pytest>=8.0
+pandas>=2.1
+numpy>=1.25
+openpyxl>=3.1

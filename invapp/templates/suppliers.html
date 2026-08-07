@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="grid grid-cols-1 gap-6">
+    <div class="bg-white p-6 rounded-lg shadow">
+      <div class="flex items-center justify-between">
+        <h2 class="text-lg font-semibold">Supplier Trends</h2>
+        <div class="flex items-center gap-2 text-sm">
+          <input id="sup-start" type="date" class="border rounded p-1" />
+          <input id="sup-end" type="date" class="border rounded p-1" />
+          <input id="sup-name" type="text" class="border rounded p-1" placeholder="Supplier (optional)" />
+          <button id="sup-apply" class="px-3 py-1 bg-indigo-600 text-white rounded">Apply</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div class="bg-white p-6 rounded-lg shadow">
+        <h3 class="font-semibold mb-2">Weekly Usage (Shipped lb)</h3>
+        <div id="sup-usage" class="w-full h-96"></div>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow">
+        <h3 class="font-semibold mb-2">WOH Distribution (current)</h3>
+        <div id="sup-woh" class="w-full h-96"></div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { initSuppliers } from "{{ url_for('static', filename='js/suppliers.js') }}";
+    initSuppliers();
+  </script>
+{% endblock %}
+

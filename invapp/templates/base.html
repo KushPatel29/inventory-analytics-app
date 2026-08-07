@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ title or 'Inventory App' }}</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- HTMX -->
+    <script src="https://unpkg.com/htmx.org@1.9.12" integrity="sha384-ujb+3+8bKc5C9kF0P2wqKZNRyAPXbS1z7tFh2dR6kDgCqY5P1Z6mXw7sP1v6+KJX" crossorigin="anonymous"></script>
+    <!-- Plotly -->
+    <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+  </head>
+  <body class="min-h-screen bg-gray-50 text-gray-900">
+    <nav class="bg-white border-b border-gray-200">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+          <div class="flex items-center gap-4">
+            <a href="/" class="text-xl font-semibold text-indigo-600">Inventory Dashboard</a>
+            <a href="/" class="text-sm text-gray-600 hover:text-gray-900">Dashboard</a>
+            <a href="/bins" class="text-sm text-gray-600 hover:text-gray-900">Bins</a>
+            <a href="/suppliers" class="text-sm text-gray-600 hover:text-gray-900">Suppliers</a>
+            <a href="/movers" class="text-sm text-gray-600 hover:text-gray-900">Movers</a>
+            <a href="/moves" class="text-sm text-gray-600 hover:text-gray-900">FZ↔EXT</a>
+            <a href="/api/ping" class="text-sm text-gray-600 hover:text-gray-900">API Ping</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="mx-auto max-w-7xl p-4 sm:p-6 lg:p-8">
+      {% block content %}{% endblock %}
+    </main>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  </body>
+  </html>

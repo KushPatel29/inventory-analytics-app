@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="grid grid-cols-1 gap-6">
+    <div class="bg-white p-6 rounded-lg shadow">
+      <h2 class="text-lg font-semibold mb-2">Bin & Location Inventory</h2>
+      <p class="text-sm text-gray-600">Requires processed workbook with Inventory Detail1 and Key Account sheets.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-lg font-semibold mb-4">Total Weight by Protein</h2>
+        <div id="bins-by-protein" class="w-full h-96"></div>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-lg font-semibold mb-4">Total Weight by Location</h2>
+        <div id="bins-by-location" class="w-full h-96"></div>
+      </div>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow">
+      <h2 class="text-lg font-semibold mb-4">Download Detailed List</h2>
+      <div class="flex items-center gap-3 mb-3">
+        <input id="bins-location" class="border rounded p-2 text-sm" placeholder="Location (e.g., Main, Key Account)" />
+        <input id="bins-protein" class="border rounded p-2 text-sm" placeholder="Protein (e.g., Chicken)" />
+        <button id="bins-download" class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700">Download CSV</button>
+      </div>
+      <div id="bins-kpis" class="text-sm text-gray-600"></div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { initBins } from "{{ url_for('static', filename='js/bins.js') }}";
+    initBins();
+  </script>
+{% endblock %}
+

@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install --upgrade pip
+      - run: pip install -r requirements.txt
+      - name: pytest
+        run: pytest -q
+
+  demo:
+    name: demo works from a clean clone
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install --upgrade pip
+      - run: pip install -r requirements.txt
+
+      # The app is upload-driven, so "it works" means: generate a workbook,
+      # push it through the real upload endpoint, and confirm every report
+      # comes back with data.
+      - name: Generate the sample workbook
+        run: python -m seed.generate_workbook
+
+      - name: Upload it and exercise every report
+        run: python scripts/demo_smoke.py
