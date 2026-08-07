@@ -1,12 +1,12 @@
 services:
   - type: web
     name: inventory-app
-    env: python
+    runtime: python
     plan: free
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn wsgi:app --workers 2 --threads 4 --timeout 120 --bind 0.0.0.0:$PORT
     healthCheckPath: /healthz
-    autoDeploy: true
+    autoDeployTrigger: checksPass
     envVars:
       - key: PYTHONUNBUFFERED
         value: "1"
