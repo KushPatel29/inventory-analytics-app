@@ -7,8 +7,6 @@ on:
         description: "App port on the server"
         default: "8012"
         required: true
-  push:
-    branches: [ main, master ]
 
 jobs:
   deploy:
@@ -39,4 +37,3 @@ jobs:
             git clone https://github.com/KushPatel29/inventory-analytics-app.git /tmp/inventory-app
             cd /tmp/inventory-app
             sudo bash scripts/deploy_ubuntu.sh "$APP_PORT"
-

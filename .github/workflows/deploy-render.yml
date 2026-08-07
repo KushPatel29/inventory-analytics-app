@@ -2,8 +2,6 @@ name: Deploy to Render
 
 on:
   workflow_dispatch:
-  push:
-    branches: [ main, master ]
 
 jobs:
   deploy:
