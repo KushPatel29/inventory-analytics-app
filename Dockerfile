@@ -19,8 +19,11 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 # App code
 COPY . .
 
+# One worker on purpose: the analysis lives in process memory, so with two
+# workers an uploaded workbook is only visible to whichever one received it.
 ENV PORT=8000 \
-    GUNICORN_CMD_ARGS="--workers=2 --threads=4 --timeout=120"
+    GUNICORN_CMD_ARGS="--workers=1 --threads=4 --timeout=120" \
+    DEMO_AUTOLOAD=1
 
 EXPOSE 8000
 

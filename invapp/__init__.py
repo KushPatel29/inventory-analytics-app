@@ -20,6 +20,25 @@ def create_app() -> Flask:
     def healthz():
         return {"status": "ok"}
 
+    @app.context_processor
+    def _inject_demo_state():
+        """Let templates say whether they are showing generated data."""
+        try:
+            from .services.bootstrap import is_demo_data_loaded
+
+            return {"showing_demo_data": is_demo_data_loaded()}
+        except Exception:
+            return {"showing_demo_data": False}
+
+    # On the hosted demo, load the generated sample so a visitor sees a working
+    # dashboard instead of an empty one. No-op unless DEMO_AUTOLOAD is set.
+    try:
+        from .services.bootstrap import start_bootstrap
+
+        start_bootstrap(app)
+    except Exception:
+        app.logger.warning("bootstrap.start_failed", exc_info=True)
+
     return app
 
 

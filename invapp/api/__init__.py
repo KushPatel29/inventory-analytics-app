@@ -3,6 +3,7 @@ import pandas as pd
 
 from invapp.services.io_utils import load_workbook_sheets
 from invapp.services.cleaning import preprocess_data, process_inventory_snapshot
+from invapp.services.ingest import ingest_sheets
 from invapp.services.aggregation import (
     aggregate_sales_history,
     merge_data,
@@ -46,53 +47,14 @@ def process_workbook():
 
     try:
         sheets = load_workbook_sheets(file)
-        sales = sheets.get("Sales History", pd.DataFrame())
-        inv = sheets.get("Inventory Detail", pd.DataFrame())
-        prod = sheets.get("Production Batch", pd.DataFrame())
-        cost_val = sheets.get("Cost Value", pd.DataFrame())
-        inv1 = sheets.get("Inventory Detail1", pd.DataFrame())
-
-        sales, inv, prod, cost_val = preprocess_data(sales, inv, prod, cost_val)
-        agg_sales = aggregate_sales_history(sales) if not sales.empty else pd.DataFrame(
-            columns=["SKU", "Supplier", "Protein", "Description", "ShippedLb", "QuantityOrdered", "Cost", "Rev"]
-        )
-        merged = merge_data(agg_sales, inv, prod)
-        sku_stats = aggregate_final_data(merged, sales)
-
-        # Compute pack counts from Inventory Detail1 (distinct PackId1 per SKU+state)
-        if not inv1.empty and {"SKU", "ProductState", "PackId1"}.issubset(inv1.columns):
-            inv1_cc = inv1.loc[:, ["SKU", "ProductState", "PackId1"]].dropna(subset=["PackId1"]).copy()
-            inv1_cc["PackId1"] = inv1_cc["PackId1"].astype(str).str.strip()
-            packs = (
-                inv1_cc.groupby(["SKU", "ProductState"], as_index=False)["PackId1"].nunique()
-                .rename(columns={"PackId1": "NumPacksOnHand"})
-            )
-            sku_stats = sku_stats.merge(packs, on=["SKU", "ProductState"], how="left")
-            sku_stats["NumPacksOnHand"] = sku_stats.get("NumPacksOnHand", 0).fillna(0).astype(int)
-
-        # Holding cost is priced off the item-level snapshot: OnHandCost is a
-        # derived column (Cost_pr x ItemCount) that only exists after
-        # process_inventory_snapshot. Passing the raw sheet here meant
-        # compute_holding_cost fell back to a scalar default and raised
-        # "'float' object has no attribute 'fillna'" on every upload.
-        snapshot = process_inventory_snapshot(inv.copy())
-        snapshot["OriginDate"] = pd.to_datetime(snapshot.get("OriginDate"), errors="coerce")
-        hc_params = get_state().holding_cost_params
-        holding_cost = compute_holding_cost(snapshot, params=hc_params)
-
-        set_state(sku_stats=sku_stats, holding_cost=holding_cost, raw_sheets=sheets)
-
-        # Persist this run to SQLite for future reloads
-        try:
-            run_id = save_run(sku_stats, holding_cost, hc_params)
-        except Exception:
-            run_id = None
+        summary = ingest_sheets(sheets)
+        run_id = summary["run_id"]
+        total_skus = summary["total_skus"]
+        total_weight = summary["total_weight"]
+        total_cost = summary["total_cost"]
+        avg_woh = summary["avg_woh"]
 
         # Build a small HTML snippet for HTMX target
-        total_skus = int(sku_stats["SKU"].nunique()) if not sku_stats.empty else 0
-        total_weight = float(sku_stats.get("OnHandWeightTotal", pd.Series(dtype=float)).sum())
-        total_cost = float(sku_stats.get("OnHandCostTotal", pd.Series(dtype=float)).sum())
-        avg_woh = float(sku_stats.get("WeeksOnHand", pd.Series(dtype=float)).mean()) if not sku_stats.empty else 0.0
 
         html = render_template_string(
             """

@@ -38,3 +38,9 @@ jobs:
 
       - name: Upload it and exercise every report
         run: python scripts/demo_smoke.py
+
+      # And the promise the hosted demo makes: data with no upload at all.
+      - name: Auto-loaded demo serves data with no upload
+        env:
+          DEMO_AUTOLOAD: "1"
+        run: python scripts/demo_autoload_smoke.py

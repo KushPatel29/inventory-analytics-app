@@ -10,6 +10,9 @@ class AnalysisState:
     sku_stats: pd.DataFrame | None = None
     holding_cost: pd.DataFrame | None = None
     raw_sheets: dict[str, pd.DataFrame] = field(default_factory=dict)
+    # True while the app is serving the generated sample rather than an upload,
+    # so the UI can say so instead of passing invented numbers off as real.
+    demo_data: bool = False
     holding_cost_params: dict = field(default_factory=lambda: {
         "rc": 0.05,   # capital rate
         "sa": 102055.0,  # service cost pool

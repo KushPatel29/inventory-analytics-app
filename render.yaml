@@ -4,12 +4,19 @@ services:
     runtime: python
     plan: free
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn wsgi:app --workers 2 --threads 4 --timeout 120 --bind 0.0.0.0:$PORT
+    # One worker on purpose: the analysis lives in process memory, so with
+    # two workers an uploaded workbook is only visible to whichever one
+    # happened to receive it and every other request sees stale data.
+    startCommand: gunicorn wsgi:app --workers 1 --threads 4 --timeout 120 --bind 0.0.0.0:$PORT
     healthCheckPath: /healthz
     autoDeployTrigger: checksPass
     envVars:
       - key: PYTHONUNBUFFERED
         value: "1"
       - key: PYTHONDONTWRITEBYTECODE
+        value: "1"
+      # Load the generated sample workbook at boot so a visitor sees a working
+      # dashboard instead of an upload prompt with nothing behind it.
+      - key: DEMO_AUTOLOAD
         value: "1"
 
