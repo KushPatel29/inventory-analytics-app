@@ -22,6 +22,11 @@ python -m seed.generate_workbook     # writes sample_data/inventory_workbook.xls
 python run.py                        # http://127.0.0.1:5000, then upload it
 ```
 
+The hosted demo skips that step: it generates the sample workbook in memory
+at startup and ingests it through the same code path an upload uses, so the
+dashboard has data the moment you open it. Uploading a real workbook
+replaces it. Set `DEMO_AUTOLOAD=1` to get the same behaviour locally.
+
 ---
 
 ## What it computes
