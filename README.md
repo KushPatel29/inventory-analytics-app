@@ -4,6 +4,8 @@
 ![tests](https://img.shields.io/badge/tests-37-brightgreen)
 ![python](https://img.shields.io/badge/python-3.12-blue)
 
+**Live app:** [inventory-analytics-app.onrender.com](https://inventory-analytics-app.onrender.com/)
+
 A Flask app for warehouse inventory analytics at a perishable-goods
 distributor. You upload the weekly workbook the warehouse system exports and it
 returns stock-vs-sales indices, weeks-on-hand, ABC classification, dead stock,
