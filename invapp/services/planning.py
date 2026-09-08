@@ -16,12 +16,36 @@ def parent_purchase_plan(
     child_to_parent = dict(zip(prod_detail.get("SKU", []), prod_detail.get("ParentSKU", [])))
     df["ParentSKU"] = df["SKU"].map(child_to_parent).fillna(df["SKU"]).replace({"": np.nan}).fillna(df["SKU"])  # type: ignore
 
-    parent_stats = (
-        df.groupby("ParentSKU", as_index=False)
+    # Collapse to one row per SKU before rolling up to the parent.
+    #
+    # sku_stats is grouped by SKU *and ProductState*, so a SKU stocked frozen
+    # and external arrives here as two rows — and sales are joined per SKU, so
+    # the same AvgWeeklyUsage is copied onto both. Summing it counted a SKU's
+    # demand once per state it is stocked in, which inflated the target stock
+    # level and every order quantity underneath it: a SKU using 5 lb/week in
+    # two states asked for 40 lb of cover instead of 20.
+    #
+    # moves.py already hit this and takes the max across states for exactly
+    # this reason; planning.py summed. Weight and cost are genuinely additive
+    # across states — there really is stock in both — so only demand collapses.
+    per_sku = (
+        df.groupby(["ParentSKU", "SKU"], as_index=False)
         .agg(
-            MeanUse=("AvgWeeklyUsage", "sum"),
+            MeanUse=("AvgWeeklyUsage", "max"),
             InvWt=("OnHandWeightTotal", "sum"),
             InvCost=("OnHandCostTotal", "sum"),
+            Supplier=("Supplier", lambda x: x.mode()[0] if not x.mode().empty else x.iloc[0]),
+            Protein=("Protein", lambda x: x.mode()[0] if not x.mode().empty else ""),
+        )
+    )
+
+    # Now sum across the children of a parent, which is a real roll-up.
+    parent_stats = (
+        per_sku.groupby("ParentSKU", as_index=False)
+        .agg(
+            MeanUse=("MeanUse", "sum"),
+            InvWt=("InvWt", "sum"),
+            InvCost=("InvCost", "sum"),
             Supplier=("Supplier", lambda x: x.mode()[0] if not x.mode().empty else x.iloc[0]),
             Protein=("Protein", lambda x: x.mode()[0] if not x.mode().empty else ""),
         )
