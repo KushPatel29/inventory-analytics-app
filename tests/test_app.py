@@ -27,7 +27,7 @@ def test_healthz(client):
 def test_dashboard_page(client):
     resp = client.get("/")
     assert resp.status_code == 200
-    assert b"Weekly Inbound Volume" in resp.data
+    assert b"Weekly Shipped Volume" in resp.data
 
 
 def test_api_ping(client):

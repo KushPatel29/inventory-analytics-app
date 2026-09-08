@@ -2,20 +2,21 @@
 {% block content %}
   <div id="analytics-root" class="grid grid-cols-1 gap-6">
     <div class="bg-white p-6 rounded-lg shadow">
-      <h2 class="text-lg font-semibold mb-2">Weekly Inbound Volume</h2>
-      <div id="weekly-inbound" class="w-full h-48 text-sm text-gray-600">Upload a workbook to visualize weekly inbound volume.</div>
+      <h2 class="text-lg font-semibold mb-2">Weekly Shipped Volume</h2>
+      <p class="text-sm text-gray-600 mb-2">Sales History, grouped by expected date; this is outbound usage, not inbound receipts.</p>
+      <div id="weekly-usage" class="w-full h-48 text-sm text-gray-600">Loading weekly shipped volume…</div>
     </div>
     <div class="bg-white p-6 rounded-lg shadow">
       <h2 class="text-lg font-semibold mb-2">Upload Workbook</h2>
       <p class="text-sm text-gray-600 mb-4">Upload the combined .xlsx containing Sales History, Inventory Detail, Production Batch, etc.</p>
-      <form hx-post="/api/workbook/process" hx-target="#upload-result" hx-swap="innerHTML" enctype="multipart/form-data" class="flex items-center gap-3">
+      <form hx-post="/api/workbook/process" hx-target="#upload-result" hx-swap="innerHTML" enctype="multipart/form-data" class="flex flex-wrap items-center gap-3">
         <input type="file" name="file" accept=".xlsx" class="block w-full text-sm text-gray-700 border border-gray-300 rounded p-2" required />
         <button class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700">Process</button>
         <span class="htmx-indicator text-sm text-gray-500">Processing…</span>
       </form>
       <div id="upload-result" class="mt-4 text-sm text-gray-800"></div>
-      <div class="mt-4 flex items-center gap-3 text-sm">
-        <label class="flex items-center gap-2">Load run:
+      <div class="mt-4 flex flex-wrap items-center gap-3 text-sm">
+        <label class="flex flex-wrap items-center gap-2">Load run:
           <select id="runs-select" class="border rounded p-1 min-w-56"></select>
         </label>
         <button id="runs-load" class="px-3 py-1 border rounded hover:bg-gray-50">Load</button>
@@ -95,9 +96,9 @@
     </div>
 
     <div class="bg-white p-6 rounded-lg shadow">
-      <div class="flex items-center justify-between mb-3">
+      <div class="flex flex-wrap items-center justify-between mb-3">
         <h2 class="text-lg font-semibold">Purchase Plan (Parent-level)</h2>
-        <label class="flex items-center gap-2 text-sm">
+        <label class="flex flex-wrap items-center gap-2 text-sm">
           Desired WOH: <input id="woh-slider" type="range" min="0" max="12" step="0.5" value="4" />
           <span id="woh-value" class="ml-1">4.0</span>
         </label>
@@ -110,9 +111,9 @@
     </div>
 
     <div class="bg-white p-6 rounded-lg shadow">
-      <div class="flex items-center justify-between mb-4">
+      <div class="flex flex-wrap items-center justify-between mb-4">
         <h2 class="text-lg font-semibold">Inventory Turnover</h2>
-        <div class="flex items-center gap-2 text-sm">
+        <div class="flex flex-wrap items-center gap-2 text-sm">
           <input id="turnover-start" type="date" class="border rounded p-1" />
           <input id="turnover-end" type="date" class="border rounded p-1" />
           <select id="turnover-group" class="border rounded p-1">
@@ -127,7 +128,7 @@
   </div>
 
   <script type="module">
-    import { initAnalytics } from "{{ url_for('static', filename='js/analytics.js') }}";
+    import { initDashboard } from "{{ url_for('static', filename='js/analytics.js') }}";
     const slider = document.getElementById('woh-slider');
     if (slider) slider.addEventListener('input', () => {
       const v = document.getElementById('woh-value');
@@ -135,6 +136,6 @@
       const a = document.getElementById('dl-plan');
       if (a) a.href = `/api/download/purchase_plan.csv?woh=${encodeURIComponent(slider.value)}`;
     });
-    initAnalytics();
+    initDashboard();
   </script>
 {% endblock %}

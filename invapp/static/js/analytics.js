@@ -10,6 +10,12 @@ function formatNumber(x) {
   return x?.toLocaleString?.(undefined, { maximumFractionDigits: 1 }) ?? `${x}`;
 }
 
+function escapeHTML(value) {
+  const text = document.createElement('span');
+  text.textContent = String(value ?? '');
+  return text.innerHTML;
+}
+
 async function renderKpis() {
   try {
     const k = await fetchJSON('/api/insights');
@@ -17,7 +23,7 @@ async function renderKpis() {
     if (!el || k.error) return;
     el.innerHTML = `
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div class="bg-white rounded p-4 shadow"><div class="text-sm text-gray-500">SKUs</div><div class="text-2xl font-semibold">${formatNumber(k.total_skus)}</div></div>
+        <div class="bg-white rounded p-4 shadow"><div class="text-sm text-gray-500">SKUs in inventory</div><div class="text-2xl font-semibold">${formatNumber(k.total_skus)}</div></div>
         <div class="bg-white rounded p-4 shadow"><div class="text-sm text-gray-500">On-Hand (lb)</div><div class="text-2xl font-semibold">${formatNumber(k.total_weight_lb)}</div></div>
         <div class="bg-white rounded p-4 shadow"><div class="text-sm text-gray-500">On-Hand Cost ($)</div><div class="text-2xl font-semibold">${formatNumber(k.total_cost)}</div></div>
         <div class="bg-white rounded p-4 shadow"><div class="text-sm text-gray-500">Avg WOH (wks)</div><div class="text-2xl font-semibold">${formatNumber(k.avg_woh)}</div></div>
@@ -135,13 +141,13 @@ async function renderPurchasePlan() {
     if (!container) return;
     const top = data.slice(0, 20);
     const rows = top.map(r => `<tr>
-        <td class="px-2 py-1">${r.ParentSKU}</td>
-        <td class="px-2 py-1">${r.SKU_Desc || ''}</td>
-        <td class="px-2 py-1">${r.Supplier || ''}</td>
+        <td class="px-2 py-1">${escapeHTML(r.ParentSKU)}</td>
+        <td class="px-2 py-1">${escapeHTML(r.SKU_Desc)}</td>
+        <td class="px-2 py-1">${escapeHTML(r.Supplier)}</td>
         <td class="px-2 py-1 text-right">${(r.MeanUse||0).toFixed(1)}</td>
         <td class="px-2 py-1 text-right">${(r.PacksToOrder||0)}</td>
         <td class="px-2 py-1 text-right">${(r.OrderWt||0).toFixed(0)}</td>
-        <td class="px-2 py-1 text-right">$${(r.EstCost||0).toLocaleString()}</td>
+        <td class="px-2 py-1 text-right">$${(r.EstCost||0).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
       </tr>`).join('');
     container.innerHTML = `
       <div class="mb-2 text-sm text-gray-600">Showing top ${top.length} by estimated cost.</div>
@@ -163,6 +169,8 @@ async function renderPurchasePlan() {
 export async function initAnalytics() {
   await renderKpis();
   await Promise.all([
+    renderWeeklyUsage(),
+    renderTurnover(document.getElementById("turnover-group")?.value || "product"),
     renderTopSuppliers(),
     renderHoldingCost(),
     renderAtRiskDonut(),
@@ -175,13 +183,6 @@ export async function initAnalytics() {
   ]);
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-  if (document.getElementById('analytics-root')) {
-    initAnalytics();
-    const slider = document.getElementById('woh-slider');
-    if (slider) slider.addEventListener('change', renderPurchasePlan);
-  }
-});
 
 // Turnover with date filters
 async function renderTurnover(group) {
@@ -215,45 +216,54 @@ async function initRuns() {
     });
     const btn = document.getElementById('runs-load');
     if (btn) {
-      btn.addEventListener('click', async () => {
+      btn.onclick = async () => {
         const id = sel.value;
         if (!id) return;
         const rr = document.getElementById('runs-result');
         try {
-          await fetch(`/api/runs/load?run_id=${encodeURIComponent(id)}`, { method: 'POST' });
+          const response = await fetch(`/api/runs/load?run_id=${encodeURIComponent(id)}`, { method: 'POST' });
+          if (!response.ok) throw new Error(`Request failed: ${response.status}`);
           rr.textContent = `Loaded run #${id}`;
           await initAnalytics();
         } catch (e) {
           rr.textContent = `Failed to load run #${id}`;
         }
-      });
+      };
     }
   } catch (e) { /* ignore */ }
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-  if (document.getElementById('analytics-root')) {
-    initAnalytics();
-    const slider = document.getElementById('woh-slider');
-    if (slider) slider.addEventListener('change', renderPurchasePlan);
-    initRuns();
-  }
-});
 
-// Small Weekly Inbound chart (top annualized turnover by supplier)
-async function renderWeeklyInbound() {
-  const target = document.getElementById('weekly-inbound');
+// Sales History contains shipped pounds and expected dates, not receipt dates.
+async function renderWeeklyUsage() {
+  const target = document.getElementById('weekly-usage');
   if (!target) return;
   try {
-    const res = await fetchJSON('/api/turnover?group=supplier');
-    if (res.error) return;
-    const items = (res.items || []).slice(0, 10);
-    const x = items.map(i => i.AnnualizedTurnover);
-    const y = items.map(i => i.key);
-    Plotly.newPlot(target, [{ x, y, type: 'bar', orientation: 'h', marker: { color: '#10b981' } }], { margin: { l: 140, t: 10 } }, { displayModeBar: false });
-  } catch (e) { /* ignore until upload */ }
+    const rows = await fetchJSON('/api/supplier/trend/usage');
+    if (!Array.isArray(rows) || !rows.length) {
+      target.textContent = 'No sales history available. Process a workbook to view weekly shipped volume.';
+      return;
+    }
+    target.textContent = '';
+    await Plotly.newPlot(target, [{
+      x: rows.map(row => row.Week), y: rows.map(row => row.Usage),
+      type: 'scatter', mode: 'lines+markers', line: {color: '#10b981'},
+      hovertemplate: '%{x}<br>%{y:,.0f} lb<extra></extra>'
+    }], {margin: {l: 70, r: 20, t: 10, b: 45},
+      xaxis: {title: 'Week (expected date)'}, yaxis: {title: 'Shipped (lb)'}
+    }, {displayModeBar: false, responsive: true});
+  } catch (e) {
+    target.textContent = 'Weekly volume is unavailable. Reload the page or process a workbook to retry.';
+  }
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-  renderWeeklyInbound();
-});
+export async function initDashboard() {
+  const slider = document.getElementById('woh-slider');
+  if (slider) slider.addEventListener('change', renderPurchasePlan);
+  document.body.addEventListener('htmx:afterRequest', async event => {
+    if (event.detail.successful && event.detail.elt?.getAttribute('hx-post') === '/api/workbook/process') {
+      await Promise.all([initAnalytics(), initRuns()]);
+    }
+  });
+  await Promise.all([initAnalytics(), initRuns()]);
+}
