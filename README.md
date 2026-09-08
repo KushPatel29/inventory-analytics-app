@@ -1,7 +1,7 @@
 # Inventory Analytics
 
 [![CI](https://github.com/KushPatel29/inventory-analytics-app/actions/workflows/ci.yml/badge.svg)](https://github.com/KushPatel29/inventory-analytics-app/actions/workflows/ci.yml)
-![tests](https://img.shields.io/badge/tests-53-brightgreen)
+![tests](https://img.shields.io/badge/tests-58-brightgreen)
 ![python](https://img.shields.io/badge/python-3.12-blue)
 
 **Live app:** [inventory-analytics-app.onrender.com](https://inventory-analytics-app.onrender.com/)

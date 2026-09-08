@@ -101,13 +101,18 @@ class TestSharedIngestPath:
         from invapp import create_app
 
         client = create_app().test_client()
-        resp = client.post(
-            "/api/workbook/process",
-            data={"file": (io.BytesIO(buf.getvalue()), "workbook.xlsx")},
-            content_type="multipart/form-data",
-        )
-        assert resp.status_code == 200
-        uploaded_state = get_state().sku_stats.copy()
+        # State is per-visitor now, so the uploaded result lives in this
+        # client's session rather than in a module global. Reading it means
+        # staying inside the request context the upload created — which is the
+        # same reason two visitors no longer overwrite each other.
+        with client:
+            resp = client.post(
+                "/api/workbook/process",
+                data={"file": (io.BytesIO(buf.getvalue()), "workbook.xlsx")},
+                content_type="multipart/form-data",
+            )
+            assert resp.status_code == 200
+            uploaded_state = get_state().sku_stats.copy()
 
         assert from_direct["total_skus"] == int(uploaded_state["SKU"].nunique())
         assert len(direct_state) == len(uploaded_state)
