@@ -4,7 +4,7 @@ import json
 import os
 import sqlite3
 from contextlib import contextmanager
-from datetime import datetime
+from datetime import datetime, timezone
 import pandas as pd
 
 
@@ -82,7 +82,7 @@ def save_run(sku_stats: pd.DataFrame, holding_cost: pd.DataFrame, params: dict) 
     _ensure_db()
     with sqlite3.connect(DB_PATH) as con:
         cur = con.cursor()
-        cur.execute("INSERT INTO runs(created_at) VALUES (?)", (datetime.utcnow().isoformat(),))
+        cur.execute("INSERT INTO runs(created_at) VALUES (?)", (datetime.now(timezone.utc).isoformat(),))
         run_id = cur.lastrowid
         cur.executemany(
             "INSERT INTO meta(run_id, key, value) VALUES (?,?,?)",
