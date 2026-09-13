@@ -1,0 +1,17 @@
+Parameter,Value,Description
+ReviewPeriodDays,7.0,Days between replenishment reviews (weekly planning cycle)
+CarryingCostRate,0.24,Annual carrying cost as a fraction of unit cost
+CapitalRate,0.09,Cost of capital component of carrying cost
+StorageRate,0.08,Warehouse space and handling component
+ServiceRate,0.04,"Insurance, taxes and inventory service component"
+RiskRate,0.03,"Obsolescence, damage and shrink component"
+ServiceLevelA,0.98,Target cycle service level for A items
+ServiceLevelB,0.95,Target cycle service level for B items
+ServiceLevelC,0.9,Target cycle service level for C items
+SlowMoverDays,90.0,No shipment for this many days flags a slow mover
+ObsoleteDays,180.0,No shipment for this many days flags dead stock
+ExcessCoverWeeks,26.0,Cover above this is excess stock
+CountToleranceUnits,0.0,Unit variance still counted as an accurate record
+OnTimeGraceDays,2.0,Days after the promised date still counted as on time
+StockoutPenaltyPerUnit,6.5,Assumed contribution lost per unit short
+WorkingDaysPerYear,364.0,"Planning year, in days"

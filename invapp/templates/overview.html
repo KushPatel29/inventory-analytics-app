@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="stack">
+  <div id="kpi-primary" class="kpis"><div class="loading">Loading&hellip;</div></div>
+  <div id="kpi-secondary" class="kpis"></div>
+
+  <div class="grid g-2-1">
+    <div class="card">
+      <h2>Inventory value and days on hand</h2>
+      <p class="sub">
+        Value is rolled backwards from the closing snapshot through the shipments that
+        produced it, so the level is exact only at the right-hand edge. Days inventory
+        outstanding is on cost of goods sold, not revenue.
+      </p>
+      <div id="trend-chart" class="chart"></div>
+    </div>
+    <div class="card">
+      <h2>Cost of carrying it</h2>
+      <p class="sub">
+        Four components, not one blended rate &mdash; they respond to different levers.
+        Obsolescence risk is charged against slow and dead stock only.
+      </p>
+      <div id="carrying-chart" class="chart"></div>
+    </div>
+  </div>
+
+  <div class="grid g2">
+    <div class="card">
+      <h2>Where the value sits</h2>
+      <div class="filters">
+        <label>Split by
+          <select id="value-dim">
+            <option value="Department">Department</option>
+            <option value="Category">Category</option>
+            <option value="NodeID">Node</option>
+            <option value="ABCClass">ABC class</option>
+            <option value="AgeBucket">Age bucket</option>
+            <option value="HealthFlag">Health</option>
+          </select>
+        </label>
+      </div>
+      <div id="value-chart" class="chart"></div>
+    </div>
+    <div class="card">
+      <h2>ABC concentration</h2>
+      <p class="sub">
+        Share of SKUs against share of annual consumption value. The gap between the two
+        bars in each class is the whole argument for differentiated stock policy.
+      </p>
+      <div id="abc-chart" class="chart"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Load a workbook</h2>
+    <p class="sub">
+      Nine sheets: Item Master, Supplier Master, Network Nodes, Demand History, Inventory
+      Snapshot, Purchase Orders, Cycle Counts, Inventory Adjustments, Planning Parameters.
+      The generated sample is the shape of a real WMS and ERP export; upload one of your
+      own and it goes through the same pipeline with no demo branch anywhere in it.
+    </p>
+    <form id="upload-form" class="filters">
+      <label for="workbook-upload">Workbook (.xlsx)
+        <input id="workbook-upload" type="file" name="file" accept=".xlsx" required />
+      </label>
+      <button class="btn primary" type="submit">Process</button>
+      <a class="btn" href="/api/download/report.xlsx">Download full report (.xlsx)</a>
+    </form>
+    <div id="upload-result" class="note-inline" role="status" aria-live="polite"></div>
+    <div id="runs-table" style="margin-top:14px"></div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script type="module">
+  import { boot } from "{{ url_for('static', filename='js/core.js') }}";
+  import { render, wireUpload } from "{{ url_for('static', filename='js/overview.js') }}";
+  wireUpload();
+  boot(render);
+</script>
+{% endblock %}

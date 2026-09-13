@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="stack">
+  <div id="kpi-repl" class="kpis"><div class="loading">Loading&hellip;</div></div>
+
+  <div class="grid g-2-1">
+    <div class="card">
+      <h2>What to order</h2>
+      <p class="sub">
+        A line appears here when inventory position &mdash; on hand, plus what is on a
+        truck, minus what is already promised &mdash; has fallen to the reorder point.
+        Quantities are rounded up to a whole case.
+      </p>
+      <div class="filters">
+        <label>Node <select id="f-node"></select></label>
+        <label>ABC <select id="f-abc"></select></label>
+        <label>Department <select id="f-dept"></select></label>
+        <label>Status <select id="f-urgency"></select></label>
+        <label><input type="checkbox" id="f-due" checked /> only lines due</label>
+        <a class="btn" id="dl-csv" href="/api/download/replenishment.csv">CSV</a>
+        <a class="btn" id="dl-xlsx" href="/api/download/replenishment.xlsx">Excel</a>
+      </div>
+      <div id="plan-table"></div>
+    </div>
+
+    <div class="stack">
+      <div class="card">
+        <h2>Where the network stands</h2>
+        <div id="urgency-chart" class="chart short"></div>
+      </div>
+      <div class="card">
+        <h2>What service costs</h2>
+        <p class="sub">
+          Safety stock for the whole network at each cycle service level. The last three
+          points of service cost more than the first eighty-five, because z climbs steeply
+          as the target approaches one.
+        </p>
+        <div id="service-chart" class="chart short"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid g2">
+    <div class="card">
+      <h2>Economic order quantity against what is being ordered</h2>
+      <p class="sub">
+        Ordering cost per SKU is the marginal cost of a line plus its share of raising the
+        purchase order &mdash; not the whole per-order cost, which would inflate every
+        quantity by the square root of the lines on the order.
+      </p>
+      <div id="eoq-chart" class="chart"></div>
+    </div>
+    <div class="card">
+      <h2>Biggest ordering-cost gaps</h2>
+      <div id="eoq-table"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Planning parameters</h2>
+    <p class="sub">
+      These are policy, not physics. Changing one rebuilds the whole analysis from the same
+      data &mdash; a service level moves z, which moves safety stock, the reorder point,
+      every order quantity, the excess threshold and the action list underneath it.
+    </p>
+    <form id="param-form" class="filters">
+      <label>Service level, A <input type="number" name="ServiceLevelA" step="0.01" min="0.5" max="0.999" /></label>
+      <label>B <input type="number" name="ServiceLevelB" step="0.01" min="0.5" max="0.999" /></label>
+      <label>C <input type="number" name="ServiceLevelC" step="0.01" min="0.5" max="0.999" /></label>
+      <label>Carrying rate <input type="number" name="CarryingCostRate" step="0.01" min="0" max="1" /></label>
+      <label>Review period, days <input type="number" name="ReviewPeriodDays" step="1" min="1" max="90" /></label>
+      <button class="btn primary" type="submit">Recompute</button>
+      <span id="param-result" class="note-inline" style="margin:0"></span>
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script type="module">
+  import { boot } from "{{ url_for('static', filename='js/core.js') }}";
+  import { render } from "{{ url_for('static', filename='js/replenishment.js') }}";
+  boot(render);
+</script>
+{% endblock %}

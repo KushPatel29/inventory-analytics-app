@@ -1,592 +1,861 @@
-from flask import Blueprint, jsonify, request, render_template_string
+"""
+The JSON the pages draw from.
+
+Every endpoint reads the model that was computed once at ingest and slices it.
+Nothing here recomputes: a route that re-ran a forecast backtest would put
+several seconds of CPU behind a chart refresh, and six charts on a page would
+do it six times.
+
+Two conventions worth knowing:
+
+* ``NaN`` and ``inf`` are converted to ``null`` on the way out. They are real
+  answers here - a SKU with no demand genuinely has infinite cover - but
+  ``JSON.parse`` rejects both, and a chart that silently fails to render is
+  worse than one showing a gap.
+* Every list endpoint returns ``{"rows": [...], "total": n}`` rather than a
+  bare array, so a truncated table can say it was truncated instead of quietly
+  showing the top 200 as if they were all of them.
+"""
+
+from __future__ import annotations
+
+import io
+
+import numpy as np
 import pandas as pd
+from flask import Blueprint, jsonify, request
 
+from invapp.analytics import accuracy as accuracy_mod
+from invapp.analytics import actions as actions_mod
+from invapp.analytics import ageing as ageing_mod
+from invapp.analytics import segmentation
+from invapp.analytics import working_capital
+from invapp.services.bootstrap import is_loading
+from invapp.services.ingest import current_model, ingest_sheets
 from invapp.services.io_utils import load_workbook_sheets
-from invapp.services.cleaning import preprocess_data, process_inventory_snapshot
-from invapp.services.ingest import ingest_sheets
-from invapp.services.aggregation import (
-    aggregate_sales_history,
-    merge_data,
-    aggregate_final_data,
-)
-from invapp.services.costing import compute_holding_cost
-from invapp.services.classification import quadrantify, top_n_by_metric
-from invapp.services.classification import classify_movement
-from invapp.services.state import set_state, get_state
-from invapp.services.planning import parent_purchase_plan
-from invapp.services.bins import prepare_bins_data
-from invapp.services.store import save_run, list_runs, load_run
-from invapp.services.moves import compute_fz_to_ext_moves, compute_ext_to_fz_moves
-
+from invapp.services.state import get_state, set_state
+from invapp.services.store import list_runs
 
 bp = Blueprint("api", __name__)
 
+MAX_ROWS = 5000
 
+
+# --------------------------------------------------------------------------
+# Helpers
+# --------------------------------------------------------------------------
+def _clean(frame: pd.DataFrame) -> pd.DataFrame:
+    """Make a frame JSON-safe: no NaN, no inf, no numpy scalars, no Timestamps."""
+    out = frame.copy()
+    for column in out.columns:
+        if pd.api.types.is_datetime64_any_dtype(out[column]):
+            out[column] = out[column].dt.strftime("%Y-%m-%d")
+        elif pd.api.types.is_numeric_dtype(out[column]) and not pd.api.types.is_bool_dtype(
+            out[column]
+        ):
+            out[column] = out[column].astype(float).replace([np.inf, -np.inf], np.nan)
+    return out.astype(object).where(pd.notna(out), None)
+
+
+def rows(frame: pd.DataFrame | None, limit: int | None = None) -> dict:
+    if frame is None or frame.empty:
+        return {"rows": [], "total": 0, "truncated": False}
+    total = int(len(frame))
+    limit = min(limit or MAX_ROWS, MAX_ROWS)
+    return {
+        "rows": _clean(frame.head(limit)).to_dict(orient="records"),
+        "total": total,
+        "truncated": total > limit,
+    }
+
+
+def scalars(mapping: dict) -> dict:
+    """A dict of KPIs, made JSON-safe the same way a frame is."""
+    out = {}
+    for key, value in mapping.items():
+        if isinstance(value, (np.floating, float)):
+            out[key] = None if not np.isfinite(float(value)) else float(value)
+        elif isinstance(value, (np.integer,)):
+            out[key] = int(value)
+        elif isinstance(value, (pd.Timestamp,)):
+            out[key] = value.date().isoformat()
+        else:
+            out[key] = value
+    return out
+
+
+def model_or_404():
+    """The visitor's model, or the response explaining why there is not one.
+
+    "Still building the sample" is 503 and not 404, because they need
+    different behaviour from the caller: one is worth retrying in a second
+    and the other never will be. Collapsing them is why a cold container
+    used to greet its first visitor with an error that fixed itself on
+    reload.
+    """
+    model = current_model()
+    if model is not None and not model.is_empty:
+        return model, None
+    if is_loading():
+        return None, (
+            jsonify({"error": "Building the sample dataset.", "loading": True}), 503
+        )
+    return None, (jsonify({"error": "No workbook has been processed yet."}), 404)
+
+
+def _filtered(frame: pd.DataFrame, allowed: tuple[str, ...]) -> pd.DataFrame:
+    """Apply ?column=value query filters for the columns a route allows."""
+    out = frame
+    for column in allowed:
+        value = request.args.get(column)
+        if value:
+            out = out[out[column].astype(str) == value]
+    return out
+
+
+def _csv(frame: pd.DataFrame, filename: str):
+    return (
+        frame.to_csv(index=False, lineterminator="\n"),
+        200,
+        {
+            "Content-Type": "text/csv; charset=utf-8",
+            "Content-Disposition": f"attachment; filename={filename}",
+        },
+    )
+
+
+def _xlsx(frames: dict[str, pd.DataFrame], filename: str):
+    buf = io.BytesIO()
+    with pd.ExcelWriter(buf, engine="openpyxl") as writer:
+        for sheet, frame in frames.items():
+            frame.to_excel(writer, sheet_name=sheet[:31], index=False)
+    return (
+        buf.getvalue(),
+        200,
+        {
+            "Content-Type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            "Content-Disposition": f"attachment; filename={filename}",
+        },
+    )
+
+
+# --------------------------------------------------------------------------
+# Ingest
+# --------------------------------------------------------------------------
 @bp.get("/ping")
 def ping():
     return jsonify({"message": "pong"})
-
-
-@bp.get("/inventory/summary")
-def inventory_summary():
-    # Example static payload for now
-    data = {
-        "total_items": 1234,
-        "low_stock": 17,
-        "out_of_stock": 5,
-        "last_updated": "2025-01-01T12:00:00Z",
-    }
-    return jsonify(data)
 
 
 @bp.post("/workbook/process")
 def process_workbook():
     file = request.files.get("file")
     if not file:
-        return jsonify({"error": "No file provided"}), 400
-
+        return jsonify({"error": "No file provided."}), 400
     try:
         sheets = load_workbook_sheets(file)
         summary = ingest_sheets(sheets)
-        run_id = summary["run_id"]
-        total_skus = summary["total_skus"]
-        total_weight = summary["total_weight"]
-        total_cost = summary["total_cost"]
-        avg_woh = summary["avg_woh"]
-
-        # Build a small HTML snippet for HTMX target
-
-        html = render_template_string(
-            """
-            <div class="grid grid-cols-2 gap-4">
-              <div class="bg-green-50 border border-green-200 p-4 rounded">Processed <b>{{ total_skus }}</b> SKUs.</div>
-              <div class="bg-blue-50 border border-blue-200 p-4 rounded">On-Hand: <b>{{ total_weight | round(0) }} lb</b></div>
-              <div class="bg-amber-50 border border-amber-200 p-4 rounded">Cost: <b>${{ '{:,.0f}'.format(total_cost) }}</b></div>
-              <div class="bg-indigo-50 border border-indigo-200 p-4 rounded">Avg WOH: <b>{{ '{:.1f}'.format(avg_woh) }} wks</b></div>
-            </div>
-            {% if run_id %}
-            <div class="mt-3 text-sm text-gray-600">Saved as run ID <b>{{ run_id }}</b>.</div>
-            {% endif %}
-            """,
-            total_skus=total_skus,
-            total_weight=total_weight,
-            total_cost=total_cost,
-            avg_woh=avg_woh,
-            run_id=run_id,
-        )
-        return html
-    except Exception as e:
-        return jsonify({"error": str(e)}), 400
-
-
-@bp.get("/kpis")
-def kpis():
-    st = get_state()
-    df = st.sku_stats
-    if df is None or df.empty:
-        return jsonify({"error": "No data processed yet"}), 404
-    result = {
-        "total_skus": int(df["SKU"].nunique()),
-        "total_weight_lb": float(df.get("OnHandWeightTotal", pd.Series(dtype=float)).sum()),
-        "total_cost": float(df.get("OnHandCostTotal", pd.Series(dtype=float)).sum()),
-        "avg_weeks_on_hand": float(df.get("WeeksOnHand", pd.Series(dtype=float)).mean()),
-        "avg_turns": float(df.get("AnnualTurns", pd.Series(dtype=float)).mean()),
-    }
-    return jsonify(result)
-
-
-@bp.get("/suppliers/top_cost")
-def suppliers_top_cost():
-    st = get_state()
-    df = st.sku_stats
-    if df is None or df.empty:
-        return jsonify([])
-    top = top_n_by_metric(df, "Supplier", "OnHandCostTotal", n=int(request.args.get("n", 10)))
-    return jsonify(top.to_dict(orient="records"))
-
-
-@bp.get("/holding_cost/top")
-def holding_cost_top():
-    st = get_state()
-    hc = st.holding_cost
-    if hc is None or hc.empty:
-        return jsonify([])
-    n = int(request.args.get("n", 10))
-    top = hc.groupby("SKU_Desc", as_index=False)["TotalHoldingCost"].sum().nlargest(n, "TotalHoldingCost")
-    return jsonify(top.to_dict(orient="records"))
-
-
-@bp.get("/quadrants")
-def quadrants():
-    st = get_state()
-    df = st.sku_stats
-    if df is None or df.empty:
-        return jsonify({})
-    df_q, xm, ym = quadrantify(df.rename(columns={"TotalUsage": "X", "OnHandWeightTotal": "Y"}), "X", "Y")
-    counts = df_q.groupby("Quadrant").size().to_dict()
-    return jsonify({"xm": xm, "ym": ym, "counts": counts})
-
-
-@bp.get("/svsi")
-def svsi():
-    """Return sample points for Usage (X) vs On-Hand (Y) with labels.
-    Limits to top-N by cost for visualization purposes.
-    """
-    st = get_state()
-    df = st.sku_stats
-    if df is None or df.empty:
-        return jsonify([])
-    n = int(request.args.get("n", 300))
-    df = df.copy()
-    df["X"] = df.get("TotalUsage", 0)
-    df["Y"] = df.get("OnHandWeightTotal", 0)
-    df["Cost"] = df.get("OnHandCostTotal", 0)
-    df["Label"] = df.get("SKU_Desc", df.get("SKU", "").astype(str))
-    top = df.nlargest(n, "Cost")[["X", "Y", "Cost", "Label", "Supplier", "Protein"]]
-    return jsonify(top.to_dict(orient="records"))
-
-
-@bp.get("/insights")
-def insights():
-    st = get_state()
-    df = st.sku_stats
-    if df is None or df.empty:
-        return jsonify({"error": "No data processed yet"}), 404
-    total_skus = int(df["SKU"].nunique())
-    total_weight = float(df.get("OnHandWeightTotal", 0).sum())
-    total_cost = float(df.get("OnHandCostTotal", 0).sum())
-    avg_woh = float(df.get("WeeksOnHand", 0).mean())
-    med_woh = float(df.get("WeeksOnHand", 0).median())
-    avg_turns = float(df.get("AnnualTurns", 0).mean())
-    med_turns = float(df.get("AnnualTurns", 0).median())
-    at_risk = int((df.get("WeeksOnHand", 0) < 1).sum())
-    healthy = total_skus - at_risk
-    return jsonify(
-        {
-            "total_skus": total_skus,
-            "total_weight_lb": total_weight,
-            "total_cost": total_cost,
-            "avg_woh": avg_woh,
-            "med_woh": med_woh,
-            "avg_turns": avg_turns,
-            "med_turns": med_turns,
-            "at_risk_skus": at_risk,
-            "healthy_skus": healthy,
-        }
-    )
-
-
-@bp.get("/insights/abc")
-def insights_abc():
-    st = get_state()
-    hc = st.holding_cost
-    if hc is None or hc.empty or "ABC" not in hc.columns or "InventoryValue" not in hc.columns:
-        return jsonify([])
-    abc_df = hc.groupby("ABC", as_index=False).agg(Value=("InventoryValue", "sum"))
-    return jsonify(abc_df.to_dict(orient="records"))
-
-
-@bp.get("/insights/cost_by_protein")
-def insights_cost_by_protein():
-    st = get_state()
-    df = st.sku_stats
-    if df is None or df.empty or "Protein" not in df.columns or "OnHandCostTotal" not in df.columns:
-        return jsonify([])
-    agg = df.groupby("Protein", as_index=False).agg(TotalCost=("OnHandCostTotal", "sum"))
-    return jsonify(agg.to_dict(orient="records"))
-
-
-@bp.get("/insights/cost_vs_woh")
-def insights_cost_vs_woh():
-    st = get_state()
-    df = st.sku_stats
-    if df is None or df.empty:
-        return jsonify([])
-    d = df.copy()
-    d = d[["SKU_Desc", "WeeksOnHand", "OnHandCostTotal", "Protein"]].dropna()
-    d = d.rename(columns={"SKU_Desc": "Label", "OnHandCostTotal": "Cost"})
-    # limit to 400 points by cost
-    d = d.nlargest(400, "Cost")
-    return jsonify(d.to_dict(orient="records"))
-
-
-@bp.get("/purchase_plan")
-def purchase_plan():
-    st = get_state()
-    df = st.sku_stats
-    if df is None or df.empty:
-        return jsonify({"error": "No data processed yet"}), 404
-    prod_detail = st.raw_sheets.get("Product Detail") if st.raw_sheets else None
-    desired = float(request.args.get("woh", 4.0))
-    plan = parent_purchase_plan(df, prod_detail, desired_woh=desired)
-    plan = plan[plan["PacksToOrder"] > 0]
-    return jsonify(plan.to_dict(orient="records"))
+    except ValueError as exc:
+        return jsonify({"error": str(exc)}), 400
+    except Exception as exc:                            # pragma: no cover - defensive
+        return jsonify({"error": f"Could not process that workbook: {exc}"}), 400
+    return jsonify(scalars(summary))
 
 
 @bp.get("/runs")
-def runs_list():
-    return jsonify(list_runs())
+def runs():
+    return jsonify(rows(pd.DataFrame(list_runs())))
 
 
-@bp.post("/runs/load")
-def runs_load():
-    run_id = int(request.args.get("run_id")) if request.args.get("run_id") else None
-    if not run_id:
-        return jsonify({"error": "run_id is required"}), 400
-    sku_stats, holding_cost, params = load_run(run_id)
-    set_state(sku_stats=sku_stats, holding_cost=holding_cost)
-    set_state(holding_cost_params=params)
-    return jsonify({"loaded_run": run_id})
+@bp.get("/parameters")
+def parameters_get():
+    model = current_model()
+    overrides = getattr(get_state(), "param_overrides", {}) or {}
+    return jsonify({
+        "params": model.params if model else {},
+        "overrides": overrides,
+        "as_of": model.as_of.date().isoformat() if model else None,
+    })
 
 
-@bp.get("/holding_cost/config")
-def get_hc_config():
-    st = get_state()
-    return jsonify(st.holding_cost_params)
+@bp.post("/parameters")
+def parameters_set():
+    """Change a planning parameter and rebuild the analysis from the same data.
+
+    Rebuilding rather than patching: a service level change moves z, which moves
+    safety stock, the reorder point, every order quantity, the excess threshold
+    and therefore the action register. Recomputing the whole model is the only
+    version of this that stays consistent.
+    """
+    model, error = model_or_404()
+    if error:
+        return error
+
+    payload = request.get_json(silent=True) or dict(request.form or {})
+    overrides = dict(getattr(get_state(), "param_overrides", {}) or {})
+    for key, value in payload.items():
+        try:
+            overrides[str(key)] = float(value)
+        except (TypeError, ValueError):
+            return jsonify({"error": f"{key} must be a number."}), 400
+
+    set_state(param_overrides=overrides)
+    sheets = {
+        "Item Master": model.items,
+        "Supplier Master": model.suppliers,
+        "Network Nodes": model.nodes,
+        "Demand History": model.demand,
+        "Inventory Snapshot": model.inventory,
+        "Purchase Orders": model.purchase_orders,
+        "Cycle Counts": model.count_variance,
+        "Inventory Adjustments": model.adjustments,
+        "Planning Parameters": pd.DataFrame(
+            [{"Parameter": k, "Value": v} for k, v in model.params.items()]
+        ),
+    }
+    summary = ingest_sheets(sheets, persist=False)
+    return jsonify(scalars(summary))
 
 
-@bp.post("/holding_cost/config")
-def set_hc_config():
-    data = request.get_json(silent=True) or dict(request.form or {})
-    st = get_state()
-    params = st.holding_cost_params.copy()
-    for k in ("rc", "sa", "spc", "rr"):
-        if k in data:
-            params[k] = float(data[k])
-    set_state(holding_cost_params=params)
-    return jsonify(params)
+# --------------------------------------------------------------------------
+# 1. Inventory overview
+# --------------------------------------------------------------------------
+@bp.get("/overview")
+def overview():
+    model, error = model_or_404()
+    if error:
+        return error
+    return jsonify(scalars(model.headline))
 
 
-@bp.get("/download/purchase_plan.csv")
-def download_purchase_plan_csv():
-    st = get_state()
-    df = st.sku_stats
-    if df is None or df.empty:
-        return jsonify({"error": "No data processed yet"}), 404
-    desired = float(request.args.get("woh", 4.0))
-    prod_detail = st.raw_sheets.get("Product Detail") if st.raw_sheets else None
-    plan = parent_purchase_plan(df, prod_detail, desired_woh=desired)
-    plan = plan[plan["PacksToOrder"] > 0]
-    csv = plan.to_csv(index=False)
-    return (
-        csv,
-        200,
+@bp.get("/overview/value_by")
+def overview_value_by():
+    model, error = model_or_404()
+    if error:
+        return error
+    dimension = request.args.get("dim", "Department")
+    if dimension not in model.ageing.columns:
+        return jsonify({"error": f"Unknown dimension {dimension!r}."}), 400
+    return jsonify(rows(working_capital.value_by_dimension(
+        model.ageing, dimension, params=model.params
+    )))
+
+
+@bp.get("/overview/trend")
+def overview_trend():
+    model, error = model_or_404()
+    if error:
+        return error
+    return jsonify(rows(model.trend))
+
+
+@bp.get("/overview/carrying")
+def overview_carrying():
+    model, error = model_or_404()
+    if error:
+        return error
+    return jsonify(rows(model.carrying))
+
+
+@bp.get("/overview/abc")
+def overview_abc():
+    model, error = model_or_404()
+    if error:
+        return error
+    if model.segments.empty:
+        return jsonify(rows(None))
+    grouped = (
+        model.segments.groupby("ABCClass", as_index=False)
+        .agg(
+            SKUCount=("SKU", "nunique"),
+            InventoryValueUSD=("InventoryValueUSD", "sum"),
+            AnnualConsumptionValueUSD=("AnnualConsumptionValueUSD", "sum"),
+        )
+        .sort_values("ABCClass")
+    )
+    return jsonify(rows(grouped))
+
+
+# --------------------------------------------------------------------------
+# 2. Demand and forecasting
+# --------------------------------------------------------------------------
+@bp.get("/demand/history")
+def demand_history():
+    """Actual shipments by week, optionally for one SKU, node or department."""
+    model, error = model_or_404()
+    if error:
+        return error
+
+    frame = model.demand.merge(
+        model.items[["SKU", "Department", "Category"]], on="SKU", how="left"
+    )
+    frame = _filtered(frame, ("SKU", "NodeID", "Department", "Category"))
+    grain = request.args.get("grain", "week")
+    key = frame["WeekEnding"].dt.to_period("M").dt.to_timestamp() if grain == "month" \
+        else frame["WeekEnding"]
+    out = (
+        frame.assign(Period=key)
+        .groupby("Period", as_index=False)
+        .agg(
+            UnitsShipped=("UnitsShipped", "sum"),
+            UnitsRequested=("UnitsRequested", "sum"),
+            NetSalesUSD=("NetSalesUSD", "sum"),
+        )
+        .sort_values("Period")
+    )
+    out["FillRatePct"] = out["UnitsShipped"] / out["UnitsRequested"].replace(0, np.nan)
+    return jsonify(rows(out))
+
+
+@bp.get("/demand/actual_vs_forecast")
+def demand_actual_vs_forecast():
+    """Out-of-sample fitted history plus the forward forecast, in one series."""
+    model, error = model_or_404()
+    if error:
+        return error
+
+    sku = request.args.get("SKU") or request.args.get("sku")
+    department = request.args.get("Department")
+
+    fit = model.forecast_fit
+    forward = model.forecast
+    if sku:
+        fit = fit[fit["SKU"] == sku]
+        forward = forward[forward["SKU"] == sku]
+    elif department:
+        members = set(model.items.loc[model.items["Department"] == department, "SKU"])
+        fit = fit[fit["SKU"].isin(members)]
+        forward = forward[forward["SKU"].isin(members)]
+
+    history = (
+        fit.groupby("WeekEnding", as_index=False)
+        .agg(ActualUnits=("ActualUnits", "sum"), ForecastUnits=("ForecastUnits", "sum"))
+        .sort_values("WeekEnding")
+    )
+    history["Series"] = "Backtest"
+    ahead = (
+        forward.groupby("WeekEnding", as_index=False)
+        .agg(ForecastUnits=("ForecastUnits", "sum"))
+        .sort_values("WeekEnding")
+    )
+    ahead["ActualUnits"] = np.nan
+    ahead["Series"] = "Forecast"
+    combined = pd.concat([history, ahead], ignore_index=True)
+
+    actual = history["ActualUnits"].to_numpy()
+    predicted = history["ForecastUnits"].to_numpy()
+    denominator = float(np.abs(actual).sum())
+    return jsonify({
+        **rows(combined),
+        "accuracy": 1.0 - float(np.abs(actual - predicted).sum()) / denominator
+        if denominator > 0 else None,
+        "bias": float((predicted - actual).sum()) / denominator if denominator > 0 else None,
+    })
+
+
+@bp.get("/demand/skus")
+def demand_skus():
+    model, error = model_or_404()
+    if error:
+        return error
+    if model.segments.empty:
+        return jsonify(rows(None))
+    columns = [c for c in ("SKU", "ItemDescription", "Department", "Category", "ABCClass",
+                           "XYZClass", "MovementClass", "WeeklyDemand", "ForecastWeekly",
+                           "Method", "MethodLabel", "ForecastAccuracy", "Bias",
+                           "CoefficientOfVariation") if c in model.segments.columns]
+    frame = _filtered(model.segments[columns], ("Department", "ABCClass", "XYZClass", "Method"))
+    frame = frame.sort_values(["WeeklyDemand", "SKU"], ascending=[False, True], kind="stable")
+    return jsonify(rows(frame, limit=int(request.args.get("limit", 400))))
+
+
+@bp.get("/demand/method_mix")
+def demand_method_mix():
+    """Which model won, how often, and how accurate it was.
+
+    The honest version of a forecasting page: if a four-week moving average
+    wins on a third of the catalogue, the page should say so rather than
+    quietly running something more impressive underneath.
+    """
+    model, error = model_or_404()
+    if error:
+        return error
+    if model.forecast_summary.empty:
+        return jsonify(rows(None))
+    mix = (
+        model.forecast_summary.groupby(["Method", "MethodLabel"], as_index=False)
+        .agg(
+            SKUCount=("SKU", "nunique"),
+            MedianAccuracy=("ForecastAccuracy", "median"),
+            MedianMASE=("MASE", "median"),
+            WeeklyUnits=("ForecastWeekly", "sum"),
+        )
+        .sort_values("SKUCount", ascending=False)
+    )
+    return jsonify(rows(mix))
+
+
+@bp.get("/demand/seasonality")
+def demand_seasonality():
+    """Monthly demand index by department: mean 1.0 within each department."""
+    model, error = model_or_404()
+    if error:
+        return error
+    frame = model.demand.merge(model.items[["SKU", "Department"]], on="SKU", how="left")
+    frame["Month"] = frame["WeekEnding"].dt.month
+    grouped = frame.groupby(["Department", "Month"], as_index=False)["UnitsShipped"].sum()
+    totals = grouped.groupby("Department")["UnitsShipped"].transform("mean")
+    grouped["SeasonalIndex"] = grouped["UnitsShipped"] / totals.replace(0, np.nan)
+    return jsonify(rows(grouped))
+
+
+@bp.get("/demand/bias")
+def demand_bias():
+    """Where the forecast leans, and by how much."""
+    model, error = model_or_404()
+    if error:
+        return error
+    if model.forecast_summary.empty:
+        return jsonify(rows(None))
+    frame = model.forecast_summary.merge(
+        model.items[["SKU", "ItemDescription", "Department"]], on="SKU", how="left"
+    )
+    frame = frame[frame["Bias"].notna()]
+    frame["BiasDirection"] = np.select(
+        [frame["Bias"] > 0.10, frame["Bias"] < -0.10],
+        ["Over-forecast", "Under-forecast"],
+        default="Within 10%",
+    )
+    frame["AbsBias"] = frame["Bias"].abs()
+    frame = frame.sort_values(["AbsBias", "SKU"], ascending=[False, True], kind="stable")
+    return jsonify(rows(frame[[
+        "SKU", "ItemDescription", "Department", "Method", "MethodLabel", "Bias",
+        "AbsBias", "BiasDirection", "ForecastAccuracy", "TrackingSignal", "ForecastWeekly",
+    ]], limit=int(request.args.get("limit", 300))))
+
+
+# --------------------------------------------------------------------------
+# 3. Replenishment planner
+# --------------------------------------------------------------------------
+PLAN_COLUMNS = [
+    "SKU", "ItemDescription", "Department", "NodeID", "ABCClass", "XYZClass",
+    "SupplierID", "OnHandUnits", "ReservedUnits", "InTransitUnits", "InventoryPosition",
+    "PlannedWeeklyDemand", "DailyDemand", "DailyStdDev", "LeadTimeDaysActual",
+    "LeadTimeDaysStdDev", "LeadTimeDaysContract", "ServiceLevelTarget", "SafetyFactorZ",
+    "SafetyStockUnits", "ReorderPointUnits", "ReorderPointOnContract", "EOQUnits",
+    "OrderUpToUnits", "RecommendedOrderUnits", "RecommendedOrderValue", "DaysOfCover",
+    "WeeksOfCover", "StockoutRisk", "ExpectedUnitsShort", "StockoutExposureUSD",
+    "UnitCost", "CasePack", "Urgency",
+]
+
+
+def _plan_frame(model) -> pd.DataFrame:
+    frame = model.plan[[c for c in PLAN_COLUMNS if c in model.plan.columns]]
+    frame = _filtered(frame, ("NodeID", "ABCClass", "XYZClass", "Department", "Urgency",
+                              "SupplierID", "SKU"))
+    if request.args.get("due") == "1":
+        frame = frame[frame["RecommendedOrderUnits"] > 0]
+    return frame
+
+
+@bp.get("/replenishment/plan")
+def replenishment_plan():
+    model, error = model_or_404()
+    if error:
+        return error
+    frame = _plan_frame(model).sort_values(
+        ["StockoutExposureUSD", "SKU"], ascending=[False, True], kind="stable"
+    )
+    return jsonify(rows(frame, limit=int(request.args.get("limit", 300))))
+
+
+@bp.get("/replenishment/summary")
+def replenishment_summary():
+    model, error = model_or_404()
+    if error:
+        return error
+    plan = model.plan
+    due = plan[plan["RecommendedOrderUnits"] > 0]
+    return jsonify(scalars({
+        "LinesPlanned": int(len(plan)),
+        "LinesDue": int(len(due)),
+        "OrderValueUSD": float(due["RecommendedOrderValue"].sum()),
+        "OrderUnits": float(due["RecommendedOrderUnits"].sum()),
+        "SafetyStockUnits": float(plan["SafetyStockUnits"].sum()),
+        "SafetyStockValueUSD": float((plan["SafetyStockUnits"] * plan["UnitCost"]).sum()),
+        "StockoutExposureUSD": float(plan["StockoutExposureUSD"].sum()),
+        "StockedOut": int((plan["Urgency"] == "Stocked out").sum()),
+        "BelowSafety": int((plan["Urgency"] == "Below safety stock").sum()),
+        "AtReorderPoint": int((plan["Urgency"] == "At reorder point").sum()),
+        "Healthy": int((plan["Urgency"] == "Healthy").sum()),
+        "MeanLeadTimeDays": float(plan["LeadTimeDaysActual"].mean()),
+        # What planning on the contract instead of on receipts would cost: the
+        # safety stock the two lead times disagree about, priced.
+        "ContractGapUnits": float(
+            (plan["ReorderPointUnits"] - plan["ReorderPointOnContract"]).sum()
+        ),
+        "ContractGapValueUSD": float(
+            ((plan["ReorderPointUnits"] - plan["ReorderPointOnContract"]) * plan["UnitCost"]).sum()
+        ),
+    }))
+
+
+@bp.get("/replenishment/urgency")
+def replenishment_urgency():
+    model, error = model_or_404()
+    if error:
+        return error
+    grouped = (
+        model.plan.groupby("Urgency", as_index=False)
+        .agg(
+            Lines=("SKU", "size"),
+            OrderValueUSD=("RecommendedOrderValue", "sum"),
+            ExposureUSD=("StockoutExposureUSD", "sum"),
+        )
+    )
+    return jsonify(rows(grouped))
+
+
+@bp.get("/replenishment/eoq")
+def replenishment_eoq():
+    model, error = model_or_404()
+    if error:
+        return error
+    frame = _filtered(model.eoq, ("Department", "ABCClass", "SKU"))
+    return jsonify(rows(frame, limit=int(request.args.get("limit", 200))))
+
+
+@bp.get("/replenishment/service_curve")
+def replenishment_service_curve():
+    model, error = model_or_404()
+    if error:
+        return error
+    return jsonify(rows(model.service_curve))
+
+
+@bp.get("/download/replenishment.csv")
+def download_replenishment_csv():
+    model, error = model_or_404()
+    if error:
+        return error
+    return _csv(_plan_frame(model), "replenishment_plan.csv")
+
+
+@bp.get("/download/replenishment.xlsx")
+def download_replenishment_xlsx():
+    model, error = model_or_404()
+    if error:
+        return error
+    return _xlsx(
         {
-            "Content-Type": "text/csv",
-            "Content-Disposition": "attachment; filename=purchase_plan.csv",
+            "Replenishment": _plan_frame(model),
+            "EOQ": model.eoq,
+            "Service levels": model.service_curve,
         },
+        "replenishment_plan.xlsx",
     )
 
 
-@bp.get("/download/purchase_plan.xlsx")
-def download_purchase_plan_xlsx():
-    st = get_state()
-    df = st.sku_stats
-    if df is None or df.empty:
-        return jsonify({"error": "No data processed yet"}), 404
-    desired = float(request.args.get("woh", 4.0))
-    prod_detail = st.raw_sheets.get("Product Detail") if st.raw_sheets else None
-    plan = parent_purchase_plan(df, prod_detail, desired_woh=desired)
-    plan = plan[plan["PacksToOrder"] > 0]
-    import io
-    with io.BytesIO() as buf:
-        with pd.ExcelWriter(buf, engine="openpyxl") as writer:
-            plan.to_excel(writer, sheet_name="PurchasePlan", index=False)
-        data = buf.getvalue()
-    return (
-        data,
-        200,
-        {
-            "Content-Type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-            "Content-Disposition": "attachment; filename=purchase_plan.xlsx",
-        },
+# --------------------------------------------------------------------------
+# 4. SKU health
+# --------------------------------------------------------------------------
+@bp.get("/health/pareto")
+def health_pareto():
+    model, error = model_or_404()
+    if error:
+        return error
+    curve = segmentation.pareto_curve(model.segments)
+    return jsonify(rows(curve, limit=int(request.args.get("limit", 500))))
+
+
+@bp.get("/health/matrix")
+def health_matrix():
+    model, error = model_or_404()
+    if error:
+        return error
+    return jsonify(rows(segmentation.abc_xyz_matrix(model.segments)))
+
+
+@bp.get("/health/ageing")
+def health_ageing():
+    model, error = model_or_404()
+    if error:
+        return error
+    dimension = request.args.get("dim")
+    if dimension and dimension not in model.ageing.columns:
+        return jsonify({"error": f"Unknown dimension {dimension!r}."}), 400
+    return jsonify(rows(ageing_mod.ageing_by_bucket(model.ageing, dimension)))
+
+
+@bp.get("/health/dead_stock")
+def health_dead_stock():
+    model, error = model_or_404()
+    if error:
+        return error
+    frame = _filtered(
+        ageing_mod.dead_stock_register(model.ageing),
+        ("Department", "NodeID", "ABCClass", "HealthFlag"),
     )
+    return jsonify(rows(frame, limit=int(request.args.get("limit", 300))))
+
+
+@bp.get("/health/summary")
+def health_summary():
+    model, error = model_or_404()
+    if error:
+        return error
+    aged = model.ageing
+    segments = model.segments
+    return jsonify(scalars({
+        "SKUCount": int(segments["SKU"].nunique()) if not segments.empty else 0,
+        "DeadStockSKUs": int(aged.loc[aged["IsDeadStock"], "SKU"].nunique()),
+        "DeadStockValueUSD": float(aged.loc[aged["IsDeadStock"], "InventoryValueUSD"].sum()),
+        "SlowMovingSKUs": int(aged.loc[aged["IsSlowMoving"], "SKU"].nunique()),
+        "SlowMovingValueUSD": float(aged.loc[aged["IsSlowMoving"], "InventoryValueUSD"].sum()),
+        "ExcessValueUSD": float(aged["ExcessValueUSD"].sum()),
+        "EOReserveUSD": float(aged["EOReserveUSD"].sum()),
+        "Over180DaysValueUSD": float(
+            aged.loc[aged["AgeDays"] > 180, "InventoryValueUSD"].sum()
+        ),
+        "CriticalSKUs": int(segments["IsCritical"].sum()) if not segments.empty else 0,
+        "AClassShareOfValue": float(
+            segments.loc[segments["ABCClass"] == "A", "AnnualConsumptionValueUSD"].sum()
+            / max(segments["AnnualConsumptionValueUSD"].sum(), 1.0)
+        ) if not segments.empty else None,
+        "AClassShareOfSKUs": float(
+            (segments["ABCClass"] == "A").mean()
+        ) if not segments.empty else None,
+    }))
+
+
+@bp.get("/health/movement")
+def health_movement():
+    model, error = model_or_404()
+    if error:
+        return error
+    grouped = (
+        model.segments.groupby("MovementClass", as_index=False)
+        .agg(
+            SKUCount=("SKU", "nunique"),
+            InventoryValueUSD=("InventoryValueUSD", "sum"),
+            AnnualConsumptionValueUSD=("AnnualConsumptionValueUSD", "sum"),
+        )
+    )
+    return jsonify(rows(grouped))
+
+
+@bp.get("/download/sku_health.csv")
+def download_sku_health_csv():
+    model, error = model_or_404()
+    if error:
+        return error
+    return _csv(model.segments, "sku_health.csv")
+
+
+# --------------------------------------------------------------------------
+# 5. Network and suppliers
+# --------------------------------------------------------------------------
+@bp.get("/network/nodes")
+def network_nodes():
+    model, error = model_or_404()
+    if error:
+        return error
+    return jsonify(rows(model.node_summary))
+
+
+@bp.get("/network/transfers")
+def network_transfers():
+    model, error = model_or_404()
+    if error:
+        return error
+    frame = _filtered(model.transfers, ("FromNode", "ToNode", "Department", "ABCClass", "SKU"))
+    return jsonify(rows(frame, limit=int(request.args.get("limit", 200))))
+
+
+@bp.get("/network/balance")
+def network_balance():
+    """Cover per node for one SKU, or the worst-imbalanced SKUs across the network."""
+    model, error = model_or_404()
+    if error:
+        return error
+    sku = request.args.get("SKU") or request.args.get("sku")
+    frame = model.balance
+    if sku:
+        frame = frame[frame["SKU"] == sku]
+    else:
+        spread = (
+            frame.groupby("SKU")["CoverGapWeeks"]
+            .agg(lambda s: float(s.max() - s.min()))
+            .sort_values(ascending=False)
+        )
+        frame = frame[frame["SKU"].isin(spread.head(25).index)]
+    columns = [c for c in ("SKU", "ItemDescription", "NodeID", "ABCClass", "OnHandUnits",
+                           "InventoryPosition", "WeeksOfCover", "NetworkDaysOfCover",
+                           "CoverGapWeeks", "DeficitUnits", "SurplusUnits", "Urgency")
+               if c in frame.columns]
+    return jsonify(rows(frame[columns].sort_values(
+        ["SKU", "NodeID"], kind="stable"
+    ), limit=int(request.args.get("limit", 400))))
+
+
+@bp.get("/suppliers/scorecard")
+def suppliers_scorecard():
+    model, error = model_or_404()
+    if error:
+        return error
+    return jsonify(rows(_filtered(model.scorecard, ("SupplierID", "Grade", "Country"))))
+
+
+@bp.get("/suppliers/open_pos")
+def suppliers_open_pos():
+    model, error = model_or_404()
+    if error:
+        return error
+    frame = _filtered(model.open_pos, ("SupplierID", "NodeID", "SKU"))
+    if request.args.get("overdue") == "1":
+        frame = frame[frame["IsOverdue"]]
+    frame = frame.sort_values(["DaysLate", "PONumber"], ascending=[False, True], kind="stable")
+    return jsonify(rows(frame, limit=int(request.args.get("limit", 300))))
+
+
+@bp.get("/suppliers/lead_time_gap")
+def suppliers_lead_time_gap():
+    """Contracted lead time against delivered, per supplier."""
+    model, error = model_or_404()
+    if error:
+        return error
+    if model.scorecard.empty:
+        return jsonify(rows(None))
+    columns = [c for c in ("SupplierID", "SupplierName", "Country", "LeadTimeDaysContract",
+                           "LeadTimeDaysActual", "LeadTimeDaysStdDev", "LeadTimeDaysP95",
+                           "LeadTimeGapDays", "OnTimePct", "Grade", "POLines")
+               if c in model.scorecard.columns]
+    frame = model.scorecard[columns].sort_values(
+        ["LeadTimeGapDays", "SupplierID"], ascending=[False, True], kind="stable"
+    )
+    return jsonify(rows(frame))
+
+
+@bp.get("/download/transfers.csv")
+def download_transfers_csv():
+    model, error = model_or_404()
+    if error:
+        return error
+    return _csv(model.transfers, "transfer_plan.csv")
+
+
+# --------------------------------------------------------------------------
+# 6. Accuracy and actions
+# --------------------------------------------------------------------------
+@bp.get("/accuracy/summary")
+def accuracy_summary():
+    model, error = model_or_404()
+    if error:
+        return error
+    dimension = request.args.get("dim")
+    if dimension and dimension not in model.count_variance.columns:
+        return jsonify({"error": f"Unknown dimension {dimension!r}."}), 400
+    return jsonify(rows(accuracy_mod.accuracy_summary(model.count_variance, dimension)))
+
+
+@bp.get("/accuracy/reasons")
+def accuracy_reasons():
+    model, error = model_or_404()
+    if error:
+        return error
+    return jsonify(rows(accuracy_mod.variance_by_reason(model.count_variance)))
+
+
+@bp.get("/accuracy/waterfall")
+def accuracy_waterfall():
+    """Bridge book value to physical value over a window, not over all history.
+
+    The window matters. Run over eighteen months of receipts and shipments the
+    bridge opens at two and a half times what the business closes at, which is
+    arithmetically correct and useless: nobody reconciles a year and a half in
+    one step. Thirteen weeks is a quarter, which is what gets signed off.
+    """
+    model, error = model_or_404()
+    if error:
+        return error
+    weeks = max(int(request.args.get("weeks", 13)), 1)
+    since = model.as_of - pd.Timedelta(weeks=weeks)
+
+    cost = dict(zip(model.items["SKU"], model.items["UnitCost"], strict=True))
+    demand = model.demand[model.demand["WeekEnding"] > since]
+    cogs = float((demand["UnitsShipped"] * demand["SKU"].map(cost).fillna(0.0)).sum())
+
+    received = model.purchase_orders
+    received = received[received["ReceivedDate"] > since] if not received.empty else received
+    receipts = float((received["QtyReceived"] * received["UnitCost"]).sum()) if not received.empty \
+        else 0.0
+
+    adjustments = model.adjustments
+    if not adjustments.empty:
+        adjustments = adjustments[adjustments["AdjustmentDate"] > since]
+
+    frame = accuracy_mod.shrinkage_waterfall(
+        adjustments,
+        float(model.inventory["InventoryValueUSD"].sum()),
+        cogs,
+        receipts,
+    )
+    return jsonify({**rows(frame), "weeks": weeks,
+                    "since": since.date().isoformat()})
+
+
+@bp.get("/accuracy/coverage")
+def accuracy_coverage():
+    model, error = model_or_404()
+    if error:
+        return error
+    return jsonify(rows(accuracy_mod.count_coverage(
+        model.inventory, model.count_variance, model.as_of
+    )))
+
+
+@bp.get("/actions/register")
+def actions_register():
+    model, error = model_or_404()
+    if error:
+        return error
+    frame = _filtered(model.register, ("Action", "NodeID", "Department", "ABCClass", "SKU"))
+    return jsonify(rows(frame, limit=int(request.args.get("limit", 200))))
+
+
+@bp.get("/actions/summary")
+def actions_summary():
+    model, error = model_or_404()
+    if error:
+        return error
+    return jsonify(rows(actions_mod.register_summary(model.register)))
+
+
+@bp.get("/download/actions.csv")
+def download_actions_csv():
+    model, error = model_or_404()
+    if error:
+        return error
+    return _csv(model.register, "action_register.csv")
 
 
 @bp.get("/download/report.xlsx")
 def download_report_xlsx():
-    st = get_state()
-    if st.sku_stats is None or st.holding_cost is None:
-        return jsonify({"error": "No data processed yet"}), 404
-    import io
-    with io.BytesIO() as buf:
-        with pd.ExcelWriter(buf, engine="openpyxl") as writer:
-            st.sku_stats.to_excel(writer, sheet_name="Inventory", index=False)
-            st.holding_cost.to_excel(writer, sheet_name="HoldingCost", index=False)
-        data = buf.getvalue()
-    return (
-        data,
-        200,
+    """Everything, one sheet per report - the file that gets emailed."""
+    model, error = model_or_404()
+    if error:
+        return error
+    return _xlsx(
         {
-            "Content-Type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-            "Content-Disposition": "attachment; filename=inventory_report.xlsx",
+            "Actions": model.register,
+            "Replenishment": model.plan[[c for c in PLAN_COLUMNS if c in model.plan.columns]],
+            "SKU health": model.segments,
+            "Ageing": ageing_mod.dead_stock_register(model.ageing),
+            "Transfers": model.transfers,
+            "Suppliers": model.scorecard,
+            "Count variance": model.count_variance,
+            "Nodes": model.node_summary,
+            "Forecast": model.forecast_summary,
         },
-    )
-
-
-@bp.get("/download/top_suppliers.csv")
-def download_top_suppliers_csv():
-    st = get_state()
-    df = st.sku_stats
-    if df is None or df.empty:
-        return jsonify({"error": "No data processed yet"}), 404
-    n = int(request.args.get("n", 20))
-    top = top_n_by_metric(df, "Supplier", "OnHandCostTotal", n=n)
-    csv = top.to_csv(index=False)
-    return (
-        csv,
-        200,
-        {
-            "Content-Type": "text/csv",
-            "Content-Disposition": "attachment; filename=top_suppliers.csv",
-        },
-    )
-
-
-@bp.get("/turnover")
-def turnover():
-    st = get_state()
-    df = st.sku_stats
-    if df is None or df.empty or not st.raw_sheets:
-        return jsonify({"error": "No data processed yet"}), 404
-    sales = st.raw_sheets.get("Sales History")
-    if sales is None or sales.empty:
-        return jsonify([])
-
-    start = request.args.get("start")
-    end = request.args.get("end")
-    group = request.args.get("group", "product")  # product|supplier
-
-    s = sales.copy()
-    s["DateExpected"] = pd.to_datetime(s.get("DateExpected"), errors="coerce")
-    if start:
-        s = s[s["DateExpected"] >= pd.to_datetime(start)]
-    if end:
-        s = s[s["DateExpected"] <= pd.to_datetime(end)]
-
-    s["ShippedLb"] = pd.to_numeric(s.get("ShippedLb", 0), errors="coerce").fillna(0)
-
-    period_days = 1 + int((s["DateExpected"].max() - s["DateExpected"].min()).days) if not s["DateExpected"].dropna().empty else 28
-    period_weeks = max(period_days / 7.0, 1.0)
-
-    if group == "supplier":
-        usage = s.groupby("Supplier", as_index=False).agg(Usage=("ShippedLb", "sum"))
-        onhand = df.groupby("Supplier", as_index=False).agg(OnHand=("OnHandWeightTotal", "sum"))
-        merged = onhand.merge(usage, on="Supplier", how="left").fillna({"Usage": 0})
-        merged["PeriodTurnover"] = merged["Usage"] / merged["OnHand"].replace({0: pd.NA})
-        merged["AnnualizedTurnover"] = (merged["Usage"] * (52.0 / period_weeks)) / merged["OnHand"].replace({0: pd.NA})
-        merged = merged.fillna(0)
-        return jsonify({
-            "period_weeks": period_weeks,
-            "group": "supplier",
-            "items": merged.rename(columns={"Supplier": "key"}).to_dict(orient="records"),
-        })
-    else:
-        # product-level using SKU_Desc
-        usage = s.groupby("SKU", as_index=False).agg(Usage=("ShippedLb", "sum"))
-        onhand = df.groupby(["SKU", "SKU_Desc"], as_index=False).agg(OnHand=("OnHandWeightTotal", "sum"))
-        merged = onhand.merge(usage, on="SKU", how="left").fillna({"Usage": 0})
-        merged["PeriodTurnover"] = merged["Usage"] / merged["OnHand"].replace({0: pd.NA})
-        merged["AnnualizedTurnover"] = (merged["Usage"] * (52.0 / period_weeks)) / merged["OnHand"].replace({0: pd.NA})
-        merged = merged.fillna(0)
-        merged = merged.rename(columns={"SKU_Desc": "key"})
-        return jsonify({
-            "period_weeks": period_weeks,
-            "group": "product",
-            "items": merged[[
-                "SKU", "key", "OnHand", "Usage", "PeriodTurnover", "AnnualizedTurnover"
-            ]].to_dict(orient="records"),
-        })
-
-
-@bp.get("/supplier/trend/usage")
-def supplier_trend_usage():
-    st = get_state()
-    if not st.raw_sheets:
-        return jsonify([]), 404
-    sales = st.raw_sheets.get("Sales History")
-    if sales is None or sales.empty:
-        return jsonify([])
-    s = sales.copy()
-    s["DateExpected"] = pd.to_datetime(s.get("DateExpected"), errors="coerce")
-    s["ShippedLb"] = pd.to_numeric(s.get("ShippedLb", 0), errors="coerce").fillna(0)
-    start = request.args.get("start")
-    end = request.args.get("end")
-    supplier = request.args.get("supplier")
-    if start:
-        s = s[s["DateExpected"] >= pd.to_datetime(start)]
-    if end:
-        s = s[s["DateExpected"] <= pd.to_datetime(end)]
-    if supplier:
-        s = s[s.get("Supplier").astype(str) == supplier]
-    # group weekly
-    grp = (
-        s.groupby(pd.Grouper(key="DateExpected", freq="W"))["ShippedLb"].sum().reset_index()
-        .rename(columns={"DateExpected": "Week", "ShippedLb": "Usage"})
-    )
-    # format dates for JS
-    grp["Week"] = grp["Week"].dt.strftime("%Y-%m-%d")
-    return jsonify(grp.to_dict(orient="records"))
-
-
-@bp.get("/supplier/woh_distribution")
-def supplier_woh_distribution():
-    st = get_state()
-    df = st.sku_stats
-    if df is None or df.empty:
-        return jsonify([]), 404
-    supplier = request.args.get("supplier")
-    d = df.copy()
-    if supplier:
-        d = d[d.get("Supplier").astype(str) == supplier]
-    out = d[["WeeksOnHand"]].dropna()
-    return jsonify(out.to_dict(orient="records"))
-
-
-@bp.get("/movers/top_usage")
-def movers_top_usage():
-    st = get_state()
-    df = st.sku_stats
-    if df is None or df.empty:
-        return jsonify([])
-    q = float(request.args.get("q", 0.5))
-    dfm = classify_movement(df, quantile=q)
-    top = dfm.nlargest(10, "AvgWeeklyUsage")[
-        ["SKU_Desc", "AvgWeeklyUsage", "Supplier", "Protein"]
-    ]
-    return jsonify(top.to_dict(orient="records"))
-
-
-@bp.get("/movers/top_woh")
-def movers_top_woh():
-    st = get_state()
-    df = st.sku_stats
-    if df is None or df.empty:
-        return jsonify([])
-    q = float(request.args.get("q", 0.5))
-    dfm = classify_movement(df, quantile=q)
-    top = dfm.nlargest(10, "WeeksOnHand")[
-        ["SKU_Desc", "WeeksOnHand", "Supplier", "Protein"]
-    ]
-    return jsonify(top.to_dict(orient="records"))
-
-
-@bp.get("/movers/heatmap")
-def movers_heatmap():
-    st = get_state()
-    df = st.sku_stats
-    if df is None or df.empty:
-        return jsonify([])
-    q = float(request.args.get("q", 0.5))
-    dfm = classify_movement(df, quantile=q)
-    heat = dfm.groupby(["Supplier", "MovementClass"]).size().reset_index(name="Count")
-    return jsonify(heat.to_dict(orient="records"))
-
-
-@bp.get("/bins/summary")
-def bins_summary():
-    st = get_state()
-    if not st.raw_sheets:
-        return jsonify({"error": "No data processed yet"}), 404
-    df = prepare_bins_data(st.raw_sheets)
-    out = {
-        "total_packs": int(df["PackId1"].nunique()) if "PackId1" in df.columns else 0,
-        "total_weight": float(df.get("TotalWeight", 0).sum()) if "TotalWeight" in df.columns else 0,
-        "products": int(df.get("ProductDesc", pd.Series(dtype=object)).nunique()) if "ProductDesc" in df.columns else 0,
-        "bins": int(df.get("LastKnownBin", pd.Series(dtype=object)).nunique()) if "LastKnownBin" in df.columns else 0,
-        "locations": int(df.get("ProductLocation", pd.Series(dtype=object)).nunique()) if "ProductLocation" in df.columns else 0,
-    }
-    return jsonify(out)
-
-
-@bp.get("/bins/weight_by_protein")
-def bins_weight_by_protein():
-    st = get_state()
-    if not st.raw_sheets:
-        return jsonify([]), 404
-    df = prepare_bins_data(st.raw_sheets)
-    if "Protein" not in df.columns or "TotalWeight" not in df.columns:
-        return jsonify([])
-    agg = df.groupby("Protein", as_index=False)["TotalWeight"].sum().rename(columns={"TotalWeight": "TotalWeight"})
-    return jsonify(agg.to_dict(orient="records"))
-
-
-@bp.get("/bins/weight_by_location")
-def bins_weight_by_location():
-    st = get_state()
-    if not st.raw_sheets:
-        return jsonify([]), 404
-    df = prepare_bins_data(st.raw_sheets)
-    if "ProductLocation" not in df.columns or "TotalWeight" not in df.columns:
-        return jsonify([])
-    agg = df.groupby("ProductLocation", as_index=False)["TotalWeight"].sum()
-    return jsonify(agg.to_dict(orient="records"))
-
-
-@bp.get("/bins/download.csv")
-def bins_download_csv():
-    st = get_state()
-    if not st.raw_sheets:
-        return jsonify({"error": "No data processed yet"}), 404
-    df = prepare_bins_data(st.raw_sheets)
-    loc = request.args.get("location")
-    prot = request.args.get("protein")
-    if loc:
-        df = df[df.get("ProductLocation").astype(str) == loc]
-    if prot:
-        df = df[df.get("Protein").astype(str) == prot]
-    csv = df.to_csv(index=False)
-    return (
-        csv,
-        200,
-        {
-            "Content-Type": "text/csv",
-            "Content-Disposition": "attachment; filename=bins_detail.csv",
-        },
-    )
-
-
-@bp.get("/moves/fz_to_ext")
-def moves_fz_to_ext():
-    st = get_state()
-    df = st.sku_stats
-    if df is None or df.empty:
-        return jsonify([])
-    thr = float(request.args.get("threshold", 1.0))
-    out = compute_fz_to_ext_moves(df, desired_ext_woh=thr)
-    return jsonify(out.to_dict(orient="records"))
-
-
-@bp.get("/moves/ext_to_fz")
-def moves_ext_to_fz():
-    st = get_state()
-    df = st.sku_stats
-    if df is None or df.empty:
-        return jsonify([])
-    thr = float(request.args.get("threshold", 1.0))
-    out = compute_ext_to_fz_moves(df, desired_fz_woh=thr)
-    return jsonify(out.to_dict(orient="records"))
-
-
-@bp.get("/moves/download.xlsx")
-def moves_download_xlsx():
-    st = get_state()
-    df = st.sku_stats
-    if df is None or df.empty:
-        return jsonify({"error": "No data processed yet"}), 404
-    mtype = request.args.get("type", "fz_to_ext")
-    thr = float(request.args.get("threshold", 1.0))
-    data = compute_fz_to_ext_moves(df, thr) if mtype == "fz_to_ext" else compute_ext_to_fz_moves(df, thr)
-    import io
-    with io.BytesIO() as buf:
-        with pd.ExcelWriter(buf, engine="openpyxl") as writer:
-            data.to_excel(writer, sheet_name=mtype, index=False)
-        payload = buf.getvalue()
-    return (
-        payload,
-        200,
-        {
-            "Content-Type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-            "Content-Disposition": f"attachment; filename={mtype}.xlsx",
-        },
+        "inventory_analytics.xlsx",
     )

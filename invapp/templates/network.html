@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="stack">
+  <div id="kpi-network" class="kpis"><div class="loading">Loading&hellip;</div></div>
+
+  <div class="grid g2">
+    <div class="card">
+      <h2>Stock share against demand share</h2>
+      <p class="sub">
+        Each node's share of inventory value beside its share of national demand. A node
+        holding a quarter of the stock to serve a twentieth of the demand is the finding,
+        and it is invisible in either column on its own.
+      </p>
+      <div id="share-chart" class="chart"></div>
+    </div>
+    <div class="card">
+      <h2>Node scorecard</h2>
+      <div id="node-table"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Transfers worth making</h2>
+    <p class="sub">
+      A purchase order fixes a shortage in six weeks and costs the unit price; a transfer
+      fixes it in three days and costs freight. Only moves whose benefit clears their
+      freight by 1.5&times; appear here, and only in whole units above a minimum pick.
+    </p>
+    <div class="filters">
+      <label>From <select id="t-from"></select></label>
+      <label>To <select id="t-to"></select></label>
+      <a class="btn" href="/api/download/transfers.csv">Transfer plan CSV</a>
+    </div>
+    <div id="transfer-table"></div>
+  </div>
+
+  <div class="grid g-2-1">
+    <div class="card">
+      <h2>Supplier scorecard</h2>
+      <p class="sub">
+        On time 35%, fill rate 30%, quality 20%, lead-time reliability 15%. A perfect order
+        is on time <em>and</em> complete <em>and</em> clean &mdash; measured separately each
+        looks fine at 95%; multiplied, it is five times in six.
+      </p>
+      <div id="supplier-table"></div>
+    </div>
+    <div class="card">
+      <h2>Promised against delivered</h2>
+      <p class="sub">
+        Contracted lead time beside the mean actually delivered. Safety stock computed from
+        the left-hand bar is wrong by the gap.
+      </p>
+      <div id="lead-chart" class="chart tall"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Open purchase orders</h2>
+    <div class="filters">
+      <label>Supplier <select id="po-supplier"></select></label>
+      <label><input type="checkbox" id="po-overdue" checked /> overdue only</label>
+    </div>
+    <div id="po-table"></div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script type="module">
+  import { boot } from "{{ url_for('static', filename='js/core.js') }}";
+  import { render } from "{{ url_for('static', filename='js/network.js') }}";
+  boot(render);
+</script>
+{% endblock %}

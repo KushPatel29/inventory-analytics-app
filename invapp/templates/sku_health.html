@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="stack">
+  <div id="kpi-health" class="kpis"><div class="loading">Loading&hellip;</div></div>
+
+  <div class="grid g-2-1">
+    <div class="card">
+      <h2>Pareto: SKUs against consumption value</h2>
+      <p class="sub">
+        Cumulative share of annual consumption value, SKU by SKU, ranked. The two markers
+        are the 80% and 95% lines that split A from B from C.
+      </p>
+      <div id="pareto-chart" class="chart tall"></div>
+    </div>
+    <div class="card">
+      <h2>ABC &times; XYZ</h2>
+      <p class="sub">
+        Value down, forecastability across. Each cell carries the stock policy it implies,
+        which is the difference between a classification and a recommendation.
+      </p>
+      <div id="matrix"></div>
+    </div>
+  </div>
+
+  <div class="grid g2">
+    <div class="card">
+      <h2>Stock ageing</h2>
+      <div class="filters">
+        <label>Split by
+          <select id="age-dim">
+            <option value="">Whole network</option>
+            <option value="Department">Department</option>
+            <option value="NodeID">Node</option>
+            <option value="ABCClass">ABC class</option>
+          </select>
+        </label>
+      </div>
+      <div id="ageing-chart" class="chart"></div>
+    </div>
+    <div class="card">
+      <h2>How much is moving</h2>
+      <p class="sub">
+        Movement is judged on recency first and rate second. An item that averaged forty a
+        week for a year and has shipped nothing since April is dead stock, whatever the
+        average says.
+      </p>
+      <div id="movement-chart" class="chart"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Dead, slow and stranded</h2>
+    <p class="sub">
+      Judged per SKU <em>and node</em>. At catalogue level almost nothing is ever dead &mdash;
+      a national range ships something somewhere most weeks &mdash; while the stock actually
+      stranded is stranded in one building, usually on an item the rest of the network is
+      still selling.
+    </p>
+    <div class="filters">
+      <label>Node <select id="dead-node"></select></label>
+      <label>Department <select id="dead-dept"></select></label>
+      <label>Flag <select id="dead-flag"></select></label>
+      <a class="btn" href="/api/download/sku_health.csv">SKU health CSV</a>
+    </div>
+    <div id="dead-table"></div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script type="module">
+  import { boot } from "{{ url_for('static', filename='js/core.js') }}";
+  import { render } from "{{ url_for('static', filename='js/sku_health.js') }}";
+  boot(render);
+</script>
+{% endblock %}

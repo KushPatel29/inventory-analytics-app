@@ -23,28 +23,26 @@ from seed.generate_workbook import DEFAULT_OUT, generate  # noqa: E402
 import pandas as pd  # noqa: E402
 
 API_ENDPOINTS = [
-    "/api/kpis",
-    "/api/svsi",
-    "/api/inventory/summary",
-    "/api/movers/top_usage",
-    "/api/movers/top_woh",
-    "/api/insights",
-    "/api/insights/abc",
-    "/api/insights/cost_by_protein",
-    "/api/quadrants",
-    "/api/purchase_plan",
-    "/api/holding_cost/top",
-    "/api/bins/summary",
-    "/api/bins/weight_by_protein",
-    "/api/bins/weight_by_location",
-    "/api/suppliers/top_cost",
-    "/api/turnover",
-    "/api/moves/fz_to_ext",
-    "/api/moves/ext_to_fz",
-    "/api/supplier/woh_distribution",
+    "/api/overview", "/api/overview/trend", "/api/overview/carrying",
+    "/api/overview/abc", "/api/overview/value_by?dim=Department",
+    "/api/demand/history", "/api/demand/actual_vs_forecast",
+    "/api/demand/skus?limit=5", "/api/demand/method_mix",
+    "/api/demand/seasonality", "/api/demand/bias?limit=5",
+    "/api/replenishment/plan?limit=5", "/api/replenishment/summary",
+    "/api/replenishment/urgency", "/api/replenishment/eoq?limit=5",
+    "/api/replenishment/service_curve", "/api/health/pareto?limit=5",
+    "/api/health/matrix", "/api/health/ageing",
+    "/api/health/ageing?dim=NodeID", "/api/health/dead_stock?limit=5",
+    "/api/health/summary", "/api/health/movement", "/api/network/nodes",
+    "/api/network/transfers?limit=5", "/api/network/balance?limit=5",
+    "/api/suppliers/scorecard", "/api/suppliers/open_pos?limit=5",
+    "/api/suppliers/lead_time_gap", "/api/accuracy/summary",
+    "/api/accuracy/summary?dim=NodeID", "/api/accuracy/reasons",
+    "/api/accuracy/waterfall", "/api/accuracy/coverage",
+    "/api/actions/register?limit=5", "/api/actions/summary",
 ]
 
-PAGES = ["/", "/bins", "/movers", "/moves", "/suppliers", "/healthz"]
+PAGES = ["/", "/demand", "/replenishment", "/sku-health", "/network", "/accuracy"]
 
 failures: list[str] = []
 
@@ -85,7 +83,7 @@ def main() -> int:
     for endpoint in API_ENDPOINTS:
         r = client.get(endpoint)
         payload = r.get_json(silent=True)
-        size = len(payload) if isinstance(payload, (list, dict)) else 0
+        size = len(payload.get("rows", [])) if isinstance(payload, dict) and "rows" in payload else len(payload or {})
         check(r.status_code == 200 and size > 0, f"{endpoint} -> {r.status_code}, {size} entries")
 
     print("\nPages render")
@@ -94,14 +92,10 @@ def main() -> int:
         check(r.status_code == 200, f"{page} -> {r.status_code}")
 
     print("\nTotals are internally consistent")
-    kpis = client.get("/api/kpis").get_json() or {}
-    weight = float(kpis.get("total_weight_lb") or 0)
-    cost = float(kpis.get("total_cost") or 0)
-    per_lb = cost / weight if weight else 0
-    # On-hand weight and on-hand cost are computed down separate paths; if
-    # either drops the quantity multiplier the implied price per pound goes
-    # somewhere impossible.
-    check(1.0 < per_lb < 40.0, f"implied ${per_lb:.2f}/lb on hand is plausible")
+    overview = client.get("/api/overview").get_json() or {}
+    check(overview.get("SKUCount") == 420, "all 420 generated SKUs reached the model")
+    check(float(overview.get("InventoryValueUSD") or 0) > 0, "inventory value is positive")
+    check(int(overview.get("OpenActions") or 0) > 0, "the decision register contains actions")
 
     print()
     if failures:

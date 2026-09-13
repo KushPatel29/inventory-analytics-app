@@ -23,10 +23,24 @@ import time
 logger = logging.getLogger(__name__)
 
 _started = threading.Event()
+_finished = threading.Event()
 
 
 def _enabled() -> bool:
     return str(os.getenv("DEMO_AUTOLOAD", "")).strip().lower() in {"1", "true", "yes", "on"}
+
+
+def is_loading() -> bool:
+    """True while the sample is still being built.
+
+    The bootstrap runs in a background thread so start-up is not delayed,
+    which means the first visitor can arrive during it. Without this the
+    API answers "no workbook has been processed" - indistinguishable from a
+    genuine empty state - and the page renders an error that fixes itself if
+    you happen to reload. On a cold container that window is the first thing
+    a visitor sees.
+    """
+    return _started.is_set() and not _finished.is_set()
 
 
 def is_demo_data_loaded() -> bool:
@@ -45,20 +59,20 @@ def load_sample_data() -> bool:
     try:
         from invapp.services.ingest import ingest_sheets
         from invapp.services.state import set_state
-        from seed.generate_workbook import generate
+        from seed.dataset import DEFAULT_SKUS, DEFAULT_WEEKS, generate
 
         # Built in memory: nothing is written to disk, so a read-only or
         # ephemeral container filesystem is fine.
         sheets = generate(
-            skus=int(os.getenv("DEMO_AUTOLOAD_SKUS", "260")),
-            weeks=int(os.getenv("DEMO_AUTOLOAD_WEEKS", "26")),
+            skus=int(os.getenv("DEMO_AUTOLOAD_SKUS", str(DEFAULT_SKUS))),
+            weeks=int(os.getenv("DEMO_AUTOLOAD_WEEKS", str(DEFAULT_WEEKS))),
         )
         summary = ingest_sheets(sheets, persist=False)
         set_state(demo_data=True)
         logger.info(
             "bootstrap.sample_loaded",
             extra={
-                "skus": summary.get("total_skus"),
+                "skus": summary.get("SKUCount"),
                 "duration_ms": int((time.perf_counter() - started) * 1000),
             },
         )
@@ -66,6 +80,8 @@ def load_sample_data() -> bool:
     except Exception:
         logger.warning("bootstrap.sample_load_failed", exc_info=True)
         return False
+    finally:
+        _finished.set()
 
 
 def start_bootstrap(app) -> None:

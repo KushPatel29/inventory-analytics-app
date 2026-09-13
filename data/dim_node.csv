@@ -1,0 +1,8 @@
+NodeID,NodeName,Region,City,NodeType,StorageCapacityCubeFt,DemandShare
+YVR2,Delta BC,West,Delta,Fulfillment Center,1950000,0.155
+YYC1,Balzac AB,Prairies,Calgary,Fulfillment Center,1420000,0.115
+YEG3,Nisku AB,Prairies,Edmonton,Fulfillment Center,980000,0.085
+YWG2,Winnipeg MB,Prairies,Winnipeg,Fulfillment Center,720000,0.055
+YYZ4,Brampton ON,Central,Brampton,Fulfillment Center,2600000,0.315
+YUL5,Coteau-du-Lac QC,East,Montreal,Fulfillment Center,1640000,0.195
+YHZ1,Dartmouth NS,East,Halifax,Fulfillment Center,430000,0.08

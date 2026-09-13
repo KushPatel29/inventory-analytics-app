@@ -1,0 +1,1401 @@
+AdjustmentDate,SKU,NodeID,AdjustmentType,Units,UnitCost,ReasonCode,ApprovedBy
+2025-08-29,B000062,YUL5,Shrink,-2,13.09,Put-away to wrong bin,SUP-OPS-59
+2025-08-29,B000290,YYZ4,Found stock,4,2.29,Theft or loss,SUP-OPS-36
+2025-08-29,B000375,YWG2,Customer return,4,81.72,Mis-pick,SUP-OPS-55
+2025-08-30,B000128,YWG2,Damage,-5,12.39,Receiving error,SUP-OPS-45
+2025-08-30,B000318,YYC1,Damage,-1,27.75,Unrecorded return,SUP-OPS-35
+2025-08-31,B000067,YWG2,Customer return,1,26.62,Damage not recorded,SUP-OPS-41
+2025-08-31,B000095,YHZ1,Expiry,-5,4.5,Damage not recorded,SUP-OPS-51
+2025-08-31,B000366,YVR2,Damage,-2,36.73,Receiving error,SUP-OPS-21
+2025-09-01,B000059,YEG3,Expiry,-1,55.06,Damage not recorded,SUP-OPS-31
+2025-09-01,B000159,YYZ4,Found stock,3,5.08,Receiving error,SUP-OPS-50
+2025-09-01,B000216,YYZ4,Damage,-4,49.89,Receiving error,SUP-OPS-56
+2025-09-02,B000008,YYZ4,Found stock,26,3.7,Receiving error,SUP-OPS-58
+2025-09-02,B000019,YVR2,Shrink,-10,12.51,System timing,SUP-OPS-37
+2025-09-02,B000066,YUL5,Found stock,33,24.86,Theft or loss,SUP-OPS-52
+2025-09-02,B000160,YYZ4,Damage,-6,152.23,Mis-pick,SUP-OPS-51
+2025-09-03,B000060,YYZ4,Damage,-2,14.56,Damage not recorded,SUP-OPS-52
+2025-09-03,B000224,YYZ4,Shrink,-10,5.13,Receiving error,SUP-OPS-48
+2025-09-03,B000416,YWG2,Shrink,-1,26.43,Unrecorded return,SUP-OPS-36
+2025-09-04,B000124,YHZ1,Shrink,-1,19.28,Damage not recorded,SUP-OPS-54
+2025-09-04,B000125,YUL5,Customer return,8,8.87,Mis-pick,SUP-OPS-29
+2025-09-04,B000223,YHZ1,Write-off,-2,48.99,Put-away to wrong bin,SUP-OPS-38
+2025-09-04,B000241,YYC1,Damage,-1,43.91,Damage not recorded,SUP-OPS-51
+2025-09-04,B000271,YEG3,Expiry,-3,23.34,Mis-pick,SUP-OPS-31
+2025-09-04,B000289,YUL5,Damage,-24,33.98,Put-away to wrong bin,SUP-OPS-16
+2025-09-05,B000002,YYZ4,Customer return,11,20.25,Unrecorded return,SUP-OPS-23
+2025-09-05,B000107,YUL5,Customer return,4,6.42,Mis-pick,SUP-OPS-49
+2025-09-05,B000148,YHZ1,Write-off,-1,21.53,System timing,SUP-OPS-25
+2025-09-05,B000187,YUL5,Found stock,2,18.92,Unrecorded return,SUP-OPS-45
+2025-09-06,B000059,YYC1,Damage,-6,55.06,Receiving error,SUP-OPS-18
+2025-09-06,B000116,YEG3,Customer return,1,59.9,Put-away to wrong bin,SUP-OPS-43
+2025-09-06,B000140,YVR2,Customer return,4,5.15,System timing,SUP-OPS-45
+2025-09-06,B000146,YYZ4,Customer return,7,22.0,Put-away to wrong bin,SUP-OPS-35
+2025-09-06,B000226,YEG3,Found stock,1,18.36,Mis-pick,SUP-OPS-46
+2025-09-06,B000339,YYC1,Expiry,-5,17.86,Receiving error,SUP-OPS-23
+2025-09-06,B000381,YUL5,Write-off,-1,8.46,Mis-pick,SUP-OPS-32
+2025-09-06,B000409,YYZ4,Damage,-3,15.72,Mis-pick,SUP-OPS-48
+2025-09-07,B000341,YUL5,Customer return,76,57.14,Receiving error,SUP-OPS-32
+2025-09-08,B000107,YVR2,Damage,-27,6.42,Damage not recorded,SUP-OPS-28
+2025-09-08,B000249,YYC1,Shrink,-1,24.19,Put-away to wrong bin,SUP-OPS-40
+2025-09-08,B000271,YUL5,Damage,-3,23.34,Put-away to wrong bin,SUP-OPS-58
+2025-09-09,B000038,YWG2,Shrink,-4,29.94,Mis-pick,SUP-OPS-27
+2025-09-09,B000072,YYZ4,Shrink,-3,16.47,Put-away to wrong bin,SUP-OPS-56
+2025-09-09,B000115,YYZ4,Found stock,26,32.44,Mis-pick,SUP-OPS-26
+2025-09-09,B000126,YHZ1,Damage,-11,5.33,Damage not recorded,SUP-OPS-20
+2025-09-09,B000351,YHZ1,Shrink,-3,7.71,System timing,SUP-OPS-15
+2025-09-10,B000087,YYZ4,Write-off,-4,35.54,Mis-pick,SUP-OPS-47
+2025-09-10,B000262,YVR2,Customer return,6,79.31,Theft or loss,SUP-OPS-49
+2025-09-11,B000008,YUL5,Expiry,-1,3.7,Damage not recorded,SUP-OPS-50
+2025-09-11,B000122,YYC1,Damage,-7,13.42,Damage not recorded,SUP-OPS-59
+2025-09-11,B000177,YEG3,Shrink,-5,2.41,System timing,SUP-OPS-41
+2025-09-11,B000189,YYC1,Shrink,-1,11.62,Mis-pick,SUP-OPS-29
+2025-09-11,B000299,YVR2,Damage,-1,8.34,Receiving error,SUP-OPS-12
+2025-09-12,B000036,YYZ4,Damage,-2,29.55,Theft or loss,SUP-OPS-22
+2025-09-12,B000135,YYZ4,Damage,-7,13.09,Damage not recorded,SUP-OPS-12
+2025-09-12,B000212,YEG3,Damage,-4,38.08,Damage not recorded,SUP-OPS-49
+2025-09-12,B000284,YYZ4,Expiry,-12,19.61,Unrecorded return,SUP-OPS-38
+2025-09-13,B000023,YYC1,Damage,-3,55.53,Receiving error,SUP-OPS-18
+2025-09-13,B000082,YEG3,Damage,-7,43.59,Receiving error,SUP-OPS-55
+2025-09-14,B000055,YUL5,Shrink,-7,23.61,Put-away to wrong bin,SUP-OPS-59
+2025-09-14,B000090,YHZ1,Write-off,-2,30.31,Mis-pick,SUP-OPS-53
+2025-09-14,B000223,YUL5,Shrink,-22,48.99,Damage not recorded,SUP-OPS-41
+2025-09-15,B000012,YEG3,Shrink,-5,9.46,Damage not recorded,SUP-OPS-18
+2025-09-15,B000404,YVR2,Customer return,5,6.26,Damage not recorded,SUP-OPS-54
+2025-09-16,B000137,YVR2,Damage,-1,104.11,Put-away to wrong bin,SUP-OPS-54
+2025-09-16,B000185,YUL5,Shrink,-7,23.78,Mis-pick,SUP-OPS-50
+2025-09-16,B000292,YUL5,Found stock,3,32.23,Receiving error,SUP-OPS-29
+2025-09-16,B000378,YVR2,Damage,-376,9.25,Receiving error,SUP-OPS-11
+2025-09-17,B000019,YEG3,Shrink,-4,12.51,Receiving error,SUP-OPS-18
+2025-09-17,B000115,YYZ4,Shrink,-10,32.44,Receiving error,SUP-OPS-35
+2025-09-17,B000175,YYC1,Expiry,-5,13.44,Mis-pick,SUP-OPS-13
+2025-09-18,B000123,YYZ4,Customer return,2,11.77,Damage not recorded,SUP-OPS-36
+2025-09-18,B000159,YEG3,Damage,-49,5.08,Damage not recorded,SUP-OPS-52
+2025-09-18,B000215,YYC1,Write-off,-2,17.08,Receiving error,SUP-OPS-18
+2025-09-18,B000241,YWG2,Damage,-5,43.91,Damage not recorded,SUP-OPS-41
+2025-09-18,B000260,YYZ4,Customer return,1,27.53,Receiving error,SUP-OPS-45
+2025-09-18,B000355,YYZ4,Expiry,-5,14.03,Mis-pick,SUP-OPS-50
+2025-09-19,B000275,YYZ4,Damage,-3,27.48,Damage not recorded,SUP-OPS-50
+2025-09-20,B000014,YVR2,Damage,-1,22.31,Receiving error,SUP-OPS-16
+2025-09-20,B000078,YYZ4,Damage,-1,172.65,Receiving error,SUP-OPS-54
+2025-09-21,B000184,YVR2,Shrink,-10,18.21,Put-away to wrong bin,SUP-OPS-47
+2025-09-21,B000203,YUL5,Customer return,3,5.75,Receiving error,SUP-OPS-48
+2025-09-21,B000213,YYC1,Expiry,-1,46.02,Mis-pick,SUP-OPS-39
+2025-09-21,B000215,YUL5,Damage,-23,17.08,Receiving error,SUP-OPS-37
+2025-09-22,B000059,YEG3,Shrink,-1,55.06,Mis-pick,SUP-OPS-56
+2025-09-22,B000187,YYC1,Write-off,-2,18.92,Mis-pick,SUP-OPS-30
+2025-09-22,B000346,YYZ4,Shrink,-49,26.44,Theft or loss,SUP-OPS-26
+2025-09-23,B000160,YYZ4,Shrink,-24,152.23,System timing,SUP-OPS-47
+2025-09-23,B000182,YYZ4,Shrink,-86,8.68,System timing,SUP-OPS-26
+2025-09-23,B000314,YYZ4,Customer return,55,39.46,Receiving error,SUP-OPS-10
+2025-09-24,B000105,YYZ4,Damage,-11,32.78,System timing,SUP-OPS-51
+2025-09-24,B000330,YYZ4,Shrink,-10,34.27,Receiving error,SUP-OPS-16
+2025-09-25,B000012,YYZ4,Customer return,15,9.46,System timing,SUP-OPS-14
+2025-09-25,B000136,YUL5,Shrink,-1,38.25,Receiving error,SUP-OPS-35
+2025-09-25,B000182,YYC1,Found stock,5,8.68,Receiving error,SUP-OPS-21
+2025-09-25,B000307,YUL5,Write-off,-4,10.55,Mis-pick,SUP-OPS-53
+2025-09-26,B000157,YEG3,Damage,-9,58.52,Mis-pick,SUP-OPS-51
+2025-09-26,B000175,YYC1,Write-off,-41,13.44,Put-away to wrong bin,SUP-OPS-55
+2025-09-26,B000185,YVR2,Write-off,-14,23.78,Mis-pick,SUP-OPS-36
+2025-09-26,B000410,YHZ1,Found stock,3,31.02,Receiving error,SUP-OPS-40
+2025-09-27,B000010,YYZ4,Expiry,-99,22.5,Unrecorded return,SUP-OPS-17
+2025-09-27,B000079,YYZ4,Shrink,-15,12.85,Mis-pick,SUP-OPS-35
+2025-09-27,B000137,YYZ4,Shrink,-1,104.11,Mis-pick,SUP-OPS-47
+2025-09-27,B000253,YYZ4,Shrink,-11,5.33,Damage not recorded,SUP-OPS-58
+2025-09-27,B000331,YYC1,Damage,-1,5.86,Unrecorded return,SUP-OPS-28
+2025-09-27,B000338,YVR2,Shrink,-1,3.88,Unrecorded return,SUP-OPS-43
+2025-09-28,B000081,YHZ1,Shrink,-2,17.12,System timing,SUP-OPS-16
+2025-09-28,B000136,YUL5,Damage,-4,38.25,Put-away to wrong bin,SUP-OPS-52
+2025-09-28,B000381,YUL5,Found stock,2,8.46,Unrecorded return,SUP-OPS-48
+2025-09-28,B000398,YYZ4,Customer return,2,25.87,Put-away to wrong bin,SUP-OPS-49
+2025-09-29,B000058,YVR2,Write-off,-13,12.88,Receiving error,SUP-OPS-40
+2025-09-29,B000215,YYZ4,Damage,-10,17.08,Put-away to wrong bin,SUP-OPS-33
+2025-09-29,B000278,YHZ1,Damage,-3,38.05,Damage not recorded,SUP-OPS-41
+2025-09-29,B000367,YUL5,Damage,-6,4.19,Unrecorded return,SUP-OPS-10
+2025-09-30,B000020,YHZ1,Customer return,9,26.71,Unrecorded return,SUP-OPS-53
+2025-09-30,B000107,YYC1,Damage,-10,6.42,Mis-pick,SUP-OPS-11
+2025-09-30,B000235,YHZ1,Damage,-2,59.11,Mis-pick,SUP-OPS-24
+2025-09-30,B000241,YVR2,Damage,-99,43.91,Damage not recorded,SUP-OPS-16
+2025-09-30,B000318,YYZ4,Shrink,-1,27.75,Receiving error,SUP-OPS-22
+2025-09-30,B000357,YYC1,Damage,-22,2.48,Mis-pick,SUP-OPS-37
+2025-09-30,B000378,YHZ1,Found stock,16,9.25,Damage not recorded,SUP-OPS-42
+2025-10-01,B000124,YYZ4,Damage,-32,19.28,Put-away to wrong bin,SUP-OPS-37
+2025-10-01,B000392,YYC1,Shrink,-109,42.02,Damage not recorded,SUP-OPS-25
+2025-10-01,B000414,YWG2,Damage,-13,32.56,Mis-pick,SUP-OPS-28
+2025-10-02,B000137,YEG3,Damage,-2,104.11,System timing,SUP-OPS-30
+2025-10-02,B000257,YUL5,Damage,-19,12.7,System timing,SUP-OPS-45
+2025-10-02,B000315,YEG3,Write-off,-2,68.19,Receiving error,SUP-OPS-21
+2025-10-03,B000066,YYC1,Shrink,-4,24.86,System timing,SUP-OPS-14
+2025-10-03,B000089,YUL5,Expiry,-20,29.26,Put-away to wrong bin,SUP-OPS-38
+2025-10-03,B000090,YYC1,Customer return,5,30.31,Receiving error,SUP-OPS-34
+2025-10-03,B000090,YYZ4,Expiry,-5,30.31,Receiving error,SUP-OPS-41
+2025-10-03,B000126,YHZ1,Customer return,3,5.33,Unrecorded return,SUP-OPS-13
+2025-10-03,B000282,YYZ4,Damage,-6,55.18,Unrecorded return,SUP-OPS-51
+2025-10-03,B000350,YYC1,Shrink,-4,48.35,Mis-pick,SUP-OPS-42
+2025-10-03,B000379,YYZ4,Shrink,-29,6.69,Mis-pick,SUP-OPS-40
+2025-10-04,B000008,YEG3,Shrink,-2,3.7,Mis-pick,SUP-OPS-19
+2025-10-04,B000051,YUL5,Damage,-2,17.69,Receiving error,SUP-OPS-12
+2025-10-04,B000110,YYZ4,Shrink,-1,27.06,Mis-pick,SUP-OPS-18
+2025-10-04,B000128,YWG2,Customer return,4,12.39,Unrecorded return,SUP-OPS-57
+2025-10-04,B000253,YYC1,Customer return,1,5.33,Damage not recorded,SUP-OPS-47
+2025-10-04,B000359,YYZ4,Shrink,-5,69.57,Mis-pick,SUP-OPS-54
+2025-10-04,B000365,YUL5,Write-off,-5,4.97,Theft or loss,SUP-OPS-55
+2025-10-05,B000162,YYZ4,Damage,-11,11.86,Unrecorded return,SUP-OPS-27
+2025-10-05,B000373,YYC1,Write-off,-13,146.03,Put-away to wrong bin,SUP-OPS-35
+2025-10-06,B000182,YWG2,Customer return,9,8.68,Receiving error,SUP-OPS-17
+2025-10-06,B000209,YYC1,Customer return,4,40.77,Receiving error,SUP-OPS-17
+2025-10-07,B000178,YYC1,Shrink,-3,27.42,Damage not recorded,SUP-OPS-16
+2025-10-07,B000187,YUL5,Customer return,1,18.92,Mis-pick,SUP-OPS-44
+2025-10-07,B000189,YWG2,Damage,-1,11.62,System timing,SUP-OPS-38
+2025-10-07,B000245,YYZ4,Shrink,-12,2.38,Damage not recorded,SUP-OPS-53
+2025-10-07,B000287,YUL5,Shrink,-2,94.57,Damage not recorded,SUP-OPS-42
+2025-10-07,B000392,YWG2,Damage,-26,42.02,System timing,SUP-OPS-26
+2025-10-08,B000070,YWG2,Shrink,-3,8.73,Mis-pick,SUP-OPS-55
+2025-10-09,B000183,YYZ4,Damage,-1,21.45,System timing,SUP-OPS-15
+2025-10-09,B000212,YHZ1,Shrink,-8,38.08,Theft or loss,SUP-OPS-53
+2025-10-09,B000325,YYZ4,Customer return,38,11.69,Damage not recorded,SUP-OPS-15
+2025-10-09,B000340,YYZ4,Expiry,-1,41.74,Receiving error,SUP-OPS-35
+2025-10-09,B000383,YWG2,Customer return,12,12.08,Mis-pick,SUP-OPS-44
+2025-10-10,B000032,YWG2,Damage,-19,10.45,Unrecorded return,SUP-OPS-43
+2025-10-10,B000128,YHZ1,Expiry,-82,12.39,Mis-pick,SUP-OPS-59
+2025-10-10,B000178,YYZ4,Shrink,-10,27.42,Mis-pick,SUP-OPS-29
+2025-10-11,B000003,YVR2,Write-off,-1,116.68,Receiving error,SUP-OPS-29
+2025-10-11,B000017,YYC1,Shrink,-67,37.04,Receiving error,SUP-OPS-13
+2025-10-11,B000042,YUL5,Customer return,5,22.73,Mis-pick,SUP-OPS-53
+2025-10-11,B000055,YUL5,Customer return,2,23.61,Receiving error,SUP-OPS-25
+2025-10-11,B000067,YYC1,Write-off,-4,26.62,Damage not recorded,SUP-OPS-30
+2025-10-11,B000070,YWG2,Damage,-4,8.73,Mis-pick,SUP-OPS-24
+2025-10-11,B000109,YYC1,Expiry,-2,27.2,Put-away to wrong bin,SUP-OPS-18
+2025-10-11,B000330,YEG3,Write-off,-1,34.27,Receiving error,SUP-OPS-26
+2025-10-11,B000338,YYZ4,Damage,-5,3.88,Mis-pick,SUP-OPS-11
+2025-10-12,B000037,YYZ4,Customer return,1,22.46,Mis-pick,SUP-OPS-27
+2025-10-12,B000349,YVR2,Shrink,-5,53.59,Receiving error,SUP-OPS-16
+2025-10-12,B000415,YWG2,Shrink,-1,8.41,Theft or loss,SUP-OPS-28
+2025-10-13,B000023,YYC1,Found stock,2,55.53,Mis-pick,SUP-OPS-30
+2025-10-13,B000174,YWG2,Damage,-10,29.82,Unrecorded return,SUP-OPS-44
+2025-10-13,B000396,YUL5,Expiry,-3,39.28,Receiving error,SUP-OPS-44
+2025-10-14,B000020,YHZ1,Damage,-3,26.71,Unrecorded return,SUP-OPS-19
+2025-10-14,B000292,YVR2,Shrink,-1,32.23,Theft or loss,SUP-OPS-49
+2025-10-14,B000322,YUL5,Damage,-2,12.01,Mis-pick,SUP-OPS-31
+2025-10-15,B000024,YWG2,Customer return,1,24.8,System timing,SUP-OPS-45
+2025-10-15,B000295,YYZ4,Damage,-5,18.76,Put-away to wrong bin,SUP-OPS-27
+2025-10-15,B000395,YHZ1,Damage,-1,9.53,Damage not recorded,SUP-OPS-37
+2025-10-17,B000008,YUL5,Expiry,-8,3.7,Mis-pick,SUP-OPS-49
+2025-10-17,B000090,YYC1,Expiry,-11,30.31,Put-away to wrong bin,SUP-OPS-49
+2025-10-17,B000128,YHZ1,Customer return,40,12.39,Mis-pick,SUP-OPS-16
+2025-10-17,B000174,YVR2,Customer return,2,29.82,Receiving error,SUP-OPS-58
+2025-10-17,B000181,YUL5,Shrink,-25,54.45,Damage not recorded,SUP-OPS-18
+2025-10-17,B000197,YVR2,Expiry,-1,7.26,Mis-pick,SUP-OPS-44
+2025-10-17,B000197,YYZ4,Customer return,6,7.26,Unrecorded return,SUP-OPS-21
+2025-10-17,B000255,YHZ1,Expiry,-2,18.41,Receiving error,SUP-OPS-17
+2025-10-17,B000322,YYZ4,Shrink,-1,12.01,Receiving error,SUP-OPS-17
+2025-10-18,B000153,YUL5,Write-off,-19,9.61,Receiving error,SUP-OPS-59
+2025-10-18,B000182,YYZ4,Shrink,-67,8.68,System timing,SUP-OPS-49
+2025-10-18,B000306,YHZ1,Damage,-9,64.71,Mis-pick,SUP-OPS-55
+2025-10-18,B000342,YYZ4,Customer return,2,3.2,Theft or loss,SUP-OPS-54
+2025-10-18,B000387,YWG2,Write-off,-3,40.99,Mis-pick,SUP-OPS-51
+2025-10-19,B000008,YUL5,Shrink,-1,3.7,System timing,SUP-OPS-41
+2025-10-19,B000144,YHZ1,Damage,-1,16.5,System timing,SUP-OPS-15
+2025-10-19,B000253,YVR2,Customer return,2,5.33,System timing,SUP-OPS-35
+2025-10-19,B000298,YEG3,Damage,-7,39.04,Mis-pick,SUP-OPS-39
+2025-10-19,B000394,YYZ4,Write-off,-19,19.24,Theft or loss,SUP-OPS-23
+2025-10-20,B000056,YUL5,Damage,-30,224.05,Mis-pick,SUP-OPS-15
+2025-10-20,B000063,YEG3,Shrink,-1,20.49,Mis-pick,SUP-OPS-10
+2025-10-20,B000169,YUL5,Damage,-6,31.28,Unrecorded return,SUP-OPS-34
+2025-10-20,B000372,YUL5,Expiry,-1,17.44,Mis-pick,SUP-OPS-32
+2025-10-20,B000404,YUL5,Expiry,-4,6.26,Receiving error,SUP-OPS-36
+2025-10-20,B000413,YYZ4,Damage,-4,27.73,Mis-pick,SUP-OPS-58
+2025-10-21,B000017,YYC1,Damage,-66,37.04,Theft or loss,SUP-OPS-42
+2025-10-21,B000037,YYC1,Shrink,-1,22.46,Mis-pick,SUP-OPS-47
+2025-10-21,B000090,YVR2,Expiry,-1,30.31,Theft or loss,SUP-OPS-21
+2025-10-21,B000126,YYC1,Write-off,-5,5.33,Put-away to wrong bin,SUP-OPS-36
+2025-10-21,B000131,YYZ4,Damage,-66,72.17,Mis-pick,SUP-OPS-38
+2025-10-21,B000277,YYZ4,Write-off,-1,37.83,Theft or loss,SUP-OPS-17
+2025-10-22,B000037,YYC1,Customer return,1,22.46,Unrecorded return,SUP-OPS-26
+2025-10-22,B000120,YYZ4,Customer return,1,22.08,Unrecorded return,SUP-OPS-40
+2025-10-22,B000258,YHZ1,Shrink,-16,7.11,Receiving error,SUP-OPS-26
+2025-10-22,B000280,YEG3,Damage,-9,18.32,Put-away to wrong bin,SUP-OPS-40
+2025-10-22,B000308,YHZ1,Found stock,2,10.93,Mis-pick,SUP-OPS-20
+2025-10-23,B000056,YYZ4,Damage,-123,224.05,Unrecorded return,SUP-OPS-55
+2025-10-23,B000222,YYZ4,Customer return,4,12.18,Theft or loss,SUP-OPS-13
+2025-10-23,B000306,YWG2,Found stock,3,64.71,System timing,SUP-OPS-39
+2025-10-23,B000366,YWG2,Damage,-1,36.73,Put-away to wrong bin,SUP-OPS-43
+2025-10-23,B000392,YVR2,Customer return,14,42.02,Damage not recorded,SUP-OPS-27
+2025-10-24,B000007,YWG2,Shrink,-8,5.45,Damage not recorded,SUP-OPS-21
+2025-10-24,B000089,YYZ4,Write-off,-40,29.26,Receiving error,SUP-OPS-28
+2025-10-24,B000150,YUL5,Shrink,-2,2.47,Mis-pick,SUP-OPS-51
+2025-10-24,B000159,YVR2,Found stock,18,5.08,Theft or loss,SUP-OPS-28
+2025-10-24,B000380,YEG3,Expiry,-4,31.53,Mis-pick,SUP-OPS-56
+2025-10-25,B000407,YHZ1,Expiry,-4,13.84,System timing,SUP-OPS-19
+2025-10-25,B000414,YHZ1,Damage,-11,32.56,Theft or loss,SUP-OPS-12
+2025-10-26,B000071,YYZ4,Customer return,13,52.68,Put-away to wrong bin,SUP-OPS-53
+2025-10-26,B000306,YHZ1,Write-off,-10,64.71,Unrecorded return,SUP-OPS-27
+2025-10-27,B000135,YYC1,Customer return,14,13.09,Receiving error,SUP-OPS-37
+2025-10-27,B000319,YEG3,Damage,-2,45.53,Mis-pick,SUP-OPS-22
+2025-10-27,B000362,YYC1,Damage,-7,52.53,System timing,SUP-OPS-57
+2025-10-28,B000043,YEG3,Found stock,1,81.24,Mis-pick,SUP-OPS-29
+2025-10-28,B000108,YYC1,Customer return,1,27.52,Mis-pick,SUP-OPS-46
+2025-10-28,B000228,YYC1,Damage,-6,51.13,Damage not recorded,SUP-OPS-51
+2025-10-28,B000228,YYC1,Shrink,-7,51.13,Mis-pick,SUP-OPS-27
+2025-10-28,B000257,YYC1,Shrink,-16,12.7,System timing,SUP-OPS-13
+2025-10-29,B000012,YVR2,Customer return,1,9.46,Mis-pick,SUP-OPS-27
+2025-10-29,B000017,YUL5,Expiry,-13,37.04,Put-away to wrong bin,SUP-OPS-22
+2025-10-29,B000040,YYZ4,Shrink,-21,78.85,Mis-pick,SUP-OPS-28
+2025-10-29,B000067,YUL5,Damage,-13,26.62,Put-away to wrong bin,SUP-OPS-47
+2025-10-29,B000275,YYZ4,Expiry,-1,27.48,Theft or loss,SUP-OPS-13
+2025-10-30,B000187,YYZ4,Shrink,-29,18.92,Put-away to wrong bin,SUP-OPS-36
+2025-10-30,B000252,YYC1,Customer return,1,52.05,Mis-pick,SUP-OPS-44
+2025-10-30,B000407,YYZ4,Found stock,4,13.84,Unrecorded return,SUP-OPS-30
+2025-10-31,B000026,YYC1,Expiry,-3,18.63,System timing,SUP-OPS-16
+2025-10-31,B000298,YUL5,Expiry,-8,39.04,Put-away to wrong bin,SUP-OPS-10
+2025-10-31,B000392,YVR2,Damage,-35,42.02,Put-away to wrong bin,SUP-OPS-44
+2025-11-01,B000108,YYC1,Write-off,-19,27.52,Receiving error,SUP-OPS-21
+2025-11-01,B000122,YYZ4,Expiry,-134,13.42,Unrecorded return,SUP-OPS-59
+2025-11-02,B000081,YYZ4,Damage,-1,17.12,Mis-pick,SUP-OPS-47
+2025-11-02,B000103,YYZ4,Expiry,-1,12.96,Mis-pick,SUP-OPS-31
+2025-11-02,B000193,YHZ1,Shrink,-4,39.69,Put-away to wrong bin,SUP-OPS-58
+2025-11-02,B000399,YYC1,Shrink,-3,19.26,Put-away to wrong bin,SUP-OPS-24
+2025-11-02,B000413,YYZ4,Damage,-4,27.73,Mis-pick,SUP-OPS-59
+2025-11-03,B000178,YYZ4,Write-off,-100,27.42,Mis-pick,SUP-OPS-31
+2025-11-03,B000215,YVR2,Customer return,5,17.08,Receiving error,SUP-OPS-39
+2025-11-04,B000003,YVR2,Found stock,21,116.68,Receiving error,SUP-OPS-54
+2025-11-04,B000052,YUL5,Shrink,-3,3.12,Receiving error,SUP-OPS-58
+2025-11-04,B000182,YUL5,Customer return,14,8.68,Unrecorded return,SUP-OPS-59
+2025-11-05,B000086,YYZ4,Damage,-2,8.8,Put-away to wrong bin,SUP-OPS-48
+2025-11-05,B000236,YUL5,Damage,-49,6.13,Receiving error,SUP-OPS-18
+2025-11-06,B000019,YUL5,Write-off,-7,12.51,Receiving error,SUP-OPS-15
+2025-11-06,B000220,YYC1,Expiry,-2,19.35,Mis-pick,SUP-OPS-25
+2025-11-06,B000225,YYZ4,Damage,-22,72.79,Receiving error,SUP-OPS-36
+2025-11-06,B000306,YYZ4,Damage,-2,64.71,Receiving error,SUP-OPS-20
+2025-11-06,B000392,YHZ1,Found stock,15,42.02,Put-away to wrong bin,SUP-OPS-12
+2025-11-07,B000134,YHZ1,Damage,-15,17.14,System timing,SUP-OPS-31
+2025-11-07,B000347,YYC1,Damage,-2,8.39,System timing,SUP-OPS-17
+2025-11-07,B000369,YYZ4,Shrink,-3,12.66,Damage not recorded,SUP-OPS-38
+2025-11-07,B000377,YWG2,Damage,-1,61.98,Put-away to wrong bin,SUP-OPS-32
+2025-11-08,B000392,YHZ1,Found stock,7,42.02,Receiving error,SUP-OPS-49
+2025-11-09,B000146,YWG2,Customer return,1,22.0,Receiving error,SUP-OPS-49
+2025-11-09,B000147,YYZ4,Customer return,1,34.39,System timing,SUP-OPS-55
+2025-11-09,B000175,YUL5,Damage,-14,13.44,Put-away to wrong bin,SUP-OPS-19
+2025-11-09,B000224,YYZ4,Customer return,5,5.13,System timing,SUP-OPS-19
+2025-11-10,B000036,YYZ4,Customer return,2,29.55,Mis-pick,SUP-OPS-36
+2025-11-10,B000162,YWG2,Customer return,1,11.86,Mis-pick,SUP-OPS-42
+2025-11-10,B000370,YYZ4,Shrink,-12,28.99,Receiving error,SUP-OPS-10
+2025-11-11,B000121,YYZ4,Damage,-2,27.65,Receiving error,SUP-OPS-44
+2025-11-11,B000195,YYZ4,Found stock,1,6.65,Mis-pick,SUP-OPS-17
+2025-11-12,B000315,YYZ4,Found stock,9,68.19,Mis-pick,SUP-OPS-51
+2025-11-12,B000319,YEG3,Shrink,-6,45.53,Damage not recorded,SUP-OPS-50
+2025-11-13,B000099,YYZ4,Shrink,-7,120.32,Damage not recorded,SUP-OPS-38
+2025-11-13,B000128,YEG3,Damage,-15,12.39,Put-away to wrong bin,SUP-OPS-13
+2025-11-13,B000269,YYC1,Expiry,-1,2.24,Put-away to wrong bin,SUP-OPS-13
+2025-11-13,B000317,YYZ4,Customer return,2,16.4,Unrecorded return,SUP-OPS-46
+2025-11-13,B000367,YYZ4,Found stock,3,4.19,Mis-pick,SUP-OPS-44
+2025-11-13,B000412,YYC1,Found stock,1,5.35,System timing,SUP-OPS-54
+2025-11-14,B000030,YEG3,Expiry,-4,26.33,Unrecorded return,SUP-OPS-44
+2025-11-14,B000045,YWG2,Damage,-1,57.92,Damage not recorded,SUP-OPS-10
+2025-11-14,B000047,YYZ4,Damage,-117,63.07,Mis-pick,SUP-OPS-40
+2025-11-14,B000158,YVR2,Customer return,5,23.4,Put-away to wrong bin,SUP-OPS-13
+2025-11-14,B000223,YHZ1,Damage,-2,48.99,Mis-pick,SUP-OPS-27
+2025-11-14,B000299,YYZ4,Customer return,1,8.34,System timing,SUP-OPS-31
+2025-11-14,B000311,YEG3,Write-off,-7,23.78,Put-away to wrong bin,SUP-OPS-40
+2025-11-15,B000270,YVR2,Expiry,-7,42.84,Receiving error,SUP-OPS-45
+2025-11-15,B000318,YYZ4,Found stock,2,27.75,Damage not recorded,SUP-OPS-54
+2025-11-15,B000373,YYZ4,Shrink,-16,146.03,Put-away to wrong bin,SUP-OPS-49
+2025-11-16,B000068,YUL5,Shrink,-4,53.46,Receiving error,SUP-OPS-12
+2025-11-16,B000296,YHZ1,Expiry,-1,28.09,Mis-pick,SUP-OPS-43
+2025-11-16,B000298,YYZ4,Damage,-26,39.04,Mis-pick,SUP-OPS-51
+2025-11-16,B000322,YWG2,Write-off,-3,12.01,Receiving error,SUP-OPS-54
+2025-11-16,B000364,YUL5,Shrink,-1,60.7,Damage not recorded,SUP-OPS-26
+2025-11-17,B000035,YUL5,Damage,-1,30.33,Put-away to wrong bin,SUP-OPS-54
+2025-11-17,B000118,YHZ1,Customer return,9,14.9,Receiving error,SUP-OPS-27
+2025-11-17,B000138,YUL5,Shrink,-1,25.11,Receiving error,SUP-OPS-35
+2025-11-17,B000290,YVR2,Damage,-1,2.29,Receiving error,SUP-OPS-46
+2025-11-17,B000292,YUL5,Damage,-4,32.23,Receiving error,SUP-OPS-54
+2025-11-17,B000405,YYZ4,Expiry,-13,81.28,Damage not recorded,SUP-OPS-41
+2025-11-18,B000193,YHZ1,Write-off,-4,39.69,Unrecorded return,SUP-OPS-20
+2025-11-18,B000222,YVR2,Shrink,-1,12.18,Damage not recorded,SUP-OPS-50
+2025-11-18,B000316,YYC1,Damage,-2,11.05,Damage not recorded,SUP-OPS-49
+2025-11-18,B000387,YEG3,Write-off,-5,40.99,Put-away to wrong bin,SUP-OPS-16
+2025-11-19,B000008,YHZ1,Shrink,-4,3.7,Mis-pick,SUP-OPS-57
+2025-11-19,B000194,YYZ4,Damage,-3,12.16,Mis-pick,SUP-OPS-11
+2025-11-19,B000236,YWG2,Shrink,-4,6.13,Receiving error,SUP-OPS-22
+2025-11-19,B000322,YUL5,Found stock,20,12.01,Receiving error,SUP-OPS-34
+2025-11-20,B000007,YYC1,Damage,-6,5.45,Mis-pick,SUP-OPS-45
+2025-11-20,B000059,YWG2,Found stock,2,55.06,Damage not recorded,SUP-OPS-41
+2025-11-20,B000092,YYZ4,Found stock,4,37.96,Mis-pick,SUP-OPS-40
+2025-11-20,B000097,YYC1,Expiry,-7,48.69,Mis-pick,SUP-OPS-22
+2025-11-20,B000259,YHZ1,Damage,-6,17.17,Put-away to wrong bin,SUP-OPS-20
+2025-11-20,B000321,YYZ4,Shrink,-1,8.49,Mis-pick,SUP-OPS-21
+2025-11-21,B000063,YEG3,Customer return,1,20.49,Receiving error,SUP-OPS-48
+2025-11-22,B000049,YYZ4,Shrink,-1,9.82,Mis-pick,SUP-OPS-16
+2025-11-22,B000059,YVR2,Shrink,-4,55.06,Receiving error,SUP-OPS-49
+2025-11-22,B000143,YEG3,Customer return,4,6.49,Receiving error,SUP-OPS-50
+2025-11-22,B000242,YYZ4,Shrink,-12,7.44,Damage not recorded,SUP-OPS-14
+2025-11-23,B000017,YYC1,Expiry,-53,37.04,Mis-pick,SUP-OPS-45
+2025-11-23,B000036,YYZ4,Customer return,1,29.55,System timing,SUP-OPS-54
+2025-11-23,B000112,YVR2,Customer return,2,43.81,Put-away to wrong bin,SUP-OPS-24
+2025-11-24,B000041,YVR2,Damage,-24,14.4,Unrecorded return,SUP-OPS-21
+2025-11-24,B000171,YYZ4,Damage,-12,99.79,Mis-pick,SUP-OPS-32
+2025-11-24,B000226,YEG3,Expiry,-2,18.36,Put-away to wrong bin,SUP-OPS-17
+2025-11-24,B000306,YWG2,Customer return,2,64.71,Put-away to wrong bin,SUP-OPS-40
+2025-11-24,B000338,YYZ4,Expiry,-9,3.88,Damage not recorded,SUP-OPS-19
+2025-11-24,B000356,YYZ4,Customer return,2,30.35,Put-away to wrong bin,SUP-OPS-57
+2025-11-24,B000392,YWG2,Write-off,-16,42.02,Receiving error,SUP-OPS-13
+2025-11-25,B000084,YVR2,Shrink,-27,10.08,Damage not recorded,SUP-OPS-14
+2025-11-25,B000243,YYZ4,Damage,-2,45.01,Damage not recorded,SUP-OPS-43
+2025-11-25,B000301,YHZ1,Write-off,-5,37.32,Mis-pick,SUP-OPS-17
+2025-11-26,B000254,YUL5,Expiry,-3,7.63,Unrecorded return,SUP-OPS-51
+2025-11-27,B000148,YVR2,Expiry,-1,21.53,Mis-pick,SUP-OPS-11
+2025-11-27,B000298,YVR2,Shrink,-8,39.04,Mis-pick,SUP-OPS-50
+2025-11-28,B000087,YHZ1,Expiry,-1,35.54,System timing,SUP-OPS-18
+2025-11-28,B000283,YWG2,Write-off,-5,5.71,Theft or loss,SUP-OPS-17
+2025-11-28,B000324,YYC1,Damage,-4,50.1,Receiving error,SUP-OPS-33
+2025-11-29,B000130,YYZ4,Customer return,5,4.08,Mis-pick,SUP-OPS-19
+2025-11-29,B000407,YVR2,Damage,-4,13.84,Mis-pick,SUP-OPS-19
+2025-11-30,B000104,YEG3,Expiry,-13,16.04,Receiving error,SUP-OPS-39
+2025-11-30,B000132,YVR2,Expiry,-4,36.4,Mis-pick,SUP-OPS-32
+2025-11-30,B000268,YUL5,Shrink,-4,24.53,Damage not recorded,SUP-OPS-43
+2025-12-01,B000105,YYZ4,Damage,-5,32.78,System timing,SUP-OPS-29
+2025-12-01,B000117,YEG3,Expiry,-5,10.32,Unrecorded return,SUP-OPS-48
+2025-12-01,B000211,YHZ1,Damage,-2,42.79,Mis-pick,SUP-OPS-13
+2025-12-02,B000084,YUL5,Shrink,-2,10.08,Damage not recorded,SUP-OPS-35
+2025-12-02,B000236,YYZ4,Customer return,29,6.13,Damage not recorded,SUP-OPS-35
+2025-12-02,B000393,YEG3,Damage,-1,36.15,Damage not recorded,SUP-OPS-12
+2025-12-03,B000177,YUL5,Damage,-11,2.41,Unrecorded return,SUP-OPS-59
+2025-12-03,B000418,YYC1,Customer return,1,20.14,System timing,SUP-OPS-20
+2025-12-04,B000040,YWG2,Found stock,2,78.85,Unrecorded return,SUP-OPS-28
+2025-12-04,B000414,YWG2,Customer return,2,32.56,Unrecorded return,SUP-OPS-49
+2025-12-05,B000095,YEG3,Expiry,-4,4.5,Unrecorded return,SUP-OPS-36
+2025-12-05,B000111,YYZ4,Expiry,-1,11.26,Mis-pick,SUP-OPS-15
+2025-12-05,B000118,YEG3,Customer return,5,14.9,Damage not recorded,SUP-OPS-56
+2025-12-05,B000128,YUL5,Shrink,-3,12.39,Damage not recorded,SUP-OPS-41
+2025-12-05,B000208,YYZ4,Write-off,-14,18.0,Damage not recorded,SUP-OPS-33
+2025-12-05,B000238,YHZ1,Write-off,-1,33.37,Mis-pick,SUP-OPS-44
+2025-12-05,B000406,YHZ1,Found stock,4,12.22,Unrecorded return,SUP-OPS-28
+2025-12-06,B000128,YYZ4,Found stock,11,12.39,System timing,SUP-OPS-13
+2025-12-07,B000102,YVR2,Damage,-1,4.23,System timing,SUP-OPS-41
+2025-12-07,B000189,YYC1,Damage,-1,11.62,Put-away to wrong bin,SUP-OPS-51
+2025-12-07,B000287,YVR2,Damage,-3,94.57,Receiving error,SUP-OPS-18
+2025-12-07,B000312,YYZ4,Write-off,-2,11.5,Damage not recorded,SUP-OPS-16
+2025-12-08,B000107,YHZ1,Write-off,-29,6.42,Mis-pick,SUP-OPS-57
+2025-12-08,B000145,YYZ4,Expiry,-2,13.18,Theft or loss,SUP-OPS-10
+2025-12-08,B000152,YVR2,Customer return,5,28.18,System timing,SUP-OPS-35
+2025-12-08,B000224,YYZ4,Shrink,-1,5.13,Damage not recorded,SUP-OPS-40
+2025-12-08,B000299,YVR2,Write-off,-6,8.34,Receiving error,SUP-OPS-53
+2025-12-09,B000017,YUL5,Customer return,4,37.04,Receiving error,SUP-OPS-34
+2025-12-09,B000089,YEG3,Shrink,-2,29.26,Receiving error,SUP-OPS-16
+2025-12-09,B000108,YYC1,Expiry,-52,27.52,Receiving error,SUP-OPS-44
+2025-12-09,B000131,YYZ4,Shrink,-10,72.17,Receiving error,SUP-OPS-46
+2025-12-09,B000155,YYZ4,Found stock,3,16.62,Put-away to wrong bin,SUP-OPS-25
+2025-12-09,B000167,YYZ4,Expiry,-2,7.6,System timing,SUP-OPS-27
+2025-12-09,B000372,YYZ4,Shrink,-9,17.44,Receiving error,SUP-OPS-27
+2025-12-10,B000171,YWG2,Found stock,1,99.79,Receiving error,SUP-OPS-20
+2025-12-10,B000306,YHZ1,Found stock,3,64.71,Receiving error,SUP-OPS-24
+2025-12-11,B000116,YVR2,Damage,-27,59.9,Mis-pick,SUP-OPS-31
+2025-12-11,B000165,YVR2,Damage,-5,35.18,Theft or loss,SUP-OPS-47
+2025-12-11,B000354,YYC1,Damage,-1,3.98,System timing,SUP-OPS-51
+2025-12-12,B000122,YEG3,Found stock,20,13.42,Damage not recorded,SUP-OPS-16
+2025-12-12,B000202,YWG2,Damage,-1,26.75,Mis-pick,SUP-OPS-22
+2025-12-13,B000048,YYZ4,Damage,-4,31.84,Mis-pick,SUP-OPS-37
+2025-12-13,B000096,YYZ4,Customer return,1,125.28,Mis-pick,SUP-OPS-12
+2025-12-13,B000104,YEG3,Expiry,-3,16.04,Receiving error,SUP-OPS-58
+2025-12-13,B000135,YYC1,Write-off,-2,13.09,Receiving error,SUP-OPS-15
+2025-12-13,B000171,YYC1,Shrink,-1,99.79,Theft or loss,SUP-OPS-23
+2025-12-13,B000306,YWG2,Shrink,-1,64.71,Damage not recorded,SUP-OPS-12
+2025-12-13,B000394,YVR2,Shrink,-14,19.24,Put-away to wrong bin,SUP-OPS-13
+2025-12-14,B000140,YYC1,Customer return,1,5.15,Receiving error,SUP-OPS-48
+2025-12-14,B000201,YVR2,Expiry,-10,40.84,System timing,SUP-OPS-34
+2025-12-14,B000217,YYZ4,Customer return,1,37.59,Unrecorded return,SUP-OPS-11
+2025-12-14,B000265,YYZ4,Write-off,-13,5.9,System timing,SUP-OPS-28
+2025-12-14,B000389,YUL5,Found stock,1,28.39,Receiving error,SUP-OPS-57
+2025-12-14,B000418,YYC1,Shrink,-2,20.14,Mis-pick,SUP-OPS-13
+2025-12-15,B000041,YUL5,Shrink,-44,14.4,Mis-pick,SUP-OPS-36
+2025-12-15,B000051,YVR2,Customer return,2,17.69,Damage not recorded,SUP-OPS-36
+2025-12-15,B000199,YWG2,Write-off,-4,17.21,System timing,SUP-OPS-26
+2025-12-15,B000267,YYZ4,Customer return,10,35.69,Put-away to wrong bin,SUP-OPS-49
+2025-12-15,B000291,YVR2,Expiry,-2,17.87,Damage not recorded,SUP-OPS-11
+2025-12-16,B000064,YYZ4,Expiry,-1,40.08,Receiving error,SUP-OPS-37
+2025-12-16,B000299,YYZ4,Customer return,13,8.34,Put-away to wrong bin,SUP-OPS-16
+2025-12-16,B000322,YVR2,Shrink,-1,12.01,Mis-pick,SUP-OPS-53
+2025-12-17,B000037,YEG3,Write-off,-3,22.46,Put-away to wrong bin,SUP-OPS-45
+2025-12-17,B000126,YYC1,Customer return,1,5.33,Receiving error,SUP-OPS-39
+2025-12-17,B000242,YHZ1,Shrink,-4,7.44,Put-away to wrong bin,SUP-OPS-15
+2025-12-17,B000346,YYZ4,Shrink,-78,26.44,Theft or loss,SUP-OPS-38
+2025-12-18,B000072,YEG3,Customer return,1,16.47,Mis-pick,SUP-OPS-20
+2025-12-18,B000128,YYZ4,Shrink,-68,12.39,Put-away to wrong bin,SUP-OPS-17
+2025-12-18,B000237,YHZ1,Damage,-1,34.69,Damage not recorded,SUP-OPS-48
+2025-12-18,B000243,YYZ4,Damage,-10,45.01,Damage not recorded,SUP-OPS-16
+2025-12-18,B000255,YHZ1,Found stock,1,18.41,Damage not recorded,SUP-OPS-46
+2025-12-18,B000270,YHZ1,Damage,-3,42.84,Damage not recorded,SUP-OPS-35
+2025-12-19,B000088,YWG2,Customer return,2,22.27,Theft or loss,SUP-OPS-46
+2025-12-19,B000118,YWG2,Expiry,-5,14.9,System timing,SUP-OPS-23
+2025-12-19,B000134,YEG3,Damage,-4,17.14,Receiving error,SUP-OPS-50
+2025-12-19,B000330,YEG3,Damage,-2,34.27,Receiving error,SUP-OPS-41
+2025-12-20,B000182,YUL5,Found stock,6,8.68,Mis-pick,SUP-OPS-48
+2025-12-20,B000398,YEG3,Write-off,-1,25.87,Receiving error,SUP-OPS-32
+2025-12-20,B000406,YYC1,Damage,-2,12.22,Mis-pick,SUP-OPS-31
+2025-12-21,B000091,YUL5,Expiry,-2,40.85,Mis-pick,SUP-OPS-31
+2025-12-21,B000149,YEG3,Shrink,-1,23.03,Receiving error,SUP-OPS-14
+2025-12-21,B000150,YYZ4,Shrink,-4,2.47,Damage not recorded,SUP-OPS-35
+2025-12-21,B000246,YYZ4,Found stock,1,48.07,Mis-pick,SUP-OPS-45
+2025-12-21,B000313,YVR2,Write-off,-48,19.4,Receiving error,SUP-OPS-31
+2025-12-21,B000317,YYZ4,Expiry,-2,16.4,Put-away to wrong bin,SUP-OPS-13
+2025-12-22,B000002,YHZ1,Expiry,-1,20.25,Receiving error,SUP-OPS-35
+2025-12-22,B000043,YEG3,Customer return,1,81.24,Put-away to wrong bin,SUP-OPS-22
+2025-12-22,B000126,YYZ4,Damage,-12,5.33,Put-away to wrong bin,SUP-OPS-35
+2025-12-22,B000178,YVR2,Damage,-10,27.42,Mis-pick,SUP-OPS-39
+2025-12-22,B000269,YYC1,Damage,-3,2.24,Put-away to wrong bin,SUP-OPS-16
+2025-12-22,B000291,YYZ4,Found stock,4,17.87,Put-away to wrong bin,SUP-OPS-10
+2025-12-22,B000415,YWG2,Damage,-1,8.41,Receiving error,SUP-OPS-20
+2025-12-23,B000007,YYZ4,Shrink,-66,5.45,Receiving error,SUP-OPS-29
+2025-12-23,B000047,YYZ4,Found stock,27,63.07,Receiving error,SUP-OPS-48
+2025-12-23,B000068,YUL5,Damage,-4,53.46,Put-away to wrong bin,SUP-OPS-33
+2025-12-23,B000098,YHZ1,Damage,-7,13.55,Receiving error,SUP-OPS-46
+2025-12-23,B000185,YYC1,Shrink,-2,23.78,Put-away to wrong bin,SUP-OPS-32
+2025-12-23,B000413,YWG2,Customer return,2,27.73,Receiving error,SUP-OPS-17
+2025-12-24,B000223,YYZ4,Found stock,1,48.99,Receiving error,SUP-OPS-59
+2025-12-25,B000145,YYZ4,Customer return,3,13.18,Put-away to wrong bin,SUP-OPS-20
+2025-12-25,B000154,YWG2,Shrink,-3,6.27,Damage not recorded,SUP-OPS-24
+2025-12-25,B000324,YYZ4,Customer return,5,50.1,System timing,SUP-OPS-10
+2025-12-25,B000418,YUL5,Write-off,-1,20.14,Receiving error,SUP-OPS-31
+2025-12-26,B000008,YEG3,Found stock,1,3.7,Theft or loss,SUP-OPS-27
+2025-12-26,B000102,YYZ4,Customer return,4,4.23,Mis-pick,SUP-OPS-34
+2025-12-26,B000190,YYC1,Expiry,-5,24.81,Mis-pick,SUP-OPS-50
+2025-12-26,B000315,YYZ4,Damage,-24,68.19,Mis-pick,SUP-OPS-37
+2025-12-26,B000324,YYC1,Expiry,-1,50.1,Mis-pick,SUP-OPS-57
+2025-12-27,B000111,YYZ4,Damage,-4,11.26,Mis-pick,SUP-OPS-23
+2025-12-27,B000136,YYZ4,Expiry,-1,38.25,Unrecorded return,SUP-OPS-45
+2025-12-28,B000129,YHZ1,Customer return,102,47.77,Mis-pick,SUP-OPS-38
+2025-12-28,B000211,YHZ1,Shrink,-1,42.79,Damage not recorded,SUP-OPS-32
+2025-12-28,B000391,YVR2,Write-off,-1,28.53,Put-away to wrong bin,SUP-OPS-38
+2025-12-29,B000003,YVR2,Expiry,-8,116.68,Put-away to wrong bin,SUP-OPS-58
+2025-12-30,B000006,YUL5,Customer return,7,10.47,Unrecorded return,SUP-OPS-43
+2025-12-30,B000016,YYZ4,Damage,-2,22.7,Put-away to wrong bin,SUP-OPS-56
+2025-12-30,B000084,YWG2,Damage,-2,10.08,System timing,SUP-OPS-42
+2025-12-30,B000132,YYZ4,Shrink,-1,36.4,Receiving error,SUP-OPS-53
+2025-12-30,B000314,YUL5,Write-off,-26,39.46,Mis-pick,SUP-OPS-39
+2025-12-30,B000335,YEG3,Damage,-2,57.26,Put-away to wrong bin,SUP-OPS-29
+2025-12-30,B000351,YYZ4,Shrink,-5,7.71,Damage not recorded,SUP-OPS-33
+2025-12-31,B000012,YVR2,Shrink,-3,9.46,Receiving error,SUP-OPS-34
+2025-12-31,B000013,YUL5,Customer return,10,7.12,Mis-pick,SUP-OPS-21
+2025-12-31,B000156,YUL5,Shrink,-2,14.32,System timing,SUP-OPS-28
+2025-12-31,B000274,YYZ4,Shrink,-30,20.72,System timing,SUP-OPS-36
+2025-12-31,B000300,YHZ1,Damage,-4,30.93,Mis-pick,SUP-OPS-54
+2026-01-01,B000017,YUL5,Expiry,-1,37.04,Mis-pick,SUP-OPS-10
+2026-01-01,B000111,YUL5,Customer return,2,11.26,Mis-pick,SUP-OPS-44
+2026-01-01,B000118,YEG3,Shrink,-7,14.9,Unrecorded return,SUP-OPS-23
+2026-01-01,B000324,YYC1,Customer return,3,50.1,Damage not recorded,SUP-OPS-23
+2026-01-02,B000099,YEG3,Write-off,-2,120.32,Receiving error,SUP-OPS-52
+2026-01-02,B000108,YYC1,Damage,-13,27.52,Damage not recorded,SUP-OPS-32
+2026-01-02,B000128,YUL5,Customer return,2,12.39,Mis-pick,SUP-OPS-57
+2026-01-02,B000144,YUL5,Expiry,-18,16.5,Receiving error,SUP-OPS-50
+2026-01-02,B000330,YYZ4,Customer return,23,34.27,Receiving error,SUP-OPS-38
+2026-01-03,B000045,YYZ4,Found stock,9,57.92,Receiving error,SUP-OPS-26
+2026-01-03,B000057,YUL5,Damage,-1,20.35,System timing,SUP-OPS-31
+2026-01-03,B000161,YUL5,Shrink,-1,20.9,Mis-pick,SUP-OPS-52
+2026-01-03,B000280,YHZ1,Customer return,2,18.32,Mis-pick,SUP-OPS-33
+2026-01-04,B000189,YWG2,Shrink,-1,11.62,Put-away to wrong bin,SUP-OPS-43
+2026-01-04,B000265,YUL5,Expiry,-1,5.9,Damage not recorded,SUP-OPS-59
+2026-01-04,B000404,YEG3,Customer return,2,6.26,System timing,SUP-OPS-47
+2026-01-05,B000136,YYZ4,Damage,-4,38.25,Theft or loss,SUP-OPS-25
+2026-01-05,B000298,YEG3,Damage,-21,39.04,Put-away to wrong bin,SUP-OPS-16
+2026-01-05,B000335,YYZ4,Customer return,11,57.26,Put-away to wrong bin,SUP-OPS-26
+2026-01-05,B000347,YYC1,Shrink,-4,8.39,System timing,SUP-OPS-45
+2026-01-05,B000407,YVR2,Shrink,-1,13.84,Put-away to wrong bin,SUP-OPS-16
+2026-01-06,B000046,YYZ4,Customer return,7,14.59,Receiving error,SUP-OPS-17
+2026-01-06,B000057,YYZ4,Shrink,-17,20.35,Damage not recorded,SUP-OPS-37
+2026-01-06,B000277,YEG3,Expiry,-1,37.83,Mis-pick,SUP-OPS-16
+2026-01-06,B000339,YVR2,Found stock,1,17.86,Receiving error,SUP-OPS-20
+2026-01-07,B000160,YYZ4,Damage,-40,152.23,Mis-pick,SUP-OPS-23
+2026-01-07,B000240,YEG3,Customer return,3,9.44,Mis-pick,SUP-OPS-30
+2026-01-07,B000291,YYZ4,Shrink,-1,17.87,Put-away to wrong bin,SUP-OPS-50
+2026-01-07,B000304,YYZ4,Expiry,-135,13.26,Receiving error,SUP-OPS-34
+2026-01-08,B000118,YHZ1,Shrink,-4,14.9,Put-away to wrong bin,SUP-OPS-28
+2026-01-08,B000177,YYZ4,Shrink,-1,2.41,Mis-pick,SUP-OPS-25
+2026-01-08,B000185,YEG3,Damage,-2,23.78,Mis-pick,SUP-OPS-26
+2026-01-08,B000398,YYZ4,Damage,-3,25.87,System timing,SUP-OPS-35
+2026-01-09,B000070,YVR2,Damage,-126,8.73,Damage not recorded,SUP-OPS-30
+2026-01-09,B000128,YHZ1,Shrink,-1,12.39,Mis-pick,SUP-OPS-28
+2026-01-09,B000152,YYC1,Shrink,-7,28.18,Damage not recorded,SUP-OPS-53
+2026-01-09,B000216,YYZ4,Shrink,-3,49.89,Put-away to wrong bin,SUP-OPS-53
+2026-01-09,B000249,YYC1,Expiry,-1,24.19,Mis-pick,SUP-OPS-56
+2026-01-09,B000354,YUL5,Write-off,-10,3.98,Damage not recorded,SUP-OPS-44
+2026-01-10,B000382,YVR2,Damage,-3,9.75,Theft or loss,SUP-OPS-43
+2026-01-11,B000163,YYC1,Expiry,-1,17.6,Unrecorded return,SUP-OPS-17
+2026-01-11,B000178,YHZ1,Shrink,-2,27.42,Theft or loss,SUP-OPS-46
+2026-01-11,B000294,YHZ1,Damage,-1,42.52,Put-away to wrong bin,SUP-OPS-18
+2026-01-11,B000329,YYZ4,Expiry,-1,64.01,Receiving error,SUP-OPS-23
+2026-01-12,B000179,YVR2,Damage,-2,62.15,System timing,SUP-OPS-13
+2026-01-12,B000201,YVR2,Shrink,-10,40.84,Unrecorded return,SUP-OPS-25
+2026-01-12,B000280,YWG2,Found stock,4,18.32,Mis-pick,SUP-OPS-10
+2026-01-13,B000171,YYZ4,Customer return,4,99.79,Theft or loss,SUP-OPS-47
+2026-01-13,B000218,YYZ4,Damage,-2,3.34,System timing,SUP-OPS-54
+2026-01-13,B000352,YYZ4,Damage,-7,42.99,Unrecorded return,SUP-OPS-26
+2026-01-14,B000128,YVR2,Shrink,-10,12.39,Receiving error,SUP-OPS-29
+2026-01-14,B000303,YYZ4,Damage,-8,9.43,Damage not recorded,SUP-OPS-59
+2026-01-14,B000341,YUL5,Shrink,-29,57.14,Mis-pick,SUP-OPS-39
+2026-01-14,B000372,YYZ4,Damage,-4,17.44,System timing,SUP-OPS-25
+2026-01-14,B000378,YHZ1,Customer return,4,9.25,Receiving error,SUP-OPS-32
+2026-01-14,B000378,YUL5,Customer return,38,9.25,Put-away to wrong bin,SUP-OPS-21
+2026-01-15,B000003,YYC1,Shrink,-7,116.68,Damage not recorded,SUP-OPS-33
+2026-01-15,B000037,YEG3,Expiry,-1,22.46,Receiving error,SUP-OPS-21
+2026-01-15,B000249,YYZ4,Damage,-3,24.19,Mis-pick,SUP-OPS-55
+2026-01-15,B000260,YYZ4,Customer return,3,27.53,System timing,SUP-OPS-17
+2026-01-15,B000264,YEG3,Write-off,-12,32.04,System timing,SUP-OPS-42
+2026-01-15,B000290,YYZ4,Damage,-1,2.29,Theft or loss,SUP-OPS-11
+2026-01-15,B000351,YYC1,Customer return,1,7.71,Theft or loss,SUP-OPS-54
+2026-01-16,B000376,YVR2,Customer return,6,94.61,Put-away to wrong bin,SUP-OPS-42
+2026-01-17,B000339,YYC1,Customer return,3,17.86,Mis-pick,SUP-OPS-47
+2026-01-17,B000356,YYZ4,Shrink,-6,30.35,Mis-pick,SUP-OPS-39
+2026-01-18,B000174,YUL5,Expiry,-1,29.82,Put-away to wrong bin,SUP-OPS-47
+2026-01-18,B000198,YUL5,Damage,-1,27.58,Put-away to wrong bin,SUP-OPS-47
+2026-01-18,B000291,YYZ4,Write-off,-2,17.87,Damage not recorded,SUP-OPS-24
+2026-01-18,B000418,YVR2,Customer return,2,20.14,Theft or loss,SUP-OPS-20
+2026-01-19,B000037,YYC1,Customer return,3,22.46,Mis-pick,SUP-OPS-52
+2026-01-19,B000249,YYZ4,Shrink,-1,24.19,Put-away to wrong bin,SUP-OPS-58
+2026-01-20,B000021,YYZ4,Shrink,-1,16.28,Receiving error,SUP-OPS-19
+2026-01-20,B000021,YYZ4,Customer return,9,16.28,Mis-pick,SUP-OPS-18
+2026-01-20,B000148,YEG3,Found stock,1,21.53,Mis-pick,SUP-OPS-46
+2026-01-20,B000185,YYC1,Write-off,-2,23.78,Mis-pick,SUP-OPS-22
+2026-01-20,B000300,YUL5,Found stock,2,30.93,Damage not recorded,SUP-OPS-46
+2026-01-20,B000323,YVR2,Damage,-1,11.42,Unrecorded return,SUP-OPS-22
+2026-01-21,B000149,YVR2,Damage,-4,23.03,System timing,SUP-OPS-15
+2026-01-21,B000292,YUL5,Expiry,-1,32.23,Mis-pick,SUP-OPS-44
+2026-01-21,B000416,YWG2,Damage,-1,26.43,Damage not recorded,SUP-OPS-10
+2026-01-22,B000049,YYZ4,Damage,-5,9.82,Put-away to wrong bin,SUP-OPS-27
+2026-01-22,B000187,YUL5,Damage,-1,18.92,Theft or loss,SUP-OPS-52
+2026-01-22,B000271,YEG3,Shrink,-2,23.34,Damage not recorded,SUP-OPS-25
+2026-01-22,B000280,YWG2,Shrink,-5,18.32,Receiving error,SUP-OPS-18
+2026-01-22,B000283,YWG2,Shrink,-5,5.71,Receiving error,SUP-OPS-14
+2026-01-23,B000034,YEG3,Damage,-1,72.97,Mis-pick,SUP-OPS-56
+2026-01-23,B000113,YUL5,Damage,-6,5.59,Damage not recorded,SUP-OPS-41
+2026-01-23,B000399,YYZ4,Write-off,-1,19.26,Receiving error,SUP-OPS-46
+2026-01-24,B000065,YYZ4,Customer return,1,8.16,Put-away to wrong bin,SUP-OPS-26
+2026-01-24,B000082,YVR2,Shrink,-37,43.59,Mis-pick,SUP-OPS-23
+2026-01-24,B000292,YYZ4,Damage,-2,32.23,Unrecorded return,SUP-OPS-22
+2026-01-25,B000393,YVR2,Write-off,-3,36.15,Receiving error,SUP-OPS-25
+2026-01-26,B000135,YYC1,Damage,-13,13.09,Mis-pick,SUP-OPS-38
+2026-01-26,B000213,YVR2,Shrink,-1,46.02,Damage not recorded,SUP-OPS-19
+2026-01-26,B000260,YYZ4,Damage,-3,27.53,System timing,SUP-OPS-48
+2026-01-26,B000267,YYZ4,Damage,-17,35.69,Damage not recorded,SUP-OPS-47
+2026-01-26,B000312,YEG3,Damage,-5,11.5,Mis-pick,SUP-OPS-52
+2026-01-26,B000419,YUL5,Damage,-1,34.2,Damage not recorded,SUP-OPS-18
+2026-01-27,B000109,YYZ4,Found stock,3,27.2,Damage not recorded,SUP-OPS-28
+2026-01-27,B000169,YVR2,Damage,-1,31.28,Unrecorded return,SUP-OPS-28
+2026-01-27,B000354,YEG3,Customer return,1,3.98,Damage not recorded,SUP-OPS-38
+2026-01-27,B000364,YEG3,Found stock,1,60.7,Put-away to wrong bin,SUP-OPS-28
+2026-01-27,B000383,YYZ4,Shrink,-2,12.08,Damage not recorded,SUP-OPS-26
+2026-01-27,B000392,YEG3,Write-off,-31,42.02,Unrecorded return,SUP-OPS-36
+2026-01-28,B000203,YUL5,Found stock,1,5.75,Mis-pick,SUP-OPS-51
+2026-01-28,B000230,YWG2,Damage,-3,10.67,Unrecorded return,SUP-OPS-57
+2026-01-28,B000398,YYZ4,Found stock,3,25.87,Unrecorded return,SUP-OPS-33
+2026-01-29,B000070,YVR2,Damage,-52,8.73,Mis-pick,SUP-OPS-50
+2026-01-29,B000193,YHZ1,Shrink,-1,39.69,Receiving error,SUP-OPS-50
+2026-01-29,B000211,YHZ1,Found stock,3,42.79,System timing,SUP-OPS-46
+2026-01-29,B000223,YHZ1,Shrink,-3,48.99,Receiving error,SUP-OPS-13
+2026-01-29,B000291,YUL5,Damage,-1,17.87,Mis-pick,SUP-OPS-18
+2026-01-30,B000177,YWG2,Found stock,5,2.41,Damage not recorded,SUP-OPS-33
+2026-01-30,B000326,YUL5,Damage,-4,9.48,Receiving error,SUP-OPS-39
+2026-01-31,B000164,YEG3,Damage,-3,52.28,Mis-pick,SUP-OPS-52
+2026-01-31,B000182,YYC1,Customer return,25,8.68,Damage not recorded,SUP-OPS-37
+2026-01-31,B000228,YYZ4,Shrink,-1,51.13,System timing,SUP-OPS-28
+2026-01-31,B000308,YYZ4,Damage,-2,10.93,Put-away to wrong bin,SUP-OPS-12
+2026-01-31,B000327,YYZ4,Damage,-1,45.86,Damage not recorded,SUP-OPS-12
+2026-02-01,B000126,YWG2,Damage,-10,5.33,Receiving error,SUP-OPS-13
+2026-02-01,B000164,YHZ1,Damage,-3,52.28,System timing,SUP-OPS-47
+2026-02-02,B000075,YWG2,Damage,-4,56.39,Mis-pick,SUP-OPS-20
+2026-02-02,B000325,YYZ4,Shrink,-11,11.69,Damage not recorded,SUP-OPS-21
+2026-02-03,B000402,YYC1,Shrink,-7,12.23,Put-away to wrong bin,SUP-OPS-37
+2026-02-03,B000419,YVR2,Shrink,-7,34.2,Receiving error,SUP-OPS-38
+2026-02-04,B000015,YYZ4,Found stock,3,3.74,Damage not recorded,SUP-OPS-32
+2026-02-04,B000071,YYZ4,Shrink,-1,52.68,Receiving error,SUP-OPS-12
+2026-02-04,B000284,YVR2,Damage,-6,19.61,Theft or loss,SUP-OPS-57
+2026-02-04,B000312,YYZ4,Shrink,-4,11.5,System timing,SUP-OPS-41
+2026-02-05,B000003,YYC1,Damage,-10,116.68,Mis-pick,SUP-OPS-48
+2026-02-05,B000090,YYC1,Damage,-56,30.31,Put-away to wrong bin,SUP-OPS-58
+2026-02-05,B000107,YUL5,Customer return,16,6.42,Mis-pick,SUP-OPS-46
+2026-02-05,B000411,YUL5,Write-off,-6,16.13,Mis-pick,SUP-OPS-49
+2026-02-05,B000418,YYZ4,Damage,-3,20.14,Theft or loss,SUP-OPS-38
+2026-02-06,B000009,YYZ4,Expiry,-1,15.41,Mis-pick,SUP-OPS-29
+2026-02-06,B000177,YEG3,Damage,-5,2.41,Mis-pick,SUP-OPS-15
+2026-02-06,B000364,YUL5,Damage,-7,60.7,Receiving error,SUP-OPS-20
+2026-02-06,B000401,YHZ1,Customer return,5,26.64,Unrecorded return,SUP-OPS-43
+2026-02-07,B000059,YYZ4,Damage,-8,55.06,Put-away to wrong bin,SUP-OPS-12
+2026-02-07,B000166,YYZ4,Customer return,11,22.72,Mis-pick,SUP-OPS-50
+2026-02-07,B000173,YYC1,Customer return,1,20.12,Unrecorded return,SUP-OPS-31
+2026-02-07,B000211,YUL5,Expiry,-12,42.79,Mis-pick,SUP-OPS-47
+2026-02-07,B000262,YEG3,Damage,-3,79.31,Put-away to wrong bin,SUP-OPS-19
+2026-02-07,B000382,YHZ1,Expiry,-18,9.75,System timing,SUP-OPS-15
+2026-02-08,B000008,YYZ4,Expiry,-11,3.7,System timing,SUP-OPS-21
+2026-02-08,B000152,YYC1,Damage,-6,28.18,Mis-pick,SUP-OPS-31
+2026-02-08,B000274,YEG3,Damage,-3,20.72,Receiving error,SUP-OPS-47
+2026-02-09,B000077,YWG2,Damage,-1,55.44,System timing,SUP-OPS-24
+2026-02-09,B000176,YYZ4,Shrink,-1,23.18,Unrecorded return,SUP-OPS-28
+2026-02-09,B000367,YYZ4,Found stock,3,4.19,Damage not recorded,SUP-OPS-52
+2026-02-09,B000401,YHZ1,Damage,-15,26.64,Theft or loss,SUP-OPS-55
+2026-02-09,B000401,YUL5,Write-off,-1,26.64,Damage not recorded,SUP-OPS-58
+2026-02-09,B000402,YYZ4,Found stock,8,12.23,Unrecorded return,SUP-OPS-28
+2026-02-09,B000414,YHZ1,Write-off,-4,32.56,Mis-pick,SUP-OPS-15
+2026-02-10,B000241,YEG3,Expiry,-5,43.91,System timing,SUP-OPS-57
+2026-02-10,B000308,YHZ1,Damage,-1,10.93,Mis-pick,SUP-OPS-59
+2026-02-10,B000336,YYZ4,Shrink,-4,61.89,System timing,SUP-OPS-31
+2026-02-10,B000414,YVR2,Shrink,-51,32.56,Receiving error,SUP-OPS-28
+2026-02-11,B000084,YYZ4,Found stock,10,10.08,Put-away to wrong bin,SUP-OPS-32
+2026-02-11,B000134,YYZ4,Customer return,5,17.14,Receiving error,SUP-OPS-25
+2026-02-11,B000178,YHZ1,Found stock,10,27.42,Damage not recorded,SUP-OPS-52
+2026-02-11,B000215,YWG2,Shrink,-1,17.08,Damage not recorded,SUP-OPS-43
+2026-02-11,B000277,YEG3,Damage,-1,37.83,Receiving error,SUP-OPS-42
+2026-02-11,B000316,YYZ4,Write-off,-2,11.05,Mis-pick,SUP-OPS-51
+2026-02-11,B000319,YEG3,Shrink,-2,45.53,Receiving error,SUP-OPS-39
+2026-02-12,B000044,YYZ4,Shrink,-19,49.42,Mis-pick,SUP-OPS-38
+2026-02-12,B000067,YHZ1,Damage,-4,26.62,Damage not recorded,SUP-OPS-35
+2026-02-12,B000094,YEG3,Customer return,3,14.88,Mis-pick,SUP-OPS-50
+2026-02-12,B000094,YHZ1,Customer return,36,14.88,Put-away to wrong bin,SUP-OPS-13
+2026-02-12,B000384,YVR2,Write-off,-1,152.21,Mis-pick,SUP-OPS-15
+2026-02-13,B000013,YYZ4,Damage,-104,7.12,Mis-pick,SUP-OPS-35
+2026-02-13,B000060,YWG2,Shrink,-2,14.56,Put-away to wrong bin,SUP-OPS-58
+2026-02-13,B000383,YYZ4,Write-off,-3,12.08,Unrecorded return,SUP-OPS-51
+2026-02-14,B000059,YEG3,Expiry,-3,55.06,Damage not recorded,SUP-OPS-28
+2026-02-14,B000250,YYC1,Shrink,-2,3.15,Mis-pick,SUP-OPS-52
+2026-02-14,B000339,YYC1,Damage,-1,17.86,Damage not recorded,SUP-OPS-56
+2026-02-15,B000147,YYZ4,Damage,-1,34.39,Unrecorded return,SUP-OPS-23
+2026-02-15,B000213,YYC1,Customer return,1,46.02,Put-away to wrong bin,SUP-OPS-36
+2026-02-15,B000387,YYZ4,Damage,-35,40.99,Damage not recorded,SUP-OPS-37
+2026-02-16,B000069,YYZ4,Damage,-5,11.1,Damage not recorded,SUP-OPS-58
+2026-02-16,B000101,YYC1,Shrink,-3,32.63,Mis-pick,SUP-OPS-51
+2026-02-16,B000217,YYZ4,Write-off,-1,37.59,Receiving error,SUP-OPS-13
+2026-02-16,B000313,YHZ1,Shrink,-3,19.4,Mis-pick,SUP-OPS-52
+2026-02-16,B000382,YEG3,Write-off,-2,9.75,Theft or loss,SUP-OPS-26
+2026-02-17,B000008,YYZ4,Damage,-104,3.7,Mis-pick,SUP-OPS-21
+2026-02-17,B000261,YYZ4,Write-off,-11,61.04,Damage not recorded,SUP-OPS-34
+2026-02-18,B000000,YHZ1,Damage,-3,5.35,Put-away to wrong bin,SUP-OPS-50
+2026-02-18,B000027,YYZ4,Shrink,-2,12.44,Mis-pick,SUP-OPS-17
+2026-02-18,B000053,YYZ4,Damage,-1,15.69,Mis-pick,SUP-OPS-42
+2026-02-18,B000199,YWG2,Customer return,1,17.21,Put-away to wrong bin,SUP-OPS-37
+2026-02-18,B000306,YHZ1,Shrink,-5,64.71,System timing,SUP-OPS-27
+2026-02-19,B000037,YYZ4,Damage,-1,22.46,Receiving error,SUP-OPS-43
+2026-02-19,B000113,YUL5,Damage,-1,5.59,System timing,SUP-OPS-53
+2026-02-19,B000164,YHZ1,Customer return,12,52.28,Receiving error,SUP-OPS-25
+2026-02-20,B000043,YVR2,Damage,-1,81.24,Mis-pick,SUP-OPS-44
+2026-02-20,B000218,YUL5,Customer return,2,3.34,Mis-pick,SUP-OPS-51
+2026-02-21,B000013,YVR2,Shrink,-2,7.12,Damage not recorded,SUP-OPS-29
+2026-02-21,B000046,YYZ4,Damage,-7,14.59,Put-away to wrong bin,SUP-OPS-24
+2026-02-21,B000153,YUL5,Damage,-2,9.61,Damage not recorded,SUP-OPS-17
+2026-02-21,B000259,YYC1,Damage,-6,17.17,Mis-pick,SUP-OPS-55
+2026-02-21,B000377,YWG2,Shrink,-3,61.98,Theft or loss,SUP-OPS-57
+2026-02-21,B000404,YYC1,Expiry,-1,6.26,Receiving error,SUP-OPS-11
+2026-02-22,B000007,YYC1,Damage,-4,5.45,Mis-pick,SUP-OPS-25
+2026-02-22,B000016,YYC1,Damage,-4,22.7,Put-away to wrong bin,SUP-OPS-20
+2026-02-22,B000069,YVR2,Shrink,-10,11.1,Damage not recorded,SUP-OPS-11
+2026-02-22,B000223,YYZ4,Damage,-18,48.99,System timing,SUP-OPS-58
+2026-02-22,B000241,YUL5,Damage,-59,43.91,System timing,SUP-OPS-17
+2026-02-23,B000044,YVR2,Shrink,-3,49.42,Put-away to wrong bin,SUP-OPS-42
+2026-02-23,B000144,YHZ1,Expiry,-1,16.5,Mis-pick,SUP-OPS-27
+2026-02-23,B000382,YUL5,Customer return,4,9.75,Mis-pick,SUP-OPS-40
+2026-02-24,B000315,YUL5,Found stock,6,68.19,Damage not recorded,SUP-OPS-30
+2026-02-25,B000089,YUL5,Found stock,42,29.26,Unrecorded return,SUP-OPS-49
+2026-02-25,B000122,YHZ1,Damage,-7,13.42,Put-away to wrong bin,SUP-OPS-52
+2026-02-25,B000185,YUL5,Damage,-8,23.78,System timing,SUP-OPS-54
+2026-02-25,B000378,YVR2,Shrink,-41,9.25,Mis-pick,SUP-OPS-59
+2026-02-26,B000014,YEG3,Damage,-11,22.31,Receiving error,SUP-OPS-58
+2026-02-26,B000116,YVR2,Shrink,-65,59.9,Put-away to wrong bin,SUP-OPS-13
+2026-02-26,B000288,YYZ4,Expiry,-11,9.3,Put-away to wrong bin,SUP-OPS-43
+2026-02-27,B000001,YYC1,Shrink,-1,32.03,Receiving error,SUP-OPS-38
+2026-02-27,B000079,YYZ4,Damage,-8,12.85,Receiving error,SUP-OPS-31
+2026-02-27,B000126,YYZ4,Expiry,-6,5.33,System timing,SUP-OPS-16
+2026-02-28,B000228,YYC1,Damage,-10,51.13,Receiving error,SUP-OPS-26
+2026-02-28,B000370,YWG2,Damage,-2,28.99,Mis-pick,SUP-OPS-43
+2026-02-28,B000392,YUL5,Expiry,-6,42.02,System timing,SUP-OPS-17
+2026-02-28,B000398,YEG3,Shrink,-3,25.87,Receiving error,SUP-OPS-20
+2026-03-01,B000007,YHZ1,Shrink,-29,5.45,Put-away to wrong bin,SUP-OPS-23
+2026-03-01,B000276,YUL5,Shrink,-1,23.17,Receiving error,SUP-OPS-25
+2026-03-01,B000296,YYZ4,Damage,-2,28.09,Mis-pick,SUP-OPS-52
+2026-03-01,B000305,YUL5,Damage,-49,13.63,Damage not recorded,SUP-OPS-15
+2026-03-01,B000318,YYZ4,Shrink,-1,27.75,Put-away to wrong bin,SUP-OPS-18
+2026-03-01,B000392,YVR2,Damage,-191,42.02,Receiving error,SUP-OPS-34
+2026-03-01,B000407,YHZ1,Write-off,-2,13.84,System timing,SUP-OPS-21
+2026-03-02,B000175,YYZ4,Shrink,-8,13.44,Receiving error,SUP-OPS-22
+2026-03-02,B000323,YYZ4,Damage,-1,11.42,Put-away to wrong bin,SUP-OPS-41
+2026-03-03,B000081,YEG3,Damage,-1,17.12,Mis-pick,SUP-OPS-49
+2026-03-03,B000141,YYZ4,Found stock,111,44.89,System timing,SUP-OPS-54
+2026-03-03,B000242,YHZ1,Damage,-7,7.44,Unrecorded return,SUP-OPS-20
+2026-03-04,B000030,YEG3,Found stock,3,26.33,Receiving error,SUP-OPS-28
+2026-03-04,B000075,YYZ4,Customer return,16,56.39,Receiving error,SUP-OPS-10
+2026-03-05,B000038,YWG2,Shrink,-3,29.94,Mis-pick,SUP-OPS-28
+2026-03-05,B000167,YEG3,Customer return,1,7.6,Receiving error,SUP-OPS-21
+2026-03-05,B000169,YYZ4,Damage,-1,31.28,Put-away to wrong bin,SUP-OPS-32
+2026-03-05,B000242,YVR2,Damage,-3,7.44,Put-away to wrong bin,SUP-OPS-44
+2026-03-05,B000376,YYZ4,Customer return,13,94.61,Receiving error,SUP-OPS-10
+2026-03-06,B000107,YWG2,Damage,-10,6.42,Mis-pick,SUP-OPS-57
+2026-03-06,B000197,YYZ4,Shrink,-2,7.26,Put-away to wrong bin,SUP-OPS-30
+2026-03-06,B000221,YUL5,Damage,-1,45.14,Mis-pick,SUP-OPS-26
+2026-03-07,B000050,YEG3,Shrink,-12,10.46,Unrecorded return,SUP-OPS-20
+2026-03-07,B000078,YWG2,Damage,-1,172.65,Receiving error,SUP-OPS-25
+2026-03-07,B000082,YUL5,Damage,-31,43.59,Damage not recorded,SUP-OPS-26
+2026-03-07,B000167,YYZ4,Customer return,7,7.6,Put-away to wrong bin,SUP-OPS-17
+2026-03-07,B000301,YHZ1,Found stock,7,37.32,Mis-pick,SUP-OPS-51
+2026-03-08,B000108,YWG2,Damage,-1,27.52,Damage not recorded,SUP-OPS-55
+2026-03-08,B000245,YWG2,Shrink,-5,2.38,Put-away to wrong bin,SUP-OPS-38
+2026-03-08,B000361,YYZ4,Customer return,3,25.9,Put-away to wrong bin,SUP-OPS-29
+2026-03-09,B000048,YYZ4,Write-off,-7,31.84,Damage not recorded,SUP-OPS-54
+2026-03-09,B000126,YWG2,Write-off,-30,5.33,Unrecorded return,SUP-OPS-17
+2026-03-09,B000361,YYZ4,Damage,-6,25.9,Put-away to wrong bin,SUP-OPS-12
+2026-03-09,B000362,YYC1,Expiry,-7,52.53,Damage not recorded,SUP-OPS-37
+2026-03-09,B000407,YVR2,Write-off,-5,13.84,Unrecorded return,SUP-OPS-36
+2026-03-10,B000015,YYZ4,Write-off,-4,3.74,Unrecorded return,SUP-OPS-36
+2026-03-10,B000116,YYZ4,Customer return,15,59.9,System timing,SUP-OPS-24
+2026-03-10,B000326,YVR2,Damage,-8,9.48,Mis-pick,SUP-OPS-48
+2026-03-11,B000171,YYZ4,Damage,-4,99.79,Receiving error,SUP-OPS-14
+2026-03-11,B000178,YVR2,Customer return,21,27.42,Mis-pick,SUP-OPS-11
+2026-03-11,B000318,YYC1,Customer return,2,27.75,System timing,SUP-OPS-13
+2026-03-11,B000370,YWG2,Shrink,-1,28.99,System timing,SUP-OPS-17
+2026-03-12,B000122,YWG2,Damage,-1,13.42,System timing,SUP-OPS-56
+2026-03-12,B000177,YYZ4,Damage,-4,2.41,Put-away to wrong bin,SUP-OPS-17
+2026-03-12,B000270,YYZ4,Shrink,-28,42.84,Mis-pick,SUP-OPS-14
+2026-03-12,B000286,YYZ4,Damage,-1,43.29,System timing,SUP-OPS-55
+2026-03-12,B000313,YYC1,Damage,-1,19.4,Receiving error,SUP-OPS-55
+2026-03-13,B000189,YWG2,Shrink,-1,11.62,System timing,SUP-OPS-50
+2026-03-13,B000314,YUL5,Write-off,-17,39.46,Mis-pick,SUP-OPS-16
+2026-03-14,B000079,YWG2,Damage,-3,12.85,Mis-pick,SUP-OPS-32
+2026-03-14,B000195,YYZ4,Customer return,2,6.65,Mis-pick,SUP-OPS-29
+2026-03-14,B000403,YUL5,Shrink,-10,32.5,Mis-pick,SUP-OPS-34
+2026-03-14,B000406,YHZ1,Customer return,1,12.22,Mis-pick,SUP-OPS-32
+2026-03-15,B000013,YYZ4,Damage,-173,7.12,Mis-pick,SUP-OPS-14
+2026-03-15,B000063,YEG3,Damage,-2,20.49,Receiving error,SUP-OPS-53
+2026-03-15,B000332,YVR2,Found stock,5,37.15,Receiving error,SUP-OPS-35
+2026-03-15,B000379,YYC1,Shrink,-6,6.69,System timing,SUP-OPS-47
+2026-03-16,B000169,YUL5,Shrink,-1,31.28,Unrecorded return,SUP-OPS-27
+2026-03-16,B000220,YYC1,Customer return,21,19.35,Mis-pick,SUP-OPS-45
+2026-03-16,B000334,YVR2,Shrink,-1,8.22,Receiving error,SUP-OPS-52
+2026-03-16,B000382,YWG2,Found stock,3,9.75,Put-away to wrong bin,SUP-OPS-47
+2026-03-17,B000017,YYC1,Customer return,84,37.04,Receiving error,SUP-OPS-14
+2026-03-17,B000088,YWG2,Found stock,1,22.27,System timing,SUP-OPS-28
+2026-03-17,B000154,YUL5,Write-off,-3,6.27,Unrecorded return,SUP-OPS-36
+2026-03-17,B000165,YEG3,Damage,-28,35.18,Mis-pick,SUP-OPS-25
+2026-03-17,B000199,YWG2,Damage,-1,17.21,Mis-pick,SUP-OPS-56
+2026-03-17,B000234,YYZ4,Customer return,3,68.84,Receiving error,SUP-OPS-33
+2026-03-17,B000335,YHZ1,Customer return,1,57.26,Mis-pick,SUP-OPS-30
+2026-03-17,B000418,YUL5,Expiry,-4,20.14,Receiving error,SUP-OPS-45
+2026-03-18,B000019,YHZ1,Shrink,-6,12.51,Damage not recorded,SUP-OPS-28
+2026-03-18,B000051,YUL5,Damage,-2,17.69,Receiving error,SUP-OPS-40
+2026-03-18,B000129,YYZ4,Customer return,296,47.77,Receiving error,SUP-OPS-10
+2026-03-18,B000372,YYC1,Write-off,-1,17.44,Put-away to wrong bin,SUP-OPS-15
+2026-03-19,B000091,YYC1,Shrink,-1,40.85,Damage not recorded,SUP-OPS-29
+2026-03-19,B000130,YYZ4,Found stock,1,4.08,Put-away to wrong bin,SUP-OPS-44
+2026-03-19,B000330,YYZ4,Damage,-5,34.27,Receiving error,SUP-OPS-36
+2026-03-19,B000334,YYZ4,Expiry,-1,8.22,System timing,SUP-OPS-37
+2026-03-20,B000018,YYZ4,Shrink,-2,15.1,Receiving error,SUP-OPS-34
+2026-03-20,B000041,YEG3,Shrink,-8,14.4,System timing,SUP-OPS-35
+2026-03-20,B000102,YWG2,Shrink,-4,4.23,Damage not recorded,SUP-OPS-57
+2026-03-20,B000173,YVR2,Shrink,-3,20.12,Mis-pick,SUP-OPS-55
+2026-03-20,B000404,YWG2,Customer return,1,6.26,Mis-pick,SUP-OPS-37
+2026-03-21,B000016,YYZ4,Customer return,1,22.7,Mis-pick,SUP-OPS-18
+2026-03-21,B000298,YYZ4,Damage,-47,39.04,Theft or loss,SUP-OPS-38
+2026-03-21,B000343,YYC1,Damage,-1,128.75,Receiving error,SUP-OPS-24
+2026-03-21,B000388,YEG3,Shrink,-5,19.55,Mis-pick,SUP-OPS-38
+2026-03-22,B000006,YYC1,Customer return,1,10.47,Mis-pick,SUP-OPS-59
+2026-03-22,B000173,YYC1,Shrink,-2,20.12,Put-away to wrong bin,SUP-OPS-35
+2026-03-22,B000378,YWG2,Write-off,-58,9.25,Unrecorded return,SUP-OPS-37
+2026-03-22,B000409,YYZ4,Shrink,-3,15.72,Receiving error,SUP-OPS-16
+2026-03-23,B000160,YEG3,Write-off,-1,152.23,Theft or loss,SUP-OPS-52
+2026-03-23,B000199,YWG2,Customer return,2,17.21,Mis-pick,SUP-OPS-55
+2026-03-23,B000305,YWG2,Shrink,-1,13.63,Receiving error,SUP-OPS-23
+2026-03-23,B000413,YVR2,Damage,-1,27.73,Unrecorded return,SUP-OPS-30
+2026-03-24,B000011,YEG3,Shrink,-1,29.3,Mis-pick,SUP-OPS-41
+2026-03-24,B000040,YVR2,Customer return,1,78.85,Receiving error,SUP-OPS-26
+2026-03-24,B000233,YWG2,Customer return,1,30.93,System timing,SUP-OPS-58
+2026-03-24,B000353,YYZ4,Damage,-2,13.18,Unrecorded return,SUP-OPS-18
+2026-03-24,B000382,YEG3,Customer return,12,9.75,Put-away to wrong bin,SUP-OPS-51
+2026-03-25,B000109,YWG2,Write-off,-2,27.2,Put-away to wrong bin,SUP-OPS-41
+2026-03-25,B000152,YVR2,Damage,-8,28.18,Mis-pick,SUP-OPS-32
+2026-03-25,B000167,YUL5,Damage,-2,7.6,System timing,SUP-OPS-35
+2026-03-25,B000351,YUL5,Shrink,-2,7.71,Receiving error,SUP-OPS-42
+2026-03-25,B000361,YYZ4,Expiry,-1,25.9,Receiving error,SUP-OPS-25
+2026-03-26,B000059,YUL5,Write-off,-7,55.06,Damage not recorded,SUP-OPS-35
+2026-03-26,B000213,YVR2,Shrink,-2,46.02,Receiving error,SUP-OPS-56
+2026-03-26,B000284,YYZ4,Shrink,-1,19.61,Mis-pick,SUP-OPS-29
+2026-03-27,B000079,YWG2,Expiry,-5,12.85,Mis-pick,SUP-OPS-52
+2026-03-27,B000143,YUL5,Damage,-3,6.49,Receiving error,SUP-OPS-54
+2026-03-27,B000184,YYZ4,Damage,-74,18.21,Mis-pick,SUP-OPS-35
+2026-03-27,B000309,YYZ4,Damage,-23,6.6,Put-away to wrong bin,SUP-OPS-50
+2026-03-27,B000349,YEG3,Write-off,-2,53.59,Put-away to wrong bin,SUP-OPS-28
+2026-03-28,B000068,YYZ4,Expiry,-5,53.46,Put-away to wrong bin,SUP-OPS-15
+2026-03-28,B000123,YVR2,Customer return,3,11.77,Receiving error,SUP-OPS-53
+2026-03-28,B000230,YYZ4,Damage,-16,10.67,Put-away to wrong bin,SUP-OPS-35
+2026-03-29,B000104,YEG3,Write-off,-10,16.04,Put-away to wrong bin,SUP-OPS-57
+2026-03-29,B000265,YYC1,Damage,-1,5.9,Theft or loss,SUP-OPS-32
+2026-03-29,B000300,YHZ1,Found stock,2,30.93,System timing,SUP-OPS-32
+2026-03-30,B000241,YWG2,Damage,-5,43.91,Mis-pick,SUP-OPS-40
+2026-03-31,B000062,YUL5,Customer return,1,13.09,Mis-pick,SUP-OPS-43
+2026-03-31,B000210,YYC1,Customer return,2,2.12,Put-away to wrong bin,SUP-OPS-20
+2026-03-31,B000348,YEG3,Customer return,5,9.96,Put-away to wrong bin,SUP-OPS-42
+2026-04-01,B000010,YYC1,Shrink,-3,22.5,Put-away to wrong bin,SUP-OPS-33
+2026-04-01,B000128,YVR2,Damage,-37,12.39,Mis-pick,SUP-OPS-31
+2026-04-01,B000289,YEG3,Found stock,13,33.98,Damage not recorded,SUP-OPS-45
+2026-04-01,B000346,YVR2,Expiry,-2,26.44,Mis-pick,SUP-OPS-36
+2026-04-01,B000352,YVR2,Write-off,-8,42.99,Mis-pick,SUP-OPS-55
+2026-04-02,B000076,YUL5,Damage,-2,31.77,Theft or loss,SUP-OPS-56
+2026-04-03,B000002,YUL5,Expiry,-34,20.25,Theft or loss,SUP-OPS-20
+2026-04-03,B000302,YWG2,Shrink,-1,37.95,Put-away to wrong bin,SUP-OPS-32
+2026-04-03,B000351,YVR2,Customer return,6,7.71,Receiving error,SUP-OPS-14
+2026-04-03,B000359,YYZ4,Damage,-3,69.57,Damage not recorded,SUP-OPS-34
+2026-04-03,B000389,YYZ4,Damage,-6,28.39,Receiving error,SUP-OPS-51
+2026-04-05,B000107,YVR2,Damage,-1,6.42,Unrecorded return,SUP-OPS-27
+2026-04-05,B000107,YVR2,Damage,-1,6.42,Unrecorded return,SUP-OPS-18
+2026-04-05,B000113,YYZ4,Damage,-1,5.59,Receiving error,SUP-OPS-33
+2026-04-05,B000387,YEG3,Damage,-3,40.99,Put-away to wrong bin,SUP-OPS-48
+2026-04-06,B000001,YYC1,Damage,-2,32.03,System timing,SUP-OPS-10
+2026-04-06,B000010,YEG3,Customer return,3,22.5,Put-away to wrong bin,SUP-OPS-48
+2026-04-06,B000116,YUL5,Found stock,2,59.9,Put-away to wrong bin,SUP-OPS-49
+2026-04-06,B000152,YYZ4,Write-off,-2,28.18,Put-away to wrong bin,SUP-OPS-34
+2026-04-06,B000289,YUL5,Shrink,-18,33.98,Damage not recorded,SUP-OPS-51
+2026-04-07,B000086,YUL5,Shrink,-1,8.8,Mis-pick,SUP-OPS-48
+2026-04-07,B000188,YHZ1,Shrink,-1,8.95,Mis-pick,SUP-OPS-38
+2026-04-07,B000338,YHZ1,Damage,-1,3.88,Mis-pick,SUP-OPS-56
+2026-04-07,B000354,YEG3,Customer return,3,3.98,System timing,SUP-OPS-17
+2026-04-07,B000392,YVR2,Shrink,-79,42.02,System timing,SUP-OPS-52
+2026-04-08,B000146,YWG2,Damage,-1,22.0,Damage not recorded,SUP-OPS-30
+2026-04-08,B000156,YYC1,Damage,-5,14.32,Damage not recorded,SUP-OPS-49
+2026-04-09,B000019,YVR2,Write-off,-7,12.51,System timing,SUP-OPS-54
+2026-04-09,B000020,YHZ1,Damage,-8,26.71,Mis-pick,SUP-OPS-51
+2026-04-09,B000339,YUL5,Damage,-3,17.86,Put-away to wrong bin,SUP-OPS-24
+2026-04-09,B000373,YYZ4,Found stock,7,146.03,System timing,SUP-OPS-31
+2026-04-10,B000016,YHZ1,Damage,-9,22.7,Damage not recorded,SUP-OPS-46
+2026-04-10,B000117,YEG3,Found stock,3,10.32,Mis-pick,SUP-OPS-15
+2026-04-10,B000199,YYC1,Write-off,-6,17.21,System timing,SUP-OPS-37
+2026-04-10,B000268,YUL5,Damage,-4,24.53,Put-away to wrong bin,SUP-OPS-41
+2026-04-11,B000072,YEG3,Shrink,-3,16.47,Receiving error,SUP-OPS-48
+2026-04-11,B000118,YWG2,Damage,-3,14.9,Mis-pick,SUP-OPS-38
+2026-04-11,B000264,YEG3,Customer return,10,32.04,Receiving error,SUP-OPS-16
+2026-04-11,B000383,YYC1,Customer return,7,12.08,Damage not recorded,SUP-OPS-17
+2026-04-11,B000401,YYZ4,Damage,-3,26.64,Damage not recorded,SUP-OPS-16
+2026-04-12,B000069,YEG3,Customer return,3,11.1,Receiving error,SUP-OPS-11
+2026-04-12,B000175,YUL5,Damage,-6,13.44,Put-away to wrong bin,SUP-OPS-50
+2026-04-12,B000358,YYC1,Shrink,-4,85.05,System timing,SUP-OPS-30
+2026-04-12,B000382,YHZ1,Shrink,-7,9.75,Put-away to wrong bin,SUP-OPS-40
+2026-04-13,B000032,YYZ4,Shrink,-1,10.45,Receiving error,SUP-OPS-17
+2026-04-13,B000122,YEG3,Customer return,2,13.42,Receiving error,SUP-OPS-57
+2026-04-13,B000306,YHZ1,Damage,-8,64.71,Receiving error,SUP-OPS-13
+2026-04-13,B000360,YYZ4,Shrink,-2,13.52,Put-away to wrong bin,SUP-OPS-22
+2026-04-14,B000045,YYZ4,Shrink,-3,57.92,Put-away to wrong bin,SUP-OPS-55
+2026-04-14,B000144,YHZ1,Expiry,-1,16.5,Receiving error,SUP-OPS-16
+2026-04-14,B000163,YYC1,Found stock,3,17.6,Mis-pick,SUP-OPS-34
+2026-04-14,B000253,YYC1,Shrink,-1,5.33,Receiving error,SUP-OPS-20
+2026-04-14,B000330,YVR2,Damage,-1,34.27,Receiving error,SUP-OPS-16
+2026-04-15,B000181,YYZ4,Damage,-17,54.45,Receiving error,SUP-OPS-56
+2026-04-15,B000342,YYZ4,Shrink,-3,3.2,System timing,SUP-OPS-37
+2026-04-16,B000070,YHZ1,Customer return,1,8.73,Damage not recorded,SUP-OPS-14
+2026-04-16,B000148,YWG2,Shrink,-3,21.53,Put-away to wrong bin,SUP-OPS-58
+2026-04-16,B000156,YVR2,Write-off,-13,14.32,Put-away to wrong bin,SUP-OPS-38
+2026-04-16,B000234,YHZ1,Damage,-1,68.84,Theft or loss,SUP-OPS-22
+2026-04-16,B000234,YYZ4,Customer return,1,68.84,Put-away to wrong bin,SUP-OPS-29
+2026-04-16,B000349,YYZ4,Found stock,14,53.59,Mis-pick,SUP-OPS-50
+2026-04-17,B000003,YYC1,Shrink,-7,116.68,Receiving error,SUP-OPS-43
+2026-04-17,B000126,YHZ1,Customer return,4,5.33,Mis-pick,SUP-OPS-48
+2026-04-17,B000180,YYC1,Found stock,4,87.04,Put-away to wrong bin,SUP-OPS-36
+2026-04-17,B000361,YYZ4,Damage,-5,25.9,Damage not recorded,SUP-OPS-16
+2026-04-18,B000012,YEG3,Damage,-2,9.46,Mis-pick,SUP-OPS-37
+2026-04-18,B000103,YEG3,Customer return,18,12.96,Mis-pick,SUP-OPS-15
+2026-04-18,B000168,YYZ4,Expiry,-8,8.87,Put-away to wrong bin,SUP-OPS-43
+2026-04-18,B000356,YUL5,Write-off,-3,30.35,System timing,SUP-OPS-51
+2026-04-18,B000358,YUL5,Shrink,-1,85.05,Mis-pick,SUP-OPS-32
+2026-04-18,B000394,YVR2,Found stock,8,19.24,Mis-pick,SUP-OPS-55
+2026-04-19,B000085,YVR2,Shrink,-2,85.16,System timing,SUP-OPS-32
+2026-04-19,B000141,YUL5,Found stock,8,44.89,Mis-pick,SUP-OPS-31
+2026-04-19,B000185,YUL5,Expiry,-4,23.78,Theft or loss,SUP-OPS-16
+2026-04-19,B000221,YUL5,Expiry,-12,45.14,Mis-pick,SUP-OPS-48
+2026-04-19,B000296,YYZ4,Shrink,-5,28.09,System timing,SUP-OPS-31
+2026-04-19,B000311,YYZ4,Damage,-2,23.78,Unrecorded return,SUP-OPS-30
+2026-04-20,B000298,YWG2,Damage,-2,39.04,Receiving error,SUP-OPS-18
+2026-04-21,B000064,YYZ4,Shrink,-2,40.08,System timing,SUP-OPS-16
+2026-04-21,B000304,YWG2,Shrink,-2,13.26,Mis-pick,SUP-OPS-26
+2026-04-21,B000319,YEG3,Damage,-1,45.53,Damage not recorded,SUP-OPS-39
+2026-04-22,B000007,YUL5,Shrink,-496,5.45,Theft or loss,SUP-OPS-32
+2026-04-22,B000010,YYZ4,Expiry,-92,22.5,Put-away to wrong bin,SUP-OPS-10
+2026-04-22,B000154,YHZ1,Damage,-2,6.27,Put-away to wrong bin,SUP-OPS-27
+2026-04-22,B000170,YHZ1,Expiry,-2,6.35,Put-away to wrong bin,SUP-OPS-43
+2026-04-22,B000182,YEG3,Damage,-2,8.68,Damage not recorded,SUP-OPS-31
+2026-04-22,B000401,YHZ1,Shrink,-1,26.64,Receiving error,SUP-OPS-56
+2026-04-23,B000065,YYZ4,Found stock,1,8.16,Put-away to wrong bin,SUP-OPS-11
+2026-04-23,B000134,YWG2,Shrink,-2,17.14,Mis-pick,SUP-OPS-19
+2026-04-23,B000213,YUL5,Damage,-1,46.02,Theft or loss,SUP-OPS-49
+2026-04-24,B000019,YYZ4,Shrink,-9,12.51,Mis-pick,SUP-OPS-39
+2026-04-24,B000036,YUL5,Shrink,-4,29.55,Put-away to wrong bin,SUP-OPS-15
+2026-04-24,B000137,YYZ4,Damage,-4,104.11,Put-away to wrong bin,SUP-OPS-25
+2026-04-24,B000263,YYZ4,Damage,-2,50.34,Theft or loss,SUP-OPS-52
+2026-04-24,B000342,YYZ4,Damage,-5,3.2,Receiving error,SUP-OPS-28
+2026-04-25,B000187,YYC1,Damage,-1,18.92,Put-away to wrong bin,SUP-OPS-50
+2026-04-25,B000319,YYZ4,Write-off,-6,45.53,Mis-pick,SUP-OPS-44
+2026-04-26,B000028,YYZ4,Damage,-3,33.32,Mis-pick,SUP-OPS-23
+2026-04-26,B000276,YYZ4,Write-off,-4,23.17,Mis-pick,SUP-OPS-34
+2026-04-26,B000336,YYZ4,Damage,-13,61.89,Damage not recorded,SUP-OPS-30
+2026-04-26,B000357,YVR2,Write-off,-11,2.48,Put-away to wrong bin,SUP-OPS-58
+2026-04-27,B000257,YVR2,Shrink,-1,12.7,Unrecorded return,SUP-OPS-58
+2026-04-27,B000323,YVR2,Customer return,6,11.42,Mis-pick,SUP-OPS-37
+2026-04-27,B000416,YVR2,Expiry,-2,26.43,Damage not recorded,SUP-OPS-57
+2026-04-28,B000169,YVR2,Found stock,3,31.28,Theft or loss,SUP-OPS-27
+2026-04-28,B000178,YEG3,Expiry,-10,27.42,Receiving error,SUP-OPS-46
+2026-04-28,B000233,YYZ4,Damage,-1,30.93,Mis-pick,SUP-OPS-39
+2026-04-28,B000312,YYC1,Expiry,-2,11.5,Mis-pick,SUP-OPS-28
+2026-04-29,B000024,YWG2,Shrink,-1,24.8,Unrecorded return,SUP-OPS-48
+2026-04-29,B000216,YUL5,Customer return,3,49.89,Receiving error,SUP-OPS-20
+2026-04-29,B000376,YVR2,Write-off,-21,94.61,Mis-pick,SUP-OPS-32
+2026-04-30,B000022,YHZ1,Found stock,1,23.15,Put-away to wrong bin,SUP-OPS-30
+2026-04-30,B000120,YYZ4,Expiry,-4,22.08,Receiving error,SUP-OPS-58
+2026-04-30,B000153,YYZ4,Write-off,-9,9.61,Put-away to wrong bin,SUP-OPS-17
+2026-04-30,B000257,YUL5,Found stock,2,12.7,Receiving error,SUP-OPS-54
+2026-04-30,B000274,YUL5,Customer return,6,20.72,Damage not recorded,SUP-OPS-12
+2026-05-01,B000002,YUL5,Damage,-100,20.25,Put-away to wrong bin,SUP-OPS-46
+2026-05-01,B000309,YYZ4,Found stock,7,6.6,Put-away to wrong bin,SUP-OPS-41
+2026-05-02,B000012,YUL5,Found stock,4,9.46,Mis-pick,SUP-OPS-42
+2026-05-02,B000183,YHZ1,Damage,-1,21.45,Damage not recorded,SUP-OPS-45
+2026-05-02,B000222,YYZ4,Customer return,1,12.18,Unrecorded return,SUP-OPS-51
+2026-05-02,B000361,YYZ4,Customer return,15,25.9,System timing,SUP-OPS-43
+2026-05-03,B000068,YUL5,Write-off,-2,53.46,Unrecorded return,SUP-OPS-57
+2026-05-03,B000096,YYZ4,Shrink,-1,125.28,Receiving error,SUP-OPS-29
+2026-05-03,B000182,YEG3,Expiry,-8,8.68,Receiving error,SUP-OPS-44
+2026-05-03,B000256,YHZ1,Shrink,-1,17.41,Mis-pick,SUP-OPS-25
+2026-05-03,B000290,YUL5,Shrink,-11,2.29,Unrecorded return,SUP-OPS-49
+2026-05-04,B000065,YYC1,Expiry,-1,8.16,Mis-pick,SUP-OPS-22
+2026-05-04,B000129,YWG2,Customer return,363,47.77,Unrecorded return,SUP-OPS-15
+2026-05-04,B000146,YVR2,Customer return,4,22.0,Unrecorded return,SUP-OPS-39
+2026-05-04,B000204,YYC1,Found stock,1,25.35,Receiving error,SUP-OPS-31
+2026-05-04,B000216,YYZ4,Shrink,-3,49.89,Put-away to wrong bin,SUP-OPS-33
+2026-05-04,B000223,YHZ1,Shrink,-2,48.99,System timing,SUP-OPS-38
+2026-05-04,B000416,YYZ4,Write-off,-2,26.43,Theft or loss,SUP-OPS-37
+2026-05-05,B000067,YWG2,Found stock,7,26.62,Damage not recorded,SUP-OPS-21
+2026-05-05,B000083,YYC1,Shrink,-6,25.64,Put-away to wrong bin,SUP-OPS-37
+2026-05-05,B000115,YEG3,Shrink,-3,32.44,Receiving error,SUP-OPS-42
+2026-05-05,B000199,YYC1,Shrink,-2,17.21,Unrecorded return,SUP-OPS-36
+2026-05-05,B000229,YHZ1,Found stock,1,69.87,Unrecorded return,SUP-OPS-15
+2026-05-06,B000100,YUL5,Write-off,-1,2.0,Receiving error,SUP-OPS-55
+2026-05-06,B000300,YYZ4,Found stock,5,30.93,Mis-pick,SUP-OPS-34
+2026-05-07,B000338,YVR2,Customer return,10,3.88,Put-away to wrong bin,SUP-OPS-26
+2026-05-07,B000365,YUL5,Customer return,1,4.97,Put-away to wrong bin,SUP-OPS-57
+2026-05-08,B000034,YVR2,Damage,-35,72.97,System timing,SUP-OPS-31
+2026-05-08,B000210,YUL5,Customer return,6,2.12,Mis-pick,SUP-OPS-19
+2026-05-08,B000225,YWG2,Customer return,2,72.79,Receiving error,SUP-OPS-52
+2026-05-09,B000110,YVR2,Shrink,-3,27.06,System timing,SUP-OPS-38
+2026-05-09,B000125,YYZ4,Customer return,5,8.87,Unrecorded return,SUP-OPS-48
+2026-05-09,B000181,YYC1,Damage,-34,54.45,Put-away to wrong bin,SUP-OPS-26
+2026-05-09,B000190,YWG2,Found stock,9,24.81,Mis-pick,SUP-OPS-44
+2026-05-09,B000226,YWG2,Damage,-1,18.36,Receiving error,SUP-OPS-18
+2026-05-09,B000348,YYZ4,Customer return,61,9.96,System timing,SUP-OPS-31
+2026-05-10,B000000,YHZ1,Customer return,1,5.35,Damage not recorded,SUP-OPS-44
+2026-05-10,B000086,YHZ1,Customer return,3,8.8,Receiving error,SUP-OPS-12
+2026-05-10,B000134,YUL5,Shrink,-40,17.14,Receiving error,SUP-OPS-35
+2026-05-10,B000162,YEG3,Shrink,-1,11.86,Put-away to wrong bin,SUP-OPS-40
+2026-05-10,B000185,YUL5,Shrink,-16,23.78,Mis-pick,SUP-OPS-41
+2026-05-10,B000383,YHZ1,Damage,-1,12.08,Mis-pick,SUP-OPS-26
+2026-05-11,B000092,YYC1,Shrink,-2,37.96,System timing,SUP-OPS-15
+2026-05-11,B000271,YEG3,Damage,-1,23.34,Damage not recorded,SUP-OPS-42
+2026-05-12,B000118,YWG2,Shrink,-1,14.9,Mis-pick,SUP-OPS-25
+2026-05-12,B000124,YHZ1,Customer return,5,19.28,Put-away to wrong bin,SUP-OPS-41
+2026-05-12,B000185,YHZ1,Damage,-10,23.78,Put-away to wrong bin,SUP-OPS-36
+2026-05-12,B000324,YYC1,Customer return,3,50.1,Theft or loss,SUP-OPS-33
+2026-05-12,B000382,YHZ1,Damage,-18,9.75,Mis-pick,SUP-OPS-21
+2026-05-13,B000104,YVR2,Damage,-1,16.04,Damage not recorded,SUP-OPS-12
+2026-05-13,B000185,YUL5,Found stock,7,23.78,Mis-pick,SUP-OPS-59
+2026-05-14,B000029,YWG2,Damage,-2,12.43,Mis-pick,SUP-OPS-59
+2026-05-14,B000409,YYZ4,Shrink,-1,15.72,System timing,SUP-OPS-27
+2026-05-15,B000005,YYC1,Shrink,-1,11.5,Put-away to wrong bin,SUP-OPS-31
+2026-05-15,B000041,YHZ1,Shrink,-25,14.4,Put-away to wrong bin,SUP-OPS-36
+2026-05-15,B000108,YVR2,Customer return,36,27.52,Theft or loss,SUP-OPS-48
+2026-05-15,B000152,YUL5,Damage,-1,28.18,Damage not recorded,SUP-OPS-58
+2026-05-15,B000226,YUL5,Shrink,-1,18.36,Receiving error,SUP-OPS-26
+2026-05-15,B000258,YVR2,Customer return,3,7.11,Receiving error,SUP-OPS-56
+2026-05-15,B000290,YWG2,Expiry,-2,2.29,Receiving error,SUP-OPS-54
+2026-05-16,B000154,YUL5,Customer return,3,6.27,Receiving error,SUP-OPS-10
+2026-05-16,B000271,YYZ4,Expiry,-53,23.34,Receiving error,SUP-OPS-21
+2026-05-16,B000318,YYC1,Found stock,1,27.75,Damage not recorded,SUP-OPS-33
+2026-05-17,B000008,YEG3,Customer return,1,3.7,System timing,SUP-OPS-51
+2026-05-17,B000032,YWG2,Damage,-11,10.45,Receiving error,SUP-OPS-56
+2026-05-17,B000067,YYZ4,Damage,-4,26.62,Put-away to wrong bin,SUP-OPS-56
+2026-05-17,B000213,YVR2,Found stock,2,46.02,Damage not recorded,SUP-OPS-50
+2026-05-17,B000307,YYZ4,Customer return,1,10.55,Mis-pick,SUP-OPS-30
+2026-05-17,B000325,YYC1,Shrink,-1,11.69,Damage not recorded,SUP-OPS-31
+2026-05-18,B000063,YUL5,Damage,-8,20.49,Put-away to wrong bin,SUP-OPS-47
+2026-05-18,B000135,YYC1,Shrink,-3,13.09,Mis-pick,SUP-OPS-59
+2026-05-18,B000148,YHZ1,Damage,-3,21.53,Receiving error,SUP-OPS-52
+2026-05-18,B000208,YWG2,Damage,-4,18.0,Mis-pick,SUP-OPS-40
+2026-05-18,B000335,YYZ4,Shrink,-6,57.26,Receiving error,SUP-OPS-40
+2026-05-19,B000011,YYZ4,Found stock,4,29.3,Damage not recorded,SUP-OPS-47
+2026-05-19,B000025,YVR2,Damage,-2,34.44,Mis-pick,SUP-OPS-27
+2026-05-19,B000242,YHZ1,Shrink,-12,7.44,Mis-pick,SUP-OPS-11
+2026-05-19,B000261,YYZ4,Expiry,-15,61.04,System timing,SUP-OPS-43
+2026-05-19,B000262,YVR2,Found stock,4,79.31,Receiving error,SUP-OPS-11
+2026-05-20,B000101,YYC1,Customer return,3,32.63,Mis-pick,SUP-OPS-18
+2026-05-20,B000114,YVR2,Customer return,2,74.15,Mis-pick,SUP-OPS-48
+2026-05-20,B000178,YEG3,Write-off,-2,27.42,Put-away to wrong bin,SUP-OPS-47
+2026-05-20,B000244,YYC1,Shrink,-3,31.25,Mis-pick,SUP-OPS-32
+2026-05-21,B000311,YWG2,Shrink,-12,23.78,Mis-pick,SUP-OPS-32
+2026-05-21,B000335,YYZ4,Damage,-7,57.26,Theft or loss,SUP-OPS-18
+2026-05-21,B000380,YYZ4,Damage,-1,31.53,Put-away to wrong bin,SUP-OPS-54
+2026-05-22,B000151,YVR2,Customer return,3,10.75,Receiving error,SUP-OPS-31
+2026-05-22,B000254,YYZ4,Expiry,-18,7.63,Receiving error,SUP-OPS-53
+2026-05-23,B000045,YYZ4,Customer return,3,57.92,Mis-pick,SUP-OPS-50
+2026-05-23,B000406,YHZ1,Customer return,3,12.22,Damage not recorded,SUP-OPS-18
+2026-05-24,B000056,YEG3,Found stock,6,224.05,Receiving error,SUP-OPS-54
+2026-05-24,B000162,YWG2,Customer return,4,11.86,Put-away to wrong bin,SUP-OPS-15
+2026-05-24,B000379,YUL5,Damage,-5,6.69,Mis-pick,SUP-OPS-38
+2026-05-25,B000102,YYC1,Damage,-5,4.23,Mis-pick,SUP-OPS-44
+2026-05-25,B000356,YUL5,Damage,-2,30.35,Receiving error,SUP-OPS-58
+2026-05-25,B000364,YUL5,Found stock,2,60.7,Receiving error,SUP-OPS-32
+2026-05-25,B000418,YVR2,Write-off,-8,20.14,Mis-pick,SUP-OPS-38
+2026-05-26,B000059,YHZ1,Customer return,1,55.06,Mis-pick,SUP-OPS-23
+2026-05-26,B000130,YYZ4,Damage,-1,4.08,Mis-pick,SUP-OPS-31
+2026-05-26,B000133,YVR2,Expiry,-4,15.18,System timing,SUP-OPS-54
+2026-05-26,B000395,YHZ1,Damage,-1,9.53,System timing,SUP-OPS-45
+2026-05-27,B000202,YVR2,Customer return,12,26.75,Mis-pick,SUP-OPS-22
+2026-05-28,B000000,YHZ1,Found stock,5,5.35,System timing,SUP-OPS-30
+2026-05-28,B000057,YYZ4,Expiry,-5,20.35,Put-away to wrong bin,SUP-OPS-29
+2026-05-28,B000182,YEG3,Shrink,-2,8.68,Mis-pick,SUP-OPS-27
+2026-05-28,B000332,YWG2,Shrink,-2,37.15,Mis-pick,SUP-OPS-39
+2026-05-28,B000378,YHZ1,Damage,-25,9.25,Mis-pick,SUP-OPS-51
+2026-05-29,B000066,YYC1,Customer return,2,24.86,Mis-pick,SUP-OPS-41
+2026-05-29,B000097,YYZ4,Damage,-1,48.69,Unrecorded return,SUP-OPS-39
+2026-05-29,B000116,YUL5,Expiry,-4,59.9,Damage not recorded,SUP-OPS-35
+2026-05-29,B000120,YWG2,Shrink,-4,22.08,System timing,SUP-OPS-42
+2026-05-29,B000299,YUL5,Damage,-97,8.34,Put-away to wrong bin,SUP-OPS-36
+2026-05-29,B000379,YYC1,Write-off,-17,6.69,Receiving error,SUP-OPS-58
+2026-05-30,B000116,YHZ1,Customer return,2,59.9,Damage not recorded,SUP-OPS-32
+2026-05-31,B000059,YYC1,Shrink,-2,55.06,Unrecorded return,SUP-OPS-54
+2026-05-31,B000116,YVR2,Found stock,59,59.9,Damage not recorded,SUP-OPS-19
+2026-05-31,B000364,YYZ4,Damage,-2,60.7,Damage not recorded,SUP-OPS-13
+2026-05-31,B000378,YHZ1,Damage,-4,9.25,Mis-pick,SUP-OPS-45
+2026-05-31,B000413,YWG2,Damage,-3,27.73,Put-away to wrong bin,SUP-OPS-54
+2026-06-01,B000118,YEG3,Damage,-2,14.9,Put-away to wrong bin,SUP-OPS-28
+2026-06-01,B000198,YYZ4,Damage,-3,27.58,System timing,SUP-OPS-24
+2026-06-01,B000306,YHZ1,Shrink,-5,64.71,Receiving error,SUP-OPS-56
+2026-06-02,B000100,YUL5,Write-off,-4,2.0,Mis-pick,SUP-OPS-36
+2026-06-03,B000054,YYZ4,Write-off,-2,12.38,Mis-pick,SUP-OPS-30
+2026-06-04,B000082,YYC1,Customer return,10,43.59,Damage not recorded,SUP-OPS-45
+2026-06-04,B000095,YHZ1,Damage,-9,4.5,Mis-pick,SUP-OPS-58
+2026-06-04,B000115,YEG3,Found stock,3,32.44,Damage not recorded,SUP-OPS-37
+2026-06-04,B000176,YYZ4,Damage,-1,23.18,Theft or loss,SUP-OPS-32
+2026-06-04,B000179,YYZ4,Shrink,-8,62.15,Mis-pick,SUP-OPS-27
+2026-06-04,B000319,YYZ4,Write-off,-1,45.53,Receiving error,SUP-OPS-20
+2026-06-04,B000378,YYC1,Expiry,-93,9.25,System timing,SUP-OPS-26
+2026-06-05,B000070,YYZ4,Customer return,3,8.73,Unrecorded return,SUP-OPS-35
+2026-06-05,B000104,YVR2,Customer return,2,16.04,Mis-pick,SUP-OPS-44
+2026-06-05,B000218,YYZ4,Customer return,1,3.34,System timing,SUP-OPS-51
+2026-06-05,B000253,YYC1,Shrink,-5,5.33,Mis-pick,SUP-OPS-10
+2026-06-05,B000271,YVR2,Damage,-7,23.34,Mis-pick,SUP-OPS-33
+2026-06-06,B000043,YVR2,Damage,-1,81.24,System timing,SUP-OPS-56
+2026-06-06,B000074,YUL5,Damage,-1,11.14,Put-away to wrong bin,SUP-OPS-14
+2026-06-06,B000167,YYZ4,Shrink,-1,7.6,System timing,SUP-OPS-11
+2026-06-07,B000011,YEG3,Write-off,-5,29.3,Put-away to wrong bin,SUP-OPS-32
+2026-06-07,B000019,YEG3,Found stock,4,12.51,Receiving error,SUP-OPS-22
+2026-06-07,B000107,YYC1,Shrink,-13,6.42,Mis-pick,SUP-OPS-16
+2026-06-07,B000143,YEG3,Damage,-1,6.49,Receiving error,SUP-OPS-35
+2026-06-07,B000208,YWG2,Shrink,-8,18.0,System timing,SUP-OPS-59
+2026-06-07,B000213,YUL5,Customer return,2,46.02,Damage not recorded,SUP-OPS-52
+2026-06-07,B000224,YVR2,Shrink,-7,5.13,System timing,SUP-OPS-40
+2026-06-07,B000290,YWG2,Customer return,3,2.29,Mis-pick,SUP-OPS-36
+2026-06-07,B000340,YYZ4,Customer return,1,41.74,System timing,SUP-OPS-24
+2026-06-07,B000352,YYZ4,Shrink,-4,42.99,Theft or loss,SUP-OPS-24
+2026-06-07,B000417,YYC1,Shrink,-2,17.43,Mis-pick,SUP-OPS-58
+2026-06-08,B000041,YYC1,Damage,-22,14.4,System timing,SUP-OPS-47
+2026-06-08,B000205,YYZ4,Found stock,2,6.57,Damage not recorded,SUP-OPS-39
+2026-06-08,B000248,YVR2,Found stock,3,20.2,Receiving error,SUP-OPS-29
+2026-06-08,B000347,YHZ1,Customer return,4,8.39,System timing,SUP-OPS-45
+2026-06-09,B000057,YWG2,Shrink,-6,20.35,Mis-pick,SUP-OPS-32
+2026-06-09,B000061,YYZ4,Damage,-1,9.8,System timing,SUP-OPS-10
+2026-06-09,B000084,YEG3,Shrink,-2,10.08,Put-away to wrong bin,SUP-OPS-59
+2026-06-09,B000135,YYZ4,Shrink,-10,13.09,Mis-pick,SUP-OPS-15
+2026-06-09,B000323,YYZ4,Damage,-1,11.42,Put-away to wrong bin,SUP-OPS-34
+2026-06-10,B000059,YEG3,Shrink,-2,55.06,Put-away to wrong bin,SUP-OPS-39
+2026-06-10,B000102,YHZ1,Damage,-1,4.23,Put-away to wrong bin,SUP-OPS-49
+2026-06-10,B000175,YHZ1,Shrink,-6,13.44,Put-away to wrong bin,SUP-OPS-25
+2026-06-10,B000229,YYC1,Damage,-1,69.87,Damage not recorded,SUP-OPS-48
+2026-06-10,B000229,YYZ4,Expiry,-7,69.87,Mis-pick,SUP-OPS-22
+2026-06-10,B000267,YYZ4,Found stock,25,35.69,Receiving error,SUP-OPS-20
+2026-06-10,B000307,YUL5,Customer return,2,10.55,Put-away to wrong bin,SUP-OPS-35
+2026-06-10,B000407,YUL5,Customer return,9,13.84,Mis-pick,SUP-OPS-53
+2026-06-11,B000323,YEG3,Shrink,-3,11.42,System timing,SUP-OPS-57
+2026-06-11,B000335,YEG3,Customer return,7,57.26,Mis-pick,SUP-OPS-36
+2026-06-12,B000114,YYC1,Found stock,1,74.15,Mis-pick,SUP-OPS-49
+2026-06-12,B000245,YWG2,Customer return,3,2.38,System timing,SUP-OPS-20
+2026-06-12,B000247,YYZ4,Shrink,-1,29.87,Damage not recorded,SUP-OPS-47
+2026-06-13,B000030,YYZ4,Damage,-9,26.33,System timing,SUP-OPS-24
+2026-06-13,B000349,YEG3,Found stock,1,53.59,Put-away to wrong bin,SUP-OPS-32
+2026-06-14,B000133,YYZ4,Customer return,2,15.18,Put-away to wrong bin,SUP-OPS-33
+2026-06-14,B000170,YYZ4,Write-off,-1,6.35,System timing,SUP-OPS-16
+2026-06-14,B000189,YYC1,Damage,-1,11.62,Damage not recorded,SUP-OPS-13
+2026-06-14,B000216,YUL5,Shrink,-3,49.89,Mis-pick,SUP-OPS-36
+2026-06-14,B000234,YYC1,Shrink,-3,68.84,Mis-pick,SUP-OPS-23
+2026-06-14,B000292,YUL5,Expiry,-1,32.23,Damage not recorded,SUP-OPS-53
+2026-06-14,B000343,YYZ4,Write-off,-9,128.75,System timing,SUP-OPS-36
+2026-06-15,B000106,YEG3,Damage,-1,11.64,Theft or loss,SUP-OPS-40
+2026-06-15,B000200,YUL5,Damage,-4,42.44,Damage not recorded,SUP-OPS-20
+2026-06-15,B000378,YWG2,Customer return,6,9.25,Damage not recorded,SUP-OPS-59
+2026-06-15,B000393,YEG3,Shrink,-4,36.15,Put-away to wrong bin,SUP-OPS-30
+2026-06-15,B000404,YWG2,Shrink,-4,6.26,Receiving error,SUP-OPS-52
+2026-06-16,B000008,YHZ1,Damage,-1,3.7,Receiving error,SUP-OPS-46
+2026-06-16,B000328,YWG2,Damage,-4,28.33,Receiving error,SUP-OPS-52
+2026-06-16,B000375,YYZ4,Write-off,-13,81.72,Put-away to wrong bin,SUP-OPS-35
+2026-06-17,B000144,YUL5,Shrink,-17,16.5,Put-away to wrong bin,SUP-OPS-19
+2026-06-17,B000144,YUL5,Shrink,-8,16.5,System timing,SUP-OPS-19
+2026-06-17,B000262,YWG2,Customer return,22,79.31,Receiving error,SUP-OPS-23
+2026-06-17,B000310,YHZ1,Damage,-3,2.96,Put-away to wrong bin,SUP-OPS-59
+2026-06-17,B000347,YYZ4,Shrink,-15,8.39,Damage not recorded,SUP-OPS-46
+2026-06-17,B000356,YUL5,Shrink,-3,30.35,Mis-pick,SUP-OPS-13
+2026-06-18,B000134,YWG2,Damage,-10,17.14,Mis-pick,SUP-OPS-44
+2026-06-18,B000158,YUL5,Expiry,-1,23.4,Mis-pick,SUP-OPS-58
+2026-06-18,B000165,YWG2,Expiry,-7,35.18,System timing,SUP-OPS-45
+2026-06-18,B000184,YEG3,Expiry,-23,18.21,Receiving error,SUP-OPS-38
+2026-06-18,B000403,YYZ4,Found stock,5,32.5,Theft or loss,SUP-OPS-22
+2026-06-19,B000138,YVR2,Damage,-7,25.11,Damage not recorded,SUP-OPS-23
+2026-06-19,B000153,YYC1,Customer return,1,9.61,Mis-pick,SUP-OPS-33
+2026-06-19,B000204,YUL5,Found stock,1,25.35,Mis-pick,SUP-OPS-37
+2026-06-19,B000253,YYC1,Expiry,-7,5.33,Mis-pick,SUP-OPS-58
+2026-06-19,B000409,YUL5,Found stock,2,15.72,Mis-pick,SUP-OPS-12
+2026-06-19,B000415,YYZ4,Write-off,-1,8.41,Receiving error,SUP-OPS-41
+2026-06-20,B000002,YHZ1,Shrink,-1,20.25,Receiving error,SUP-OPS-16
+2026-06-20,B000142,YYZ4,Damage,-12,12.57,Mis-pick,SUP-OPS-29
+2026-06-20,B000221,YYC1,Shrink,-5,45.14,Mis-pick,SUP-OPS-55
+2026-06-20,B000254,YVR2,Expiry,-3,7.63,Receiving error,SUP-OPS-23
+2026-06-20,B000260,YYZ4,Write-off,-1,27.53,Damage not recorded,SUP-OPS-53
+2026-06-20,B000333,YYC1,Shrink,-19,53.66,Receiving error,SUP-OPS-33
+2026-06-21,B000058,YUL5,Shrink,-2,12.88,Put-away to wrong bin,SUP-OPS-30
+2026-06-21,B000313,YYZ4,Found stock,196,19.4,Mis-pick,SUP-OPS-54
+2026-06-22,B000005,YYZ4,Customer return,5,11.5,Unrecorded return,SUP-OPS-33
+2026-06-22,B000072,YUL5,Damage,-1,16.47,Theft or loss,SUP-OPS-43
+2026-06-22,B000144,YHZ1,Write-off,-4,16.5,Mis-pick,SUP-OPS-31
+2026-06-22,B000215,YWG2,Write-off,-1,17.08,Receiving error,SUP-OPS-19
+2026-06-22,B000304,YEG3,Customer return,3,13.26,Damage not recorded,SUP-OPS-45
+2026-06-23,B000160,YYZ4,Customer return,8,152.23,Receiving error,SUP-OPS-10
+2026-06-23,B000239,YVR2,Shrink,-1,12.84,Mis-pick,SUP-OPS-17
+2026-06-24,B000177,YWG2,Damage,-9,2.41,Receiving error,SUP-OPS-16
+2026-06-25,B000041,YHZ1,Write-off,-13,14.4,Unrecorded return,SUP-OPS-11
+2026-06-25,B000061,YUL5,Expiry,-5,9.8,Receiving error,SUP-OPS-48
+2026-06-25,B000082,YYZ4,Damage,-84,43.59,Receiving error,SUP-OPS-38
+2026-06-25,B000100,YUL5,Expiry,-2,2.0,Mis-pick,SUP-OPS-13
+2026-06-25,B000197,YWG2,Expiry,-1,7.26,System timing,SUP-OPS-19
+2026-06-25,B000412,YUL5,Damage,-2,5.35,Put-away to wrong bin,SUP-OPS-19
+2026-06-26,B000222,YVR2,Customer return,1,12.18,Damage not recorded,SUP-OPS-56
+2026-06-27,B000228,YVR2,Customer return,25,51.13,Mis-pick,SUP-OPS-44
+2026-06-27,B000393,YYZ4,Shrink,-4,36.15,Damage not recorded,SUP-OPS-22
+2026-06-28,B000103,YYC1,Damage,-1,12.96,Mis-pick,SUP-OPS-29
+2026-06-28,B000109,YYC1,Write-off,-2,27.2,Mis-pick,SUP-OPS-14
+2026-06-28,B000132,YUL5,Expiry,-7,36.4,Mis-pick,SUP-OPS-26
+2026-06-28,B000178,YYC1,Shrink,-6,27.42,System timing,SUP-OPS-49
+2026-06-28,B000313,YYC1,Shrink,-1,19.4,Put-away to wrong bin,SUP-OPS-18
+2026-06-28,B000320,YYC1,Damage,-3,15.12,Damage not recorded,SUP-OPS-36
+2026-06-28,B000378,YEG3,Damage,-21,9.25,Receiving error,SUP-OPS-30
+2026-06-29,B000029,YYC1,Customer return,3,12.43,Mis-pick,SUP-OPS-30
+2026-06-29,B000280,YYC1,Expiry,-6,18.32,Mis-pick,SUP-OPS-14
+2026-06-29,B000402,YYC1,Found stock,11,12.23,Mis-pick,SUP-OPS-51
+2026-06-30,B000378,YYZ4,Shrink,-278,9.25,Mis-pick,SUP-OPS-18
+2026-06-30,B000380,YEG3,Customer return,1,31.53,System timing,SUP-OPS-48
+2026-07-01,B000177,YYZ4,Customer return,4,2.41,Receiving error,SUP-OPS-18
+2026-07-01,B000261,YHZ1,Found stock,15,61.04,Receiving error,SUP-OPS-41
+2026-07-01,B000289,YUL5,Damage,-34,33.98,Mis-pick,SUP-OPS-26
+2026-07-01,B000378,YWG2,Damage,-13,9.25,Put-away to wrong bin,SUP-OPS-38
+2026-07-02,B000016,YYC1,Write-off,-8,22.7,Put-away to wrong bin,SUP-OPS-41
+2026-07-02,B000416,YWG2,Customer return,2,26.43,Mis-pick,SUP-OPS-36
+2026-07-03,B000033,YYZ4,Found stock,2,25.32,Receiving error,SUP-OPS-40
+2026-07-03,B000116,YEG3,Found stock,1,59.9,Mis-pick,SUP-OPS-15
+2026-07-03,B000139,YYZ4,Shrink,-3,53.47,Mis-pick,SUP-OPS-15
+2026-07-03,B000157,YYZ4,Customer return,4,58.52,Unrecorded return,SUP-OPS-13
+2026-07-04,B000070,YEG3,Customer return,8,8.73,Receiving error,SUP-OPS-26
+2026-07-04,B000133,YYZ4,Damage,-1,15.18,Damage not recorded,SUP-OPS-13
+2026-07-04,B000148,YYZ4,Customer return,17,21.53,Mis-pick,SUP-OPS-48
+2026-07-04,B000151,YUL5,Customer return,3,10.75,Put-away to wrong bin,SUP-OPS-18
+2026-07-04,B000216,YUL5,Damage,-15,49.89,Receiving error,SUP-OPS-52
+2026-07-04,B000392,YEG3,Shrink,-7,42.02,System timing,SUP-OPS-56
+2026-07-06,B000064,YEG3,Shrink,-5,40.08,System timing,SUP-OPS-19
+2026-07-06,B000165,YHZ1,Damage,-1,35.18,Receiving error,SUP-OPS-36
+2026-07-06,B000173,YVR2,Shrink,-2,20.12,Mis-pick,SUP-OPS-21
+2026-07-06,B000263,YHZ1,Customer return,1,50.34,Put-away to wrong bin,SUP-OPS-53
+2026-07-06,B000393,YYC1,Damage,-1,36.15,System timing,SUP-OPS-22
+2026-07-07,B000155,YVR2,Damage,-2,16.62,Receiving error,SUP-OPS-12
+2026-07-07,B000294,YYZ4,Damage,-2,42.52,Put-away to wrong bin,SUP-OPS-23
+2026-07-08,B000148,YYZ4,Shrink,-18,21.53,Mis-pick,SUP-OPS-58
+2026-07-08,B000270,YYZ4,Damage,-1,42.84,Receiving error,SUP-OPS-48
+2026-07-08,B000350,YYZ4,Damage,-4,48.35,Put-away to wrong bin,SUP-OPS-40
+2026-07-09,B000005,YYZ4,Expiry,-1,11.5,Put-away to wrong bin,SUP-OPS-14
+2026-07-09,B000053,YUL5,Write-off,-2,15.69,System timing,SUP-OPS-29
+2026-07-09,B000175,YYC1,Customer return,18,13.44,Receiving error,SUP-OPS-47
+2026-07-09,B000392,YHZ1,Damage,-1,42.02,Put-away to wrong bin,SUP-OPS-52
+2026-07-10,B000080,YYZ4,Damage,-1,21.75,System timing,SUP-OPS-29
+2026-07-10,B000134,YWG2,Write-off,-7,17.14,Put-away to wrong bin,SUP-OPS-35
+2026-07-10,B000141,YYC1,Damage,-2,44.89,Receiving error,SUP-OPS-36
+2026-07-10,B000211,YHZ1,Shrink,-2,42.79,System timing,SUP-OPS-26
+2026-07-11,B000027,YWG2,Shrink,-2,12.44,Damage not recorded,SUP-OPS-12
+2026-07-11,B000031,YUL5,Expiry,-1,50.63,Mis-pick,SUP-OPS-59
+2026-07-11,B000326,YYC1,Damage,-1,9.48,Damage not recorded,SUP-OPS-36
+2026-07-11,B000359,YYZ4,Damage,-2,69.57,Put-away to wrong bin,SUP-OPS-31
+2026-07-12,B000004,YYZ4,Damage,-1,9.82,Receiving error,SUP-OPS-20
+2026-07-12,B000057,YHZ1,Expiry,-1,20.35,Mis-pick,SUP-OPS-45
+2026-07-12,B000126,YWG2,Damage,-5,5.33,Theft or loss,SUP-OPS-34
+2026-07-13,B000174,YUL5,Expiry,-1,29.82,Mis-pick,SUP-OPS-26
+2026-07-13,B000232,YYZ4,Damage,-3,7.58,Receiving error,SUP-OPS-58
+2026-07-14,B000007,YHZ1,Damage,-12,5.45,Unrecorded return,SUP-OPS-21
+2026-07-14,B000173,YVR2,Customer return,1,20.12,System timing,SUP-OPS-51
+2026-07-14,B000226,YWG2,Expiry,-7,18.36,Mis-pick,SUP-OPS-21
+2026-07-15,B000113,YYZ4,Write-off,-3,5.59,Put-away to wrong bin,SUP-OPS-45
+2026-07-15,B000135,YYZ4,Damage,-4,13.09,Damage not recorded,SUP-OPS-25
+2026-07-15,B000210,YYZ4,Customer return,3,2.12,Mis-pick,SUP-OPS-26
+2026-07-15,B000369,YYZ4,Shrink,-1,12.66,Mis-pick,SUP-OPS-34
+2026-07-16,B000025,YYZ4,Found stock,1,34.44,System timing,SUP-OPS-49
+2026-07-16,B000211,YYZ4,Damage,-1,42.79,Receiving error,SUP-OPS-39
+2026-07-16,B000371,YUL5,Expiry,-4,9.71,Mis-pick,SUP-OPS-44
+2026-07-16,B000401,YUL5,Damage,-7,26.64,Receiving error,SUP-OPS-35
+2026-07-17,B000029,YYC1,Customer return,4,12.43,Mis-pick,SUP-OPS-33
+2026-07-17,B000044,YVR2,Shrink,-15,49.42,Damage not recorded,SUP-OPS-16
+2026-07-17,B000158,YYZ4,Shrink,-3,23.4,Receiving error,SUP-OPS-45
+2026-07-17,B000283,YEG3,Shrink,-1,5.71,System timing,SUP-OPS-22
+2026-07-17,B000309,YHZ1,Customer return,2,6.6,Mis-pick,SUP-OPS-58
+2026-07-18,B000249,YYC1,Damage,-1,24.19,Damage not recorded,SUP-OPS-58
+2026-07-18,B000288,YVR2,Damage,-1,9.3,Receiving error,SUP-OPS-23
+2026-07-19,B000123,YVR2,Expiry,-1,11.77,Receiving error,SUP-OPS-24
+2026-07-19,B000151,YVR2,Expiry,-1,10.75,Put-away to wrong bin,SUP-OPS-37
+2026-07-19,B000167,YEG3,Expiry,-5,7.6,Unrecorded return,SUP-OPS-51
+2026-07-20,B000007,YWG2,Found stock,6,5.45,Mis-pick,SUP-OPS-32
+2026-07-20,B000015,YEG3,Shrink,-2,3.74,Receiving error,SUP-OPS-22
+2026-07-20,B000111,YUL5,Expiry,-1,11.26,Receiving error,SUP-OPS-26
+2026-07-20,B000198,YUL5,Shrink,-2,27.58,Receiving error,SUP-OPS-22
+2026-07-20,B000266,YUL5,Customer return,2,77.37,Put-away to wrong bin,SUP-OPS-44
+2026-07-20,B000376,YYC1,Customer return,3,94.61,System timing,SUP-OPS-55
+2026-07-21,B000126,YHZ1,Write-off,-4,5.33,Unrecorded return,SUP-OPS-44
+2026-07-21,B000291,YYZ4,Write-off,-1,17.87,Mis-pick,SUP-OPS-24
+2026-07-22,B000212,YVR2,Damage,-16,38.08,System timing,SUP-OPS-18
+2026-07-22,B000388,YEG3,Customer return,6,19.55,Damage not recorded,SUP-OPS-34
+2026-07-23,B000083,YVR2,Expiry,-46,25.64,Unrecorded return,SUP-OPS-13
+2026-07-23,B000116,YWG2,Shrink,-6,59.9,System timing,SUP-OPS-52
+2026-07-23,B000281,YYZ4,Shrink,-1,27.43,Damage not recorded,SUP-OPS-36
+2026-07-23,B000404,YYZ4,Damage,-11,6.26,Mis-pick,SUP-OPS-35
+2026-07-24,B000082,YHZ1,Damage,-9,43.59,Receiving error,SUP-OPS-44
+2026-07-24,B000114,YUL5,Damage,-1,74.15,Mis-pick,SUP-OPS-17
+2026-07-24,B000144,YEG3,Damage,-7,16.5,Unrecorded return,SUP-OPS-22
+2026-07-25,B000002,YHZ1,Found stock,2,20.25,Mis-pick,SUP-OPS-50
+2026-07-25,B000041,YUL5,Damage,-72,14.4,Receiving error,SUP-OPS-48
+2026-07-25,B000089,YEG3,Damage,-1,29.26,Put-away to wrong bin,SUP-OPS-59
+2026-07-26,B000401,YUL5,Damage,-1,26.64,Put-away to wrong bin,SUP-OPS-16
+2026-07-26,B000418,YUL5,Damage,-4,20.14,Unrecorded return,SUP-OPS-20
+2026-07-27,B000385,YHZ1,Damage,-3,19.7,Mis-pick,SUP-OPS-29
+2026-07-27,B000388,YEG3,Shrink,-8,19.55,Theft or loss,SUP-OPS-14
+2026-07-27,B000392,YWG2,Customer return,10,42.02,Put-away to wrong bin,SUP-OPS-34
+2026-07-28,B000024,YYC1,Damage,-6,24.8,Mis-pick,SUP-OPS-45
+2026-07-28,B000183,YYC1,Damage,-1,21.45,Put-away to wrong bin,SUP-OPS-38
+2026-07-28,B000243,YUL5,Customer return,1,45.01,Mis-pick,SUP-OPS-57
+2026-07-28,B000310,YEG3,Damage,-2,2.96,Unrecorded return,SUP-OPS-40
+2026-07-28,B000382,YYC1,Expiry,-4,9.75,Mis-pick,SUP-OPS-53
+2026-07-29,B000070,YYZ4,Damage,-10,8.73,Put-away to wrong bin,SUP-OPS-24
+2026-07-29,B000129,YYZ4,Expiry,-48,47.77,Receiving error,SUP-OPS-24
+2026-07-29,B000138,YYZ4,Shrink,-1,25.11,Damage not recorded,SUP-OPS-36
+2026-07-29,B000182,YUL5,Shrink,-12,8.68,Mis-pick,SUP-OPS-38
+2026-07-29,B000294,YYZ4,Customer return,4,42.52,Mis-pick,SUP-OPS-39
+2026-07-29,B000318,YUL5,Damage,-1,27.75,Mis-pick,SUP-OPS-49
+2026-07-29,B000340,YVR2,Customer return,3,41.74,Put-away to wrong bin,SUP-OPS-40
+2026-07-30,B000114,YVR2,Damage,-1,74.15,System timing,SUP-OPS-49
+2026-07-30,B000408,YVR2,Found stock,4,43.76,System timing,SUP-OPS-20
+2026-07-31,B000232,YUL5,Shrink,-5,7.58,Mis-pick,SUP-OPS-34
+2026-07-31,B000262,YYC1,Shrink,-18,79.31,System timing,SUP-OPS-47
+2026-08-01,B000041,YEG3,Customer return,35,14.4,Put-away to wrong bin,SUP-OPS-41
+2026-08-01,B000328,YYZ4,Damage,-5,28.33,Mis-pick,SUP-OPS-37
+2026-08-01,B000373,YEG3,Damage,-2,146.03,Receiving error,SUP-OPS-30
+2026-08-01,B000400,YYC1,Damage,-2,7.68,Receiving error,SUP-OPS-31
+2026-08-02,B000030,YEG3,Damage,-1,26.33,Unrecorded return,SUP-OPS-59
+2026-08-02,B000057,YWG2,Expiry,-4,20.35,Receiving error,SUP-OPS-24
+2026-08-02,B000236,YYZ4,Shrink,-4,6.13,Damage not recorded,SUP-OPS-51
+2026-08-02,B000262,YEG3,Shrink,-2,79.31,Put-away to wrong bin,SUP-OPS-36
+2026-08-02,B000372,YHZ1,Shrink,-1,17.44,Put-away to wrong bin,SUP-OPS-14
+2026-08-02,B000375,YUL5,Expiry,-5,81.72,Receiving error,SUP-OPS-37
+2026-08-02,B000418,YYZ4,Write-off,-2,20.14,Mis-pick,SUP-OPS-11
+2026-08-03,B000056,YVR2,Shrink,-15,224.05,Mis-pick,SUP-OPS-27
+2026-08-03,B000086,YHZ1,Damage,-1,8.8,Mis-pick,SUP-OPS-57
+2026-08-03,B000108,YVR2,Shrink,-22,27.52,Mis-pick,SUP-OPS-27
+2026-08-03,B000182,YUL5,Damage,-6,8.68,System timing,SUP-OPS-23
+2026-08-03,B000346,YVR2,Write-off,-7,26.44,Damage not recorded,SUP-OPS-25
+2026-08-03,B000363,YYZ4,Damage,-1,18.43,Put-away to wrong bin,SUP-OPS-21
+2026-08-04,B000105,YUL5,Shrink,-4,32.78,System timing,SUP-OPS-17
+2026-08-04,B000363,YHZ1,Shrink,-4,18.43,Receiving error,SUP-OPS-37
+2026-08-04,B000375,YYZ4,Damage,-5,81.72,Theft or loss,SUP-OPS-30
+2026-08-05,B000022,YEG3,Customer return,1,23.15,Put-away to wrong bin,SUP-OPS-58
+2026-08-05,B000090,YUL5,Customer return,19,30.31,Put-away to wrong bin,SUP-OPS-20
+2026-08-05,B000337,YUL5,Damage,-1,10.03,Receiving error,SUP-OPS-48
+2026-08-06,B000273,YYZ4,Customer return,2,23.72,Mis-pick,SUP-OPS-11
+2026-08-06,B000368,YUL5,Customer return,2,45.85,Damage not recorded,SUP-OPS-32
+2026-08-07,B000122,YEG3,Customer return,11,13.42,Damage not recorded,SUP-OPS-10
+2026-08-08,B000230,YYZ4,Customer return,22,10.67,Put-away to wrong bin,SUP-OPS-41
+2026-08-08,B000313,YWG2,Write-off,-12,19.4,Receiving error,SUP-OPS-56
+2026-08-08,B000323,YVR2,Found stock,1,11.42,Receiving error,SUP-OPS-47
+2026-08-08,B000327,YYZ4,Damage,-1,45.86,Receiving error,SUP-OPS-36
+2026-08-09,B000262,YVR2,Found stock,14,79.31,Receiving error,SUP-OPS-39
+2026-08-09,B000370,YWG2,Shrink,-3,28.99,Mis-pick,SUP-OPS-26
+2026-08-10,B000041,YUL5,Expiry,-26,14.4,System timing,SUP-OPS-32
+2026-08-10,B000071,YYZ4,Write-off,-35,52.68,Put-away to wrong bin,SUP-OPS-35
+2026-08-10,B000204,YUL5,Expiry,-1,25.35,Damage not recorded,SUP-OPS-33
+2026-08-10,B000242,YYZ4,Found stock,10,7.44,Theft or loss,SUP-OPS-37
+2026-08-10,B000248,YUL5,Shrink,-4,20.2,Damage not recorded,SUP-OPS-48
+2026-08-11,B000203,YUL5,Shrink,-7,5.75,Unrecorded return,SUP-OPS-24
+2026-08-11,B000242,YVR2,Found stock,9,7.44,Put-away to wrong bin,SUP-OPS-27
+2026-08-11,B000243,YYZ4,Shrink,-13,45.01,Unrecorded return,SUP-OPS-17
+2026-08-12,B000041,YWG2,Damage,-9,14.4,Unrecorded return,SUP-OPS-39
+2026-08-12,B000081,YYC1,Damage,-3,17.12,Put-away to wrong bin,SUP-OPS-11
+2026-08-12,B000174,YVR2,Write-off,-1,29.82,Receiving error,SUP-OPS-48
+2026-08-12,B000333,YYC1,Shrink,-7,53.66,Mis-pick,SUP-OPS-12
+2026-08-12,B000359,YYC1,Write-off,-1,69.57,Theft or loss,SUP-OPS-31
+2026-08-13,B000067,YVR2,Shrink,-1,26.62,Receiving error,SUP-OPS-32
+2026-08-13,B000313,YUL5,Customer return,8,19.4,Mis-pick,SUP-OPS-30
+2026-08-14,B000090,YEG3,Damage,-13,30.31,Mis-pick,SUP-OPS-12
+2026-08-14,B000190,YWG2,Found stock,3,24.81,Put-away to wrong bin,SUP-OPS-53
+2026-08-14,B000283,YYC1,Write-off,-1,5.71,Unrecorded return,SUP-OPS-37
+2026-08-14,B000309,YUL5,Found stock,3,6.6,Mis-pick,SUP-OPS-37
+2026-08-14,B000313,YYZ4,Customer return,235,19.4,Damage not recorded,SUP-OPS-23
+2026-08-14,B000359,YYC1,Shrink,-2,69.57,System timing,SUP-OPS-40
+2026-08-15,B000282,YUL5,Customer return,3,55.18,System timing,SUP-OPS-45
+2026-08-15,B000379,YVR2,Damage,-114,6.69,Damage not recorded,SUP-OPS-31
+2026-08-16,B000041,YYZ4,Found stock,1,14.4,Put-away to wrong bin,SUP-OPS-10
+2026-08-17,B000241,YYZ4,Expiry,-128,43.91,Damage not recorded,SUP-OPS-27
+2026-08-17,B000414,YUL5,Write-off,-3,32.56,Mis-pick,SUP-OPS-52
+2026-08-18,B000147,YEG3,Shrink,-1,34.39,Mis-pick,SUP-OPS-45
+2026-08-18,B000179,YHZ1,Found stock,1,62.15,System timing,SUP-OPS-48
+2026-08-18,B000304,YEG3,Damage,-4,13.26,Put-away to wrong bin,SUP-OPS-56
+2026-08-18,B000337,YUL5,Damage,-3,10.03,Receiving error,SUP-OPS-45
+2026-08-19,B000101,YUL5,Found stock,3,32.63,Receiving error,SUP-OPS-22
+2026-08-19,B000255,YYZ4,Customer return,1,18.41,Theft or loss,SUP-OPS-11
+2026-08-19,B000262,YEG3,Customer return,6,79.31,Mis-pick,SUP-OPS-16
+2026-08-19,B000379,YYZ4,Shrink,-31,6.69,Mis-pick,SUP-OPS-50
+2026-08-19,B000406,YYC1,Damage,-2,12.22,Receiving error,SUP-OPS-41
+2026-08-20,B000062,YYC1,Customer return,1,13.09,Theft or loss,SUP-OPS-59
+2026-08-20,B000130,YUL5,Write-off,-1,4.08,Receiving error,SUP-OPS-34
+2026-08-20,B000170,YHZ1,Shrink,-2,6.35,System timing,SUP-OPS-19
+2026-08-20,B000358,YYC1,Expiry,-5,85.05,Mis-pick,SUP-OPS-10
+2026-08-21,B000078,YYZ4,Customer return,4,172.65,System timing,SUP-OPS-24
+2026-08-21,B000110,YYC1,Damage,-4,27.06,Receiving error,SUP-OPS-12
+2026-08-21,B000212,YVR2,Expiry,-5,38.08,System timing,SUP-OPS-37
+2026-08-21,B000313,YYZ4,Shrink,-42,19.4,Put-away to wrong bin,SUP-OPS-34
+2026-08-21,B000366,YHZ1,Shrink,-1,36.73,Receiving error,SUP-OPS-58
+2026-08-21,B000374,YYC1,Found stock,2,10.68,Receiving error,SUP-OPS-13
+2026-08-21,B000388,YYZ4,Write-off,-5,19.55,Mis-pick,SUP-OPS-36
+2026-08-21,B000390,YHZ1,Shrink,-3,10.78,Mis-pick,SUP-OPS-34
+2026-08-21,B000400,YYZ4,Write-off,-2,7.68,Receiving error,SUP-OPS-52
+2026-08-22,B000017,YYC1,Customer return,82,37.04,Unrecorded return,SUP-OPS-28
+2026-08-22,B000084,YYC1,Expiry,-51,10.08,Put-away to wrong bin,SUP-OPS-25
+2026-08-22,B000181,YUL5,Damage,-63,54.45,Theft or loss,SUP-OPS-51
+2026-08-22,B000213,YYZ4,Damage,-4,46.02,System timing,SUP-OPS-34
+2026-08-22,B000284,YVR2,Damage,-7,19.61,Put-away to wrong bin,SUP-OPS-13
+2026-08-22,B000379,YUL5,Customer return,1,6.69,Put-away to wrong bin,SUP-OPS-56
+2026-08-23,B000034,YEG3,Shrink,-2,72.97,Mis-pick,SUP-OPS-34
+2026-08-23,B000237,YHZ1,Shrink,-2,34.69,Receiving error,SUP-OPS-23
+2026-08-23,B000262,YHZ1,Write-off,-10,79.31,Put-away to wrong bin,SUP-OPS-48
+2026-08-23,B000320,YYC1,Expiry,-4,15.12,Receiving error,SUP-OPS-31
+2026-08-24,B000148,YWG2,Damage,-4,21.53,Receiving error,SUP-OPS-50
+2026-08-24,B000312,YYZ4,Found stock,1,11.5,Damage not recorded,SUP-OPS-54
+2026-08-25,B000257,YYC1,Expiry,-4,12.7,Mis-pick,SUP-OPS-29
+2026-08-25,B000298,YHZ1,Shrink,-5,39.04,Receiving error,SUP-OPS-49
+2026-08-25,B000353,YVR2,Shrink,-4,13.18,Mis-pick,SUP-OPS-18
+2026-08-26,B000027,YYZ4,Customer return,4,12.44,Mis-pick,SUP-OPS-23
+2026-08-26,B000083,YYC1,Shrink,-1,25.64,Unrecorded return,SUP-OPS-46
+2026-08-26,B000169,YHZ1,Damage,-7,31.28,Damage not recorded,SUP-OPS-13
+2026-08-27,B000040,YUL5,Customer return,1,78.85,Receiving error,SUP-OPS-42
+2026-08-27,B000041,YHZ1,Found stock,11,14.4,Damage not recorded,SUP-OPS-51
+2026-08-27,B000091,YYZ4,Damage,-2,40.85,Mis-pick,SUP-OPS-54
+2026-08-27,B000256,YYZ4,Found stock,14,17.41,Mis-pick,SUP-OPS-40
+2026-08-27,B000351,YVR2,Customer return,1,7.71,Receiving error,SUP-OPS-33
+2026-08-28,B000057,YYZ4,Customer return,1,20.35,Theft or loss,SUP-OPS-53
+2026-08-28,B000257,YYZ4,Damage,-32,12.7,Unrecorded return,SUP-OPS-34
+2026-08-28,B000266,YYZ4,Customer return,1,77.37,Put-away to wrong bin,SUP-OPS-41
+2026-08-28,B000286,YYC1,Damage,-1,43.29,Receiving error,SUP-OPS-18

@@ -1,0 +1,421 @@
+SKU,ItemDescription,Department,Category,Brand,SupplierID,UnitCost,UnitPrice,CasePack,MinOrderQty,UnitWeightLb,UnitCubeFt,TempZone,Lifecycle,LaunchDate
+B000000,Ironpine Slimline Oral Care 4-Pack,Health & Beauty,Oral Care,Ironpine,SUP-103,5.35,9.98,1,1,3.545,0.2692,Ambient,Core,2024-07-31
+B000001,Ashgrove Heritage Footwear 12-Pack,Apparel,Footwear,Ashgrove,SUP-102,32.03,60.09,6,6,1.168,0.1537,Ambient,Mature,2024-01-30
+B000002,Meridian Bay Studio Accessorie Single,Apparel,Accessories,Meridian Bay,SUP-102,20.25,36.07,6,6,0.999,0.109,Ambient,Mature,2024-07-03
+B000003,Stonebrook Heavy Duty Fitnes 2-Pack,Sports & Outdoors,Fitness,Stonebrook,SUP-122,116.68,176.61,12,12,0.887,0.0897,Ambient,Mature,2019-09-07
+B000004,Solstice Row Slimline Hair Care 4-Pack,Health & Beauty,Hair Care,Solstice Row,SUP-117,9.82,15.27,1,1,3.548,0.6652,Ambient,New,2026-06-13
+B000005,Rivermont Heritage Breakfast Single,Grocery,Breakfast,Rivermont,SUP-111,11.5,14.8,12,24,4.592,1.2848,Ambient,Mature,2022-04-11
+B000006,Meridian Bay Premium Desk Accessorie 2-Pack,Office Products,Desk Accessories,Meridian Bay,SUP-103,10.47,13.24,12,12,0.847,0.187,Ambient,Mature,2022-09-14
+B000007,Tidewater Lightweight Cat Food Single,Pet Supplies,Cat Food,Tidewater,SUP-111,5.45,6.52,1,2,2.816,0.5693,Ambient,Mature,2019-08-22
+B000008,Rivermont Insulated Pantry Staple 2-Pack,Grocery,Pantry Staples,Rivermont,SUP-120,3.7,4.65,4,4,5.43,0.4656,Ambient,Mature,2022-12-08
+B000009,Fenwick Slimline Toys & Treat 6-Pack,Pet Supplies,Toys & Treats,Fenwick,SUP-113,15.41,22.64,1,4,8.015,1.8491,Ambient,Mature,2020-12-30
+B000010,Aurelia Premium Tablet 4-Pack,Electronics,Tablets,Aurelia,SUP-115,22.5,26.42,12,12,3.973,0.2243,Ambient,Core,2023-07-20
+B000011,Bellwood Studio Fitnes Single,Sports & Outdoors,Fitness,Bellwood,SUP-102,29.3,45.55,1,4,2.294,0.1527,Ambient,Mature,2023-11-14
+B000012,Kestrel Deluxe Beverage Single,Grocery,Beverages,Kestrel,SUP-120,9.46,10.56,4,4,1.015,0.1942,Ambient,New,2026-01-24
+B000013,Calder and Vine Cordless Paper Single,Office Products,Paper,Calder and Vine,SUP-119,7.12,9.65,24,96,2.099,0.3455,Ambient,Core,2021-11-04
+B000014,Bellwood Pro Cleaning Supplie Bulk Case,Home & Kitchen,Cleaning Supplies,Bellwood,SUP-107,22.31,33.06,48,96,7.911,1.2007,Ambient,Mature,2020-01-01
+B000015,Rivermont Premium Baking 4-Pack,Grocery,Baking,Rivermont,SUP-111,3.74,4.28,8,16,2.075,0.114,Ambient,Mature,2020-03-24
+B000016,Coppermill Heavy Duty Feeding 12-Pack,Baby,Feeding,Coppermill,SUP-105,22.7,29.1,12,12,1.241,0.1202,Ambient,Core,2024-11-05
+B000017,Rivermont Heritage Basic Single,Apparel,Basics,Rivermont,SUP-110,37.04,56.26,48,48,3.385,0.6588,Ambient,Core,2022-07-07
+B000018,Meridian Bay Studio Writing 4-Pack,Office Products,Writing,Meridian Bay,SUP-119,15.1,21.74,6,12,1.261,0.1699,Ambient,Mature,2022-09-18
+B000019,Meridian Bay Insulated Snack 6-Pack,Grocery,Snacks,Meridian Bay,SUP-111,12.51,18.75,1,1,0.458,0.0293,Ambient,Core,2021-04-09
+B000020,Bellwood Stackable Accessorie 6-Pack,Apparel,Accessories,Bellwood,SUP-110,26.71,45.5,6,24,3.044,0.7958,Ambient,New,2026-05-02
+B000021,Northvale Slimline Nursery 12-Pack,Baby,Nursery,Northvale,SUP-106,16.28,19.39,8,8,4.011,0.3508,Ambient,End of Life,2024-11-24
+B000022,Meridian Bay Value Figure 4-Pack,Toys & Games,Figures,Meridian Bay,SUP-121,23.15,33.67,48,48,2.048,0.5037,Ambient,Core,2022-02-20
+B000023,Solstice Row Essential Water Sport Single,Sports & Outdoors,Water Sports,Solstice Row,SUP-105,55.53,76.5,8,16,2.406,0.2934,Ambient,Core,2020-02-17
+B000024,Aurelia Stackable Personal Device 2-Pack,Health & Beauty,Personal Devices,Aurelia,SUP-103,24.8,44.91,12,48,3.318,0.5243,Ambient,Mature,2024-12-10
+B000025,Bellwood Essential Water Sport Single,Sports & Outdoors,Water Sports,Bellwood,SUP-105,34.44,50.36,8,8,1.651,0.3565,Ambient,Mature,2019-07-31
+B000026,Fenwick Lightweight Printers & Ink Single,Office Products,Printers & Ink,Fenwick,SUP-112,18.63,31.41,24,48,0.613,0.0631,Ambient,Core,2024-07-13
+B000027,Meridian Bay Cordless Hair Care 2-Pack,Health & Beauty,Hair Care,Meridian Bay,SUP-118,12.44,22.78,24,24,0.776,0.1556,Ambient,Mature,2021-11-27
+B000028,Stonebrook Insulated Bedding 6-Pack,Home & Kitchen,Bedding,Stonebrook,SUP-113,33.32,42.98,1,1,1.506,0.1343,Ambient,Core,2022-02-09
+B000029,Solstice Row Compact Diapering 4-Pack,Baby,Diapering,Solstice Row,SUP-106,12.43,16.18,8,32,2.132,0.5052,Ambient,Core,2020-09-24
+B000030,Bellwood Deluxe Cat Food Single,Pet Supplies,Cat Food,Bellwood,SUP-113,26.33,42.34,24,24,0.449,0.0838,Ambient,Core,2024-12-14
+B000031,Meridian Bay Slimline Headphone 2-Pack,Electronics,Headphones,Meridian Bay,SUP-101,50.63,67.59,6,6,0.765,0.1305,Ambient,Mature,2023-11-28
+B000032,Aurelia Studio Desk Accessorie 6-Pack,Office Products,Desk Accessories,Aurelia,SUP-119,10.45,13.96,6,6,0.937,0.1975,Ambient,Mature,2024-12-17
+B000033,Fenwick Studio Footwear Single,Apparel,Footwear,Fenwick,SUP-106,25.32,52.91,6,24,0.609,0.1543,Ambient,Core,2022-07-05
+B000034,Aurelia Everyday Cables & Adapter 4-Pack,Electronics,Cables & Adapters,Aurelia,SUP-115,72.97,94.46,4,8,1.096,0.2221,Ambient,Mature,2023-02-07
+B000035,Solstice Row Value Portable Power 4-Pack,Electronics,Portable Power,Solstice Row,SUP-115,30.33,38.84,48,48,2.748,0.6165,Ambient,Core,2020-11-06
+B000036,Aurelia Stackable Personal Device 4-Pack,Health & Beauty,Personal Devices,Aurelia,SUP-117,29.55,45.81,1,1,4.544,0.8238,Ambient,Mature,2022-09-18
+B000037,Harbourline Pro Accessorie Single,Apparel,Accessories,Harbourline,SUP-106,22.46,37.6,6,6,1.352,0.1683,Ambient,End of Life,2024-01-28
+B000038,Kestrel Heavy Duty Footwear 12-Pack,Apparel,Footwear,Kestrel,SUP-110,29.94,50.22,8,8,2.342,0.5377,Ambient,Core,2022-10-29
+B000039,Bellwood Heritage Activewear Single,Apparel,Activewear,Bellwood,SUP-106,19.83,35.2,12,24,0.832,0.1779,Ambient,Mature,2019-07-19
+B000040,Ashgrove Slimline Portable Power Single,Electronics,Portable Power,Ashgrove,SUP-115,78.85,110.9,1,1,1.353,0.122,Ambient,Mature,2020-01-08
+B000041,Harbourline Heritage Hair Care Bulk Case,Health & Beauty,Hair Care,Harbourline,SUP-117,14.4,25.09,24,192,7.369,1.0543,Ambient,New,2026-06-20
+B000042,Ashgrove Pro Puzzle 4-Pack,Toys & Games,Puzzles,Ashgrove,SUP-101,22.73,36.06,4,16,1.764,0.1038,Ambient,End of Life,2022-03-20
+B000043,Fenwick Cordless Camping 2-Pack,Sports & Outdoors,Camping,Fenwick,SUP-105,81.24,108.16,4,8,2.164,0.4722,Ambient,New,2026-06-20
+B000044,Meridian Bay Everyday Storage & Organisation 4-Pack,Home & Kitchen,Storage & Organisation,Meridian Bay,SUP-107,49.42,73.23,6,48,2.134,0.1754,Ambient,Core,2021-07-04
+B000045,Rivermont Studio Building Set Single,Toys & Games,Building Sets,Rivermont,SUP-121,57.92,76.79,6,6,1.566,0.1401,Ambient,Mature,2022-10-15
+B000046,Ironpine Cordless Activewear 4-Pack,Apparel,Activewear,Ironpine,SUP-102,14.59,26.58,6,12,11.834,1.6088,Ambient,Mature,2019-09-18
+B000047,Larkspur Compact Smart Home 12-Pack,Electronics,Smart Home,Larkspur,SUP-115,63.07,77.73,6,24,1.459,0.2627,Ambient,Mature,2020-11-11
+B000048,Northvale Insulated Water Sport 4-Pack,Sports & Outdoors,Water Sports,Northvale,SUP-102,31.84,48.74,12,24,1.049,0.2007,Ambient,Mature,2024-08-24
+B000049,Ashgrove Heritage Paper 6-Pack,Office Products,Paper,Ashgrove,SUP-119,9.82,12.15,8,64,1.512,0.3216,Ambient,Mature,2020-07-02
+B000050,Aurelia Everyday Activewear Single,Apparel,Activewear,Aurelia,SUP-110,10.46,21.24,4,4,0.946,0.0875,Ambient,Core,2020-01-22
+B000051,Rivermont Traveller Tablet Single,Electronics,Tablets,Rivermont,SUP-115,17.69,22.96,1,4,1.647,0.3306,Ambient,Mature,2019-08-22
+B000052,Solstice Row Deluxe Dairy & Chilled 4-Pack,Grocery,Dairy & Chilled,Solstice Row,SUP-120,3.12,3.35,1,1,3.867,0.4538,Chilled,Core,2020-10-12
+B000053,Larkspur Compact Personal Device 2-Pack,Health & Beauty,Personal Devices,Larkspur,SUP-115,15.69,24.64,1,8,0.804,0.2242,Ambient,Core,2024-05-19
+B000054,Solstice Row Value Breakfast Single,Grocery,Breakfast,Solstice Row,SUP-104,12.38,16.15,8,32,1.255,0.2948,Ambient,Mature,2019-08-14
+B000055,Solstice Row Value Activewear Single,Apparel,Activewear,Solstice Row,SUP-110,23.61,42.46,4,8,5.806,0.7215,Ambient,Mature,2019-10-10
+B000056,Ashgrove Insulated Headphone 12-Pack,Electronics,Headphones,Ashgrove,SUP-109,224.05,267.7,12,24,2.464,0.6802,Ambient,Mature,2020-07-19
+B000057,Coppermill Cordless Smart Home Single,Electronics,Smart Home,Coppermill,SUP-115,20.35,24.66,4,4,2.429,0.4805,Ambient,End of Life,2024-12-15
+B000058,Meridian Bay Value Hair Care Single,Health & Beauty,Hair Care,Meridian Bay,SUP-117,12.88,27.72,6,24,10.297,1.5087,Ambient,End of Life,2024-03-17
+B000059,Coppermill Traveller Small Appliance 4-Pack,Home & Kitchen,Small Appliances,Coppermill,SUP-113,55.06,82.12,6,24,2.284,0.5059,Ambient,Core,2022-08-10
+B000060,Bellwood Cordless Toys & Treat 12-Pack,Pet Supplies,Toys & Treats,Bellwood,SUP-104,14.56,20.82,4,4,7.272,0.6028,Ambient,Mature,2024-03-12
+B000061,Ashgrove Studio Puzzle 2-Pack,Toys & Games,Puzzles,Ashgrove,SUP-112,9.8,15.79,6,12,0.667,0.0382,Ambient,End of Life,2024-06-06
+B000062,Meridian Bay Traveller Coffee & Tea 4-Pack,Grocery,Coffee & Tea,Meridian Bay,SUP-111,13.09,18.29,24,96,2.859,0.6217,Ambient,Core,2023-08-06
+B000063,Larkspur Essential Cookware 12-Pack,Home & Kitchen,Cookware,Larkspur,SUP-113,20.49,33.23,1,2,6.489,1.4037,Ambient,Core,2020-08-29
+B000064,Solstice Row Traveller Storage & Organisation Single,Home & Kitchen,Storage & Organisation,Solstice Row,SUP-107,40.08,54.7,1,2,1.897,0.1109,Ambient,Mature,2021-05-14
+B000065,Kestrel Value Cat Food Single,Pet Supplies,Cat Food,Kestrel,SUP-111,8.16,11.53,8,8,5.65,0.3313,Ambient,End of Life,2021-07-24
+B000066,Harbourline Premium Diapering Single,Baby,Diapering,Harbourline,SUP-106,24.86,30.29,6,6,1.08,0.1059,Ambient,Mature,2019-10-08
+B000067,Rivermont Everyday Cycling 12-Pack,Sports & Outdoors,Cycling,Rivermont,SUP-122,26.62,44.13,48,48,6.132,1.4442,Ambient,Core,2020-07-30
+B000068,Ashgrove Heavy Duty Camping 4-Pack,Sports & Outdoors,Camping,Ashgrove,SUP-122,53.46,83.32,12,12,0.387,0.0364,Ambient,Mature,2022-01-30
+B000069,Solstice Row Compact Hair Care Single,Health & Beauty,Hair Care,Solstice Row,SUP-118,11.1,17.63,12,12,0.372,0.0367,Ambient,Mature,2021-01-03
+B000070,Fenwick Heavy Duty Small Appliance Single,Home & Kitchen,Small Appliances,Fenwick,SUP-113,8.73,12.94,1,2,0.81,0.1861,Ambient,Mature,2022-07-29
+B000071,Tidewater Value Team Sport Single,Sports & Outdoors,Team Sports,Tidewater,SUP-105,52.68,83.69,12,48,3.522,0.4472,Ambient,End of Life,2024-02-19
+B000072,Aurelia Insulated Toys & Treat 2-Pack,Pet Supplies,Toys & Treats,Aurelia,SUP-111,16.47,22.04,4,16,3.105,0.272,Ambient,Core,2023-04-03
+B000073,Stonebrook Slimline Printers & Ink Single,Office Products,Printers & Ink,Stonebrook,SUP-119,4.65,5.88,24,48,0.738,0.1463,Ambient,Core,2022-10-24
+B000074,Meridian Bay Pro Activewear 4-Pack,Apparel,Activewear,Meridian Bay,SUP-102,11.14,20.68,1,4,3.923,0.559,Ambient,Mature,2023-05-05
+B000075,Coppermill Essential Cycling 12-Pack,Sports & Outdoors,Cycling,Coppermill,SUP-102,56.39,95.66,1,8,1.879,0.1772,Ambient,Core,2021-05-15
+B000076,Ironpine Cordless Desk Accessorie Single,Office Products,Desk Accessories,Ironpine,SUP-112,31.77,41.2,6,6,1.619,0.2161,Ambient,Core,2019-04-06
+B000077,Bellwood Insulated Dog Food 2-Pack,Pet Supplies,Dog Food,Bellwood,SUP-104,55.44,73.71,48,192,1.879,0.3565,Ambient,Mature,2023-09-13
+B000078,Calder and Vine Everyday Small Appliance Single,Home & Kitchen,Small Appliances,Calder and Vine,SUP-113,172.65,238.37,6,12,1.708,0.1445,Ambient,Core,2022-08-06
+B000079,Rivermont Value Skincare 12-Pack,Health & Beauty,Skincare,Rivermont,SUP-103,12.85,21.33,8,64,1.427,0.0839,Ambient,Core,2020-11-24
+B000080,Stonebrook Lightweight Footwear Bulk Case,Apparel,Footwear,Stonebrook,SUP-102,21.75,32.92,1,4,1.049,0.2018,Ambient,Mature,2020-11-13
+B000081,Rivermont Slimline Activewear 6-Pack,Apparel,Activewear,Rivermont,SUP-102,17.12,30.02,1,1,0.664,0.0913,Ambient,Core,2023-05-29
+B000082,Tidewater Stackable Activewear 4-Pack,Apparel,Activewear,Tidewater,SUP-110,43.59,85.33,12,24,1.147,0.1284,Ambient,Core,2022-02-21
+B000083,Coppermill Slimline Bedding Single,Home & Kitchen,Bedding,Coppermill,SUP-118,25.64,42.47,1,1,2.363,0.3185,Ambient,Core,2021-03-04
+B000084,Coppermill Essential Tableware 6-Pack,Home & Kitchen,Tableware,Coppermill,SUP-108,10.08,13.01,48,96,3.244,0.8357,Ambient,New,2026-06-13
+B000085,Rivermont Premium Bedding 6-Pack,Home & Kitchen,Bedding,Rivermont,SUP-107,85.16,129.37,6,12,0.34,0.0795,Ambient,Core,2023-10-07
+B000086,Calder and Vine Stackable Figure Single,Toys & Games,Figures,Calder and Vine,SUP-112,8.8,17.39,4,32,2.995,0.4581,Ambient,Mature,2021-09-06
+B000087,Larkspur Studio Nursery 2-Pack,Baby,Nursery,Larkspur,SUP-112,35.54,44.3,8,32,0.465,0.1208,Ambient,Mature,2023-08-29
+B000088,Meridian Bay Lightweight Cat Food 12-Pack,Pet Supplies,Cat Food,Meridian Bay,SUP-104,22.27,35.46,1,8,1.117,0.2184,Ambient,Core,2021-04-07
+B000089,Stonebrook Essential Camping Single,Sports & Outdoors,Camping,Stonebrook,SUP-102,29.26,39.92,24,24,3.857,1.0363,Ambient,Core,2020-04-04
+B000090,Fenwick Pro Team Sport 4-Pack,Sports & Outdoors,Team Sports,Fenwick,SUP-102,30.31,47.29,6,24,2.404,0.6346,Ambient,Core,2024-04-11
+B000091,Ironpine Stackable Tableware 4-Pack,Home & Kitchen,Tableware,Ironpine,SUP-113,40.85,59.32,24,24,5.935,1.1454,Ambient,Core,2020-03-30
+B000092,Harbourline Pro Team Sport Single,Sports & Outdoors,Team Sports,Harbourline,SUP-105,37.96,51.41,12,48,1.537,0.4102,Ambient,New,2026-06-06
+B000093,Ashgrove Pro Baking 2-Pack,Grocery,Baking,Ashgrove,SUP-104,3.57,4.27,24,24,8.242,2.2481,Ambient,End of Life,2020-06-17
+B000094,Larkspur Cordless Basic 12-Pack,Apparel,Basics,Larkspur,SUP-110,14.88,27.27,4,8,5.99,1.4953,Ambient,Mature,2024-10-21
+B000095,Solstice Row Premium Baking Single,Grocery,Baking,Solstice Row,SUP-104,4.5,5.61,24,192,4.525,0.2483,Ambient,Mature,2024-01-21
+B000096,Kestrel Compact Streaming Device Single,Electronics,Streaming Devices,Kestrel,SUP-101,125.28,167.54,1,1,2.994,0.7078,Ambient,Mature,2024-01-14
+B000097,Ashgrove Heavy Duty Fitnes 12-Pack,Sports & Outdoors,Fitness,Ashgrove,SUP-105,48.69,78.66,12,24,2.222,0.2614,Ambient,Mature,2024-01-02
+B000098,Larkspur Premium Feeding Single,Baby,Feeding,Larkspur,SUP-106,13.55,18.81,12,12,0.937,0.0487,Ambient,End of Life,2023-09-15
+B000099,Northvale Insulated Cables & Adapter 12-Pack,Electronics,Cables & Adapters,Northvale,SUP-115,120.32,146.63,1,4,0.283,0.0489,Ambient,New,2026-06-20
+B000100,Ironpine Stackable Beverage Single,Grocery,Beverages,Ironpine,SUP-111,2.0,2.43,12,24,0.768,0.1735,Ambient,Mature,2021-06-19
+B000101,Stonebrook Insulated Outerwear Bulk Case,Apparel,Outerwear,Stonebrook,SUP-106,32.63,69.91,1,2,1.62,0.3324,Ambient,Mature,2023-09-03
+B000102,Tidewater Studio Dog Food 4-Pack,Pet Supplies,Dog Food,Tidewater,SUP-111,4.23,6.01,4,16,3.548,0.8706,Ambient,Mature,2023-02-15
+B000103,Northvale Compact Footwear Single,Apparel,Footwear,Northvale,SUP-110,12.96,26.17,12,12,0.963,0.1414,Ambient,Core,2021-02-22
+B000104,Rivermont Stackable Small Appliance 12-Pack,Home & Kitchen,Small Appliances,Rivermont,SUP-107,16.04,22.72,6,24,5.778,0.7036,Ambient,End of Life,2024-03-25
+B000105,Bellwood Pro Figure Bulk Case,Toys & Games,Figures,Bellwood,SUP-101,32.78,49.37,12,24,1.105,0.2738,Ambient,Core,2021-10-18
+B000106,Coppermill Cordless Habitat 4-Pack,Pet Supplies,Habitats,Coppermill,SUP-113,11.64,15.46,24,96,0.868,0.136,Ambient,Core,2024-01-10
+B000107,Ashgrove Heritage Hair Care 4-Pack,Health & Beauty,Hair Care,Ashgrove,SUP-118,6.42,10.47,1,2,1.544,0.2919,Ambient,Core,2020-10-24
+B000108,Rivermont Essential Tableware 6-Pack,Home & Kitchen,Tableware,Rivermont,SUP-118,27.52,38.39,1,2,0.9,0.2123,Ambient,Mature,2023-07-12
+B000109,Tidewater Cordless Dog Food Single,Pet Supplies,Dog Food,Tidewater,SUP-111,27.2,33.57,12,24,5.596,0.4295,Ambient,Core,2020-01-26
+B000110,Tidewater Everyday Vitamin 12-Pack,Health & Beauty,Vitamins,Tidewater,SUP-118,27.06,50.96,4,8,2.099,0.2563,Ambient,Core,2020-01-08
+B000111,Kestrel Essential Snack 2-Pack,Grocery,Snacks,Kestrel,SUP-111,11.26,15.97,6,48,0.692,0.0603,Ambient,New,2025-12-27
+B000112,Aurelia Stackable Desk Accessorie 2-Pack,Office Products,Desk Accessories,Aurelia,SUP-119,43.81,59.69,12,96,1.869,0.3351,Ambient,End of Life,2019-05-29
+B000113,Bellwood Insulated Accessorie 4-Pack,Apparel,Accessories,Bellwood,SUP-110,5.59,9.59,48,48,1.315,0.1705,Ambient,Mature,2024-08-10
+B000114,Meridian Bay Studio Bedding Single,Home & Kitchen,Bedding,Meridian Bay,SUP-107,74.15,100.79,4,16,9.16,1.1905,Ambient,End of Life,2021-09-23
+B000115,Northvale Premium Team Sport Single,Sports & Outdoors,Team Sports,Northvale,SUP-102,32.44,48.92,24,48,1.834,0.3387,Ambient,Mature,2024-06-20
+B000116,Aurelia Lightweight Cables & Adapter Single,Electronics,Cables & Adapters,Aurelia,SUP-115,59.9,64.99,1,4,4.366,1.0534,Ambient,Mature,2022-11-17
+B000117,Ashgrove Everyday Storage & Organisation Single,Home & Kitchen,Storage & Organisation,Ashgrove,SUP-107,10.32,14.19,12,24,2.448,0.6228,Ambient,Core,2021-04-09
+B000118,Solstice Row Heritage Building Set 2-Pack,Toys & Games,Building Sets,Solstice Row,SUP-112,14.9,22.71,4,4,1.333,0.2678,Ambient,End of Life,2019-05-25
+B000119,Solstice Row Heavy Duty Desk Accessorie Single,Office Products,Desk Accessories,Solstice Row,SUP-103,15.29,19.43,6,12,5.103,0.9282,Ambient,Core,2023-07-24
+B000120,Ashgrove Premium Hair Care 2-Pack,Health & Beauty,Hair Care,Ashgrove,SUP-117,22.08,37.91,12,12,2.541,0.5408,Ambient,Core,2024-08-21
+B000121,Stonebrook Stackable Cleaning Supplie Bulk Case,Home & Kitchen,Cleaning Supplies,Stonebrook,SUP-107,27.65,41.92,1,1,2.833,0.21,Ambient,New,2025-11-29
+B000122,Meridian Bay Pro Habitat 6-Pack,Pet Supplies,Habitats,Meridian Bay,SUP-111,13.42,18.45,1,1,6.519,0.6571,Ambient,New,2026-06-06
+B000123,Fenwick Traveller Coffee & Tea Single,Grocery,Coffee & Tea,Fenwick,SUP-111,11.77,13.83,12,48,3.507,0.6239,Ambient,Mature,2020-06-22
+B000124,Fenwick Value Bedding 6-Pack,Home & Kitchen,Bedding,Fenwick,SUP-118,19.28,27.28,8,16,1.577,0.2461,Ambient,Core,2020-06-02
+B000125,Harbourline Stackable Writing 2-Pack,Office Products,Writing,Harbourline,SUP-119,8.87,14.04,4,4,1.628,0.2611,Ambient,Mature,2020-05-19
+B000126,Ironpine Premium Vitamin 2-Pack,Health & Beauty,Vitamins,Ironpine,SUP-115,5.33,10.72,4,16,1.235,0.0812,Ambient,Core,2020-06-12
+B000127,Rivermont Slimline Outerwear Bulk Case,Apparel,Outerwear,Rivermont,SUP-106,15.81,30.63,6,6,0.894,0.0536,Ambient,Core,2023-11-28
+B000128,Ironpine Premium Personal Device 12-Pack,Health & Beauty,Personal Devices,Ironpine,SUP-117,12.39,21.79,24,24,4.742,1.0849,Ambient,End of Life,2021-04-01
+B000129,Aurelia Pro Outerwear Single,Apparel,Outerwear,Aurelia,SUP-110,47.77,76.03,6,6,2.742,0.6297,Ambient,Mature,2022-07-25
+B000130,Northvale Lightweight Baking 2-Pack,Grocery,Baking,Northvale,SUP-120,4.08,5.34,12,12,2.677,0.3679,Ambient,Core,2021-04-16
+B000131,Meridian Bay Heritage Camping 2-Pack,Sports & Outdoors,Camping,Meridian Bay,SUP-102,72.17,99.86,8,8,1.47,0.3846,Ambient,Mature,2022-10-16
+B000132,Ironpine Studio Tablet Single,Electronics,Tablets,Ironpine,SUP-101,36.4,46.66,6,6,2.122,0.2457,Ambient,Mature,2019-06-19
+B000133,Solstice Row Deluxe Skincare 2-Pack,Health & Beauty,Skincare,Solstice Row,SUP-103,15.18,23.3,4,8,0.472,0.1037,Ambient,Mature,2020-05-02
+B000134,Rivermont Everyday Streaming Device 2-Pack,Electronics,Streaming Devices,Rivermont,SUP-101,17.14,22.56,6,48,0.187,0.0218,Ambient,Mature,2020-03-31
+B000135,Harbourline Insulated Cat Food Single,Pet Supplies,Cat Food,Harbourline,SUP-113,13.09,16.82,6,48,0.417,0.1065,Ambient,End of Life,2024-09-08
+B000136,Tidewater Insulated Storage & Organisation 4-Pack,Home & Kitchen,Storage & Organisation,Tidewater,SUP-113,38.25,55.52,8,8,1.863,0.3347,Ambient,Core,2022-03-27
+B000137,Calder and Vine Heritage Streaming Device 4-Pack,Electronics,Streaming Devices,Calder and Vine,SUP-109,104.11,117.33,4,4,1.514,0.1097,Ambient,Core,2021-03-21
+B000138,Northvale Everyday Personal Device 6-Pack,Health & Beauty,Personal Devices,Northvale,SUP-115,25.11,40.38,1,1,2.437,0.5861,Ambient,End of Life,2024-12-23
+B000139,Coppermill Traveller Tableware 2-Pack,Home & Kitchen,Tableware,Coppermill,SUP-114,53.47,73.59,4,16,0.993,0.1561,Ambient,End of Life,2019-08-20
+B000140,Bellwood Slimline Coffee & Tea 4-Pack,Grocery,Coffee & Tea,Bellwood,SUP-104,5.15,5.97,12,48,0.809,0.0525,Ambient,Mature,2020-03-14
+B000141,Stonebrook Pro Water Sport 2-Pack,Sports & Outdoors,Water Sports,Stonebrook,SUP-122,44.89,78.69,4,4,1.339,0.2764,Ambient,Mature,2022-04-29
+B000142,Solstice Row Premium Nursery Single,Baby,Nursery,Solstice Row,SUP-106,12.57,15.78,6,48,0.936,0.2566,Ambient,Core,2020-01-08
+B000143,Solstice Row Deluxe Writing Single,Office Products,Writing,Solstice Row,SUP-112,6.49,8.93,1,1,1.738,0.1131,Ambient,Core,2024-10-29
+B000144,Northvale Slimline Cookware 4-Pack,Home & Kitchen,Cookware,Northvale,SUP-108,16.5,24.72,1,8,3.31,0.8609,Ambient,Core,2019-10-01
+B000145,Stonebrook Premium Snack Single,Grocery,Snacks,Stonebrook,SUP-111,13.18,16.3,24,48,1.428,0.2236,Ambient,New,2026-04-11
+B000146,Kestrel Heavy Duty Feeding 4-Pack,Baby,Feeding,Kestrel,SUP-112,22.0,31.81,4,4,1.11,0.2131,Ambient,New,2025-12-06
+B000147,Ironpine Traveller Dog Food Single,Pet Supplies,Dog Food,Ironpine,SUP-111,34.39,55.77,1,4,2.938,0.4394,Ambient,Core,2024-05-18
+B000148,Tidewater Pro Small Appliance Single,Home & Kitchen,Small Appliances,Tidewater,SUP-107,21.53,30.85,12,48,1.84,0.1065,Ambient,Mature,2024-12-25
+B000149,Ashgrove Insulated Oral Care 2-Pack,Health & Beauty,Oral Care,Ashgrove,SUP-117,23.03,36.3,1,8,5.483,0.8798,Ambient,New,2025-12-20
+B000150,Ironpine Studio Pantry Staple 4-Pack,Grocery,Pantry Staples,Ironpine,SUP-104,2.47,3.23,8,8,1.954,0.2403,Ambient,Mature,2020-05-17
+B000151,Fenwick Insulated Nursery Single,Baby,Nursery,Fenwick,SUP-112,10.75,15.11,1,2,0.368,0.0433,Ambient,Mature,2021-08-11
+B000152,Coppermill Insulated Puzzle 2-Pack,Toys & Games,Puzzles,Coppermill,SUP-121,28.18,47.74,1,8,2.285,0.3222,Ambient,Core,2024-05-12
+B000153,Tidewater Lightweight Cycling Single,Sports & Outdoors,Cycling,Tidewater,SUP-105,9.61,14.35,6,12,1.125,0.2027,Ambient,Core,2021-07-12
+B000154,Solstice Row Heavy Duty Cat Food 2-Pack,Pet Supplies,Cat Food,Solstice Row,SUP-113,6.27,9.5,24,48,1.598,0.3112,Ambient,End of Life,2020-09-08
+B000155,Ironpine Deluxe Cookware 6-Pack,Home & Kitchen,Cookware,Ironpine,SUP-118,16.62,24.46,1,4,3.157,0.6155,Ambient,Mature,2023-04-28
+B000156,Larkspur Pro Oral Care Single,Health & Beauty,Oral Care,Larkspur,SUP-118,14.32,31.65,6,6,2.374,0.3421,Ambient,Mature,2020-10-18
+B000157,Ashgrove Value Smart Home 6-Pack,Electronics,Smart Home,Ashgrove,SUP-115,58.52,77.53,12,24,2.383,0.3748,Ambient,End of Life,2019-10-01
+B000158,Fenwick Pro Outerwear 4-Pack,Apparel,Outerwear,Fenwick,SUP-110,23.4,40.12,8,8,0.765,0.205,Ambient,Core,2024-01-08
+B000159,Bellwood Premium Desk Accessorie Single,Office Products,Desk Accessories,Bellwood,SUP-119,5.08,6.67,4,32,2.701,0.388,Ambient,Core,2024-06-28
+B000160,Calder and Vine Cordless Headphone 4-Pack,Electronics,Headphones,Calder and Vine,SUP-101,152.23,187.85,1,2,1.57,0.4071,Ambient,Core,2020-09-10
+B000161,Aurelia Cordless Figure 4-Pack,Toys & Games,Figures,Aurelia,SUP-121,20.9,31.69,1,8,1.381,0.2995,Ambient,Core,2024-04-29
+B000162,Ironpine Essential Oral Care 6-Pack,Health & Beauty,Oral Care,Ironpine,SUP-117,11.86,17.2,24,48,2.72,0.7186,Ambient,Mature,2024-06-03
+B000163,Kestrel Premium Building Set Single,Toys & Games,Building Sets,Kestrel,SUP-101,17.6,27.07,8,8,0.506,0.0544,Ambient,End of Life,2022-05-23
+B000164,Meridian Bay Cordless Cables & Adapter 6-Pack,Electronics,Cables & Adapters,Meridian Bay,SUP-116,52.28,61.06,8,32,1.928,0.333,Ambient,Core,2024-11-02
+B000165,Aurelia Everyday Puzzle 4-Pack,Toys & Games,Puzzles,Aurelia,SUP-101,35.18,55.37,8,8,0.724,0.156,Ambient,Core,2024-10-25
+B000166,Solstice Row Essential Hair Care Single,Health & Beauty,Hair Care,Solstice Row,SUP-118,22.72,38.94,12,24,2.48,0.1369,Ambient,Core,2022-02-23
+B000167,Northvale Stackable Writing 4-Pack,Office Products,Writing,Northvale,SUP-112,7.6,11.21,24,48,2.049,0.551,Ambient,New,2026-04-11
+B000168,Fenwick Pro Baking 2-Pack,Grocery,Baking,Fenwick,SUP-104,8.87,11.15,6,12,2.389,0.6664,Ambient,Mature,2023-06-12
+B000169,Meridian Bay Value Oral Care 4-Pack,Health & Beauty,Oral Care,Meridian Bay,SUP-117,31.28,60.88,6,12,0.888,0.2169,Ambient,End of Life,2022-04-14
+B000170,Calder and Vine Stackable Personal Device Single,Health & Beauty,Personal Devices,Calder and Vine,SUP-118,6.35,12.03,1,4,2.562,0.7034,Ambient,Mature,2022-02-15
+B000171,Ironpine Insulated Headphone Single,Electronics,Headphones,Ironpine,SUP-109,99.79,141.88,24,24,1.508,0.404,Ambient,Core,2019-10-07
+B000172,Meridian Bay Essential Beverage 2-Pack,Grocery,Beverages,Meridian Bay,SUP-117,5.51,6.89,48,48,2.145,0.4562,Ambient,Core,2023-03-29
+B000173,Harbourline Studio Tableware Single,Home & Kitchen,Tableware,Harbourline,SUP-107,20.12,34.19,12,24,2.784,0.2235,Ambient,Mature,2024-04-08
+B000174,Calder and Vine Pro Outdoor Play Bulk Case,Toys & Games,Outdoor Play,Calder and Vine,SUP-121,29.82,43.42,1,2,4.076,0.2648,Ambient,Mature,2021-10-28
+B000175,Meridian Bay Insulated Desk Accessorie 4-Pack,Office Products,Desk Accessories,Meridian Bay,SUP-119,13.44,20.1,6,24,2.244,0.4171,Ambient,New,2025-11-29
+B000176,Rivermont Everyday Toys & Treat Single,Pet Supplies,Toys & Treats,Rivermont,SUP-113,23.18,30.19,6,6,1.045,0.2547,Ambient,Mature,2023-02-16
+B000177,Larkspur Essential Beverage Single,Grocery,Beverages,Larkspur,SUP-117,2.41,3.13,4,4,0.513,0.0295,Ambient,End of Life,2019-06-20
+B000178,Stonebrook Traveller Oral Care 2-Pack,Health & Beauty,Oral Care,Stonebrook,SUP-103,27.42,45.31,24,192,0.637,0.1384,Ambient,New,2025-12-20
+B000179,Solstice Row Heavy Duty Portable Power 4-Pack,Electronics,Portable Power,Solstice Row,SUP-116,62.15,91.07,1,2,11.146,2.3988,Ambient,Core,2021-01-29
+B000180,Rivermont Premium Puzzle 6-Pack,Toys & Games,Puzzles,Rivermont,SUP-101,87.04,147.91,6,6,0.47,0.0595,Ambient,Core,2024-07-21
+B000181,Northvale Insulated Portable Power Single,Electronics,Portable Power,Northvale,SUP-109,54.45,71.7,12,24,0.76,0.0589,Ambient,Core,2022-07-26
+B000182,Larkspur Deluxe Grooming Single,Pet Supplies,Grooming,Larkspur,SUP-113,8.68,12.75,4,16,4.71,0.702,Ambient,Mature,2023-11-03
+B000183,Calder and Vine Pro Basic 2-Pack,Apparel,Basics,Calder and Vine,SUP-110,21.45,43.69,6,6,1.635,0.3215,Ambient,Mature,2021-04-03
+B000184,Kestrel Compact Basic 2-Pack,Apparel,Basics,Kestrel,SUP-110,18.21,34.6,4,4,2.914,0.3435,Ambient,Core,2020-11-28
+B000185,Ashgrove Value Smart Home Bulk Case,Electronics,Smart Home,Ashgrove,SUP-116,23.78,28.75,48,48,1.066,0.1852,Ambient,Core,2021-06-04
+B000186,Rivermont Stackable Toys & Treat Single,Pet Supplies,Toys & Treats,Rivermont,SUP-113,7.27,8.74,24,24,0.809,0.0849,Ambient,Core,2022-06-10
+B000187,Ashgrove Stackable Toys & Treat 4-Pack,Pet Supplies,Toys & Treats,Ashgrove,SUP-111,18.92,26.0,48,96,4.044,0.7151,Ambient,Core,2024-05-19
+B000188,Solstice Row Heritage Vitamin Single,Health & Beauty,Vitamins,Solstice Row,SUP-117,8.95,13.72,6,24,2.013,0.3396,Ambient,Mature,2020-05-31
+B000189,Larkspur Studio Nursery Bulk Case,Baby,Nursery,Larkspur,SUP-112,11.62,13.66,4,4,1.575,0.1544,Ambient,Mature,2020-04-22
+B000190,Larkspur Insulated Water Sport 2-Pack,Sports & Outdoors,Water Sports,Larkspur,SUP-102,24.81,35.11,12,24,2.073,0.4154,Ambient,Core,2020-01-16
+B000191,Solstice Row Compact Breakfast Single,Grocery,Breakfast,Solstice Row,SUP-111,12.14,16.44,1,2,3.431,0.2466,Ambient,Core,2021-09-24
+B000192,Ashgrove Pro Figure Single,Toys & Games,Figures,Ashgrove,SUP-112,35.26,55.73,1,4,1.672,0.1208,Ambient,Mature,2019-11-13
+B000193,Tidewater Insulated Small Appliance Single,Home & Kitchen,Small Appliances,Tidewater,SUP-114,39.69,53.33,12,96,2.135,0.5802,Ambient,Core,2019-09-20
+B000194,Ironpine Insulated Filing Single,Office Products,Filing,Ironpine,SUP-103,12.16,17.79,4,32,1.327,0.2123,Ambient,Mature,2020-09-28
+B000195,Ironpine Heritage Breakfast Single,Grocery,Breakfast,Ironpine,SUP-120,6.65,8.19,8,16,8.668,1.2242,Ambient,Mature,2023-05-03
+B000196,Kestrel Essential Breakfast Single,Grocery,Breakfast,Kestrel,SUP-120,7.3,9.92,1,1,1.691,0.3661,Ambient,Core,2024-04-20
+B000197,Harbourline Pro Frozen Meal Single,Grocery,Frozen Meals,Harbourline,SUP-120,7.26,9.05,6,24,5.206,1.3767,Frozen,Core,2019-06-16
+B000198,Northvale Slimline Cleaning Supplie Single,Home & Kitchen,Cleaning Supplies,Northvale,SUP-113,27.58,41.65,12,96,0.433,0.0224,Ambient,Core,2024-08-22
+B000199,Rivermont Studio Dairy & Chilled 4-Pack,Grocery,Dairy & Chilled,Rivermont,SUP-120,17.21,19.92,4,4,9.204,1.4375,Chilled,Core,2023-05-30
+B000200,Fenwick Deluxe Bedding 4-Pack,Home & Kitchen,Bedding,Fenwick,SUP-107,42.44,68.87,4,4,10.369,0.8245,Ambient,Core,2022-03-18
+B000201,Coppermill Essential Cables & Adapter 2-Pack,Electronics,Cables & Adapters,Coppermill,SUP-101,40.84,50.77,12,12,0.793,0.05,Ambient,Mature,2022-01-12
+B000202,Fenwick Everyday Diapering 6-Pack,Baby,Diapering,Fenwick,SUP-106,26.75,36.79,4,4,10.495,1.2127,Ambient,Core,2020-12-31
+B000203,Ironpine Lightweight Beverage 4-Pack,Grocery,Beverages,Ironpine,SUP-111,5.75,7.35,4,8,0.471,0.1037,Ambient,Mature,2022-06-22
+B000204,Ashgrove Slimline Feeding 2-Pack,Baby,Feeding,Ashgrove,SUP-112,25.35,32.8,4,8,2.735,0.4189,Ambient,Core,2023-09-25
+B000205,Kestrel Cordless Oral Care Single,Health & Beauty,Oral Care,Kestrel,SUP-117,6.57,9.84,4,4,6.432,1.2028,Ambient,Core,2023-05-18
+B000206,Calder and Vine Essential Filing Single,Office Products,Filing,Calder and Vine,SUP-119,15.92,24.55,4,32,0.585,0.1345,Ambient,Core,2023-05-27
+B000207,Meridian Bay Heavy Duty Headphone Single,Electronics,Headphones,Meridian Bay,SUP-101,27.3,36.36,1,1,0.25,0.0268,Ambient,Core,2024-06-04
+B000208,Coppermill Pro Basic Single,Apparel,Basics,Coppermill,SUP-102,18.0,30.51,12,24,1.414,0.238,Ambient,Mature,2022-10-17
+B000209,Fenwick Heavy Duty Cookware 12-Pack,Home & Kitchen,Cookware,Fenwick,SUP-114,40.77,54.63,1,1,1.897,0.2973,Ambient,Core,2020-03-09
+B000210,Ironpine Everyday Coffee & Tea Single,Grocery,Coffee & Tea,Ironpine,SUP-120,2.12,2.72,12,12,2.749,0.4779,Ambient,Core,2022-01-12
+B000211,Tidewater Traveller Streaming Device 4-Pack,Electronics,Streaming Devices,Tidewater,SUP-109,42.79,58.91,4,8,5.416,1.0654,Ambient,Mature,2022-02-08
+B000212,Solstice Row Everyday Basic Single,Apparel,Basics,Solstice Row,SUP-102,38.08,67.44,1,1,2.72,0.2117,Ambient,Core,2021-04-15
+B000213,Rivermont Compact Camping Single,Sports & Outdoors,Camping,Rivermont,SUP-105,46.02,73.62,4,4,7.922,1.3167,Ambient,Core,2020-07-23
+B000214,Solstice Row Compact Toys & Treat 2-Pack,Pet Supplies,Toys & Treats,Solstice Row,SUP-104,9.98,12.26,24,96,2.103,0.2511,Ambient,Core,2022-07-11
+B000215,Fenwick Value Toys & Treat 2-Pack,Pet Supplies,Toys & Treats,Fenwick,SUP-111,17.08,28.09,4,4,5.162,0.6772,Ambient,New,2026-04-18
+B000216,Ironpine Value Team Sport Bulk Case,Sports & Outdoors,Team Sports,Ironpine,SUP-105,49.89,68.51,6,12,0.882,0.2314,Ambient,Mature,2023-08-23
+B000217,Harbourline Studio Oral Care 2-Pack,Health & Beauty,Oral Care,Harbourline,SUP-117,37.59,73.88,8,64,8.652,0.8615,Ambient,Core,2023-05-10
+B000218,Tidewater Deluxe Pantry Staple 6-Pack,Grocery,Pantry Staples,Tidewater,SUP-111,3.34,4.01,4,8,1.511,0.4201,Ambient,Mature,2019-08-14
+B000219,Ashgrove Pro Streaming Device Bulk Case,Electronics,Streaming Devices,Ashgrove,SUP-109,32.21,40.79,6,6,8.353,0.888,Ambient,End of Life,2024-09-26
+B000220,Aurelia Value Figure Single,Toys & Games,Figures,Aurelia,SUP-121,19.35,31.21,24,48,3.488,0.8983,Ambient,New,2026-03-14
+B000221,Stonebrook Slimline Tableware 6-Pack,Home & Kitchen,Tableware,Stonebrook,SUP-118,45.14,67.34,1,1,4.496,0.6716,Ambient,New,2026-05-09
+B000222,Rivermont Pro Oral Care Single,Health & Beauty,Oral Care,Rivermont,SUP-118,12.18,17.91,12,48,2.744,0.1643,Ambient,Core,2023-05-19
+B000223,Fenwick Everyday Smart Home 12-Pack,Electronics,Smart Home,Fenwick,SUP-116,48.99,56.29,12,48,1.068,0.1535,Ambient,Mature,2020-05-01
+B000224,Tidewater Heavy Duty Diapering 6-Pack,Baby,Diapering,Tidewater,SUP-112,5.13,6.93,48,192,3.584,0.4136,Ambient,Core,2019-05-02
+B000225,Solstice Row Everyday Water Sport 12-Pack,Sports & Outdoors,Water Sports,Solstice Row,SUP-102,72.79,117.83,12,12,2.573,0.5319,Ambient,New,2025-12-20
+B000226,Larkspur Stackable Bedding 12-Pack,Home & Kitchen,Bedding,Larkspur,SUP-108,18.36,23.78,4,8,0.71,0.0664,Ambient,Core,2020-11-24
+B000227,Coppermill Value Cookware 2-Pack,Home & Kitchen,Cookware,Coppermill,SUP-114,55.69,79.06,12,24,1.058,0.1577,Ambient,Mature,2023-04-10
+B000228,Fenwick Lightweight Smart Home 2-Pack,Electronics,Smart Home,Fenwick,SUP-116,51.13,62.57,12,24,1.16,0.1457,Ambient,Mature,2019-04-08
+B000229,Fenwick Compact Portable Power 2-Pack,Electronics,Portable Power,Fenwick,SUP-101,69.87,96.78,4,4,2.274,0.1724,Ambient,End of Life,2022-10-25
+B000230,Meridian Bay Compact Hair Care Single,Health & Beauty,Hair Care,Meridian Bay,SUP-118,10.67,16.48,8,64,1.176,0.0874,Ambient,Mature,2024-05-17
+B000231,Ashgrove Deluxe Grooming Single,Pet Supplies,Grooming,Ashgrove,SUP-113,17.01,25.71,6,6,1.399,0.1755,Ambient,Mature,2020-04-23
+B000232,Tidewater Heritage Dog Food Single,Pet Supplies,Dog Food,Tidewater,SUP-111,7.58,10.49,1,1,0.824,0.1667,Ambient,Core,2019-12-18
+B000233,Aurelia Everyday Habitat 2-Pack,Pet Supplies,Habitats,Aurelia,SUP-104,30.93,38.47,12,24,1.291,0.226,Ambient,New,2026-04-11
+B000234,Meridian Bay Cordless Streaming Device Single,Electronics,Streaming Devices,Meridian Bay,SUP-116,68.84,87.09,1,1,3.437,0.864,Ambient,Mature,2020-09-05
+B000235,Larkspur Slimline Water Sport 6-Pack,Sports & Outdoors,Water Sports,Larkspur,SUP-122,59.11,89.05,8,16,2.019,0.2212,Ambient,Mature,2019-02-25
+B000236,Larkspur Deluxe Outerwear Single,Apparel,Outerwear,Larkspur,SUP-102,6.13,11.43,6,6,2.008,0.3935,Ambient,Mature,2020-07-31
+B000237,Bellwood Insulated Bedding Single,Home & Kitchen,Bedding,Bellwood,SUP-118,34.69,55.77,4,4,1.682,0.1929,Ambient,Mature,2023-07-16
+B000238,Larkspur Traveller Vitamin 12-Pack,Health & Beauty,Vitamins,Larkspur,SUP-118,33.37,68.81,1,2,11.641,1.2619,Ambient,Mature,2019-10-18
+B000239,Tidewater Lightweight Activewear 4-Pack,Apparel,Activewear,Tidewater,SUP-106,12.84,25.02,24,96,3.545,0.9312,Ambient,Core,2022-04-12
+B000240,Kestrel Compact Headphone Single,Electronics,Headphones,Kestrel,SUP-116,9.44,11.86,4,8,3.131,0.7831,Ambient,Core,2024-03-30
+B000241,Meridian Bay Studio Streaming Device Single,Electronics,Streaming Devices,Meridian Bay,SUP-115,43.91,49.72,4,8,1.375,0.3044,Ambient,Mature,2023-04-23
+B000242,Stonebrook Cordless Printers & Ink 6-Pack,Office Products,Printers & Ink,Stonebrook,SUP-112,7.44,8.85,12,12,1.85,0.3035,Ambient,Mature,2020-03-24
+B000243,Meridian Bay Studio Bedding 6-Pack,Home & Kitchen,Bedding,Meridian Bay,SUP-118,45.01,63.73,4,4,11.497,2.2252,Ambient,Core,2021-01-27
+B000244,Solstice Row Heavy Duty Hair Care 4-Pack,Health & Beauty,Hair Care,Solstice Row,SUP-115,31.25,44.57,12,24,0.805,0.1023,Ambient,Mature,2022-09-09
+B000245,Larkspur Lightweight Pantry Staple Single,Grocery,Pantry Staples,Larkspur,SUP-117,2.38,3.48,8,64,1.45,0.3894,Ambient,Core,2023-09-24
+B000246,Bellwood Pro Writing 6-Pack,Office Products,Writing,Bellwood,SUP-103,48.07,75.13,12,12,1.411,0.3599,Ambient,Core,2019-10-14
+B000247,Stonebrook Value Small Appliance 2-Pack,Home & Kitchen,Small Appliances,Stonebrook,SUP-114,29.87,43.13,12,12,5.036,0.6008,Ambient,Mature,2023-12-27
+B000248,Larkspur Deluxe Puzzle 2-Pack,Toys & Games,Puzzles,Larkspur,SUP-112,20.2,30.18,1,1,8.775,1.0923,Ambient,Core,2020-10-26
+B000249,Rivermont Stackable Figure 6-Pack,Toys & Games,Figures,Rivermont,SUP-112,24.19,37.45,6,12,4.323,0.2197,Ambient,Core,2023-05-21
+B000250,Kestrel Value Coffee & Tea 6-Pack,Grocery,Coffee & Tea,Kestrel,SUP-120,3.15,4.03,4,8,1.023,0.097,Ambient,Core,2023-03-14
+B000251,Stonebrook Essential Outerwear 12-Pack,Apparel,Outerwear,Stonebrook,SUP-106,12.22,20.74,1,2,1.216,0.2712,Ambient,Core,2019-06-16
+B000252,Coppermill Compact Camping Single,Sports & Outdoors,Camping,Coppermill,SUP-102,52.05,76.12,1,2,2.562,0.1778,Ambient,Core,2021-07-22
+B000253,Calder and Vine Premium Frozen Meal Single,Grocery,Frozen Meals,Calder and Vine,SUP-117,5.33,6.8,8,16,1.294,0.0649,Frozen,Core,2022-06-07
+B000254,Solstice Row Insulated Small Appliance 2-Pack,Home & Kitchen,Small Appliances,Solstice Row,SUP-108,7.63,10.57,24,48,0.772,0.1374,Ambient,Mature,2024-12-14
+B000255,Solstice Row Heavy Duty Footwear 4-Pack,Apparel,Footwear,Solstice Row,SUP-106,18.41,32.07,6,24,1.69,0.2992,Ambient,Mature,2023-03-15
+B000256,Kestrel Everyday Frozen Meal 12-Pack,Grocery,Frozen Meals,Kestrel,SUP-104,17.41,20.24,12,96,0.328,0.0734,Frozen,End of Life,2020-02-29
+B000257,Larkspur Lightweight Habitat 4-Pack,Pet Supplies,Habitats,Larkspur,SUP-104,12.7,17.39,4,4,1.882,0.4968,Ambient,Mature,2024-06-15
+B000258,Ironpine Heavy Duty Skincare Single,Health & Beauty,Skincare,Ironpine,SUP-115,7.11,11.22,1,2,0.796,0.2195,Ambient,Mature,2021-05-16
+B000259,Aurelia Essential Camping 12-Pack,Sports & Outdoors,Camping,Aurelia,SUP-105,17.17,25.22,1,1,2.09,0.1723,Ambient,New,2026-06-13
+B000260,Meridian Bay Heritage Smart Home Single,Electronics,Smart Home,Meridian Bay,SUP-109,27.53,34.19,8,8,3.262,0.3541,Ambient,Core,2019-04-18
+B000261,Northvale Compact Streaming Device Single,Electronics,Streaming Devices,Northvale,SUP-101,61.04,69.69,6,12,4.906,0.6131,Ambient,Mature,2023-08-06
+B000262,Larkspur Traveller Portable Power 2-Pack,Electronics,Portable Power,Larkspur,SUP-109,79.31,84.48,1,4,2.636,0.4995,Ambient,Core,2020-03-06
+B000263,Solstice Row Cordless Fitnes 2-Pack,Sports & Outdoors,Fitness,Solstice Row,SUP-105,50.34,73.34,4,8,1.016,0.1221,Ambient,Mature,2024-07-21
+B000264,Solstice Row Compact Team Sport 4-Pack,Sports & Outdoors,Team Sports,Solstice Row,SUP-122,32.04,53.99,6,24,2.999,0.2643,Ambient,Mature,2020-02-27
+B000265,Solstice Row Slimline Breakfast 4-Pack,Grocery,Breakfast,Solstice Row,SUP-117,5.9,7.06,4,8,3.684,0.3894,Ambient,Mature,2022-11-21
+B000266,Tidewater Everyday Tablet 6-Pack,Electronics,Tablets,Tidewater,SUP-101,77.37,91.15,1,2,1.684,0.2712,Ambient,Mature,2023-08-02
+B000267,Ashgrove Traveller Basic 12-Pack,Apparel,Basics,Ashgrove,SUP-102,35.69,64.36,24,96,0.192,0.0277,Ambient,Core,2024-08-22
+B000268,Fenwick Premium Storage & Organisation Single,Home & Kitchen,Storage & Organisation,Fenwick,SUP-108,24.53,38.17,1,2,2.377,0.5415,Ambient,End of Life,2021-10-29
+B000269,Larkspur Premium Breakfast 12-Pack,Grocery,Breakfast,Larkspur,SUP-120,2.24,3.23,12,24,1.217,0.2252,Ambient,New,2026-05-23
+B000270,Northvale Deluxe Bedding 6-Pack,Home & Kitchen,Bedding,Northvale,SUP-114,42.84,62.67,6,48,2.688,0.4477,Ambient,Mature,2019-10-28
+B000271,Larkspur Traveller Fitnes 4-Pack,Sports & Outdoors,Fitness,Larkspur,SUP-122,23.34,35.29,8,8,3.832,0.2756,Ambient,New,2026-05-23
+B000272,Rivermont Deluxe Desk Accessorie Single,Office Products,Desk Accessories,Rivermont,SUP-112,5.34,7.6,6,6,1.751,0.2377,Ambient,Core,2024-06-17
+B000273,Larkspur Stackable Skincare 2-Pack,Health & Beauty,Skincare,Larkspur,SUP-103,23.72,40.67,8,32,1.976,0.1427,Ambient,New,2026-05-30
+B000274,Bellwood Premium Hair Care Single,Health & Beauty,Hair Care,Bellwood,SUP-117,20.72,36.57,12,48,1.544,0.2704,Ambient,New,2026-03-28
+B000275,Rivermont Cordless Board Game Single,Toys & Games,Board Games,Rivermont,SUP-101,27.48,46.77,1,1,0.868,0.2035,Ambient,New,2026-02-28
+B000276,Harbourline Premium Building Set 12-Pack,Toys & Games,Building Sets,Harbourline,SUP-121,23.17,33.72,48,48,1.272,0.3397,Ambient,Mature,2019-09-06
+B000277,Ashgrove Everyday Cables & Adapter Bulk Case,Electronics,Cables & Adapters,Ashgrove,SUP-109,37.83,46.48,8,32,4.422,1.0402,Ambient,Core,2022-01-08
+B000278,Meridian Bay Insulated Hair Care Single,Health & Beauty,Hair Care,Meridian Bay,SUP-103,38.05,66.61,6,6,2.22,0.2167,Ambient,New,2025-12-06
+B000279,Bellwood Value Tablet 2-Pack,Electronics,Tablets,Bellwood,SUP-101,30.79,38.35,4,32,2.0,0.3381,Ambient,Mature,2021-01-13
+B000280,Calder and Vine Premium Accessorie 4-Pack,Apparel,Accessories,Calder and Vine,SUP-102,18.32,29.46,24,96,12.894,1.3398,Ambient,Core,2022-09-09
+B000281,Coppermill Essential Puzzle 6-Pack,Toys & Games,Puzzles,Coppermill,SUP-101,27.43,46.53,8,16,2.385,0.1282,Ambient,End of Life,2024-05-25
+B000282,Larkspur Essential Team Sport 2-Pack,Sports & Outdoors,Team Sports,Larkspur,SUP-105,55.18,73.86,1,4,1.213,0.118,Ambient,Mature,2023-10-29
+B000283,Kestrel Premium Dog Food Single,Pet Supplies,Dog Food,Kestrel,SUP-111,5.71,6.83,6,6,1.04,0.2697,Ambient,Core,2020-11-13
+B000284,Solstice Row Essential Team Sport 2-Pack,Sports & Outdoors,Team Sports,Solstice Row,SUP-105,19.61,28.46,1,1,2.309,0.3622,Ambient,Mature,2020-03-26
+B000285,Rivermont Essential Water Sport Single,Sports & Outdoors,Water Sports,Rivermont,SUP-122,99.56,149.86,1,2,5.203,1.0689,Ambient,Mature,2023-11-19
+B000286,Calder and Vine Premium Outdoor Play 2-Pack,Toys & Games,Outdoor Play,Calder and Vine,SUP-112,43.29,72.91,12,12,3.928,0.883,Ambient,Mature,2021-02-25
+B000287,Solstice Row Deluxe Cables & Adapter Single,Electronics,Cables & Adapters,Solstice Row,SUP-115,94.57,129.3,4,16,1.454,0.1724,Ambient,New,2026-02-28
+B000288,Rivermont Stackable Feeding 6-Pack,Baby,Feeding,Rivermont,SUP-106,9.3,10.71,12,12,1.544,0.3838,Ambient,Core,2022-09-16
+B000289,Calder and Vine Deluxe Portable Power 2-Pack,Electronics,Portable Power,Calder and Vine,SUP-109,33.98,45.07,1,2,1.317,0.1346,Ambient,Core,2020-03-17
+B000290,Bellwood Traveller Baking Bulk Case,Grocery,Baking,Bellwood,SUP-104,2.29,3.05,8,16,0.474,0.1149,Ambient,Core,2020-01-18
+B000291,Kestrel Slimline Personal Device Single,Health & Beauty,Personal Devices,Kestrel,SUP-103,17.87,35.76,4,8,2.541,0.6165,Ambient,Mature,2020-03-01
+B000292,Solstice Row Heavy Duty Outdoor Play 12-Pack,Toys & Games,Outdoor Play,Solstice Row,SUP-112,32.23,50.93,1,4,1.399,0.1815,Ambient,Mature,2023-11-29
+B000293,Bellwood Cordless Skincare Single,Health & Beauty,Skincare,Bellwood,SUP-117,14.75,22.55,1,2,1.151,0.1036,Ambient,End of Life,2024-07-07
+B000294,Bellwood Heritage Activewear 2-Pack,Apparel,Activewear,Bellwood,SUP-106,42.52,71.15,12,48,0.501,0.0334,Ambient,Core,2019-03-11
+B000295,Larkspur Deluxe Oral Care 6-Pack,Health & Beauty,Oral Care,Larkspur,SUP-103,18.76,30.07,1,1,2.588,0.1732,Ambient,Core,2019-10-12
+B000296,Rivermont Slimline Building Set 12-Pack,Toys & Games,Building Sets,Rivermont,SUP-112,28.09,49.53,8,16,3.319,0.4788,Ambient,Core,2020-03-21
+B000297,Ashgrove Insulated Feeding 2-Pack,Baby,Feeding,Ashgrove,SUP-112,20.76,33.52,1,1,0.94,0.241,Ambient,End of Life,2024-11-27
+B000298,Stonebrook Cordless Small Appliance 12-Pack,Home & Kitchen,Small Appliances,Stonebrook,SUP-113,39.04,54.57,8,8,1.758,0.4859,Ambient,New,2025-12-27
+B000299,Solstice Row Lightweight Bedding Single,Home & Kitchen,Bedding,Solstice Row,SUP-108,8.34,12.32,8,64,2.189,0.2872,Ambient,New,2025-11-08
+B000300,Bellwood Pro Portable Power 2-Pack,Electronics,Portable Power,Bellwood,SUP-115,30.93,36.89,6,6,1.197,0.1735,Ambient,Mature,2023-03-28
+B000301,Northvale Lightweight Outerwear 4-Pack,Apparel,Outerwear,Northvale,SUP-106,37.32,61.43,8,16,1.031,0.1009,Ambient,End of Life,2023-10-14
+B000302,Ashgrove Lightweight Bedding 2-Pack,Home & Kitchen,Bedding,Ashgrove,SUP-114,37.95,56.75,8,16,0.775,0.043,Ambient,New,2025-12-06
+B000303,Northvale Stackable Accessorie Single,Apparel,Accessories,Northvale,SUP-110,9.43,18.31,24,48,0.87,0.2115,Ambient,Mature,2023-07-15
+B000304,Aurelia Insulated Feeding Single,Baby,Feeding,Aurelia,SUP-112,13.26,16.55,1,2,1.528,0.1557,Ambient,Mature,2020-07-06
+B000305,Aurelia Slimline Figure 4-Pack,Toys & Games,Figures,Aurelia,SUP-101,13.63,22.01,4,4,6.407,1.3896,Ambient,Mature,2021-01-21
+B000306,Fenwick Stackable Team Sport 2-Pack,Sports & Outdoors,Team Sports,Fenwick,SUP-102,64.71,81.98,24,192,2.034,0.2188,Ambient,End of Life,2024-02-26
+B000307,Coppermill Heritage Nursery Single,Baby,Nursery,Coppermill,SUP-106,10.55,15.9,12,12,2.517,0.5778,Ambient,Mature,2019-09-15
+B000308,Calder and Vine Pro Travel Gear Single,Baby,Travel Gear,Calder and Vine,SUP-105,10.93,15.77,24,24,2.923,0.5078,Ambient,Core,2020-04-14
+B000309,Solstice Row Essential Diapering 4-Pack,Baby,Diapering,Solstice Row,SUP-106,6.6,10.46,8,8,2.833,0.2148,Ambient,Core,2024-08-06
+B000310,Rivermont Cordless Beverage Single,Grocery,Beverages,Rivermont,SUP-120,2.96,3.9,4,4,1.204,0.2283,Ambient,Core,2022-01-14
+B000311,Ironpine Studio Oral Care Single,Health & Beauty,Oral Care,Ironpine,SUP-118,23.78,36.9,1,1,1.661,0.0977,Ambient,End of Life,2022-11-27
+B000312,Fenwick Insulated Skincare 12-Pack,Health & Beauty,Skincare,Fenwick,SUP-103,11.5,20.17,1,1,0.328,0.0728,Ambient,Mature,2022-01-13
+B000313,Tidewater Essential Bedding Single,Home & Kitchen,Bedding,Tidewater,SUP-108,19.4,28.19,8,32,2.327,0.1731,Ambient,Core,2023-03-20
+B000314,Kestrel Traveller Cables & Adapter Single,Electronics,Cables & Adapters,Kestrel,SUP-109,39.46,43.1,8,8,4.543,0.3249,Ambient,Core,2023-06-15
+B000315,Harbourline Deluxe Portable Power 2-Pack,Electronics,Portable Power,Harbourline,SUP-115,68.19,77.9,4,4,1.048,0.1269,Ambient,Mature,2024-09-10
+B000316,Ashgrove Stackable Activewear Bulk Case,Apparel,Activewear,Ashgrove,SUP-106,11.05,20.85,8,16,0.633,0.0864,Ambient,Mature,2019-12-11
+B000317,Larkspur Lightweight Activewear 12-Pack,Apparel,Activewear,Larkspur,SUP-102,16.4,31.74,4,4,5.062,0.5346,Ambient,End of Life,2023-11-27
+B000318,Tidewater Stackable Tablet Single,Electronics,Tablets,Tidewater,SUP-116,27.75,31.75,4,16,3.36,0.792,Ambient,End of Life,2022-08-19
+B000319,Rivermont Heritage Basic Single,Apparel,Basics,Rivermont,SUP-106,45.53,77.51,12,12,2.824,0.5152,Ambient,New,2025-11-15
+B000320,Kestrel Stackable Travel Gear Single,Baby,Travel Gear,Kestrel,SUP-105,15.12,18.92,12,24,1.023,0.1303,Ambient,Core,2021-08-12
+B000321,Fenwick Traveller Pantry Staple 12-Pack,Grocery,Pantry Staples,Fenwick,SUP-120,8.49,10.43,4,8,1.321,0.3168,Ambient,Mature,2022-07-14
+B000322,Calder and Vine Slimline Accessorie Single,Apparel,Accessories,Calder and Vine,SUP-102,12.01,19.01,48,48,0.831,0.1906,Ambient,Mature,2020-11-09
+B000323,Fenwick Insulated Outdoor Play Single,Toys & Games,Outdoor Play,Fenwick,SUP-121,11.42,18.08,1,2,2.78,0.2348,Ambient,Core,2019-08-11
+B000324,Solstice Row Value Building Set 12-Pack,Toys & Games,Building Sets,Solstice Row,SUP-112,50.1,84.19,4,8,0.892,0.1433,Ambient,Core,2024-09-29
+B000325,Ashgrove Insulated Activewear 4-Pack,Apparel,Activewear,Ashgrove,SUP-110,11.69,19.31,4,16,0.453,0.0816,Ambient,Mature,2022-08-31
+B000326,Ashgrove Slimline Storage & Organisation 2-Pack,Home & Kitchen,Storage & Organisation,Ashgrove,SUP-113,9.48,12.47,24,48,1.226,0.1103,Ambient,End of Life,2019-02-27
+B000327,Coppermill Slimline Small Appliance Single,Home & Kitchen,Small Appliances,Coppermill,SUP-118,45.86,65.37,6,6,3.758,0.8969,Ambient,Core,2022-05-04
+B000328,Kestrel Lightweight Tablet 6-Pack,Electronics,Tablets,Kestrel,SUP-115,28.33,34.69,1,2,2.363,0.5083,Ambient,New,2026-02-07
+B000329,Meridian Bay Premium Cables & Adapter Bulk Case,Electronics,Cables & Adapters,Meridian Bay,SUP-109,64.01,82.02,8,16,4.161,0.4365,Ambient,End of Life,2024-10-26
+B000330,Larkspur Slimline Storage & Organisation Single,Home & Kitchen,Storage & Organisation,Larkspur,SUP-118,34.27,46.74,24,48,0.473,0.1198,Ambient,Mature,2021-04-17
+B000331,Ashgrove Value Printers & Ink Single,Office Products,Printers & Ink,Ashgrove,SUP-119,5.86,8.54,6,12,2.913,0.2987,Ambient,New,2026-01-17
+B000332,Calder and Vine Studio Cleaning Supplie Single,Home & Kitchen,Cleaning Supplies,Calder and Vine,SUP-108,37.15,57.83,8,8,1.313,0.1521,Ambient,Mature,2021-09-15
+B000333,Solstice Row Compact Cables & Adapter Single,Electronics,Cables & Adapters,Solstice Row,SUP-115,53.66,69.62,1,2,2.718,0.4046,Ambient,Mature,2022-08-06
+B000334,Kestrel Stackable Dog Food 12-Pack,Pet Supplies,Dog Food,Kestrel,SUP-113,8.22,11.12,1,4,1.68,0.3195,Ambient,Mature,2023-08-16
+B000335,Ashgrove Cordless Streaming Device Single,Electronics,Streaming Devices,Ashgrove,SUP-116,57.26,62.88,4,16,1.334,0.0757,Ambient,Mature,2019-04-21
+B000336,Coppermill Slimline Bedding Single,Home & Kitchen,Bedding,Coppermill,SUP-107,61.89,79.92,6,12,2.762,0.4179,Ambient,New,2026-05-30
+B000337,Solstice Row Essential Snack 4-Pack,Grocery,Snacks,Solstice Row,SUP-111,10.03,14.15,6,12,1.077,0.1775,Ambient,Core,2019-05-16
+B000338,Larkspur Deluxe Snack Single,Grocery,Snacks,Larkspur,SUP-120,3.88,5.3,8,8,0.768,0.1265,Ambient,Mature,2022-03-31
+B000339,Bellwood Traveller Nursery 4-Pack,Baby,Nursery,Bellwood,SUP-112,17.86,26.11,8,16,0.532,0.1229,Ambient,Core,2021-10-02
+B000340,Larkspur Deluxe Storage & Organisation Single,Home & Kitchen,Storage & Organisation,Larkspur,SUP-118,41.74,58.17,4,32,10.688,1.1809,Ambient,Mature,2020-03-12
+B000341,Ashgrove Pro Camping Single,Sports & Outdoors,Camping,Ashgrove,SUP-122,57.14,97.55,1,2,1.127,0.3116,Ambient,End of Life,2022-07-31
+B000342,Northvale Compact Pantry Staple 12-Pack,Grocery,Pantry Staples,Northvale,SUP-117,3.2,4.14,12,12,3.671,0.6926,Ambient,Core,2019-03-19
+B000343,Meridian Bay Slimline Tablet 2-Pack,Electronics,Tablets,Meridian Bay,SUP-109,128.75,165.45,24,24,7.334,1.1793,Ambient,Core,2019-07-23
+B000344,Tidewater Insulated Basic 12-Pack,Apparel,Basics,Tidewater,SUP-110,25.74,43.42,1,1,1.881,0.3848,Ambient,End of Life,2023-12-24
+B000345,Bellwood Value Storage & Organisation 6-Pack,Home & Kitchen,Storage & Organisation,Bellwood,SUP-114,58.25,88.0,48,48,0.602,0.0918,Ambient,Core,2024-06-19
+B000346,Tidewater Essential Camping 6-Pack,Sports & Outdoors,Camping,Tidewater,SUP-102,26.44,34.38,1,2,1.152,0.2371,Ambient,Mature,2019-12-30
+B000347,Ashgrove Value Footwear 2-Pack,Apparel,Footwear,Ashgrove,SUP-110,8.39,12.51,4,8,0.664,0.0954,Ambient,New,2026-04-04
+B000348,Tidewater Insulated Desk Accessorie Single,Office Products,Desk Accessories,Tidewater,SUP-103,9.96,13.36,8,8,1.728,0.1036,Ambient,Core,2019-07-30
+B000349,Coppermill Lightweight Headphone Single,Electronics,Headphones,Coppermill,SUP-101,53.59,56.9,12,12,0.424,0.107,Ambient,Mature,2022-09-01
+B000350,Tidewater Insulated Cookware 2-Pack,Home & Kitchen,Cookware,Tidewater,SUP-107,48.35,62.43,48,192,1.903,0.4336,Ambient,New,2026-04-04
+B000351,Bellwood Stackable Snack 2-Pack,Grocery,Snacks,Bellwood,SUP-111,7.71,11.88,8,8,2.239,0.1344,Ambient,Core,2023-08-09
+B000352,Solstice Row Value Water Sport Single,Sports & Outdoors,Water Sports,Solstice Row,SUP-122,42.99,68.43,6,12,0.987,0.266,Ambient,New,2026-04-25
+B000353,Tidewater Heritage Paper 2-Pack,Office Products,Paper,Tidewater,SUP-103,13.18,17.81,1,1,0.179,0.014,Ambient,New,2026-06-13
+B000354,Solstice Row Cordless Printers & Ink Bulk Case,Office Products,Printers & Ink,Solstice Row,SUP-112,3.98,5.59,24,24,1.777,0.3734,Ambient,Mature,2022-02-26
+B000355,Calder and Vine Pro Team Sport 2-Pack,Sports & Outdoors,Team Sports,Calder and Vine,SUP-102,14.03,26.18,6,24,0.712,0.0969,Ambient,Mature,2021-11-18
+B000356,Calder and Vine Lightweight Bedding 2-Pack,Home & Kitchen,Bedding,Calder and Vine,SUP-107,30.35,51.39,6,6,2.048,0.5408,Ambient,Mature,2023-05-05
+B000357,Ironpine Value Paper 2-Pack,Office Products,Paper,Ironpine,SUP-112,2.48,3.7,1,1,11.715,1.9204,Ambient,Mature,2024-01-04
+B000358,Kestrel Pro Portable Power Bulk Case,Electronics,Portable Power,Kestrel,SUP-116,85.05,102.49,1,2,0.713,0.0844,Ambient,Mature,2024-01-23
+B000359,Coppermill Slimline Streaming Device Single,Electronics,Streaming Devices,Coppermill,SUP-115,69.57,81.25,24,48,2.484,0.3583,Ambient,Mature,2024-03-24
+B000360,Meridian Bay Stackable Headphone 6-Pack,Electronics,Headphones,Meridian Bay,SUP-116,13.52,18.43,4,16,2.224,0.3941,Ambient,End of Life,2021-06-25
+B000361,Coppermill Traveller Camping Bulk Case,Sports & Outdoors,Camping,Coppermill,SUP-105,25.9,38.91,48,192,2.327,0.6076,Ambient,Mature,2019-03-17
+B000362,Kestrel Slimline Basic 4-Pack,Apparel,Basics,Kestrel,SUP-106,52.53,94.5,12,12,2.706,0.3553,Ambient,Core,2021-12-27
+B000363,Northvale Essential Basic 2-Pack,Apparel,Basics,Northvale,SUP-110,18.43,36.23,12,12,2.622,0.3839,Ambient,Mature,2019-09-22
+B000364,Tidewater Heritage Cables & Adapter 2-Pack,Electronics,Cables & Adapters,Tidewater,SUP-101,60.7,69.97,24,24,4.192,0.3978,Ambient,Core,2021-01-24
+B000365,Calder and Vine Studio Dairy & Chilled Single,Grocery,Dairy & Chilled,Calder and Vine,SUP-120,4.97,5.76,6,6,1.342,0.0679,Chilled,Core,2020-11-13
+B000366,Fenwick Everyday Tablet 4-Pack,Electronics,Tablets,Fenwick,SUP-101,36.73,38.67,4,4,1.404,0.1669,Ambient,Mature,2020-09-28
+B000367,Bellwood Stackable Frozen Meal 2-Pack,Grocery,Frozen Meals,Bellwood,SUP-104,4.19,5.83,1,1,1.188,0.2455,Frozen,Core,2024-08-05
+B000368,Aurelia Essential Tablet 12-Pack,Electronics,Tablets,Aurelia,SUP-109,45.85,57.18,24,96,3.594,0.706,Ambient,Core,2020-12-20
+B000369,Solstice Row Heritage Water Sport 4-Pack,Sports & Outdoors,Water Sports,Solstice Row,SUP-105,12.66,19.4,48,48,2.854,0.3096,Ambient,Core,2023-07-06
+B000370,Northvale Cordless Building Set Single,Toys & Games,Building Sets,Northvale,SUP-101,28.99,47.35,8,32,1.84,0.3065,Ambient,Mature,2024-02-08
+B000371,Aurelia Essential Habitat 6-Pack,Pet Supplies,Habitats,Aurelia,SUP-104,9.71,11.64,6,24,0.597,0.043,Ambient,Core,2022-10-24
+B000372,Calder and Vine Everyday Storage & Organisation 12-Pack,Home & Kitchen,Storage & Organisation,Calder and Vine,SUP-118,17.44,26.37,1,4,2.838,0.5412,Ambient,Mature,2023-12-26
+B000373,Tidewater Studio Water Sport Single,Sports & Outdoors,Water Sports,Tidewater,SUP-102,146.03,202.66,4,16,8.116,1.4,Ambient,Core,2023-02-17
+B000374,Aurelia Stackable Personal Device 4-Pack,Health & Beauty,Personal Devices,Aurelia,SUP-103,10.68,21.02,1,2,0.583,0.0894,Ambient,Mature,2023-06-17
+B000375,Larkspur Traveller Cables & Adapter Single,Electronics,Cables & Adapters,Larkspur,SUP-116,81.72,96.71,4,8,1.44,0.3015,Ambient,Core,2024-02-03
+B000376,Ironpine Heavy Duty Tablet 2-Pack,Electronics,Tablets,Ironpine,SUP-115,94.61,99.59,48,96,1.662,0.4385,Ambient,Core,2023-09-12
+B000377,Calder and Vine Compact Portable Power Single,Electronics,Portable Power,Calder and Vine,SUP-115,61.98,78.73,4,16,3.553,0.9231,Ambient,New,2025-11-08
+B000378,Ironpine Everyday Outerwear 4-Pack,Apparel,Outerwear,Ironpine,SUP-106,9.25,13.63,6,48,1.286,0.2411,Ambient,Mature,2024-07-16
+B000379,Meridian Bay Lightweight Footwear 6-Pack,Apparel,Footwear,Meridian Bay,SUP-110,6.69,10.93,4,4,9.68,2.4141,Ambient,Mature,2019-12-10
+B000380,Larkspur Studio Water Sport 4-Pack,Sports & Outdoors,Water Sports,Larkspur,SUP-105,31.53,44.05,4,16,1.035,0.0545,Ambient,End of Life,2023-06-03
+B000381,Kestrel Value Basic 12-Pack,Apparel,Basics,Kestrel,SUP-102,8.46,15.08,6,24,3.244,0.2164,Ambient,End of Life,2023-01-10
+B000382,Tidewater Slimline Oral Care Single,Health & Beauty,Oral Care,Tidewater,SUP-103,9.75,15.27,1,4,2.333,0.4402,Ambient,Core,2019-05-18
+B000383,Bellwood Heritage Diapering Single,Baby,Diapering,Bellwood,SUP-106,12.08,18.06,8,8,2.226,0.6218,Ambient,End of Life,2022-10-11
+B000384,Coppermill Value Portable Power Single,Electronics,Portable Power,Coppermill,SUP-116,152.21,194.98,1,1,1.582,0.1917,Ambient,End of Life,2023-04-07
+B000385,Ironpine Everyday Figure 4-Pack,Toys & Games,Figures,Ironpine,SUP-101,19.7,28.38,1,1,1.012,0.1413,Ambient,Core,2020-09-25
+B000386,Meridian Bay Value Paper 12-Pack,Office Products,Paper,Meridian Bay,SUP-119,3.34,4.57,12,24,1.187,0.2207,Ambient,Core,2022-03-30
+B000387,Coppermill Compact Personal Device 2-Pack,Health & Beauty,Personal Devices,Coppermill,SUP-103,40.99,62.45,1,4,2.679,0.6922,Ambient,Mature,2019-07-18
+B000388,Calder and Vine Pro Cat Food 2-Pack,Pet Supplies,Cat Food,Calder and Vine,SUP-104,19.55,22.62,6,12,8.932,1.2171,Ambient,New,2026-04-18
+B000389,Calder and Vine Compact Basic Single,Apparel,Basics,Calder and Vine,SUP-106,28.39,54.57,24,48,0.782,0.1408,Ambient,Core,2021-04-09
+B000390,Coppermill Heritage Breakfast Single,Grocery,Breakfast,Coppermill,SUP-104,10.78,14.36,1,1,2.468,0.686,Ambient,Core,2020-05-17
+B000391,Rivermont Traveller Basic 12-Pack,Apparel,Basics,Rivermont,SUP-102,28.53,60.62,6,12,0.594,0.1287,Ambient,End of Life,2024-09-06
+B000392,Meridian Bay Everyday Outdoor Play Single,Toys & Games,Outdoor Play,Meridian Bay,SUP-121,42.02,60.35,4,16,18.597,4.4068,Ambient,New,2025-12-06
+B000393,Bellwood Premium Figure Single,Toys & Games,Figures,Bellwood,SUP-112,36.15,63.45,48,48,0.788,0.0799,Ambient,New,2026-03-28
+B000394,Northvale Traveller Tableware Single,Home & Kitchen,Tableware,Northvale,SUP-107,19.24,24.9,6,24,2.79,0.3306,Ambient,Mature,2024-11-27
+B000395,Kestrel Pro Dog Food Single,Pet Supplies,Dog Food,Kestrel,SUP-113,9.53,15.2,4,16,2.109,0.1525,Ambient,Mature,2023-06-25
+B000396,Ashgrove Everyday Water Sport 4-Pack,Sports & Outdoors,Water Sports,Ashgrove,SUP-102,39.28,57.36,1,2,1.843,0.4005,Ambient,Mature,2023-10-13
+B000397,Fenwick Value Bedding Single,Home & Kitchen,Bedding,Fenwick,SUP-108,29.7,45.02,8,32,1.333,0.2757,Ambient,Core,2024-10-09
+B000398,Stonebrook Everyday Small Appliance 2-Pack,Home & Kitchen,Small Appliances,Stonebrook,SUP-118,25.87,36.35,1,4,4.53,1.1984,Ambient,Core,2022-12-20
+B000399,Northvale Premium Paper Single,Office Products,Paper,Northvale,SUP-103,19.26,27.84,8,8,0.627,0.1329,Ambient,Core,2023-07-11
+B000400,Harbourline Studio Frozen Meal 2-Pack,Grocery,Frozen Meals,Harbourline,SUP-117,7.68,9.16,24,24,15.675,2.0693,Frozen,Mature,2021-01-21
+B000401,Kestrel Deluxe Headphone Single,Electronics,Headphones,Kestrel,SUP-116,26.64,33.32,1,1,0.55,0.1312,Ambient,End of Life,2023-03-11
+B000402,Stonebrook Studio Snack 4-Pack,Grocery,Snacks,Stonebrook,SUP-117,12.23,18.26,1,1,2.319,0.5814,Ambient,End of Life,2020-11-17
+B000403,Larkspur Heavy Duty Basic Single,Apparel,Basics,Larkspur,SUP-110,32.5,54.87,1,8,3.839,0.4706,Ambient,Mature,2024-02-20
+B000404,Harbourline Premium Coffee & Tea 2-Pack,Grocery,Coffee & Tea,Harbourline,SUP-111,6.26,7.61,8,16,1.357,0.2244,Ambient,New,2026-04-25
+B000405,Ashgrove Essential Headphone 2-Pack,Electronics,Headphones,Ashgrove,SUP-109,81.28,94.38,6,24,19.555,1.8063,Ambient,Mature,2022-09-10
+B000406,Meridian Bay Lightweight Bedding 2-Pack,Home & Kitchen,Bedding,Meridian Bay,SUP-113,12.22,22.88,1,2,1.636,0.3581,Ambient,Core,2023-01-18
+B000407,Kestrel Essential Outerwear Single,Apparel,Outerwear,Kestrel,SUP-110,13.84,29.05,8,32,3.332,0.7277,Ambient,Mature,2020-09-17
+B000408,Ironpine Heritage Puzzle Single,Toys & Games,Puzzles,Ironpine,SUP-121,43.76,65.43,12,12,0.894,0.2259,Ambient,Mature,2021-12-22
+B000409,Rivermont Slimline Board Game Bulk Case,Toys & Games,Board Games,Rivermont,SUP-121,15.72,26.58,12,12,2.06,0.1722,Ambient,End of Life,2021-08-01
+B000410,Stonebrook Heritage Travel Gear Single,Baby,Travel Gear,Stonebrook,SUP-105,31.02,39.34,48,96,0.474,0.0249,Ambient,Core,2023-05-06
+B000411,Aurelia Value Activewear 2-Pack,Apparel,Activewear,Aurelia,SUP-110,16.13,25.05,8,32,2.058,0.3332,Ambient,End of Life,2019-09-28
+B000412,Fenwick Insulated Dog Food Single,Pet Supplies,Dog Food,Fenwick,SUP-104,5.35,7.24,6,24,1.825,0.4473,Ambient,Mature,2021-02-24
+B000413,Aurelia Insulated Hair Care 12-Pack,Health & Beauty,Hair Care,Aurelia,SUP-103,27.73,45.46,24,48,0.441,0.0607,Ambient,Mature,2022-11-14
+B000414,Harbourline Premium Cookware Single,Home & Kitchen,Cookware,Harbourline,SUP-118,32.56,46.73,24,96,3.093,0.4517,Ambient,Core,2020-07-21
+B000415,Meridian Bay Stackable Personal Device Single,Health & Beauty,Personal Devices,Meridian Bay,SUP-117,8.41,14.65,12,12,2.248,0.2315,Ambient,New,2026-04-04
+B000416,Northvale Value Figure 4-Pack,Toys & Games,Figures,Northvale,SUP-112,26.43,41.36,6,6,2.338,0.1768,Ambient,Mature,2019-08-27
+B000417,Ironpine Lightweight Dog Food 2-Pack,Pet Supplies,Dog Food,Ironpine,SUP-104,17.43,22.88,6,6,4.293,0.5241,Ambient,Mature,2022-04-07
+B000418,Bellwood Deluxe Dog Food Single,Pet Supplies,Dog Food,Bellwood,SUP-111,20.14,29.43,48,192,0.892,0.1647,Ambient,Core,2022-10-12
+B000419,Northvale Traveller Dog Food 6-Pack,Pet Supplies,Dog Food,Northvale,SUP-113,34.2,43.4,8,8,3.304,0.6078,Ambient,Mature,2024-04-06

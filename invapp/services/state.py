@@ -32,8 +32,6 @@ from dataclasses import dataclass, field, replace
 from threading import RLock
 from uuid import uuid4
 
-import pandas as pd
-
 # Each state holds the parsed workbook and its derived frames. Twelve concurrent
 # visitors is generous for a portfolio demo and bounded enough for a small box.
 MAX_SESSIONS = int(os.environ.get("INVAPP_MAX_SESSIONS", "12"))
@@ -43,18 +41,17 @@ SESSION_KEY = "invapp_sid"
 
 @dataclass
 class AnalysisState:
-    sku_stats: pd.DataFrame | None = None
-    holding_cost: pd.DataFrame | None = None
-    raw_sheets: dict[str, pd.DataFrame] = field(default_factory=dict)
+    # The whole analysis, computed once on ingest. Holding the model rather
+    # than the raw sheets is deliberate: recomputing a forecast backtest per
+    # request would put several seconds of CPU behind every page load.
+    model: object | None = None
     # True while the app is serving the generated sample rather than an upload,
     # so the UI can say so instead of passing invented numbers off as real.
     demo_data: bool = False
-    holding_cost_params: dict = field(default_factory=lambda: {
-        "rc": 0.05,   # capital rate
-        "sa": 102055.0,  # service cost pool
-        "spc": (71466*0.4 + 107128*0.7 + 48280*0.7 + 453626 + 544699*0.5),  # storage pool
-        "rr": 0.03,   # risk rate
-    })
+    # Parameter overrides a visitor has set in the UI, applied on the next
+    # ingest. Kept separate from the model's own params so a re-upload does not
+    # silently discard them.
+    param_overrides: dict = field(default_factory=dict)
 
 
 _lock = RLock()
@@ -105,8 +102,7 @@ def ensure_session() -> str | None:
 
 def _fork_baseline() -> AnalysisState:
     """A private copy of the baseline for a visitor about to write."""
-    return replace(_baseline, raw_sheets=dict(_baseline.raw_sheets),
-                   holding_cost_params=dict(_baseline.holding_cost_params))
+    return replace(_baseline, param_overrides=dict(_baseline.param_overrides))
 
 
 def set_state(**kwargs):

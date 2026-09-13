@@ -1,124 +1,129 @@
+"""
+Run history: what the headline numbers were each time a workbook was ingested.
+
+The previous version stored the full derived frames as blobs. That was storage
+in search of a use - nothing ever read them back except a "load run" button
+that put stale numbers on a live page. What is actually worth keeping is the
+much smaller thing: the KPIs per run, so the fifth Monday of doing this shows
+whether the stockout count and days-of-cover are moving, which is the question
+a weekly planning cycle exists to answer.
+
+Storage is SQLite on local disk. On the hosted demo the container filesystem is
+ephemeral, so history there lasts as long as the process - which is honest for
+a demo and stated on the page rather than hidden behind an empty chart.
+"""
+
 from __future__ import annotations
 
 import json
+import logging
 import os
 import sqlite3
-from contextlib import contextmanager
 from datetime import datetime, timezone
-import pandas as pd
+
+logger = logging.getLogger(__name__)
+
+DB_PATH = os.environ.get("INVAPP_DB_PATH") or os.path.join(os.getcwd(), "data", "app.db")
+
+# The KPIs a run is worth remembering by. Kept as an explicit list rather than
+# "whatever is in the headline dict": the dict grows, and a schema that grows
+# with it turns every new metric into a migration.
+TRACKED = (
+    "InventoryValueUSD",
+    "InventoryTurns",
+    "DaysInventoryOutstanding",
+    "FillRatePct",
+    "StockoutCount",
+    "BelowReorderCount",
+    "ForecastAccuracyPct",
+    "RecordAccuracyPct",
+    "ExcessValueUSD",
+    "DeadStockValueUSD",
+    "ReorderValueUSD",
+    "SKUCount",
+    "OpenActions",
+)
 
 
-DB_PATH = os.path.join(os.getcwd(), "data", "app.db")
+SCHEMA = (
+    """
+    CREATE TABLE IF NOT EXISTS runs (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        created_at TEXT NOT NULL,
+        as_of TEXT,
+        params TEXT,
+        metrics TEXT
+    )
+    """
+)
 
 
-def _ensure_db():
-    os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
-    with sqlite3.connect(DB_PATH) as con:
-        con.execute(
-            """
-            CREATE TABLE IF NOT EXISTS runs (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                created_at TEXT NOT NULL
-            )
-            """
-        )
-        con.execute(
-            """
-            CREATE TABLE IF NOT EXISTS meta (
-                run_id INTEGER,
-                key TEXT,
-                value TEXT,
-                FOREIGN KEY(run_id) REFERENCES runs(id)
-            )
-            """
-        )
-        con.execute(
-            """
-            CREATE TABLE IF NOT EXISTS sku_stats (
-                run_id INTEGER,
-                data BLOB
-            )
-            """
-        )
-        con.execute(
-            """
-            CREATE TABLE IF NOT EXISTS holding_cost (
-                run_id INTEGER,
-                data BLOB
-            )
-            """
-        )
+def _connect() -> sqlite3.Connection:
+    os.makedirs(os.path.dirname(DB_PATH) or ".", exist_ok=True)
+    con = sqlite3.connect(DB_PATH)
+    con.execute(SCHEMA)
+    # A database left over from an older version of this app has a `runs`
+    # table with different columns, so CREATE TABLE IF NOT EXISTS is a no-op
+    # and every query afterwards fails on a missing column. History here is
+    # a convenience, not a record of anything, so an incompatible one is
+    # dropped rather than migrated.
+    columns = {row[1] for row in con.execute("PRAGMA table_info(runs)")}
+    if not {"as_of", "metrics", "params"}.issubset(columns):
+        logger.info("store.schema_reset")
+        con.execute("DROP TABLE runs")
+        con.execute(SCHEMA)
+    return con
 
 
-def _df_to_parquet_bytes(df: pd.DataFrame) -> bytes:
-    # Use pandas parquet via pyarrow if installed; otherwise fallback to CSV bytes
-    try:
-        import pyarrow as pa  # noqa: F401
-        import io
-        import pyarrow.parquet as pq
-        table = pa.Table.from_pandas(df)
-        buf = io.BytesIO()
-        pq.write_table(table, buf)
-        return buf.getvalue()
-    except Exception:
-        return df.to_csv(index=False).encode("utf-8")
-
-
-def _bytes_to_df(data: bytes) -> pd.DataFrame:
-    # Best-effort decode: try parquet then CSV
-    try:
-        import pyarrow.parquet as pq
-        import io
-        import pyarrow as pa  # noqa: F401
-        buf = io.BytesIO(data)
-        table = pq.read_table(buf)
-        return table.to_pandas()
-    except Exception:
-        import io
-        return pd.read_csv(io.BytesIO(data))
-
-
-def save_run(sku_stats: pd.DataFrame, holding_cost: pd.DataFrame, params: dict) -> int:
-    _ensure_db()
-    with sqlite3.connect(DB_PATH) as con:
+def save_run(model) -> int:
+    """Record this run's headline metrics. Returns the run id."""
+    metrics = {key: model.headline.get(key) for key in TRACKED}
+    with _connect() as con:
         cur = con.cursor()
-        cur.execute("INSERT INTO runs(created_at) VALUES (?)", (datetime.now(timezone.utc).isoformat(),))
-        run_id = cur.lastrowid
-        cur.executemany(
-            "INSERT INTO meta(run_id, key, value) VALUES (?,?,?)",
-            [(run_id, k, json.dumps(v)) for k, v in params.items()],
-        )
         cur.execute(
-            "INSERT INTO sku_stats(run_id, data) VALUES (?,?)",
-            (run_id, _df_to_parquet_bytes(sku_stats)),
-        )
-        cur.execute(
-            "INSERT INTO holding_cost(run_id, data) VALUES (?,?)",
-            (run_id, _df_to_parquet_bytes(holding_cost)),
+            "INSERT INTO runs(created_at, as_of, params, metrics) VALUES (?,?,?,?)",
+            (
+                datetime.now(timezone.utc).isoformat(),
+                str(model.as_of.date()),
+                json.dumps(model.params, default=str),
+                json.dumps(metrics, default=str),
+            ),
         )
         con.commit()
-        return int(run_id)
+        return int(cur.lastrowid)
 
 
-def list_runs() -> list[dict]:
-    _ensure_db()
-    with sqlite3.connect(DB_PATH) as con:
-        cur = con.cursor()
-        rows = cur.execute("SELECT id, created_at FROM runs ORDER BY id DESC").fetchall()
-        return [{"id": r[0], "created_at": r[1]} for r in rows]
+def list_runs(limit: int = 30) -> list[dict]:
+    """Recent runs, newest first, with their metrics flattened onto the row."""
+    try:
+        with _connect() as con:
+            rows = con.execute(
+                "SELECT id, created_at, as_of, metrics FROM runs ORDER BY id DESC LIMIT ?",
+                (limit,),
+            ).fetchall()
+    except sqlite3.Error:
+        logger.warning("store.list_runs_failed", exc_info=True)
+        return []
+
+    out = []
+    for run_id, created_at, as_of, metrics in rows:
+        row = {"id": run_id, "created_at": created_at, "as_of": as_of}
+        try:
+            row.update(json.loads(metrics or "{}"))
+        except json.JSONDecodeError:
+            pass
+        out.append(row)
+    return out
 
 
-def load_run(run_id: int) -> tuple[pd.DataFrame, pd.DataFrame, dict]:
-    _ensure_db()
-    with sqlite3.connect(DB_PATH) as con:
-        cur = con.cursor()
-        meta_rows = cur.execute("SELECT key, value FROM meta WHERE run_id=?", (run_id,)).fetchall()
-        params = {k: json.loads(v) for k, v in meta_rows}
-        sku_blob = cur.execute("SELECT data FROM sku_stats WHERE run_id=?", (run_id,)).fetchone()
-        hc_blob = cur.execute("SELECT data FROM holding_cost WHERE run_id=?", (run_id,)).fetchone()
-        if not sku_blob or not hc_blob:
-            raise ValueError("Run not found or incomplete")
-        sku_stats = _bytes_to_df(sku_blob[0])
-        holding_cost = _bytes_to_df(hc_blob[0])
-        return sku_stats, holding_cost, params
+def clear_runs() -> None:
+    """Drop the history. For tests."""
+    try:
+        with _connect() as con:
+            con.execute("DELETE FROM runs")
+            con.commit()
+    except sqlite3.Error:
+        logger.warning("store.clear_failed", exc_info=True)
 
+
+__all__ = ["DB_PATH", "TRACKED", "clear_runs", "list_runs", "save_run"]

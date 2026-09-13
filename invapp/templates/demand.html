@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="stack">
+  <div id="kpi-demand" class="kpis"><div class="loading">Loading&hellip;</div></div>
+
+  <div class="card">
+    <div class="filters">
+      <label>Scope
+        <select id="scope-dept"><option value="">Whole network</option></select>
+      </label>
+      <label>or one SKU
+        <select id="scope-sku"><option value="">&mdash;</option></select>
+      </label>
+      <span id="scope-note" class="note-inline" style="margin:0"></span>
+    </div>
+    <h2>Actual against forecast</h2>
+    <p class="sub">
+      The forecast line is out of sample: at each point the model had seen only the weeks
+      to its left. The dashed continuation past the last actual is the forward forecast,
+      thirteen weeks of it.
+    </p>
+    <div id="fit-chart" class="chart tall"></div>
+    <div id="fit-note" class="note-inline"></div>
+  </div>
+
+  <div class="grid g2">
+    <div class="card">
+      <h2>Which model won, and how often</h2>
+      <p class="sub">
+        Seven methods compete per SKU on a rolling-origin backtest, scored on mean absolute
+        scaled error. A four-week moving average winning on a chunk of the catalogue is
+        the expected result on real demand, not a failure of the exercise.
+      </p>
+      <div id="method-chart" class="chart"></div>
+    </div>
+    <div class="card">
+      <h2>Where the forecast leans</h2>
+      <p class="sub">
+        Bias is signed error over actual: positive means over-forecast. Weeks are shown
+        rather than SKUs because bias that shows up on the same weeks for everything is a
+        calendar problem, and bias scattered across SKUs is a model problem.
+      </p>
+      <div id="bias-chart" class="chart"></div>
+    </div>
+  </div>
+
+  <div class="grid g-1-2">
+    <div class="card">
+      <h2>Seasonality by department</h2>
+      <p class="sub">Monthly index, mean 1.0 within each department.</p>
+      <div class="filters">
+        <label>Department
+          <select id="season-dept"></select>
+        </label>
+      </div>
+      <div id="season-chart" class="chart"></div>
+    </div>
+    <div class="card">
+      <h2>Forecast quality by SKU</h2>
+      <div class="filters">
+        <label>Department <select id="sku-dept"></select></label>
+        <label>ABC <select id="sku-abc"></select></label>
+        <label>XYZ <select id="sku-xyz"></select></label>
+      </div>
+      <div id="sku-table"></div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script type="module">
+  import { boot } from "{{ url_for('static', filename='js/core.js') }}";
+  import { render } from "{{ url_for('static', filename='js/demand.js') }}";
+  boot(render);
+</script>
+{% endblock %}

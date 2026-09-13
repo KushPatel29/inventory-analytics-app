@@ -24,14 +24,25 @@ os.environ.setdefault("DEMO_AUTOLOAD", "1")
 from invapp import create_app  # noqa: E402
 
 API_ENDPOINTS = [
-    "/api/kpis", "/api/svsi", "/api/insights", "/api/insights/abc",
-    "/api/insights/cost_by_protein", "/api/quadrants", "/api/purchase_plan",
-    "/api/holding_cost/top", "/api/bins/summary", "/api/bins/weight_by_protein",
-    "/api/bins/weight_by_location", "/api/suppliers/top_cost", "/api/turnover",
-    "/api/moves/fz_to_ext", "/api/moves/ext_to_fz", "/api/movers/top_usage",
-    "/api/movers/top_woh", "/api/supplier/woh_distribution",
+    "/api/overview", "/api/overview/trend", "/api/overview/carrying",
+    "/api/overview/abc", "/api/overview/value_by?dim=Department",
+    "/api/demand/history", "/api/demand/actual_vs_forecast",
+    "/api/demand/skus?limit=5", "/api/demand/method_mix",
+    "/api/demand/seasonality", "/api/demand/bias?limit=5",
+    "/api/replenishment/plan?limit=5", "/api/replenishment/summary",
+    "/api/replenishment/urgency", "/api/replenishment/eoq?limit=5",
+    "/api/replenishment/service_curve", "/api/health/pareto?limit=5",
+    "/api/health/matrix", "/api/health/ageing",
+    "/api/health/ageing?dim=NodeID", "/api/health/dead_stock?limit=5",
+    "/api/health/summary", "/api/health/movement", "/api/network/nodes",
+    "/api/network/transfers?limit=5", "/api/network/balance?limit=5",
+    "/api/suppliers/scorecard", "/api/suppliers/open_pos?limit=5",
+    "/api/suppliers/lead_time_gap", "/api/accuracy/summary",
+    "/api/accuracy/summary?dim=NodeID", "/api/accuracy/reasons",
+    "/api/accuracy/waterfall", "/api/accuracy/coverage",
+    "/api/actions/register?limit=5", "/api/actions/summary",
 ]
-PAGES = ["/", "/bins", "/movers", "/moves", "/suppliers", "/healthz"]
+PAGES = ["/", "/demand", "/replenishment", "/sku-health", "/network", "/accuracy"]
 
 failures: list[str] = []
 
@@ -48,16 +59,16 @@ def main() -> int:
 
     print("\nWaiting for the background auto-load")
     for _ in range(120):
-        if client.get("/api/kpis").status_code == 200:
+        if client.get("/api/overview").status_code == 200:
             break
         time.sleep(1)
-    check(client.get("/api/kpis").status_code == 200, "sample data loaded without an upload")
+    check(client.get("/api/overview").status_code == 200, "sample data loaded without an upload")
 
     print("\nReports return data")
     for endpoint in API_ENDPOINTS:
         resp = client.get(endpoint)
         payload = resp.get_json(silent=True)
-        size = len(payload) if isinstance(payload, (list, dict)) else 0
+        size = len(payload.get("rows", [])) if isinstance(payload, dict) and "rows" in payload else len(payload or {})
         check(resp.status_code == 200 and size > 0, f"{endpoint} -> {resp.status_code}, {size} entries")
 
     print("\nPages render")
@@ -65,7 +76,7 @@ def main() -> int:
         check(client.get(page).status_code == 200, f"{page}")
 
     print("\nThe demo says its data is generated")
-    check("Sample data." in client.get("/").get_data(as_text=True),
+    check("Generated data." in client.get("/").get_data(as_text=True),
           "sample-data banner is shown")
 
     print()

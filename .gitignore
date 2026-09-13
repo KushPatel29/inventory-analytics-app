@@ -11,3 +11,4 @@ sample_data/
 uploads/
 .env
 .DS_Store
+.claude/

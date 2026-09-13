@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="stack">
+  <div id="kpi-accuracy" class="kpis"><div class="loading">Loading&hellip;</div></div>
+
+  <div class="grid g-2-1">
+    <div class="card">
+      <h2>Book value to physical value</h2>
+      <p class="sub" id="waterfall-sub">
+        The bridge from what the system said the network was worth a quarter ago to what
+        the count says it is worth now, one step per cause.
+      </p>
+      <div id="waterfall-chart" class="chart tall"></div>
+    </div>
+    <div class="card">
+      <h2>Root cause of variance</h2>
+      <p class="sub">
+        Only records outside tolerance. Mis-picks and receiving errors dominate most real
+        variance registers; theft is usually the smallest line on them.
+      </p>
+      <div id="reason-chart" class="chart tall"></div>
+    </div>
+  </div>
+
+  <div class="grid g2">
+    <div class="card">
+      <h2>Accuracy by node</h2>
+      <p class="sub">
+        Record accuracy weights a bin of cables the same as a bin of tablets; value accuracy
+        does not, and is the one finance quotes.
+      </p>
+      <div id="node-accuracy-chart" class="chart"></div>
+    </div>
+    <div class="card">
+      <h2>Count coverage</h2>
+      <p class="sub">
+        Coverage is the leading indicator that accuracy is the lagging one for. A node
+        reporting 99% on eleven counts is not accurate; it is unmeasured.
+      </p>
+      <div id="coverage-table"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>What to do about all of it</h2>
+    <p class="sub">
+      Every finding on the other five pages, in one list, ranked by money. The dollar column
+      is <em>not</em> comparable across verbs &mdash; a reorder&rsquo;s impact is
+      contribution at risk, a liquidation&rsquo;s is book value tied up &mdash; so ranking
+      within a verb is the ordering that means something.
+    </p>
+    <div id="action-summary" class="kpis" style="margin-bottom:14px"></div>
+    <div class="filters">
+      <label>Verb <select id="a-action"></select></label>
+      <label>Node <select id="a-node"></select></label>
+      <label>Department <select id="a-dept"></select></label>
+      <a class="btn" href="/api/download/actions.csv">Action register CSV</a>
+      <a class="btn" href="/api/download/report.xlsx">Full report (.xlsx)</a>
+    </div>
+    <div id="action-table"></div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script type="module">
+  import { boot } from "{{ url_for('static', filename='js/core.js') }}";
+  import { render } from "{{ url_for('static', filename='js/accuracy.js') }}";
+  boot(render);
+</script>
+{% endblock %}

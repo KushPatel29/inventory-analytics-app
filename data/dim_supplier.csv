@@ -1,0 +1,23 @@
+SupplierID,SupplierName,Country,SupplierRegion,LeadTimeDays,ActualLeadTimeMean,OrderCostUSD,OnTimeReliability,DefectRate,PaymentTerms
+SUP-101,Kestrel Import Group,China,APAC,42,47.0,780.0,0.86,0.017,Net 60
+SUP-102,Pacific Rim Sourcing,Vietnam,APAC,46,55.0,940.0,0.79,0.024,Net 60
+SUP-103,Harbourline Distribution,Canada,North America,12,11.0,240.0,0.94,0.006,Net 30
+SUP-104,Great Lakes Consumer,Canada,North America,10,9.5,210.0,0.96,0.004,Net 30
+SUP-105,Cascadia Goods Co,Canada,North America,9,8.0,185.0,0.97,0.003,Net 30
+SUP-106,Monterrey Manufacturing,Mexico,North America,24,27.0,460.0,0.88,0.012,Net 45
+SUP-107,Rhineland Werke,Germany,EMEA,34,32.0,690.0,0.93,0.005,Net 45
+SUP-108,Lombardy Casa,Italy,EMEA,38,44.0,720.0,0.84,0.011,Net 45
+SUP-109,Shenzhen Bright Electronics,China,APAC,48,58.0,1050.0,0.74,0.031,Net 60
+SUP-110,Anadolu Textile,Turkey,EMEA,36,43.0,640.0,0.81,0.019,Net 60
+SUP-111,Prairie Provisions,Canada,North America,7,6.5,150.0,0.98,0.002,Net 15
+SUP-112,Ohio Valley Brands,United States,North America,14,15.5,280.0,0.92,0.007,Net 30
+SUP-113,Sonoran Household,United States,North America,16,19.0,320.0,0.9,0.009,Net 30
+SUP-114,Bengaluru Home Works,India,APAC,44,52.0,830.0,0.77,0.026,Net 60
+SUP-115,Seoul Precision,South Korea,APAC,33,31.0,610.0,0.91,0.006,Net 45
+SUP-116,Osaka Kaden,Japan,APAC,35,33.0,660.0,0.95,0.003,Net 45
+SUP-117,Andes Naturals,Peru,LATAM,40,46.0,700.0,0.83,0.014,Net 60
+SUP-118,Iberia Casa,Spain,EMEA,32,30.0,580.0,0.89,0.008,Net 45
+SUP-119,Baltic Paper Union,Poland,EMEA,30,34.0,540.0,0.87,0.01,Net 45
+SUP-120,Fraser Valley Foods,Canada,North America,6,5.5,130.0,0.99,0.002,Net 15
+SUP-121,Guangdong Toyworks,China,APAC,50,62.0,1120.0,0.72,0.028,Net 60
+SUP-122,Nordic Outdoor AB,Sweden,EMEA,31,29.0,570.0,0.94,0.004,Net 45
