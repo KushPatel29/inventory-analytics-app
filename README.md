@@ -7,6 +7,8 @@
 
 **[Open the live decision studio](https://inventory-analytics-app.onrender.com/)**
 
+**[Review the business-analysis case and 8-minute interview walkthrough](docs/business-analysis-and-interview-guide.md)**
+
 A six-workspace inventory planning application that turns WMS and ERP extracts into a governed action register. It connects demand forecasting, replenishment, working capital, network balancing, supplier performance, cycle-count accuracy, and downloadable handoff files in one traceable workflow.
 
 This is intentionally more than a dashboard. Every analytical page ends in a planning decision, an export, or a named action with its operational and financial meaning kept separate.
