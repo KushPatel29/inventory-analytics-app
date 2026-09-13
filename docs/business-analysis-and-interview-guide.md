@@ -226,4 +226,3 @@ They are proposed measures, not claimed results.
 - [DuckDB marts](../sql/inventory_marts.sql)
 - [Python-to-SQL parity checks](../tests/test_sql_matches_python.py)
 - [Full test suite](../tests/)
-
