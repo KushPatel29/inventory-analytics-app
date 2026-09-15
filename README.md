@@ -1,15 +1,15 @@
 # Inventory Analytics · Operations Decision Studio
 
 [![CI](https://github.com/KushPatel29/inventory-analytics-app/actions/workflows/ci.yml/badge.svg)](https://github.com/KushPatel29/inventory-analytics-app/actions/workflows/ci.yml)
-![tests](https://img.shields.io/badge/tests-289%20passing-brightgreen)
+![tests](https://img.shields.io/badge/tests-316%20passing-brightgreen)
 ![python](https://img.shields.io/badge/python-3.12-blue)
 [![live](https://img.shields.io/badge/live-demo-Render-46E3B7)](https://inventory-analytics-app.onrender.com/)
 
 **[Open the live decision studio](https://inventory-analytics-app.onrender.com/)**
 
-**[Review the business-analysis case and 8-minute interview walkthrough](docs/business-analysis-and-interview-guide.md)**
+**[Review the business-analysis case and 9-minute interview walkthrough](docs/business-analysis-and-interview-guide.md)**
 
-A six-workspace inventory planning application that turns WMS and ERP extracts into a governed action register. It connects demand forecasting, replenishment, working capital, network balancing, supplier performance, cycle-count accuracy, and downloadable handoff files in one traceable workflow.
+A six-workspace inventory planning application that turns WMS and ERP extracts into a governed action register. It connects demand forecasting, a network policy lab, replenishment, working capital, network balancing, supplier performance, cycle-count accuracy, and downloadable handoff files in one traceable workflow.
 
 This is intentionally more than a dashboard. Every analytical page ends in a planning decision, an export, or a named action with its operational and financial meaning kept separate.
 
@@ -20,8 +20,8 @@ This is intentionally more than a dashboard. Every analytical page ends in a pla
 | Workspace | Decision supported | Evidence produced |
 |---|---|---|
 | **Overview** | Where is cash tied up, and what changed? | Inventory value, turns, DIO, GMROI, carrying-cost bridge, ABC concentration |
-| **Demand & forecast** | Which forecast should plan each SKU? | Seven-method rolling-origin backtest, actual vs forecast, MASE, bias, seasonality, method mix |
-| **Replenishment** | What should be ordered now, in what quantity, and why? | Safety stock, reorder point, inventory position, EOQ, urgency and service-level response |
+| **Demand & forecast** | Which forecast should plan each SKU? | Seven-method rolling-origin backtest, actual vs forecast, MASE, bias, seasonality, method mix, ABC-XYZ model-assurance scorecard |
+| **Replenishment** | What should be ordered now, in what quantity, and why—and what changes under pressure? | Safety stock, reorder point, inventory position, EOQ, bounded demand/lead-time scenarios and annual service-cost frontier |
 | **SKU health** | Which items deserve tighter control, reduction, or exit? | ABC-XYZ policy matrix, ageing, movement state, excess and dead-stock exposure |
 | **Network & suppliers** | Can existing stock solve the problem before another buy? | Economically screened transfers, node balance, PO risk and a four-factor supplier scorecard |
 | **Accuracy & actions** | Which exceptions need an owner next? | Record/value accuracy, shrinkage bridge, count coverage and six-verb action register |
@@ -50,6 +50,12 @@ Seven methods compete for every SKU: naïve, 4- and 13-week moving averages, sim
 
 Safety stock covers both demand variability and observed lead-time variability. Reorder decisions use inventory position—on hand plus inbound minus allocated—not on-hand alone. Service levels differ by ABC class, and the interface exposes the effect of parameter changes rather than hiding them inside constants.
 
+### A policy lab that makes trade-offs challengeable
+
+The replenishment workspace can hold today's inventory position fixed while a reviewer changes the network service target, demand multiplier, or delivered-lead-time multiplier. Every scenario recomputes buffer units, reorder points, whole-case order quantities, and expected lead-window shortage exposure. A separate annual frontier compares buffer carrying cost with shortage exposure across seven service targets and labels the lowest modeled cost as an economic screen—not an approval. Inputs are bounded, results are downloadable through the governed API surface, and no scenario can place an order.
+
+Forecast assurance is shown at the same grain used by policy: all 420 SKUs reconcile into ABC-XYZ cells with volume-weighted accuracy, MASE, bias and a visible review status. That prevents a strong network average from concealing a weak high-value or volatile segment.
+
 ### Decisions before additional purchasing
 
 The allocation engine first finds network surplus that can cover a deficit, estimates lane cost, and only recommends a transfer when the move has a positive modeled benefit. Replenishment then works from the remaining position. Supplier performance uses observed receipts to score on-time delivery, fill, quality, and lead-time reliability.
@@ -69,7 +75,7 @@ schema checks · cleaning · full-week demand grid · session isolation
         ▼
 forecasting · segmentation · replenishment · allocation · supplier · accuracy
         │
-        ├── 36 tested JSON report endpoints
+        ├── 39 tested JSON report endpoints
         ├── 6 responsive decision workspaces
         ├── CSV and Excel handoff files
         └── unified, financially ranked action register
@@ -79,11 +85,12 @@ The committed `data/` directory provides the same nine generated sources as flat
 
 ## Tested controls
 
-The suite contains **289 tests**, including:
+The suite contains **316 tests**, including:
 
 - formula and edge-case checks for forecasting, safety stock, reorder points, EOQ, allocation, ageing, accuracy, and supplier scoring;
 - generated-data invariants that keep the demo realistic and deterministic;
-- end-to-end workbook ingestion, visitor session isolation, all six pages, all 36 JSON reports, and six file downloads;
+- end-to-end workbook ingestion, visitor session isolation, all six pages, all 39 JSON reports, and six file downloads;
+- bounded network policy shocks, monotonic service-cost trade-offs, segment-level forecast reconciliation, invalid-input rejection and explicit non-approval status;
 - **14 Python-to-SQL parity tests** so warehouse marts cannot silently drift from the application engine;
 - accessible navigation landmarks, keyboard focus, current-page state, theme-control semantics, and reduced-motion support;
 - smoke tests for both uploaded-workbook and hosted auto-load paths.

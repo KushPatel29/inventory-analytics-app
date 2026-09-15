@@ -25,11 +25,19 @@ import numpy as np
 import pandas as pd
 from flask import Blueprint, jsonify, request
 
-from invapp.analytics import accuracy as accuracy_mod
-from invapp.analytics import actions as actions_mod
-from invapp.analytics import ageing as ageing_mod
-from invapp.analytics import segmentation
-from invapp.analytics import working_capital
+from invapp.analytics import (
+    accuracy as accuracy_mod,
+    actions as actions_mod,
+    ageing as ageing_mod,
+    segmentation,
+    working_capital,
+)
+from invapp.analytics.policy_simulation import (
+    forecast_segment_scorecard,
+    policy_scenario_summary,
+    service_cost_frontier,
+    simulate_network_policy,
+)
 from invapp.services.bootstrap import is_loading
 from invapp.services.ingest import current_model, ingest_sheets
 from invapp.services.io_utils import load_workbook_sheets
@@ -434,6 +442,17 @@ def demand_bias():
     ]], limit=int(request.args.get("limit", 300))))
 
 
+@bp.get("/demand/segment_scorecard")
+def demand_segment_scorecard():
+    """Forecast evidence at the ABC-XYZ policy grain."""
+    model, error = model_or_404()
+    if error:
+        return error
+    return jsonify(rows(forecast_segment_scorecard(
+        model.forecast_summary, model.segments
+    )))
+
+
 # --------------------------------------------------------------------------
 # 3. Replenishment planner
 # --------------------------------------------------------------------------
@@ -531,6 +550,72 @@ def replenishment_service_curve():
     if error:
         return error
     return jsonify(rows(model.service_curve))
+
+
+@bp.get("/replenishment/service_cost_frontier")
+def replenishment_service_cost_frontier():
+    """Annual buffer and shortage trade-off under transparent cost assumptions."""
+    model, error = model_or_404()
+    if error:
+        return error
+    try:
+        carrying = float(
+            request.args.get(
+                "carrying_rate", model.params.get("CarryingCostRate", 0.24)
+            )
+        )
+        penalty = float(request.args.get(
+            "stockout_penalty", model.params.get("StockoutPenaltyPerUnit", 6.5)
+        ))
+        frontier = service_cost_frontier(
+            model.plan,
+            carrying_cost_rate=carrying,
+            stockout_penalty_per_unit=penalty,
+        )
+    except (TypeError, ValueError) as exc:
+        return jsonify({"error": str(exc)}), 400
+    return jsonify(rows(frontier))
+
+
+@bp.get("/replenishment/policy_scenario")
+def replenishment_policy_scenario():
+    """Network-wide demand, lead-time, and service policy simulation."""
+    model, error = model_or_404()
+    if error:
+        return error
+    try:
+        scenario = simulate_network_policy(
+            model.plan,
+            service_level=float(request.args.get("service_level", 0.95)),
+            demand_multiplier=float(request.args.get("demand_multiplier", 1.0)),
+            lead_time_multiplier=float(request.args.get("lead_time_multiplier", 1.0)),
+            review_period_days=float(model.params.get("ReviewPeriodDays", 7.0)),
+            stockout_penalty_per_unit=float(
+                model.params.get("StockoutPenaltyPerUnit", 6.5)
+            ),
+        )
+    except (TypeError, ValueError) as exc:
+        return jsonify({"error": str(exc)}), 400
+    detail = scenario[[
+        "SKU", "NodeID", "ABCClass", "ScenarioStatus",
+        "InventoryPosition", "ScenarioSafetyStockUnits",
+        "ScenarioReorderPointUnits", "ScenarioOrderUnits",
+        "ScenarioOrderValueUSD", "LeadWindowExpectedUnitsShort",
+        "LeadWindowExposureUSD",
+    ]]
+    return jsonify({
+        **rows(detail, limit=int(request.args.get("limit", 100))),
+        "summary": scalars(policy_scenario_summary(scenario)),
+        "assumptions": {
+            "service_level": float(scenario.iloc[0].ScenarioServiceLevel),
+            "demand_multiplier": float(scenario.iloc[0].DemandMultiplier),
+            "lead_time_multiplier": float(scenario.iloc[0].LeadTimeMultiplier),
+            "boundary": (
+                "Simulated policy screen; requires planner approval "
+                "and local cost validation."
+            ),
+        },
+    })
 
 
 @bp.get("/download/replenishment.csv")

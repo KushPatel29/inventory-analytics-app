@@ -17,10 +17,10 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
+import pandas as pd  # noqa: E402
+
 from invapp import create_app  # noqa: E402
 from seed.generate_workbook import DEFAULT_OUT, generate  # noqa: E402
-
-import pandas as pd  # noqa: E402
 
 API_ENDPOINTS = [
     "/api/overview", "/api/overview/trend", "/api/overview/carrying",
@@ -28,9 +28,13 @@ API_ENDPOINTS = [
     "/api/demand/history", "/api/demand/actual_vs_forecast",
     "/api/demand/skus?limit=5", "/api/demand/method_mix",
     "/api/demand/seasonality", "/api/demand/bias?limit=5",
+    "/api/demand/segment_scorecard",
     "/api/replenishment/plan?limit=5", "/api/replenishment/summary",
     "/api/replenishment/urgency", "/api/replenishment/eoq?limit=5",
-    "/api/replenishment/service_curve", "/api/health/pareto?limit=5",
+    "/api/replenishment/service_curve",
+    "/api/replenishment/service_cost_frontier",
+    "/api/replenishment/policy_scenario?limit=5",
+    "/api/health/pareto?limit=5",
     "/api/health/matrix", "/api/health/ageing",
     "/api/health/ageing?dim=NodeID", "/api/health/dead_stock?limit=5",
     "/api/health/summary", "/api/health/movement", "/api/network/nodes",
@@ -83,7 +87,11 @@ def main() -> int:
     for endpoint in API_ENDPOINTS:
         r = client.get(endpoint)
         payload = r.get_json(silent=True)
-        size = len(payload.get("rows", [])) if isinstance(payload, dict) and "rows" in payload else len(payload or {})
+        size = (
+            len(payload.get("rows", []))
+            if isinstance(payload, dict) and "rows" in payload
+            else len(payload or {})
+        )
         check(r.status_code == 200 and size > 0, f"{endpoint} -> {r.status_code}, {size} entries")
 
     print("\nPages render")

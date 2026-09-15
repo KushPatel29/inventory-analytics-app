@@ -3,6 +3,47 @@
 <div class="stack">
   <div id="kpi-repl" class="kpis"><div class="loading">Loading&hellip;</div></div>
 
+  <div class="card">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">POLICY LAB</p>
+        <h2>What changes under pressure?</h2>
+        <p class="sub">
+          Hold today's inventory position fixed, then challenge demand, delivered lead time,
+          and the network service target. The scenario reprices buffers, orders, and expected
+          lead-window exposure; it never places an order or overrides the approved plan.
+        </p>
+      </div>
+      <span class="chip warning">SIMULATED &middot; APPROVAL REQUIRED</span>
+    </div>
+    <form id="scenario-form" class="filters">
+      <label>Service target
+        <input type="number" name="service_level" value="0.95" step="0.01" min="0.50" max="0.999" />
+      </label>
+      <label>Demand multiplier
+        <input type="number" name="demand_multiplier" value="1.00" step="0.05" min="0.50" max="2.00" />
+      </label>
+      <label>Lead-time multiplier
+        <input type="number" name="lead_time_multiplier" value="1.00" step="0.05" min="0.50" max="2.00" />
+      </label>
+      <button class="btn primary" type="submit">Run policy scenario</button>
+      <span id="scenario-result" class="note-inline" role="status" aria-live="polite"></span>
+    </form>
+    <div id="scenario-kpis" class="kpis"><div class="loading">Loading baseline&hellip;</div></div>
+    <div class="grid g2">
+      <div>
+        <h3>Service-cost frontier</h3>
+        <p class="sub">Annual buffer carrying cost versus modeled shortage exposure. The lowest modeled point is an economic screen, not an approved service promise.</p>
+        <div id="frontier-chart" class="chart"></div>
+      </div>
+      <div>
+        <h3>Highest scenario exposures</h3>
+        <p class="sub">One row per SKU-node policy exception, ranked by expected financial consequence inside the scenario lead window.</p>
+        <div id="scenario-table"></div>
+      </div>
+    </div>
+  </div>
+
   <div class="grid g-2-1">
     <div class="card">
       <h2>What to order</h2>

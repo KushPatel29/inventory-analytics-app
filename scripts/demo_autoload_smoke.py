@@ -29,9 +29,13 @@ API_ENDPOINTS = [
     "/api/demand/history", "/api/demand/actual_vs_forecast",
     "/api/demand/skus?limit=5", "/api/demand/method_mix",
     "/api/demand/seasonality", "/api/demand/bias?limit=5",
+    "/api/demand/segment_scorecard",
     "/api/replenishment/plan?limit=5", "/api/replenishment/summary",
     "/api/replenishment/urgency", "/api/replenishment/eoq?limit=5",
-    "/api/replenishment/service_curve", "/api/health/pareto?limit=5",
+    "/api/replenishment/service_curve",
+    "/api/replenishment/service_cost_frontier",
+    "/api/replenishment/policy_scenario?limit=5",
+    "/api/health/pareto?limit=5",
     "/api/health/matrix", "/api/health/ageing",
     "/api/health/ageing?dim=NodeID", "/api/health/dead_stock?limit=5",
     "/api/health/summary", "/api/health/movement", "/api/network/nodes",
@@ -68,8 +72,15 @@ def main() -> int:
     for endpoint in API_ENDPOINTS:
         resp = client.get(endpoint)
         payload = resp.get_json(silent=True)
-        size = len(payload.get("rows", [])) if isinstance(payload, dict) and "rows" in payload else len(payload or {})
-        check(resp.status_code == 200 and size > 0, f"{endpoint} -> {resp.status_code}, {size} entries")
+        size = (
+            len(payload.get("rows", []))
+            if isinstance(payload, dict) and "rows" in payload
+            else len(payload or {})
+        )
+        check(
+            resp.status_code == 200 and size > 0,
+            f"{endpoint} -> {resp.status_code}, {size} entries",
+        )
 
     print("\nPages render")
     for page in PAGES:

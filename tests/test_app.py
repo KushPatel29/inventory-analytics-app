@@ -29,11 +29,14 @@ DATA_ENDPOINTS = [
     "/api/demand/method_mix",
     "/api/demand/seasonality",
     "/api/demand/bias?limit=5",
+    "/api/demand/segment_scorecard",
     "/api/replenishment/plan?limit=5",
     "/api/replenishment/summary",
     "/api/replenishment/urgency",
     "/api/replenishment/eoq?limit=5",
     "/api/replenishment/service_curve",
+    "/api/replenishment/service_cost_frontier",
+    "/api/replenishment/policy_scenario?limit=5",
     "/api/health/pareto?limit=5",
     "/api/health/matrix",
     "/api/health/ageing",
@@ -245,6 +248,20 @@ class TestParameters:
     def test_a_non_numeric_parameter_is_rejected(self, client):
         response = client.post("/api/parameters", json={"ServiceLevelA": "high"})
         assert response.status_code == 400
+
+    @pytest.mark.parametrize(
+        "query",
+        [
+            "service_level=1",
+            "demand_multiplier=0.1",
+            "lead_time_multiplier=3",
+            "service_level=not-a-number",
+        ],
+    )
+    def test_policy_scenario_rejects_invalid_inputs(self, client, query):
+        response = client.get(f"/api/replenishment/policy_scenario?{query}")
+        assert response.status_code == 400
+        assert "error" in response.get_json()
 
 
 class TestSessionIsolation:

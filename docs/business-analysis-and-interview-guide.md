@@ -110,6 +110,8 @@ decision, local authority, and source-system control visible.
 | INV-BR-09 | One visitor cannot see another visitor's uploaded workbook. | Must | Signed session isolation is exercised end to end in the application tests. |
 | INV-BR-10 | Application and warehouse calculations cannot silently diverge. | Must | Fourteen parity tests reconcile the Python engine to DuckDB SQL marts. |
 | INV-BR-11 | Priority workflows are usable across responsive layouts and both themes. | Should | Navigation, focus, current-page state, reduced motion, and automated accessibility checks are tested. |
+| INV-BR-12 | A reviewer can challenge demand, lead time, and service assumptions without changing the approved plan. | Must | The Policy Lab holds inventory position fixed, bounds inputs, recomputes network buffers/orders/exposure and labels every output simulated and approval-required. |
+| INV-BR-13 | Forecast quality is visible at the same segment grain used for inventory policy. | Must | All 420 forecasted SKUs reconcile to one ABC-XYZ cell with volume-weighted accuracy, MASE, bias and review status. |
 
 ## Why the Decision Logic Is Defensible
 
@@ -165,6 +167,12 @@ reason: each supports a different management decision.
    tables, and reduced motion.
 10. Reject a malformed or incomplete source workbook with a specific,
     actionable error rather than partial results.
+11. Run a 25% demand shock and a 30% lead-time shock; confirm buffer, order,
+    and lead-window exposure move in the expected direction while the approved
+    plan remains unchanged.
+12. Review the service-cost frontier and ABC-XYZ forecast scorecard; confirm
+    the economic screen is not presented as an approved service target and a
+    weak segment cannot be hidden by network-level accuracy.
 
 ## Pilot and Adoption Plan
 
@@ -182,7 +190,7 @@ decision, percentage of recommendations reviewed, override reasons, action
 age, source-data exceptions, planner confidence, and service/cash guardrails.
 They are proposed measures, not claimed results.
 
-## Eight-Minute Interview Walkthrough
+## Nine-Minute Interview Walkthrough
 
 1. **Frame the problem (45 seconds).** Explain why six disconnected reports
    can produce one bad decision and why the end product is an action register.
@@ -190,16 +198,19 @@ They are proposed measures, not claimed results.
    looks excellent beside 11 stockouts, 661 positions at/below reorder point,
    and $2.93M of modelled cash opportunity.
 3. **Prove the demand signal (75 seconds).** Open Demand & forecast, select a
-   SKU, and explain rolling-origin model selection and MASE.
-4. **Walk the controlled decision (90 seconds).** Open Replenishment; trace
-   inventory position, safety stock, reorder point, EOQ, risk, and urgency.
+   SKU, explain rolling-origin model selection and MASE, then show how all 420
+   SKUs reconcile to the ABC-XYZ model-assurance scorecard.
+4. **Challenge the policy (120 seconds).** Open Replenishment; run demand and
+   lead-time shocks, trace buffer/order/exposure changes, and compare the
+   annual service-cost frontier. State that the economic screen is not an
+   approved service promise or autonomous order.
 5. **Avoid the unnecessary buy (75 seconds).** Open Network & suppliers and
    show why transfer economics runs before replenishment.
 6. **Connect operations to control (60 seconds).** Show supplier factors,
    cycle-count definitions, and why record accuracy is not value accuracy.
 7. **End with accountable action (60 seconds).** Filter the six-verb register
    and export the handoff evidence.
-8. **Close on trust (45 seconds).** Point to the 289 tests, 14 Python/SQL parity
+8. **Close on trust (45 seconds).** Point to the 316 tests, 14 Python/SQL parity
    checks, session-isolated uploads, live health route, and explicit limits.
 
 ## Questions I Would Ask Before Production Use

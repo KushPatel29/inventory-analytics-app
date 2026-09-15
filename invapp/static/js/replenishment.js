@@ -68,6 +68,95 @@ async function renderService() {
   }], { prefix: '$', layout: { yaxis: { tickprefix: '$' }, margin: { l: 62, b: 34, t: 10 } } });
 }
 
+async function renderServiceFrontier() {
+  const { rows } = await get('/api/replenishment/service_cost_frontier');
+  const colors = palette();
+  draw('frontier-chart', [
+    {
+      type: 'scatter', mode: 'lines+markers', name: 'Annual buffer cost',
+      x: rows.map((r) => `${(r.ServiceLevel * 100).toFixed(0)}%`),
+      y: rows.map((r) => r.AnnualBufferCostUSD),
+      marker: { color: colors[0], size: 8 }, line: { color: colors[0], width: 3 },
+      hovertemplate: '%{x}<br>Buffer cost %{y:$,.0f}<extra></extra>',
+    },
+    {
+      type: 'scatter', mode: 'lines+markers', name: 'Shortage exposure',
+      x: rows.map((r) => `${(r.ServiceLevel * 100).toFixed(0)}%`),
+      y: rows.map((r) => r.AnnualShortageExposureUSD),
+      marker: { color: colors[1], size: 8 }, line: { color: colors[1], width: 3 },
+      hovertemplate: '%{x}<br>Exposure %{y:$,.0f}<extra></extra>',
+    },
+    {
+      type: 'scatter', mode: 'lines+markers', name: 'Total modeled cost',
+      x: rows.map((r) => `${(r.ServiceLevel * 100).toFixed(0)}%`),
+      y: rows.map((r) => r.ModeledAnnualDecisionCostUSD),
+      marker: {
+        color: rows.map((r) => (r.EconomicScreen.startsWith('LOWEST')
+          ? status.good() : colors[3])),
+        size: rows.map((r) => (r.EconomicScreen.startsWith('LOWEST') ? 13 : 8)),
+      },
+      line: { color: colors[3], width: 3, dash: 'dot' },
+      hovertemplate: '%{x}<br>Total %{y:$,.0f}<extra></extra>',
+    },
+  ], {
+    showlegend: true,
+    margin: { l: 72, r: 18, t: 38, b: 42 },
+    yaxis: { tickprefix: '$', rangemode: 'tozero' },
+    legend: { orientation: 'h', y: 1.13 },
+  });
+}
+
+async function renderPolicyScenario(params = {}) {
+  const payload = await get('/api/replenishment/policy_scenario', { ...params, limit: 25 });
+  const s = payload.summary;
+  kpis('scenario-kpis', [
+    { label: 'Scenario order value', value: fmt.usdShort(s.OrderValueUSD),
+      note: `${fmt.n(s.LinesDue)} of ${fmt.n(s.Lines)} locations due` },
+    { label: 'Scenario safety stock', value: fmt.usdShort(s.SafetyStockValueUSD),
+      note: `${fmt.n(s.SafetyStockUnits)} buffer units` },
+    { label: 'Lead-window exposure', value: fmt.usdShort(s.LeadWindowExposureUSD),
+      note: `${fmt.n(s.LeadWindowExpectedUnitsShort)} expected units short`,
+      tone: s.LeadWindowExposureUSD > 0 ? 'warning' : 'good' },
+    { label: 'Decision status', value: 'Review required',
+      note: 'simulation never submits an order', tone: 'warning' },
+  ]);
+  table('scenario-table', [
+    { key: 'SKU', label: 'SKU', cls: 'strong' },
+    { key: 'NodeID', label: 'Node' },
+    { key: 'ScenarioStatus', label: 'Scenario status', chip: (v) => (
+      v === 'Stocked out' ? 'critical'
+        : v === 'Covered under scenario' ? 'good' : 'warning'
+    ) },
+    { key: 'InventoryPosition', label: 'Position', num: true, fmt: (v) => fmt.n(v) },
+    { key: 'ScenarioSafetyStockUnits', label: 'Safety', num: true, fmt: (v) => fmt.n(v) },
+    { key: 'ScenarioOrderUnits', label: 'Order', num: true, cls: 'strong', fmt: (v) => fmt.n(v) },
+    { key: 'LeadWindowExposureUSD', label: 'Exposure', num: true, fmt: (v) => fmt.usd(v) },
+  ], payload.rows, {
+    footnote: `Showing ${fmt.n(payload.rows.length)} of ${fmt.n(payload.total)} locations. `
+      + 'Exposure is an analytical screen, not a realised loss.',
+  });
+  return payload;
+}
+
+function wireScenario() {
+  const form = document.getElementById('scenario-form');
+  if (!form || form.dataset.wired) return;
+  form.dataset.wired = '1';
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const result = document.getElementById('scenario-result');
+    result.textContent = 'Running scenario…';
+    const params = {};
+    new FormData(form).forEach((value, key) => { if (value !== '') params[key] = value; });
+    try {
+      const payload = await renderPolicyScenario(params);
+      result.innerHTML = `<span class="chip good">Scenario complete · ${payload.summary.LinesDue} lines due</span>`;
+    } catch (error) {
+      result.innerHTML = `<span class="chip critical">${error.message}</span>`;
+    }
+  });
+}
+
 async function renderPlan() {
   const { rows, total, truncated } = await get('/api/replenishment/plan',
     { ...filters(), limit: 250 });
@@ -197,5 +286,9 @@ export async function render() {
     }
   });
   wireParams();
-  await load([renderKpis, renderUrgency, renderService, renderPlan, renderEoq, fillParams]);
+  wireScenario();
+  await load([
+    renderKpis, renderPolicyScenario, renderServiceFrontier, renderUrgency,
+    renderService, renderPlan, renderEoq, fillParams,
+  ]);
 }

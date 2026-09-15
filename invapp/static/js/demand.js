@@ -61,6 +61,27 @@ async function renderMethods() {
     { leftMargin: 196, suffix: ' SKUs' });
 }
 
+async function renderSegmentScorecard() {
+  const { rows } = await get('/api/demand/segment_scorecard');
+  table('segment-scorecard', [
+    { key: 'ABCClass', label: 'Value class', cls: 'strong' },
+    { key: 'XYZClass', label: 'Variability' },
+    { key: 'SKUCount', label: 'SKUs', num: true, fmt: (v) => fmt.n(v) },
+    { key: 'WeeklyUnits', label: 'Forecast units / wk', num: true, fmt: (v) => fmt.n(v) },
+    { key: 'VolumeWeightedAccuracy', label: 'Weighted accuracy', num: true,
+      fmt: (v) => fmt.pct(v), chip: (v) => (v >= 0.70 ? 'good' : 'critical') },
+    { key: 'MedianMASE', label: 'Median MASE', num: true, fmt: (v) => fmt.n(v, 2) },
+    { key: 'MedianBias', label: 'Median bias', num: true, fmt: (v) => fmt.signedPct(v) },
+    { key: 'AbsoluteBiasP90', label: 'P90 |bias|', num: true, fmt: (v) => fmt.pct(v) },
+    { key: 'ReviewStatus', label: 'Control status', chip: (v) => (
+      v === 'WITHIN PORTFOLIO GUARDRAIL' ? 'good' : 'warning'
+    ) },
+  ], rows, {
+    footnote: 'Guardrails are portfolio review thresholds, not approved operating policy. '
+      + 'A flagged segment requires diagnosis before forecast overrides or inventory changes.',
+  });
+}
+
 async function renderBias() {
   // Bias per week across the whole backtest, so a calendar effect is visible as
   // a run of bars rather than hidden inside a per-SKU average.
@@ -174,5 +195,8 @@ export async function render() {
       el.addEventListener('change', renderFit);
     }
   });
-  await load([renderKpis, renderFit, renderMethods, renderBias, renderSeason, renderSkus]);
+  await load([
+    renderKpis, renderFit, renderMethods, renderSegmentScorecard,
+    renderBias, renderSeason, renderSkus,
+  ]);
 }

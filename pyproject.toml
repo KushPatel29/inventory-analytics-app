@@ -11,6 +11,14 @@ extend-exclude = [
 [tool.ruff]
 line-length = 100
 target-version = "py312"
+exclude = [
+  "venv",
+  ".venv",
+  "build",
+  "dist",
+]
+
+[tool.ruff.lint]
 select = [
   "E",  # pycodestyle errors
   "F",  # pyflakes
@@ -20,13 +28,6 @@ select = [
 ignore = [
   "E203",  # whitespace before ':' (black compatibility)
 ]
-exclude = [
-  "venv",
-  ".venv",
-  "build",
-  "dist",
-]
-
 [tool.ruff.lint.isort]
 known-first-party = ["invapp"]
 combine-as-imports = true
