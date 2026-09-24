@@ -12,3 +12,7 @@ uploads/
 .env
 .DS_Store
 .claude/
+
+# The static build (build_static.py)
+dist/
+.cache/

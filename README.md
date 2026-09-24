@@ -1,11 +1,11 @@
 # Inventory Analytics · Operations Decision Studio
 
 [![CI](https://github.com/KushPatel29/inventory-analytics-app/actions/workflows/ci.yml/badge.svg)](https://github.com/KushPatel29/inventory-analytics-app/actions/workflows/ci.yml)
-![tests](https://img.shields.io/badge/tests-316%20passing-brightgreen)
+![tests](https://img.shields.io/badge/tests-349%20passing-brightgreen)
 ![python](https://img.shields.io/badge/python-3.12-blue)
-[![live](https://img.shields.io/badge/live-demo-Render-46E3B7)](https://inventory-analytics-app.onrender.com/)
+[![static site](https://github.com/KushPatel29/inventory-analytics-app/actions/workflows/static-site.yml/badge.svg)](https://github.com/KushPatel29/inventory-analytics-app/actions/workflows/static-site.yml)
 
-**[Open the live decision studio](https://inventory-analytics-app.onrender.com/)**
+**[Open the decision studio](https://kushpatel29.github.io/inventory-analytics-app/)**. It opens at once. The [full app on Render](https://inventory-analytics-app.onrender.com/) also takes uploads and parameter edits, but it sleeps when idle and takes about a minute to wake.
 
 **[Review the business-analysis case and 9-minute interview walkthrough](docs/business-analysis-and-interview-guide.md)**
 
@@ -85,7 +85,7 @@ The committed `data/` directory provides the same nine generated sources as flat
 
 ## Tested controls
 
-The suite contains **316 tests**, including:
+The suite contains **349 tests**, including:
 
 - formula and edge-case checks for forecasting, safety stock, reorder points, EOQ, allocation, ageing, accuracy, and supplier scoring;
 - generated-data invariants that keep the demo realistic and deterministic;
@@ -93,13 +93,21 @@ The suite contains **316 tests**, including:
 - bounded network policy shocks, monotonic service-cost trade-offs, segment-level forecast reconciliation, invalid-input rejection and explicit non-approval status;
 - **14 Python-to-SQL parity tests** so warehouse marts cannot silently drift from the application engine;
 - accessible navigation landmarks, keyboard focus, current-page state, theme-control semantics, and reduced-motion support;
-- smoke tests for both uploaded-workbook and hosted auto-load paths.
+- smoke tests for both uploaded-workbook and hosted auto-load paths;
+- **33 static-copy tests**: every stat tile on the six static pages against the same figure recomputed from the API, every saved payload against the live answer, and a browser pass for hover, local-only requests, phone width and filters.
+
+23 of the static-copy tests need a built site. The `CI` workflow skips them; the `Static site` workflow builds the site and runs them before it publishes.
 
 Run the release check:
 
 ```bash
 python -m pytest -q
 python scripts/demo_autoload_smoke.py
+
+# The static copy, and the tests that need it
+pip install -r requirements-static.txt && python -m playwright install chromium
+python build_static.py --out dist
+STATIC_DIST=dist python -m pytest tests/test_static_build.py -q
 ```
 
 ## Run locally
@@ -132,6 +140,16 @@ docker run --rm -p 8000:8000 inventory-analytics
 ```
 
 `render.yaml` mirrors the live Docker deployment so the hosting configuration is reviewable with the code.
+
+### Static copy on GitHub Pages
+
+A free Render instance sleeps when idle, and waking it takes about a minute before any code runs. The demo shows one seeded snapshot, so every number on every page is known in advance. `build_static.py` opens each page of the real app in Chromium, saves the page once its charts are drawn, and saves every JSON answer the page asked for. The `Static site` workflow builds it, tests it and publishes it to GitHub Pages on every push to `main`.
+
+- The first paint already holds the numbers, tables and charts.
+- The page scripts then run against the saved answers, so Plotly redraws each chart and hover works.
+- Each filter works one change at a time from the default view. The policy lab has 75 saved scenarios. Anything else shows a note and a link to the full app.
+- Uploads and parameter edits need the full app.
+- The copy uses Plotly's basic bundle (bar, scatter and pie), served from the site itself. The build fails if a chart uses any other trace type.
 
 ## Privacy and method boundaries
 
