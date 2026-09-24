@@ -434,9 +434,10 @@ def test_saved_filter_works_and_unsaved_combination_says_so(browser, site):
 @needs_build
 def test_policy_lab_grid_is_saved(browser, site):
     context, page, _ = _open(browser, site + "replenishment/")
-    page.fill("input[name=service_level]", "0.98")
-    page.fill("input[name=demand_multiplier]", "1.10")
-    page.fill("input[name=lead_time_multiplier]", "1.2")
+    # UAT scenario 11 in the interview guide: a 25% demand and 30% lead-time shock.
+    page.fill("input[name=service_level]", "0.95")
+    page.fill("input[name=demand_multiplier]", "1.25")
+    page.fill("input[name=lead_time_multiplier]", "1.30")
     page.click("#scenario-form button[type=submit]")
     result = "() => document.querySelector('#scenario-result').textContent"
     page.wait_for_function(f"() => /Scenario complete/.test(({result})())")

@@ -88,12 +88,13 @@ PAGES: tuple[Page, ...] = (
 MAX_OPTIONS = 40
 
 # The policy lab takes free-form numbers. This grid covers the moves a
-# reviewer is likely to try: the service targets on the frontier chart, and
-# demand and lead time up or down in steps of 10%.
+# reviewer is likely to try: the seven service targets on the frontier chart,
+# demand and lead time in steps of 10%, and the 25% demand and 30% lead-time
+# shocks that UAT scenario 11 in the interview guide asks for.
 SCENARIO_GRID = {
-    "service_level": ("0.9", "0.95", "0.97", "0.98", "0.99"),
-    "demand_multiplier": ("0.8", "0.9", "1", "1.1", "1.2"),
-    "lead_time_multiplier": ("1", "1.1", "1.2"),
+    "service_level": ("0.85", "0.9", "0.93", "0.95", "0.97", "0.98", "0.99"),
+    "demand_multiplier": ("0.8", "0.9", "1", "1.1", "1.2", "1.25"),
+    "lead_time_multiplier": ("1", "1.1", "1.2", "1.3"),
 }
 
 NUMBER_RE = re.compile(r"^-?\d*\.?\d+$")
@@ -271,9 +272,9 @@ FORM_NOTES = {
     "upload-form": "Uploads need the full app. The static copy shows the generated sample.",
     "param-form": "Parameter edits need the full app. The values shown are the ones in use.",
     "scenario-form": (
-        "Saved in the static copy: service targets 0.90, 0.95, 0.97, 0.98 and 0.99; "
-        "demand multipliers 0.8 to 1.2 and lead-time multipliers 1.0 to 1.2, in steps "
-        "of 0.1. Other values need the full app."
+        "Saved in the static copy: the seven service targets on the frontier chart; "
+        "demand multipliers 0.8, 0.9, 1.0, 1.1, 1.2 and 1.25; lead-time multipliers "
+        "1.0, 1.1, 1.2 and 1.3. Other values need the full app."
     ),
 }
 

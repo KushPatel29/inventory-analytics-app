@@ -147,7 +147,7 @@ A free Render instance sleeps when idle, and waking it takes about a minute befo
 
 - The first paint already holds the numbers, tables and charts.
 - The page scripts then run against the saved answers, so Plotly redraws each chart and hover works.
-- Each filter works one change at a time from the default view. The policy lab has 75 saved scenarios. Anything else shows a note and a link to the full app.
+- Each filter works one change at a time from the default view. The policy lab has 168 saved scenarios, including every service target on the frontier and the 25% demand and 30% lead-time shocks from the UAT plan. Anything else shows a note and a link to the full app.
 - Uploads and parameter edits need the full app.
 - The copy uses Plotly's basic bundle (bar, scatter and pie), served from the site itself. The build fails if a chart uses any other trace type.
 
