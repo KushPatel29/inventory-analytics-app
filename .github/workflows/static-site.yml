@@ -1,0 +1,72 @@
+# Build the prerendered demo, test it against the app, and publish it to
+# GitHub Pages.
+#
+# The Flask app on Render stays where it is. This is the copy a reviewer lands
+# on, because the free Render instance sleeps when idle and takes about a
+# minute to wake. That delay cannot be optimised away, only avoided, and a CDN
+# avoids it.
+#
+# Pull requests build and test the copy but do not publish it.
+name: Static site
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Stops two pushes racing to deploy.
+concurrency:
+  group: static-site-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt -r requirements-static.txt
+          # The build freezes each page in a real browser: that is what puts
+          # the drawn charts into the first paint.
+          python -m playwright install --with-deps chromium
+
+      - name: Prerender every page
+        run: python build_static.py --out dist
+
+      # Every stat tile against the app's API, every saved payload against the
+      # live answer, and a browser pass over the built site.
+      - name: Test the static copy against the app
+        env:
+          STATIC_DIST: dist
+        run: python -m pytest tests/test_static_build.py -q
+
+      - uses: actions/upload-pages-artifact@v4
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

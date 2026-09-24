@@ -15,3 +15,5 @@ tests
 *.db
 *.sqlite3
 *.pyc
+dist
+.cache

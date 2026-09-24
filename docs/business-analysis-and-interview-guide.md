@@ -3,7 +3,7 @@
 This guide makes the decision work behind the live application easy to review
 in an interview. It connects the operating problem, stakeholders,
 requirements, workflow, controls, acceptance evidence, and limitations to the
-six workspaces in the [live decision studio](https://inventory-analytics-app.onrender.com/).
+six workspaces in the [decision studio](https://kushpatel29.github.io/inventory-analytics-app/).
 
 ## Evidence Boundary
 
@@ -210,7 +210,7 @@ They are proposed measures, not claimed results.
    cycle-count definitions, and why record accuracy is not value accuracy.
 7. **End with accountable action (60 seconds).** Filter the six-verb register
    and export the handoff evidence.
-8. **Close on trust (45 seconds).** Point to the 316 tests, 14 Python/SQL parity
+8. **Close on trust (45 seconds).** Point to the 349 tests, 14 Python/SQL parity
    checks, session-isolated uploads, live health route, and explicit limits.
 
 ## Questions I Would Ask Before Production Use
@@ -230,7 +230,8 @@ They are proposed measures, not claimed results.
 
 ## Review the Evidence
 
-- [Live decision studio](https://inventory-analytics-app.onrender.com/)
+- [Decision studio](https://kushpatel29.github.io/inventory-analytics-app/) (static copy, opens at once)
+- [Full app on Render](https://inventory-analytics-app.onrender.com/) (takes uploads; about a minute to wake)
 - [Project README](../README.md)
 - [Application code](../invapp/)
 - [Planning and analytics engine](../invapp/analytics/)
