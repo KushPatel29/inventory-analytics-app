@@ -6,7 +6,12 @@
 # minute to wake. That delay cannot be optimised away, only avoided, and a CDN
 # avoids it.
 #
-# Pull requests build and test the copy but do not publish it.
+# Pushes and pull requests build and test the copy. Publishing to this repo's
+# own GitHub Pages runs only when started by hand, because Pages is not enabled
+# on this repository. The copy a reviewer sees today is served from the
+# portfolio site (KushPatel29.github.io/inventory-analytics-app/). To switch to
+# this repo's Pages: Settings -> Pages -> Source: GitHub Actions, then run this
+# workflow from the Actions tab.
 name: Static site
 
 on:
@@ -53,13 +58,13 @@ jobs:
         run: python -m pytest tests/test_static_build.py -q
 
       - uses: actions/upload-pages-artifact@v4
-        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
         with:
           path: dist
 
   deploy:
     needs: build
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
       pages: write
