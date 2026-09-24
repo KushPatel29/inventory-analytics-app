@@ -143,7 +143,7 @@ docker run --rm -p 8000:8000 inventory-analytics
 
 ### Static copy on GitHub Pages
 
-A free Render instance sleeps when idle, and waking it takes about a minute before any code runs. The demo shows one seeded snapshot, so every number on every page is known in advance. `build_static.py` opens each page of the real app in Chromium, saves the page once its charts are drawn, and saves every JSON answer the page asked for. The `Static site` workflow builds and tests it on every push and pull request. The published copy is served from the portfolio site's GitHub Pages at the same address. This repo's own Pages deploy runs only when started by hand, once Pages is enabled here.
+A free Render instance sleeps when idle, and waking it takes about a minute before any code runs. The demo shows one seeded snapshot, so every number on every page is known in advance. `build_static.py` opens each page of the real app in Chromium, saves the page once its charts are drawn, and saves every JSON answer the page asked for. The `Static site` workflow builds it, tests it and publishes it to GitHub Pages on every push to `main`.
 
 - The first paint already holds the numbers, tables and charts.
 - The page scripts then run against the saved answers, so Plotly redraws each chart and hover works.
