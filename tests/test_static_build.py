@@ -23,6 +23,7 @@ import html
 import json
 import os
 import re
+import shutil
 import threading
 from decimal import ROUND_HALF_UP, Decimal
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
@@ -353,7 +354,9 @@ def site(tmp_path_factory):
         pytest.skip("set STATIC_DIST to a build_static.py output")
     pytest.importorskip("playwright")
     root = tmp_path_factory.mktemp("pages")
-    (root / "inventory-analytics-app").symlink_to(DIST, target_is_directory=True)
+    # A regular copy preserves the Pages sub-path without requiring Windows
+    # symbolic-link privileges or Developer Mode on the reviewer's machine.
+    shutil.copytree(DIST, root / "inventory-analytics-app")
     handler = functools.partial(_QuietHandler, directory=str(root))
     server = ThreadingHTTPServer(("127.0.0.1", 0), handler)
     threading.Thread(target=server.serve_forever, daemon=True).start()
